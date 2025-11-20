@@ -21,6 +21,13 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 
 zplug load
 
+# tmux load
+# https://www.baeldung.com/linux/tmux-startup-default-shell
+if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+  tmux attach-session -t default || tmux new-session -s default
+fi
+
+
 # Bob Neovim Version Manager
 export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
 
