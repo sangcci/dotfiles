@@ -24,6 +24,6 @@ It can be only worked on Mac OS.
 
 They have several settings to need fix later. 
 
--[ ] It's only works on Mac OS. It should be fixed to run other OS later.
--[ ] Add jdtls lazy load for less memory
--[ ] Add more lsp servers such as python, gradle, yaml, markdown, etc.
+- [ ] It's only works on Mac OS. It should be fixed to run other OS later.
+- [ ] Add jdtls lazy load for less memory
+- [ ] Add more lsp servers such as python, gradle, yaml, markdown, etc.
