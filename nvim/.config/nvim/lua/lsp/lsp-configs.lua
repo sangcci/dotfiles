@@ -19,8 +19,20 @@ require("mason").setup({
 -- https://github.com/mason-org/mason-lspconfig.nvim/issues/549
 require("mason-lspconfig").setup({
 	ensure_installed = {
-		"lua_ls",
-		"jdtls",
+		"bashls", -- bash
+		"lua_ls", -- lua
+		"stylua", -- lua formatter
+		"html", -- html
+		"cssls", -- css
+		"jsonls", -- json
+		"marksman", -- markdown
+		"yamlls", -- yaml
+		"lemminx", -- xml
+		"jdtls", -- java
+		"gradle_ls", -- gradle
+		"groovyls", -- groovy
+		"quick_lint_js", -- javascript/typescript
+		"pyright", -- python
 	},
 	automatic_enable = true,
 	automatic_enable_exclusions = {
@@ -31,8 +43,26 @@ require("mason-lspconfig").setup({
 
 require("mason-tool-installer").setup({
 	eusure_installed = {
-		"lua_ls",
-		"jdtls",
+		"bashls", -- bash
+		"lua_ls", -- lua
+		"stylua", -- lua formatter
+		"html", -- html
+		"cssls", -- css
+		"jsonls", -- json
+		"marksman", -- markdown
+		"yamlls", -- yaml
+		"lemminx", -- xml
+		"jdtls", -- java
+		"gradle_ls", -- gradle
+		"groovyls", -- groovy
+		"quick_lint_js", -- javascript/typescript
+		"pyright", -- python
+
+		-- formatter/linter
+		"google-java-format", -- java formatter
+		"prettier", -- javascript/typescript formatter
+		"prettierd", -- javascript/typescript formatter
+		"ruff", -- python linter/formatter
 	},
 })
 
