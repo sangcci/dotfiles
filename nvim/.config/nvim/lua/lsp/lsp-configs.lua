@@ -47,7 +47,7 @@ require("mason-lspconfig").setup({
 })
 
 require("mason-tool-installer").setup({
-	eusure_installed = vim.list_extend(servers, formatters),
+	eusure_installed = vim.list_extend(vim.deepcopy(servers), formatters),
 })
 
 -- Keymaps (only set when LSP attaches)
