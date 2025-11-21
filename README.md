@@ -8,12 +8,15 @@ It can be only worked on Mac OS.
 - IDE env using neovim with useful plugins
 - Add new terminal in one window using Tmux and perfect interaction with neovim
 - Only essential plugins on zsh
+- nvim lsp settings
+- nvim debug settings
 
 ### Requirements
 
 - mac OS (homebrew)
 - iterm2 or other terminal app
 - SDKMan (JDK version manager)
+- uv (Python manager)
 - bob (neovim version manager)
 - zplug
 - zsh
@@ -25,5 +28,6 @@ It can be only worked on Mac OS.
 They have several settings to need fix later. 
 
 - [ ] It's only works on Mac OS. It should be fixed to run other OS later.
-- [ ] Add jdtls lazy load for less memory
-- [ ] Add more lsp servers such as python, gradle, yaml, markdown, etc.
+- [ ] add spring boot env
+- [ ] git ui
+- [ ] fix the error on mason-installer-tools
