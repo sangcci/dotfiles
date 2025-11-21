@@ -27,27 +27,10 @@ local bundles = {
 }
 vim.list_extend(bundles, vim.split(vim.fn.glob(java_test_path .. "/extension/server/*.jar"), "\n"))
 
--- TODO: capabilities (using cmp or blink)
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-local has_blink, blink = pcall(require, "blink.cmp")
-if has_blink then
-	capabilities = blink.get_lsp_capabilities(capabilities)
-end
-
--- Enhanced capabilities for Java
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-capabilities.textDocument.completion.completionItem.resolveSupport = {
-	properties = {
-		"documentation",
-		"detail",
-		"additionalTextEdits",
-	},
-}
-
 ------------------------------------------------------------
 --- config
 ------------------------------------------------------------
-jdtls.start_or_attach({
+return {
 	-- cmd
 	cmd = {
 		-- vim.fn.expand("~/.sdkman/candidates/java/21.*-tem/bin/java"), -- or '/path/to/java17_or_newer/bin/java'
@@ -85,9 +68,6 @@ jdtls.start_or_attach({
 	init_options = {
 		bundles = bundles,
 	},
-
-	-- capabilities
-	capabilities = capabilities,
 
 	-- on_attach
 	-- Function that will be ran once the language server is attached
@@ -238,4 +218,4 @@ jdtls.start_or_attach({
 			},
 		},
 	},
-})
+}

@@ -1,0 +1,8 @@
+return {
+	settings = {
+		python = {
+			-- NOTE: use uv python.
+			pythonPath = vim.fn.expand("~/.local/share/uv/python/cpython-3.13.5-macos-aarch64-none/bin/python3.13"),
+		},
+	},
+}
