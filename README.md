@@ -10,11 +10,12 @@ It can be only worked on Mac OS.
 - Only essential plugins on zsh
 - nvim lsp settings
 - nvim debug settings
+- catppuccin theme
 
 ### Requirements
 
 - mac OS (homebrew)
-- iterm2 or other terminal app
+- wezterm
 - SDKMan (JDK version manager)
 - uv (Python manager)
 - bob (neovim version manager)
@@ -23,11 +24,10 @@ It can be only worked on Mac OS.
 - neovim: +0.12 nightmare
 - tmux
 
-# Todo
+# Several issues
 
 They have several settings to need fix later. 
 
-- [ ] It's only works on Mac OS. It should be fixed to run other OS later.
-- [ ] add spring boot env
-- [ ] git ui
-- [ ] fix the error on mason-installer-tools
+- It's only works on Mac OS. It should be fixed to run other OS later.
+- add spring boot env
+- git ui
