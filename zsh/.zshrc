@@ -37,3 +37,6 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 # TODO: set location to run python on neovim lsp 
 . "$HOME/.local/bin/env"
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
