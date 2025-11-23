@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "Navigator.nvim": {
+      "rev": "91d86506ac2a039504d5205d32a1d4bc7aa57072",
+      "src": "https://github.com/numToStr/Navigator.nvim"
+    },
     "blink-emoji.nvim": {
       "rev": "066013e4c98a9318408ee3f1ca2dbcb6fa3e4c06",
       "src": "https://github.com/moyiz/blink-emoji.nvim"
@@ -8,6 +12,10 @@
       "rev": "b19413d214068f316c78978b08264ed1c41830ec",
       "src": "https://github.com/Saghen/blink.cmp"
     },
+    "claude-code.nvim": {
+      "rev": "c9a31e51069977edaad9560473b5d031fcc5d38b",
+      "src": "https://github.com/greggh/claude-code.nvim"
+    },
     "conform.nvim": {
       "rev": "1bf8b5b9caee51507aa51eaed3da5b0f2595c6b9",
       "src": "https://github.com/stevearc/conform.nvim"
@@ -15,10 +23,6 @@
     "friendly-snippets": {
       "rev": "572f5660cf05f8cd8834e096d7b4c921ba18e175",
       "src": "https://github.com/rafamadriz/friendly-snippets"
-    },
-    "gruvbox-material": {
-      "rev": "4bfc6983abc249c5943a60d8eb3980a3c2ababe1",
-      "src": "https://github.com/sainnhe/gruvbox-material"
     },
     "harpoon": {
       "rev": "87b1a3506211538f460786c23f98ec63ad9af4e5",
@@ -56,6 +60,10 @@
     "nui.nvim": {
       "rev": "de740991c12411b663994b2860f1a4fd0937c130",
       "src": "https://github.com/MunifTanjim/nui.nvim"
+    },
+    "nvim": {
+      "rev": "da33755d00e09bff2473978910168ff9ea5dc453",
+      "src": "https://github.com/catppuccin/nvim"
     },
     "nvim-dap": {
       "rev": "5860c7c501eb428d3137ee22c522828d20cca0b3",
@@ -130,10 +138,6 @@
     "todo-comments.nvim": {
       "rev": "31e3c38ce9b29781e4422fc0322eb0a21f4e8668",
       "src": "https://github.com/folke/todo-comments.nvim"
-    },
-    "vim-tmux-navigator": {
-      "rev": "c45243dc1f32ac6bcf6068e5300f3b2b237e576a",
-      "src": "https://github.com/christoomey/vim-tmux-navigator"
     },
     "vim-tpipeline": {
       "rev": "bc6dfc10e26a8dd1ec2f0512050a8a0afaa9d090",

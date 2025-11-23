@@ -19,6 +19,5 @@ require("which-key").setup({
 		{ "<leader>j", group = "[J]ava" },
 		{ "<leader>t", group = "[T]reesitter" },
 		{ "<leader>w", group = "[W]indow" },
-		{ "<C-w>", group = "[W]indow for Tmux" },
 	},
 })

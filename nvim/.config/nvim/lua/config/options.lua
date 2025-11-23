@@ -20,7 +20,7 @@ vim.opt.splitbelow = true -- not above
 -- visible
 vim.opt.scrolloff = 10
 vim.opt.showmode = false -- hide mode display
-vim.opt.cursorline = true
+vim.opt.cursorline = false
 
 -- undo
 vim.opt.undofile = true
