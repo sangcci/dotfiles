@@ -1,6 +1,16 @@
 vim.pack.add({
-	{ src = "https://github.com/sainnhe/gruvbox-material" },
+	{ src = "https://github.com/catppuccin/nvim" },
 })
 
-vim.g.gruvbox_material_enable_italic = true
-vim.cmd.colorscheme("gruvbox-material")
+require("catppuccin").setup({
+	flavour = "auto", -- auto, latte, frappe, macchiato, mocha
+	background = { -- :h background
+		light = "latte",
+		dark = "mocha",
+	},
+	transparent_background = true,
+	float = {
+		transparent = true, -- enable transparent floating windows
+	},
+})
+vim.cmd.colorscheme("catppuccin")
