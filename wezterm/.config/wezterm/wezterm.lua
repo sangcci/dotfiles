@@ -8,7 +8,7 @@ config.font = wezterm.font({
 	weight = "Medium",
 	harfbuzz_features = { "calt=0", "clig=0", "liga=0" }, -- disable ligatures
 })
-config.font_size = 17.0
+config.font_size = 15.0
 config.line_height = 1.4
 
 -- colorscheme
