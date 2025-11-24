@@ -44,5 +44,3 @@ vim.api.nvim_create_autocmd("PackChanged", {
 		end
 	end,
 })
-
-vim.keymap.set("n", "<leader>ti", "<cmd>InspectTree<CR>", { desc = "[T]reeseitter [I]nspect" })

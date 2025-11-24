@@ -24,11 +24,6 @@
       "rev": "572f5660cf05f8cd8834e096d7b4c921ba18e175",
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
-    "harpoon": {
-      "rev": "87b1a3506211538f460786c23f98ec63ad9af4e5",
-      "src": "https://github.com/theprimeagen/harpoon",
-      "version": "'harpoon2'"
-    },
     "live-preview.nvim": {
       "rev": "0e7c0d62d4ab422a204ce6ad57fb408c4fc03b7c",
       "src": "https://github.com/brianhuster/live-preview.nvim"

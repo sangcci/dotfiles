@@ -15,6 +15,3 @@ require("oil").setup({
 	},
 })
 require("oil-git-status").setup({})
-
--- if we go back to parent directory, just <leader>e one more time
-vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>", { desc = "[E]xplorer Oil" })

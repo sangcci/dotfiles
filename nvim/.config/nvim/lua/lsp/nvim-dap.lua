@@ -37,11 +37,3 @@ end
 dap.listeners.after.event_initialized["dapui_config"] = function()
 	dapui.open()
 end
-
--- keymaps
-vim.keymap.set("n", "<leader>dt", dap.toggle_breakpoint, { desc = "[D]ebug [T]oggle Breakpoint" })
-vim.keymap.set("n", "<leader>ds", dap.continue, { desc = "[D]ebug [S]tart" })
-vim.keymap.set("n", "<leader>do", dap.step_over, { desc = "[D]ebug Step [O]ver" })
-vim.keymap.set("n", "<leader>di", dap.step_into, { desc = "[D]ebug Step [I]nto" })
-vim.keymap.set("n", "<leader>dO", dap.step_out, { desc = "[D]ebug Step [O(c)]out" })
-vim.keymap.set("n", "<leader>dc", dapui.close, { desc = "[D]ebug [C]lose" })

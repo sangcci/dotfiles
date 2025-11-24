@@ -15,7 +15,6 @@ require("which-key").setup({
 		{ "<leader>e", group = "[E]xplorer" },
 		{ "<leader>f", group = "[F]ind" },
 		{ "<leader>g", group = "[G]it" },
-		{ "<leader>h", group = "[H]arpoon" },
 		{ "<leader>j", group = "[J]ava" },
 		{ "<leader>t", group = "[T]reesitter" },
 		{ "<leader>w", group = "[W]indow" },
