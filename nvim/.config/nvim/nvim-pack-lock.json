@@ -29,6 +29,10 @@
       "src": "https://github.com/theprimeagen/harpoon",
       "version": "'harpoon2'"
     },
+    "live-preview.nvim": {
+      "rev": "0e7c0d62d4ab422a204ce6ad57fb408c4fc03b7c",
+      "src": "https://github.com/brianhuster/live-preview.nvim"
+    },
     "lualine.nvim": {
       "rev": "3946f0122255bc377d14a59b27b609fb3ab25768",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
