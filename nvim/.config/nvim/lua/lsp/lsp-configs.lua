@@ -43,6 +43,11 @@ require("mason").setup({
 -- after v2, if we want to override lsp configure, just put in `lua/` directory. mason-lspconfig automatically override.
 -- https://github.com/mason-org/mason-lspconfig.nvim/issues/534
 require("mason-lspconfig").setup({
+	automatic_enable = {
+		exclude = {
+			"jdtls",
+		},
+	},
 	ensure_installed = servers,
 })
 
@@ -59,42 +64,37 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			"n",
 			"<leader>ch",
 			vim.lsp.buf.hover,
-			vim.tbl_extend("force", opts, { desc = "[C]ode [H]over Documentation" })
+			vim.tbl_extend("force", opts, { desc = "[H]over Documentation" })
 		)
 		vim.keymap.set(
 			"n",
 			"<leader>cd",
 			vim.lsp.buf.definition,
-			vim.tbl_extend("force", opts, { desc = "[C]ode Goto [D]efinition" })
+			vim.tbl_extend("force", opts, { desc = "[D]efinition" })
 		)
 		vim.keymap.set(
 			{ "n", "v" },
 			"<leader>ca",
 			vim.lsp.buf.code_action,
-			vim.tbl_extend("force", opts, { desc = "[C]ode [A]ctions" })
+			vim.tbl_extend("force", opts, { desc = "[A]ctions" })
 		)
 		vim.keymap.set(
 			"n",
 			"<leader>cr",
 			require("telescope.builtin").lsp_references,
-			vim.tbl_extend("force", opts, { desc = "[C]ode Goto [R]eferences" })
+			vim.tbl_extend("force", opts, { desc = "[R]eferences" })
 		)
 		vim.keymap.set(
 			"n",
 			"<leader>ci",
 			require("telescope.builtin").lsp_implementations,
-			vim.tbl_extend("force", opts, { desc = "[C]ode Goto [I]mplementations" })
+			vim.tbl_extend("force", opts, { desc = "[I]mplementations" })
 		)
-		vim.keymap.set(
-			"n",
-			"<leader>cR",
-			vim.lsp.buf.rename,
-			vim.tbl_extend("force", opts, { desc = "[C]ode [R]ename" })
-		)
+		vim.keymap.set("n", "<leader>cR", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "[R]ename" }))
 		-- using conform plugins
 		vim.keymap.set("n", "<leader>cf", function()
 			require("conform").format({ bufnr = args.buf, async = true, lsp_fallback = true })
-		end, vim.tbl_extend("force", opts, { desc = "[C]ode [F]ormat" }))
+		end, vim.tbl_extend("force", opts, { desc = "re[F]ormat" }))
 
 		-- Diagnostics
 		vim.keymap.set(
