@@ -103,8 +103,11 @@ vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>", { desc = "[E]xplorer Oil" })
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "[F]iles" })
 vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "[D]iagnostics" })
-vim.keymap.set("n", "<leader>f.", builtin.oldfiles, { desc = "Recent Files ('.' for repeat)" })
+vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "[G]rep" })
+vim.keymap.set("n", "<leader>f.", builtin.lsp_document_symbols, { desc = "Documents Symbols" })
+vim.keymap.set("n", "<leader>fw", builtin.lsp_workspace_symbols, { desc = "[W]orkspace Symbols" })
 vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Existing [B]uffers" })
+vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "[H]elp tegs" })
 vim.keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "[T]odos" })
 vim.keymap.set(
 	"n",
