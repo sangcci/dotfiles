@@ -25,6 +25,7 @@ require("plugins.smear-cursor")
 require("plugins.telescope")
 require("plugins.todo-comments")
 require("plugins.treesitter")
+require("plugins.undotree")
 require("plugins.which-key")
 
 -- lsp

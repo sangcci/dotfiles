@@ -44,6 +44,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end, vim.tbl_extend("force", opts, { desc = "format" }))
 	end,
 })
+-- undutree
+vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "[U]ndo Tree" })
 
 -- [D]ebug
 local dap = require("dap")
@@ -88,6 +90,3 @@ end, { desc = "Next error/warning todo" })
 vim.keymap.set("n", "[e", function()
 	require("todo-comments").jump_prev({ keywords = { "ERROR", "WARNING" } })
 end, { desc = "Previous error/warning todo" })
-
--- TreeSetter
--- vim.keymap.set("n", "<leader>i", "<cmd>InspectTree<CR>", { desc = "[T]reeseitter [I]nspect" })

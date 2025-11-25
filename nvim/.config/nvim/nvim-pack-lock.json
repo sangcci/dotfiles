@@ -162,6 +162,10 @@
       "rev": "31e3c38ce9b29781e4422fc0322eb0a21f4e8668",
       "src": "https://github.com/folke/todo-comments.nvim"
     },
+    "undotree": {
+      "rev": "0f1c9816975b5d7f87d5003a19c53c6fd2ff6f7f",
+      "src": "https://github.com/mbbill/undotree"
+    },
     "vim-tpipeline": {
       "rev": "bc6dfc10e26a8dd1ec2f0512050a8a0afaa9d090",
       "src": "https://github.com/vimpostor/vim-tpipeline"
