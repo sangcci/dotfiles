@@ -17,6 +17,13 @@ telescope.setup({
 			"filename_first", -- Truncate from the start
 			-- truncate = 3, -- Show at least 3 chars of each directory
 		},
+		layout_strategy = "horizontal",
+		layout_config = {
+			horizontal = {
+				prompt_position = "top",
+			},
+		},
+		sorting_strategy = "ascending",
 		mappings = {
 			i = {
 				["<C-n>"] = actions.move_selection_next,
@@ -41,9 +48,7 @@ telescope.setup({
 	},
 	extensions = {
 		["ui-select"] = {
-			require("telescope.themes").get_dropdown({
-				-- You can customize the appearance
-			}),
+			require("telescope.themes").get_dropdown(),
 		},
 	},
 })
