@@ -4,15 +4,15 @@ local action = wezterm.action
 
 -- font
 config.font = wezterm.font({
-	family = "JetBrains Mono",
-	weight = "Medium",
+	family = "Iosevka Nerd Font",
+	weight = "Light",
 	harfbuzz_features = { "calt=0", "clig=0", "liga=0" }, -- disable ligatures
 })
-config.font_size = 15.0
-config.line_height = 1.4
+config.font_size = 14.0
+config.line_height = 1.2
 
 -- colorscheme
-config.color_scheme = "Catppuccin Macchiato"
+config.color_scheme = "Black Metal (Marduk) (base16)"
 
 -- tab bar
 config.use_fancy_tab_bar = false -- don't use the fancy tab bar

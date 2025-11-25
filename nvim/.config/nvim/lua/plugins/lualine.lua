@@ -6,7 +6,7 @@ vim.pack.add({
 -- lualine configuration
 require("lualine").setup({
 	options = {
-		theme = "catppuccin",
+		theme = "auto",
 		globalstatus = true,
 		icons_enabled = true,
 		component_separators = "|",

@@ -1,5 +1,6 @@
 vim.pack.add({
 	{ src = "https://github.com/catppuccin/nvim" },
+	{ src = "https://github.com/RRethy/base16-nvim" },
 })
 
 require("catppuccin").setup({
@@ -13,4 +14,14 @@ require("catppuccin").setup({
 		transparent = true, -- enable transparent floating windows
 	},
 })
-vim.cmd.colorscheme("catppuccin")
+
+require("base16-colorscheme").with_config({
+	telescope = true,
+	indentblankline = true,
+	-- notify = true,
+	-- ts_rainbow = true,
+	-- cmp = true,
+	-- illuminate = true,
+	dapui = true,
+})
+vim.cmd.colorscheme("base16-black-metal-marduk")

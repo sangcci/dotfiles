@@ -1,5 +1,5 @@
 # Introduction
-This is my personal dotfiles managed by stow.
+This is my personal dotfiles managed by stow. It's pursuing of extremely minimal(in my personal..)
 
 It can be only worked on Mac OS.
 
@@ -10,7 +10,8 @@ It can be only worked on Mac OS.
 - Only essential plugins on zsh
 - nvim lsp settings
 - nvim debug settings
-- catppuccin theme
+- base16-black-metal-marduk theme
+- font can use whatever you want, but in my recommendation is using the iosevka light.
 
 ### Requirements
 
