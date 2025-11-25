@@ -24,4 +24,4 @@ require("base16-colorscheme").with_config({
 	-- illuminate = true,
 	dapui = true,
 })
-vim.cmd.colorscheme("base16-black-metal-marduk")
+vim.cmd.colorscheme("base16-black-metal-khold")

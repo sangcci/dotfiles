@@ -12,7 +12,7 @@ config.font_size = 14.0
 config.line_height = 1.2
 
 -- colorscheme
-config.color_scheme = "Black Metal (Marduk) (base16)"
+config.color_scheme = "Black Metal (Khold) (base16)"
 
 -- tab bar
 config.use_fancy_tab_bar = false -- don't use the fancy tab bar

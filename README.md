@@ -10,7 +10,7 @@ It can be only worked on Mac OS.
 - Only essential plugins on zsh
 - nvim lsp settings
 - nvim debug settings
-- base16-black-metal-marduk theme
+- base16-black-metal-khold theme
 - font can use whatever you want, but in my recommendation is using the iosevka light.
 
 ### Requirements
