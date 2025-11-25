@@ -22,7 +22,8 @@ It can be only worked on Mac OS.
 - zplug
 - zsh
 - neovim: +0.12 nightmare
-- tmux
+- zoxide
+- fzf
 
 # Several issues
 
