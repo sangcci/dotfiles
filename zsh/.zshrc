@@ -34,6 +34,7 @@ alias ls='ls --color'
 
 # Shell Integration
 eval "$(fzf --zsh)"
+eval "$(zoxide init zsh)"
 
 # History
 HISTSIZE=10000

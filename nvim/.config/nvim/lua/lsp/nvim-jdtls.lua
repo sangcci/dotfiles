@@ -2,7 +2,7 @@ vim.pack.add({
 	{ src = "https://github.com/mfussenegger/nvim-jdtls" },
 })
 
-local function java_keymaps(bufnr, jdtls)
+local function java_keymaps(bufnr, jdtls, gradle_telescope)
 	local opts = { buffer = bufnr, noremap = true, silent = true }
 
 	-- Organize imports
@@ -35,12 +35,15 @@ local function java_keymaps(bufnr, jdtls)
 		jdtls.test_nearest_method()
 	end, vim.tbl_extend("force", opts, { desc = "Test nearest method" }))
 
-	-- Custom System.out.println keymap (from original config)
-	vim.keymap.set("v", "<leader>l", function()
-		local esc = vim.api.nvim_replace_termcodes("<Esc>", true, true, true)
-		local keys = 'yoSystem.out.println("' .. esc .. 'pA: " + ' .. esc .. "pA);" .. esc
-		return vim.fn.feedkeys(keys, "n")
-	end, vim.tbl_extend("force", opts, { desc = "System.out.println() for selection" }))
+	-- gradle tasks finder
+	vim.keymap.set("n", "<leader>jg", function()
+		gradle_telescope.telescope_find_gradle_tasks()
+	end, { desc = "[G]radle Tasks" })
+
+	-- Refresh cache if build.gradle changes
+	vim.keymap.set("n", "<leader>jgr", function()
+		gradle_telescope.refresh_cache()
+	end, { desc = "[R]efresh Gradle Cache" })
 end
 
 ------------------------------------------------------------
@@ -104,9 +107,13 @@ vim.lsp.config("jdtls", {
 	},
 
 	on_attach = function(_, bufnr)
+		-- gradle-telescope setup
+		local gradle_telescope = require("gradle-telescope")
+		gradle_telescope.setup()
+
 		-- keymap
 		local jdtls = require("jdtls")
-		java_keymaps(bufnr, jdtls)
+		java_keymaps(bufnr, jdtls, gradle_telescope)
 
 		-- setup dap
 		local jdtls_dap = require("jdtls.dap")
