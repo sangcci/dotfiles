@@ -19,10 +19,10 @@ config.use_fancy_tab_bar = false -- don't use the fancy tab bar
 config.hide_tab_bar_if_only_one_tab = false
 
 -- window style
-config.window_decorations = "RESIZE"
+config.window_decorations = "TITLE|RESIZE"
 config.window_background_opacity = 0.9
 config.macos_window_background_blur = 20
-config.window_padding = { left = "0.5cell", right = "0.5cell", top = "0.5cell", bottom = "0.5cell" }
+-- config.window_padding = { left = "0.5cell", right = "0.5cell", top = "0.5cell", bottom = "0.5cell" }
 
 -- keymap
 config.leader = { key = "x", mods = "CTRL", timeout_milliseconds = 1000 }

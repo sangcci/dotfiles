@@ -51,6 +51,12 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
+# change the tap title name as opening the shell using wezterm
+chpwd() {
+  wezterm cli set-tab-title "$(basename "$(pwd)")"
+}
+wezterm cli set-tab-title $(basename $(pwd))
+
 # Bob Neovim Version Manager
 export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
 
