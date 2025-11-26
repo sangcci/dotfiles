@@ -30,6 +30,21 @@ vim.keymap.set("n", "<C-u>", "<C-u>")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
+-- Moving
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set("n", "J", "mzJ`z") -- pull out the next sentence
+
+-- copy
+vim.keymap.set("n", "Y", "yg$", { desc = "Copy from cursor to the end" })
+vim.keymap.set({ "n", "x" }, "<leader>p", '"0p', { desc = "Paste from yank register" })
+
+-- substitute
+vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>", { desc = "Substitute" })
+
+-- !! Don't use
+vim.keymap.set("n", "Q", "<nop>")
+
 -- [C]ode (LspAttach)
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(args)

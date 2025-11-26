@@ -12,6 +12,8 @@ vim.opt.swapfile = false -- that is really annoying
 -- searching
 vim.opt.ignorecase = true -- "hello", "Hello" both can be found.
 vim.opt.smartcase = true -- we might need to find only "Hello"
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
 
 -- window
 vim.opt.splitright = true -- not left
