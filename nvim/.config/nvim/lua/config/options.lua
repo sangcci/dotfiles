@@ -18,6 +18,7 @@ vim.opt.incsearch = true
 -- window
 vim.opt.splitright = true -- not left
 vim.opt.splitbelow = true -- not above
+vim.opt.laststatus = 3 -- -- global statusline (one statusline for all windows)
 
 -- visible
 vim.opt.scrolloff = 10

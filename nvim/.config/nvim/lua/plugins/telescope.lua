@@ -13,11 +13,15 @@ local actions = require("telescope.actions")
 
 telescope.setup({
 	defaults = { -- Note: 'defaults' was missing in your original config
+		-- These three settings are optional, but recommended.
+		prompt_prefix = "",
+		entry_prefix = " ",
+		selection_caret = " ",
 		path_display = {
 			"filename_first", -- Truncate from the start
 			-- truncate = 3, -- Show at least 3 chars of each directory
 		},
-		layout_strategy = "horizontal",
+		layout_strategy = "grey", -- grey, horizontal
 		layout_config = {
 			horizontal = {
 				prompt_position = "top",
@@ -54,3 +58,4 @@ telescope.setup({
 })
 telescope.load_extension("ui-select")
 telescope.load_extension("fzf")
+telescope.load_extension("grey")

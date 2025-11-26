@@ -12,14 +12,45 @@ config.font_size = 14.0
 config.line_height = 1.2
 
 -- colorscheme
-config.color_scheme = "Black Metal (Khold) (base16)"
+config.color_scheme = "Papercolor Light (Gogh)"
 
 -- tab bar
 config.use_fancy_tab_bar = false -- don't use the fancy tab bar
 config.hide_tab_bar_if_only_one_tab = false
+config.colors = {
+	tab_bar = {
+		background = "#eeeeee",
+
+		active_tab = {
+			bg_color = "#4e4e4e", -- Dark gray (minimal accent)
+			fg_color = "#eeeeee",
+			intensity = "Bold",
+		},
+
+		inactive_tab = {
+			bg_color = "#d9d9d9",
+			fg_color = "#808080",
+		},
+
+		inactive_tab_hover = {
+			bg_color = "#c6c6c6",
+			fg_color = "#4e4e4e",
+		},
+
+		new_tab = {
+			bg_color = "#d9d9d9",
+			fg_color = "#808080",
+		},
+
+		new_tab_hover = {
+			bg_color = "#c6c6c6",
+			fg_color = "#4e4e4e",
+		},
+	},
+}
 
 -- window style
-config.window_decorations = "TITLE|RESIZE"
+config.window_decorations = "RESIZE|TITLE"
 config.window_background_opacity = 0.9
 config.macos_window_background_blur = 20
 -- config.window_padding = { left = "0.5cell", right = "0.5cell", top = "0.5cell", bottom = "0.5cell" }

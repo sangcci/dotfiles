@@ -96,6 +96,10 @@
       "rev": "fbdb48c2ed45f4a8293d0d483f7730d24467ccb6",
       "src": "https://github.com/theHamsta/nvim-dap-virtual-text"
     },
+    "nvim-grey": {
+      "rev": "62d268a3e582b846f5c20a895a07bd7d563e9db9",
+      "src": "https://github.com/yorickpeterse/nvim-grey"
+    },
     "nvim-jdtls": {
       "rev": "38d265ee4d45da73a083ca83e41de7d37567be5c",
       "src": "https://github.com/mfussenegger/nvim-jdtls"
@@ -116,10 +120,6 @@
     "nvim-web-devicons": {
       "rev": "8dcb311b0c92d460fac00eac706abd43d94d68af",
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
-    },
-    "oil-git-status.nvim": {
-      "rev": "4b5cf53842c17a09420919e655a6a559da3112d7",
-      "src": "https://github.com/refractalize/oil-git-status.nvim"
     },
     "oil-git.nvim": {
       "rev": "d1f27a5982df35b70fb842aa6bbfac10735c7265",
