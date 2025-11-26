@@ -36,6 +36,8 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "move visualized code to g
 vim.keymap.set("n", "J", "mzJ`z", { desc = "Join lines (preserve cursor)" })
 vim.keymap.set("n", "oo", "mao<esc>0<S-d>`a<cmd>delmarks a<cr>", { desc = "Add blank line below" })
 vim.keymap.set("n", "OO", "maO<esc>0<S-d>`a<cmd>delmarks a<cr>", { desc = "Add blank line above" })
+vim.keymap.set({ "n", "i" }, "<C-Enter>", "<Esc>o", { desc = "jump to the next line" })
+vim.keymap.set("n", "<Enter>", "i<Enter><Esc>", { desc = "Enter and back to normal mode" })
 
 -- copy
 vim.keymap.set("n", "Y", "yg$", { desc = "Copy from cursor to the end" })
