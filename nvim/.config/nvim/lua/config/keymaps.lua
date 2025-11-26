@@ -31,9 +31,11 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 -- Moving
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
-vim.keymap.set("n", "J", "mzJ`z") -- pull out the next sentence
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "move visualized code to go up 1" })
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "move visualized code to go down 1" })
+vim.keymap.set("n", "J", "mzJ`z", { desc = "Join lines (preserve cursor)" })
+vim.keymap.set("n", "oo", "mao<esc>0<S-d>`a<cmd>delmarks a<cr>", { desc = "Add blank line below" })
+vim.keymap.set("n", "OO", "maO<esc>0<S-d>`a<cmd>delmarks a<cr>", { desc = "Add blank line above" })
 
 -- copy
 vim.keymap.set("n", "Y", "yg$", { desc = "Copy from cursor to the end" })

@@ -9,6 +9,7 @@ zplug 'zsh-users/zsh-completions', defer:2
 zplug 'zsh-users/zsh-autosuggestions', defer:2
 zplug "zsh-users/zsh-history-substring-search", as:plugin
 zplug "Aloxaf/fzf-tab", from:github
+zplug "jeffreytse/zsh-vi-mode"
 
 zplug "plugins/git", from:oh-my-zsh
 
@@ -56,6 +57,11 @@ chpwd() {
   wezterm cli set-tab-title "$(basename "$(pwd)")"
 }
 wezterm cli set-tab-title $(basename $(pwd))
+
+# Set default editor
+export EDITOR='nvim'
+export VISUAL='nvim'
+export ZVM_VI_EDITOR='nvim'
 
 # Bob Neovim Version Manager
 export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
