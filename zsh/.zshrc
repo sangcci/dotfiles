@@ -32,6 +32,7 @@ bindkey '^n' history-substring-search-down
 
 # aliases
 alias ls='ls --color'
+alias n='nvim'
 
 # Shell Integration
 eval "$(fzf --zsh)"
