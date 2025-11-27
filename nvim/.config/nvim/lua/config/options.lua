@@ -4,7 +4,7 @@ vim.opt.number = true
 vim.opt.numberwidth = 4
 
 -- wrap line
-vim.opt.wrap = false
+vim.opt.wrap = true
 
 -- swap file
 vim.opt.swapfile = false -- that is really annoying
@@ -40,6 +40,14 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 vim.opt.smartindent = true
+
+-- remove auto-continuation of comment lines
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "*",
+	callback = function()
+		vim.opt_local.formatoptions:remove({ "c", "r", "o" })
+	end,
+})
 
 -- diagnostic
 vim.diagnostic.config({

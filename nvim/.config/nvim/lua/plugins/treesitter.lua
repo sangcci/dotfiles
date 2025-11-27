@@ -1,5 +1,7 @@
 vim.pack.add({
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "master" },
+	{ src = "https://github.com/nvim-treesitter/nvim-treesitter-refactor", version = "master" },
+	{ src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects", version = "main" },
 })
 
 require("nvim-treesitter.configs").setup({
@@ -25,6 +27,21 @@ require("nvim-treesitter.configs").setup({
 	},
 	indent = {
 		enable = true,
+	},
+	-- highlight
+	refactor = {
+		highlight_definitions = {
+			enable = true,
+			-- Set to false if you have an `updatetime` of ~100.
+			clear_on_cursor_move = true,
+		},
+		highlight_current_scope = { enable = true },
+	},
+})
+require("nvim-treesitter-textobjects").setup({
+	move = {
+		-- whether to set jumps in the jumplist
+		set_jumps = true,
 	},
 })
 

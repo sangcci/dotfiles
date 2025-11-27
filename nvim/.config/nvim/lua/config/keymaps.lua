@@ -52,7 +52,7 @@ vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left>
 -- !! Don't use
 vim.keymap.set("n", "Q", "<nop>")
 
--- [C]ode (LspAttach)
+-- Code (LspAttach)
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(args)
 		local opts = { buffer = args.buf }
@@ -66,6 +66,65 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end, vim.tbl_extend("force", opts, { desc = "format" }))
 	end,
 })
+
+-- TODO: we have to get used to this keymap setting.
+
+-- goto_next_start
+vim.keymap.set({ "n", "x", "o" }, "]m", function()
+	require("nvim-treesitter-textobjects.move").goto_next_start("@function.outer", "textobjects")
+end)
+vim.keymap.set({ "n", "x", "o" }, "]]", function()
+	require("nvim-treesitter-textobjects.move").goto_next_start("@class.outer", "textobjects")
+end)
+-- goto_next_end
+vim.keymap.set({ "n", "x", "o" }, "]M", function()
+	require("nvim-treesitter-textobjects.move").goto_next_end("@function.outer", "textobjects")
+end)
+vim.keymap.set({ "n", "x", "o" }, "][", function()
+	require("nvim-treesitter-textobjects.move").goto_next_end("@class.outer", "textobjects")
+end)
+-- goto_previous_start
+vim.keymap.set({ "n", "x", "o" }, "[m", function()
+	require("nvim-treesitter-textobjects.move").goto_previous_start("@function.outer", "textobjects")
+end)
+vim.keymap.set({ "n", "x", "o" }, "[[", function()
+	require("nvim-treesitter-textobjects.move").goto_previous_start("@class.outer", "textobjects")
+end)
+-- goto_previous_end
+vim.keymap.set({ "n", "x", "o" }, "[M", function()
+	require("nvim-treesitter-textobjects.move").goto_previous_end("@function.outer", "textobjects")
+end)
+vim.keymap.set({ "n", "x", "o" }, "[]", function()
+	require("nvim-treesitter-textobjects.move").goto_previous_end("@class.outer", "textobjects")
+end)
+-- You can also pass a list to group multiple queries.
+vim.keymap.set({ "n", "x", "o" }, "]o", function()
+	require("nvim-treesitter-textobjects.move").goto_next_start({ "@loop.inner", "@loop.outer" }, "textobjects")
+end)
+-- You can also use captures from other query groups like `locals.scm` or `folds.scm`
+vim.keymap.set({ "n", "x", "o" }, "]s", function()
+	require("nvim-treesitter-textobjects.move").goto_next_start("@local.scope", "locals")
+end)
+vim.keymap.set({ "n", "x", "o" }, "]z", function()
+	require("nvim-treesitter-textobjects.move").goto_next_start("@fold", "folds")
+end)
+vim.keymap.set({ "x", "o" }, "af", function()
+	require("nvim-treesitter-textobjects.select").select_textobject("@function.outer", "textobjects")
+end)
+vim.keymap.set({ "x", "o" }, "if", function()
+	require("nvim-treesitter-textobjects.select").select_textobject("@function.inner", "textobjects")
+end)
+vim.keymap.set({ "x", "o" }, "ac", function()
+	require("nvim-treesitter-textobjects.select").select_textobject("@class.outer", "textobjects")
+end)
+vim.keymap.set({ "x", "o" }, "ic", function()
+	require("nvim-treesitter-textobjects.select").select_textobject("@class.inner", "textobjects")
+end)
+-- You can also use captures from other query groups like `locals.scm`
+vim.keymap.set({ "x", "o" }, "as", function()
+	require("nvim-treesitter-textobjects.select").select_textobject("@local.scope", "locals")
+end)
+
 -- undutree
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "[U]ndo Tree" })
 

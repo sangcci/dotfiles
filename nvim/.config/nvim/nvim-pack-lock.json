@@ -117,6 +117,16 @@
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'master'"
     },
+    "nvim-treesitter-refactor": {
+      "rev": "d8b74fa87afc6a1e97b18da23e762efb032dc270",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter-refactor",
+      "version": "'master'"
+    },
+    "nvim-treesitter-textobjects": {
+      "rev": "6f2dc7e41a648ec90314f0f94b5f574c75c5c58b",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
+      "version": "'main'"
+    },
     "nvim-web-devicons": {
       "rev": "8dcb311b0c92d460fac00eac706abd43d94d68af",
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
