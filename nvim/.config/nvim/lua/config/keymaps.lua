@@ -8,18 +8,11 @@ vim.opt.timeoutlen = 300
 -- Remove search highlights after searching
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Remove search highlights" })
 
--- Window navigation
---vim.keymap.set("n", "<C-h>", "<cmd>wincmd h<cr>", { desc = "Navigate Left" })
---vim.keymap.set("n", "<C-l>", "<cmd>wincmd l<cr>", { desc = "Navigate Right" })
---vim.keymap.set("n", "<C-j>", "<cmd>wincmd j<cr>", { desc = "Naviagte Down" })
---vim.keymap.set("n", "<C-k>", "<cmd>wincmd k<cr>", { desc = "Navigate Up" })
-
-vim.keymap.set({ "n", "t" }, "<C-h>", "<cmd>NavigatorLeft<cr>")
-vim.keymap.set({ "n", "t" }, "<C-j>", "<cmd>NavigatorDown<cr>")
-vim.keymap.set({ "n", "t" }, "<C-k>", "<cmd>NavigatorUp<cr>")
-vim.keymap.set({ "n", "t" }, "<C-l>", "<cmd>NavigatorRight<cr>")
-
--- [W]indow
+-- Window
+vim.keymap.set({ "n", "t" }, "<M-h>", "<cmd>NavigatorLeft<cr>")
+vim.keymap.set({ "n", "t" }, "<M-j>", "<cmd>NavigatorDown<cr>")
+vim.keymap.set({ "n", "t" }, "<M-k>", "<cmd>NavigatorUp<cr>")
+vim.keymap.set({ "n", "t" }, "<M-l>", "<cmd>NavigatorRight<cr>")
 vim.keymap.set("n", "<leader>wv", ":vsplit<cr>", { desc = "Split [V]ertical" })
 vim.keymap.set("n", "<leader>wh", ":split<cr>", { desc = "Split [H]orizontal" })
 

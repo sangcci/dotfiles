@@ -35,6 +35,9 @@ require("blink.cmp").setup({
 	-- NOTE: you have to use the signature only open the function bracket. not enter the auto completion.
 	signature = {
 		enabled = true,
+		trigger = {
+			show_on_insert = true,
+		},
 	},
 
 	sources = {
