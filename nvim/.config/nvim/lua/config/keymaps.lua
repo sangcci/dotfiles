@@ -13,8 +13,8 @@ vim.keymap.set({ "n", "t" }, "<M-h>", "<cmd>NavigatorLeft<cr>")
 vim.keymap.set({ "n", "t" }, "<M-j>", "<cmd>NavigatorDown<cr>")
 vim.keymap.set({ "n", "t" }, "<M-k>", "<cmd>NavigatorUp<cr>")
 vim.keymap.set({ "n", "t" }, "<M-l>", "<cmd>NavigatorRight<cr>")
-vim.keymap.set("n", "<leader>wv", ":vsplit<cr>", { desc = "Split [V]ertical" })
-vim.keymap.set("n", "<leader>wh", ":split<cr>", { desc = "Split [H]orizontal" })
+vim.keymap.set("n", "<leader>wv", ":vsplit<cr>", { desc = "Split Vertical" })
+vim.keymap.set("n", "<leader>wh", ":split<cr>", { desc = "Split Horizontal" })
 
 -- Stay in indent mode
 vim.keymap.set("v", "<", "<gv", { desc = "Indent left in visual mode" })
@@ -66,84 +66,69 @@ vim.api.nvim_create_autocmd("LspAttach", {
 vim.keymap.set({ "n", "x", "o" }, "]m", function()
 	require("nvim-treesitter-textobjects.move").goto_next_start("@function.outer", "textobjects")
 end)
-vim.keymap.set({ "n", "x", "o" }, "]]", function()
+vim.keymap.set({ "n", "x", "o" }, "]c", function()
 	require("nvim-treesitter-textobjects.move").goto_next_start("@class.outer", "textobjects")
 end)
--- goto_next_end
-vim.keymap.set({ "n", "x", "o" }, "]M", function()
-	require("nvim-treesitter-textobjects.move").goto_next_end("@function.outer", "textobjects")
-end)
-vim.keymap.set({ "n", "x", "o" }, "][", function()
-	require("nvim-treesitter-textobjects.move").goto_next_end("@class.outer", "textobjects")
-end)
--- goto_previous_start
-vim.keymap.set({ "n", "x", "o" }, "[m", function()
-	require("nvim-treesitter-textobjects.move").goto_previous_start("@function.outer", "textobjects")
-end)
-vim.keymap.set({ "n", "x", "o" }, "[[", function()
-	require("nvim-treesitter-textobjects.move").goto_previous_start("@class.outer", "textobjects")
-end)
--- goto_previous_end
-vim.keymap.set({ "n", "x", "o" }, "[M", function()
-	require("nvim-treesitter-textobjects.move").goto_previous_end("@function.outer", "textobjects")
-end)
-vim.keymap.set({ "n", "x", "o" }, "[]", function()
-	require("nvim-treesitter-textobjects.move").goto_previous_end("@class.outer", "textobjects")
-end)
--- You can also pass a list to group multiple queries.
-vim.keymap.set({ "n", "x", "o" }, "]o", function()
-	require("nvim-treesitter-textobjects.move").goto_next_start({ "@loop.inner", "@loop.outer" }, "textobjects")
-end)
--- You can also use captures from other query groups like `locals.scm` or `folds.scm`
 vim.keymap.set({ "n", "x", "o" }, "]s", function()
 	require("nvim-treesitter-textobjects.move").goto_next_start("@local.scope", "locals")
 end)
 vim.keymap.set({ "n", "x", "o" }, "]z", function()
 	require("nvim-treesitter-textobjects.move").goto_next_start("@fold", "folds")
 end)
-vim.keymap.set({ "x", "o" }, "af", function()
-	require("nvim-treesitter-textobjects.select").select_textobject("@function.outer", "textobjects")
+
+vim.keymap.set({ "n", "x", "o" }, "]M", function()
+	require("nvim-treesitter-textobjects.move").goto_next_end("@function.outer", "textobjects")
 end)
-vim.keymap.set({ "x", "o" }, "if", function()
-	require("nvim-treesitter-textobjects.select").select_textobject("@function.inner", "textobjects")
+vim.keymap.set({ "n", "x", "o" }, "]C", function()
+	require("nvim-treesitter-textobjects.move").goto_next_end("@class.outer", "textobjects")
 end)
-vim.keymap.set({ "x", "o" }, "ac", function()
-	require("nvim-treesitter-textobjects.select").select_textobject("@class.outer", "textobjects")
+
+vim.keymap.set({ "n", "x", "o" }, "[m", function()
+	require("nvim-treesitter-textobjects.move").goto_previous_start("@function.outer", "textobjects")
 end)
-vim.keymap.set({ "x", "o" }, "ic", function()
-	require("nvim-treesitter-textobjects.select").select_textobject("@class.inner", "textobjects")
+vim.keymap.set({ "n", "x", "o" }, "[c", function()
+	require("nvim-treesitter-textobjects.move").goto_previous_start("@class.outer", "textobjects")
 end)
--- You can also use captures from other query groups like `locals.scm`
-vim.keymap.set({ "x", "o" }, "as", function()
-	require("nvim-treesitter-textobjects.select").select_textobject("@local.scope", "locals")
+vim.keymap.set({ "n", "x", "o" }, "[s", function()
+	require("nvim-treesitter-textobjects.move").goto_previous_start("@local.scope", "locals")
+end)
+vim.keymap.set({ "n", "x", "o" }, "[z", function()
+	require("nvim-treesitter-textobjects.move").goto_previous_start("@fold", "folds")
+end)
+
+vim.keymap.set({ "n", "x", "o" }, "[M", function()
+	require("nvim-treesitter-textobjects.move").goto_previous_end("@function.outer", "textobjects")
+end)
+vim.keymap.set({ "n", "x", "o" }, "[C", function()
+	require("nvim-treesitter-textobjects.move").goto_previous_end("@class.outer", "textobjects")
 end)
 
 -- undutree
-vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "[U]ndo Tree" })
+vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "Undo Tree" })
 
--- [D]ebug
+-- Debug
 local dap = require("dap")
 local dapui = require("dapui")
-vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, { desc = "[B]reakpoint" })
-vim.keymap.set("n", "<leader>ds", dap.continue, { desc = "[S]tart" })
-vim.keymap.set("n", "<leader>do", dap.step_over, { desc = "Step [O]ver" })
-vim.keymap.set("n", "<leader>di", dap.step_into, { desc = "Step [I]nto" })
-vim.keymap.set("n", "<leader>dO", dap.step_out, { desc = "Step [O(c)]out" })
-vim.keymap.set("n", "<leader>dc", dapui.close, { desc = "[C]lose" })
+vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, { desc = "Breakpoint" })
+vim.keymap.set("n", "<leader>ds", dap.continue, { desc = "Start" })
+vim.keymap.set("n", "<leader>do", dap.step_over, { desc = "Step Over" })
+vim.keymap.set("n", "<leader>di", dap.step_into, { desc = "Step Into" })
+vim.keymap.set("n", "<leader>dO", dap.step_out, { desc = "Step out" })
+vim.keymap.set("n", "<leader>dc", dapui.close, { desc = "Close" })
 
--- [E]xplorer
-vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>", { desc = "[E]xplorer Oil" })
+-- Explorer
+vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>", { desc = "Explorer Oil" })
 
--- [F]ind
+-- Find
 local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "[F]iles" })
-vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "[D]iagnostics" })
-vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "[G]rep" })
+vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Files" })
+vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "Diagnostics" })
+vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Grep" })
 vim.keymap.set("n", "<leader>f.", builtin.lsp_document_symbols, { desc = "Documents Symbols" })
-vim.keymap.set("n", "<leader>fw", builtin.lsp_workspace_symbols, { desc = "[W]orkspace Symbols" })
-vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Existing [B]uffers" })
-vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "[H]elp tegs" })
-vim.keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "[T]odos" })
+vim.keymap.set("n", "<leader>fw", builtin.lsp_workspace_symbols, { desc = "Workspace Symbols" })
+vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Existing Buffers" })
+vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Help tegs" })
+vim.keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Todos" })
 vim.keymap.set(
 	"n",
 	"<leader>fT",
@@ -151,7 +136,13 @@ vim.keymap.set(
 	{ desc = "[T(c)]odos (TODO/FIX only)" }
 )
 
--- [T]odo
+-- Git
+vim.keymap.set("n", "<leader>go", ":DiffviewOpen<CR>", { desc = "Diffview Open" })
+vim.keymap.set("n", "<leader>gc", ":DiffviewClose<CR>", { desc = "Diffview Close" })
+vim.keymap.set("n", "<leader>gh", ":DiffviewFileHistory<CR>", { desc = "Diffview File History" })
+vim.keymap.set("n", "<leader>gf", ":DiffviewFileHistory %<CR>", { desc = "Diffview File History %" })
+
+-- Todo
 vim.keymap.set("n", "]t", function()
 	require("todo-comments").jump_next()
 end, { desc = "Next todo comment" })

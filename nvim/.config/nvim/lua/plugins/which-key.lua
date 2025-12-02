@@ -10,13 +10,13 @@ require("which-key").setup({
 
 	-- Group names
 	spec = {
-		{ "<leader>c", group = "[C]ode" },
-		{ "<leader>d", group = "[D]ebug" },
-		{ "<leader>e", group = "[E]xplorer" },
-		{ "<leader>f", group = "[F]ind" },
-		{ "<leader>g", group = "[G]it" },
-		{ "<leader>j", group = "[J]ava" },
-		{ "<leader>t", group = "[T]reesitter" },
-		{ "<leader>w", group = "[W]indow" },
+		{ "<leader>c", group = "Code" },
+		{ "<leader>d", group = "Debug" },
+		{ "<leader>e", group = "Explorer" },
+		{ "<leader>f", group = "Find" },
+		{ "<leader>g", group = "Git" },
+		{ "<leader>j", group = "Java" },
+		{ "<leader>t", group = "Treesitter" },
+		{ "<leader>w", group = "Window" },
 	},
 })
