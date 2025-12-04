@@ -155,3 +155,12 @@ end, { desc = "Next error/warning todo" })
 vim.keymap.set("n", "[e", function()
 	require("todo-comments").jump_prev({ keywords = { "ERROR", "WARNING" } })
 end, { desc = "Previous error/warning todo" })
+
+-- Zettelkasten
+local opts = { noremap = true, silent = false }
+vim.api.nvim_set_keymap("n", "<leader>zn", "<Cmd>ZkNew { title = vim.fn.input('Title: ') }<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>zo", "<Cmd>ZkNotes { sort = { 'modified' } }<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>zt", "<Cmd>ZkTags<CR>", opts)
+vim.api.nvim_set_keymap("v", "<leader>zf", ":'<,'>ZkMatch<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>zb", "<Cmd>ZkBacklinks<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>zl", "<Cmd>ZkLinks<CR>", opts)

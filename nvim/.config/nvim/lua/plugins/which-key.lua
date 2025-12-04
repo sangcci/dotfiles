@@ -18,5 +18,6 @@ require("which-key").setup({
 		{ "<leader>j", group = "Java" },
 		{ "<leader>t", group = "Treesitter" },
 		{ "<leader>w", group = "Window" },
+		{ "<leader>z", group = "Zettelkasten" },
 	},
 })
