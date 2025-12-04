@@ -20,6 +20,7 @@ local servers = {
 	"groovyls", -- groovy
 	"quick_lint_js", -- javascript/typescript
 	"pyright", -- python
+	"gopls", -- golang
 }
 
 local formatters = {
