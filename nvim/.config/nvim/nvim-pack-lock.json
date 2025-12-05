@@ -36,6 +36,10 @@
       "rev": "572f5660cf05f8cd8834e096d7b4c921ba18e175",
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
+    "github-nvim-theme": {
+      "rev": "c106c9472154d6b2c74b74565616b877ae8ed31d",
+      "src": "https://github.com/projekt0n/github-nvim-theme"
+    },
     "go.nvim": {
       "rev": "41a18f0c05534c375bafec7ed05cdb409c4abcc6",
       "src": "https://github.com/ray-x/go.nvim"

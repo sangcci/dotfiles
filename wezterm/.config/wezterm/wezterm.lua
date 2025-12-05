@@ -12,47 +12,47 @@ config.font_size = 14.0
 config.line_height = 1.2
 
 -- colorscheme
-config.color_scheme = "Papercolor Light (Gogh)"
+config.color_scheme = "Github Dark"
 
 -- tab bar
 config.use_fancy_tab_bar = false -- don't use the fancy tab bar
 config.hide_tab_bar_if_only_one_tab = false
 config.colors = {
 	tab_bar = {
-		background = "#eeeeee",
+		background = "#0d1117", -- Github Dark background
 
 		active_tab = {
-			bg_color = "#4e4e4e", -- Dark gray (minimal accent)
-			fg_color = "#eeeeee",
+			bg_color = "#1f6feb", -- Github blue accent
+			fg_color = "#f0f6fc",
 			intensity = "Bold",
 		},
 
 		inactive_tab = {
-			bg_color = "#d9d9d9",
-			fg_color = "#808080",
+			bg_color = "#161b22",
+			fg_color = "#8b949e",
 		},
 
 		inactive_tab_hover = {
-			bg_color = "#c6c6c6",
-			fg_color = "#4e4e4e",
+			bg_color = "#21262d",
+			fg_color = "#c9d1d9",
 		},
 
 		new_tab = {
-			bg_color = "#d9d9d9",
-			fg_color = "#808080",
+			bg_color = "#161b22",
+			fg_color = "#8b949e",
 		},
 
 		new_tab_hover = {
-			bg_color = "#c6c6c6",
-			fg_color = "#4e4e4e",
+			bg_color = "#21262d",
+			fg_color = "#c9d1d9",
 		},
 	},
 }
 
 -- window style
 config.window_decorations = "RESIZE|TITLE"
-config.window_background_opacity = 0.9
-config.macos_window_background_blur = 20
+config.window_background_opacity = 0.8
+config.macos_window_background_blur = 5
 -- config.window_padding = { left = "0.5cell", right = "0.5cell", top = "0.5cell", bottom = "0.5cell" }
 
 -- keymap

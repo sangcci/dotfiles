@@ -10,7 +10,7 @@ It can be only worked on Mac OS.
 - Only essential plugins on zsh
 - nvim lsp settings
 - nvim debug settings
-- paper theme for protect eyesights
+- applied github-dark theme with transparency
 - font can use whatever you want, but in my recommendation is using the iosevka light.
 
 ### Requirements
@@ -32,4 +32,3 @@ They have several settings to need fix later.
 
 - It's only works on Mac OS. It should be fixed to run other OS later.
 - add spring boot env
-- git ui

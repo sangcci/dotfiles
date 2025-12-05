@@ -5,12 +5,12 @@
 vim.o.packpath = vim.fn.stdpath("config") .. "," .. vim.o.packpath .. "," .. vim.fn.expand("~/.local/share/nvim/site")
 
 -- options
+require("config.colorscheme")
 require("config.options")
 
 -- plugins
 require("plugins.autopair")
 require("plugins.blink")
-require("plugins.colorscheme")
 require("plugins.comment")
 require("plugins.conform")
 require("plugins.diffview")
