@@ -1,6 +1,12 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 local action = wezterm.action
+local mux = wezterm.mux
+
+wezterm.on("gui-startup", function()
+	local tab, pane, window = mux.spawn_window({})
+	window:gui_window():maximize()
+end)
 
 -- font
 config.font = wezterm.font({
@@ -19,7 +25,7 @@ config.use_fancy_tab_bar = false -- don't use the fancy tab bar
 config.hide_tab_bar_if_only_one_tab = false
 config.colors = {
 	tab_bar = {
-		background = "#0d1117", -- Github Dark background
+		background = "#161b22", -- Github Dark background
 
 		active_tab = {
 			bg_color = "#1f6feb", -- Github blue accent
@@ -50,10 +56,26 @@ config.colors = {
 }
 
 -- window style
-config.window_decorations = "RESIZE|TITLE"
-config.window_background_opacity = 0.8
-config.macos_window_background_blur = 5
--- config.window_padding = { left = "0.5cell", right = "0.5cell", top = "0.5cell", bottom = "0.5cell" }
+config.window_padding = {
+	left = 120,
+	right = 120,
+	top = 100,
+	bottom = 50,
+}
+config.window_decorations = "RESIZE"
+config.macos_window_background_blur = 20
+config.window_background_opacity = 0.4
+config.background = {
+	{
+		source = {
+			Color = "#0d1117",
+		},
+		width = "100%",
+		height = "100%",
+		opacity = 0.7,
+	},
+}
+config.native_macos_fullscreen_mode = false
 
 -- keymap
 -- NOTE: https://github.com/numToStr/Navigator.nvim/wiki/WezTerm-Integration
