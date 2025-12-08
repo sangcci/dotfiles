@@ -107,14 +107,8 @@ end)
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "Undo Tree" })
 
 -- Debug
-local dap = require("dap")
-local dapui = require("dapui")
-vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, { desc = "Breakpoint" })
-vim.keymap.set("n", "<leader>ds", dap.continue, { desc = "Start" })
-vim.keymap.set("n", "<leader>do", dap.step_over, { desc = "Step Over" })
-vim.keymap.set("n", "<leader>di", dap.step_into, { desc = "Step Into" })
-vim.keymap.set("n", "<leader>dO", dap.step_out, { desc = "Step out" })
-vim.keymap.set("n", "<leader>dc", dapui.close, { desc = "Close" })
+vim.keymap.set("n", "<leader>ds", "<cmd>DapViewOpen<cr>", { desc = "Start" })
+vim.keymap.set("n", "<leader>dc", "<cmd>DapViewClose<cr>", { desc = "Close" })
 
 -- Explorer
 vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>", { desc = "Explorer Oil" })

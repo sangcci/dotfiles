@@ -4,7 +4,7 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-lua/plenary.nvim" },
 	{ src = "https://github.com/nvim-telescope/telescope-ui-select.nvim" },
 	{ src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim" },
-	{ src = "https://github.com/nvim-telescope/telescope.nvim", version = "v0.1.9" }, -- v0.1.9 (latest) commit hash
+	{ src = "https://github.com/nvim-telescope/telescope.nvim", version = "master" },
 })
 pack_builder.build_plugin("telescope-fzf-native.nvim", "make")
 

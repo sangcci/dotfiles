@@ -40,14 +40,6 @@
       "rev": "c106c9472154d6b2c74b74565616b877ae8ed31d",
       "src": "https://github.com/projekt0n/github-nvim-theme"
     },
-    "go.nvim": {
-      "rev": "41a18f0c05534c375bafec7ed05cdb409c4abcc6",
-      "src": "https://github.com/ray-x/go.nvim"
-    },
-    "guihua.lua": {
-      "rev": "ef44ba40f12e56c1c9fa45967f2b4d142e4b97a0",
-      "src": "https://github.com/ray-x/guihua.lua"
-    },
     "indent-blankline.nvim": {
       "rev": "005b56001b2cb30bfa61b7986bc50657816ba4ba",
       "src": "https://github.com/lukas-reineke/indent-blankline.nvim"
@@ -104,9 +96,9 @@
       "rev": "64652d1ae1db80870d9aac7132d76e37acd86a26",
       "src": "https://github.com/mfussenegger/nvim-dap-python"
     },
-    "nvim-dap-ui": {
-      "rev": "cf91d5e2d07c72903d052f5207511bf7ecdb7122",
-      "src": "https://github.com/rcarriga/nvim-dap-ui"
+    "nvim-dap-view": {
+      "rev": "25ffcf3a6d8d44b6275dac9d5ff9b1f9485907d9",
+      "src": "https://github.com/igorlfs/nvim-dap-view"
     },
     "nvim-dap-virtual-text": {
       "rev": "fbdb48c2ed45f4a8293d0d483f7730d24467ccb6",
@@ -177,7 +169,7 @@
     "telescope.nvim": {
       "rev": "84b9ba066d1860f7a586ce9cd732fd6c4f77d1d9",
       "src": "https://github.com/nvim-telescope/telescope.nvim",
-      "version": "'v0.1.9'"
+      "version": "'master'"
     },
     "todo-comments.nvim": {
       "rev": "31e3c38ce9b29781e4422fc0322eb0a21f4e8668",
@@ -194,10 +186,6 @@
     "which-key.nvim": {
       "rev": "3aab2147e74890957785941f0c1ad87d0a44c15a",
       "src": "https://github.com/folke/which-key.nvim"
-    },
-    "zk-nvim": {
-      "rev": "8df80d0dc2d66e53b08740361a600746a6e4edcf",
-      "src": "https://github.com/zk-org/zk-nvim"
     }
   }
 }

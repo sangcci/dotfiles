@@ -33,8 +33,6 @@ require("plugins.which-key")
 require("lsp.lsp-configs")
 require("lsp.nvim-dap")
 require("lsp.nvim-jdtls")
-require("lsp.zk-nvim")
-require("lsp.go-nvim")
 
 -- keymap
 require("config.keymaps")
