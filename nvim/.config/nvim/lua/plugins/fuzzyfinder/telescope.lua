@@ -1,4 +1,4 @@
-local pack_builder = require("pack_builder")
+local pack_builder = require("pack.pack-builder")
 
 vim.pack.add({
 	{ src = "https://github.com/nvim-lua/plenary.nvim" },
@@ -59,3 +59,19 @@ telescope.setup({
 telescope.load_extension("ui-select")
 telescope.load_extension("fzf")
 telescope.load_extension("grey")
+
+local builtin = require("telescope.builtin")
+vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Files" })
+vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "Diagnostics" })
+vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Grep" })
+vim.keymap.set("n", "<leader>f.", builtin.lsp_document_symbols, { desc = "Documents Symbols" })
+vim.keymap.set("n", "<leader>fw", builtin.lsp_workspace_symbols, { desc = "Workspace Symbols" })
+vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Existing Buffers" })
+vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Help tegs" })
+vim.keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Todos" })
+vim.keymap.set(
+	"n",
+	"<leader>fT",
+	"<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>",
+	{ desc = "[T(c)]odos (TODO/FIX only)" }
+)

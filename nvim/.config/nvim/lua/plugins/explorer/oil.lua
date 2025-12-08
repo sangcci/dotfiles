@@ -32,3 +32,5 @@ require("oil-git").setup({
 		OilGitIgnored = { bg = "#a8a8a8", fg = "#ffffff" }, -- Light gray bg, white text
 	},
 })
+
+vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>", { desc = "Explorer Oil" })

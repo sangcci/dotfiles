@@ -22,3 +22,7 @@ require("nvim-dap-virtual-text").setup({
 })
 
 require("dap-python").setup("uv")
+
+-- Debug
+vim.keymap.set("n", "<leader>ds", "<cmd>DapViewOpen<cr>", { desc = "Start" })
+vim.keymap.set("n", "<leader>dc", "<cmd>DapViewClose<cr>", { desc = "Close" })

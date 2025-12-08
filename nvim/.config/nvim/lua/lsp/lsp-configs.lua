@@ -55,3 +55,17 @@ require("mason-lspconfig").setup({
 require("mason-tool-installer").setup({
 	eusure_installed = vim.list_extend(vim.deepcopy(servers), formatters),
 })
+
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function(args)
+		local opts = { buffer = args.buf }
+
+		-- open diagnositcs on float window
+		vim.keymap.set("n", "gl", vim.diagnostic.open_float, { desc = "Show line diagnostics" })
+
+		-- using conform plugins
+		vim.keymap.set("n", "<leader>r", function()
+			require("conform").format({ bufnr = args.buf, async = true, lsp_fallback = true })
+		end, vim.tbl_extend("force", opts, { desc = "format" }))
+	end,
+})

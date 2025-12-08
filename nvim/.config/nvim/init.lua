@@ -4,35 +4,50 @@
 -- doc: https://github.com/neovim/neovim/blob/8bce9342d101eed4bb16fe03d36e7f89bac991ab/runtime/doc/pack.txt#L214-L216
 vim.o.packpath = vim.fn.stdpath("config") .. "," .. vim.o.packpath .. "," .. vim.fn.expand("~/.local/share/nvim/site")
 
--- options
+-- config
 require("config.colorscheme")
 require("config.options")
+require("config.keymaps")
 
--- plugins
-require("plugins.autopair")
-require("plugins.blink")
-require("plugins.comment")
-require("plugins.conform")
-require("plugins.diffview")
-require("plugins.indent-blankline")
-require("plugins.live-preview")
-require("plugins.lualine")
-require("plugins.navigator")
-require("plugins.neoscroll")
-require("plugins.oil")
-require("plugins.pack-manager")
-require("plugins.smear-cursor")
-require("plugins.surround")
-require("plugins.telescope")
-require("plugins.todo-comments")
-require("plugins.treesitter")
-require("plugins.undotree")
-require("plugins.which-key")
+-- vim.pack
+require("pack.pack-manager")
+
+-- decorator
+require("plugins.decorator.lualine")
+require("plugins.decorator.smear-cursor")
+
+-- fuzzy finder
+require("plugins.fuzzyfinder.telescope")
+
+-- syntax tree
+require("plugins.syntaxtree.treesitter")
+
+-- auto completion
+require("plugins.autocompletion.blink-cmp")
+
+-- formatter
+require("plugins.formatter.conform")
+
+-- explorer
+require("plugins.explorer.oil")
+
+-- editor
+require("plugins.editor.autopair")
+require("plugins.editor.comment")
+require("plugins.editor.indent-blankline")
+require("plugins.editor.surround")
+require("plugins.editor.todo-comments")
+require("plugins.editor.undotree")
+
+-- git
+require("plugins.git.diffview")
+
+-- util
+require("plugins.util.live-preview")
+require("plugins.util.navigator")
+require("plugins.util.which-key")
 
 -- lsp
 require("lsp.lsp-configs")
 require("lsp.nvim-dap")
 require("lsp.nvim-jdtls")
-
--- keymap
-require("config.keymaps")

@@ -20,3 +20,8 @@ require("diffview").setup({
 		},
 	},
 })
+
+vim.keymap.set("n", "<leader>go", ":DiffviewOpen<CR>", { desc = "Diffview Open" })
+vim.keymap.set("n", "<leader>gc", ":DiffviewClose<CR>", { desc = "Diffview Close" })
+vim.keymap.set("n", "<leader>gh", ":DiffviewFileHistory<CR>", { desc = "Diffview File History" })
+vim.keymap.set("n", "<leader>gf", ":DiffviewFileHistory %<CR>", { desc = "Diffview File History %" })

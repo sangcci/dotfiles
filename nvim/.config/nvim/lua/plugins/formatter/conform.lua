@@ -8,6 +8,7 @@ require("conform").setup({
 		lua = { "stylua" },
 		python = { "ruff_format", "ruff_organize_imports" },
 		javascript = { "prettierd", "prettier", stop_after_first = true },
+		go = { "goimports", "gofmt" },
 	},
 	formatters = {
 		-- ensures 4-space indentation for java

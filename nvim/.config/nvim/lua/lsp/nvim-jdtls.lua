@@ -108,7 +108,7 @@ vim.lsp.config("jdtls", {
 
 	on_attach = function(_, bufnr)
 		-- gradle-telescope setup
-		local gradle_telescope = require("gradle-telescope")
+		local gradle_telescope = require("lsp.gradle-telescope")
 		gradle_telescope.setup()
 
 		-- keymap
