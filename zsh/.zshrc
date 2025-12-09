@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 export ZPLUG_HOME=/opt/homebrew/opt/zplug # your os package manager path
 source $ZPLUG_HOME/init.zsh
 
@@ -31,8 +33,31 @@ bindkey '^p' history-substring-search-up
 bindkey '^n' history-substring-search-down
 
 # aliases
-alias ls='ls --color'
+alias ~="z ~"
+alias ..="z .."
+alias ...="z ../.."
+alias ....="z ../../../"
+alias ll='ls -l --color'
+alias lah='ls -lah --color'
+alias mkdir='mkdir -p -v'
 alias n='nvim'
+alias c='clear' 
+alias more='less'
+
+alias lessf='less +F'
+
+alias du='du -h -d 1 -x'	# Human-readable sizes
+alias df='df -h'			# Human-readable disk sizes
+
+alias nsl='netstat -an | grep --color=auto LISTEN'
+alias ns='netstat -an'
+alias nst='netstat -anp tcp'
+
+alias myip='echo "IPv4(Public): $(curl -4 -s ifconfig.me)\nIPv6(Public): $(curl -6 -s ifconfig.me 2>/dev/null || echo "Not available")"'
+alias localip='ipconfig getifaddr en0'     # Local IPv4 (WiFi)
+
+alias tracert="traceroute"
+alias ping="ping -c 5"
 
 # Shell Integration
 eval "$(fzf --zsh)"
