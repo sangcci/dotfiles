@@ -24,7 +24,6 @@ local servers = {
 }
 
 local formatters = {
-	"google-java-format", -- java formatter
 	"prettier", -- javascript/typescript formatter
 	"prettierd", -- javascript/typescript formatter
 	"ruff", -- python linter/formatter
