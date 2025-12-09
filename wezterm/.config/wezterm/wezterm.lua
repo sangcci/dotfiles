@@ -79,36 +79,39 @@ config.native_macos_fullscreen_mode = false
 
 -- keymap
 -- NOTE: https://github.com/numToStr/Navigator.nvim/wiki/WezTerm-Integration
-local act = wezterm.action
-local function isViProcess(pane)
-	-- get_foreground_process_name On Linux, macOS and Windows,
-	-- the process can be queried to determine this path. Other operating systems
-	-- (notably, FreeBSD and other unix systems) are not currently supported
-	return pane:get_foreground_process_name():find("n?vim") ~= nil or pane:get_title():find("n?vim") ~= nil
-end
-local function conditionalActivatePane(window, pane, pane_direction, vim_direction)
-	if isViProcess(pane) then
-		window:perform_action(
-			-- This should match the keybinds you set in Neovim.
-			act.SendKey({ key = vim_direction, mods = "ALT" }),
-			pane
-		)
-	else
-		window:perform_action(act.ActivatePaneDirection(pane_direction), pane)
+local function is_inside_vim(pane)
+	local tty = pane:get_tty_name()
+	if tty == nil then
+		return false
 	end
+
+	local success, stdout, stderr = wezterm.run_child_process({
+		"sh",
+		"-c",
+		"ps -o state= -o comm= -t"
+			.. wezterm.shell_quote_arg(tty)
+			.. " | "
+			.. "grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|l?n?vim?x?)(diff)?$'",
+	})
+
+	return success
 end
-wezterm.on("ActivatePaneDirection-right", function(window, pane)
-	conditionalActivatePane(window, pane, "Right", "l")
-end)
-wezterm.on("ActivatePaneDirection-left", function(window, pane)
-	conditionalActivatePane(window, pane, "Left", "h")
-end)
-wezterm.on("ActivatePaneDirection-up", function(window, pane)
-	conditionalActivatePane(window, pane, "Up", "k")
-end)
-wezterm.on("ActivatePaneDirection-down", function(window, pane)
-	conditionalActivatePane(window, pane, "Down", "j")
-end)
+
+local function is_outside_vim(pane)
+	return not is_inside_vim(pane)
+end
+
+local function bind_if(cond, key, mods, a)
+	local function callback(win, pane)
+		if cond(pane) then
+			win:perform_action(a, pane)
+		else
+			win:perform_action(action.SendKey({ key = key, mods = mods }), pane)
+		end
+	end
+
+	return { key = key, mods = mods, action = wezterm.action_callback(callback) }
+end
 
 config.leader = { key = "s", mods = "ALT", timeout_milliseconds = 1000 }
 config.keys = {
@@ -117,10 +120,10 @@ config.keys = {
 	{ key = "H", mods = "ALT", action = action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
 	{ key = "V", mods = "ALT", action = action.SplitVertical({ domain = "CurrentPaneDomain" }) },
 	-- movement
-	{ key = "h", mods = "ALT", action = act.EmitEvent("ActivatePaneDirection-left") },
-	{ key = "j", mods = "ALT", action = act.EmitEvent("ActivatePaneDirection-down") },
-	{ key = "k", mods = "ALT", action = act.EmitEvent("ActivatePaneDirection-up") },
-	{ key = "l", mods = "ALT", action = act.EmitEvent("ActivatePaneDirection-right") },
+	bind_if(is_outside_vim, "h", "ALT", action.ActivatePaneDirection("Left")),
+	bind_if(is_outside_vim, "j", "ALT", action.ActivatePaneDirection("Down")),
+	bind_if(is_outside_vim, "k", "ALT", action.ActivatePaneDirection("Up")),
+	bind_if(is_outside_vim, "l", "ALT", action.ActivatePaneDirection("Right")),
 	-- tab
 	{ key = "c", mods = "ALT", action = action.SpawnTab("CurrentPaneDomain") },
 	{ key = "n", mods = "ALT", action = action.ActivateTabRelative(1) },
