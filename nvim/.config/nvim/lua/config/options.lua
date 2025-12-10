@@ -44,9 +44,7 @@ vim.opt.smartindent = true
 -- remove auto-continuation of comment lines
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "*",
-	callback = function()
-		vim.opt_local.formatoptions:remove({ "c", "r", "o" })
-	end,
+	callback = function() vim.opt_local.formatoptions:remove({ "c", "r", "o" }) end,
 })
 
 -- diagnostic

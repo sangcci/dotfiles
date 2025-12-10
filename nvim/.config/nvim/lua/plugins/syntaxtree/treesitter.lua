@@ -3,31 +3,41 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects", version = "main" },
 })
 
-require("nvim-treesitter.configs").setup({
-	ensure_installed = {
+require("nvim-treesitter")
+	.install({
 		"javascript",
 		"typescript",
 		"java",
+		"gradle",
 		"python",
 		"c",
 		"go",
+		"gomod",
 		"lua",
 		"vim",
 		"vimdoc",
 		"query",
 		"markdown",
 		"markdown_inline",
-	},
-	sync_install = false,
-	auto_install = true,
-	highlight = {
-		enable = true,
-		additional_vim_regex_highlighting = false,
-	},
-	indent = {
-		enable = true,
-	},
+	})
+	:wait(30000)
+require("nvim-treesitter").update()
+
+-- auto-start highlights & indentation
+vim.api.nvim_create_autocmd("FileType", {
+	desc = "User: enable treesitter highlighting",
+	callback = function(ctx)
+		-- highlights
+		local hasStarted = pcall(vim.treesitter.start) -- errors for filetypes with no parser
+
+		-- indent
+		local noIndent = {}
+		if hasStarted and not vim.list_contains(noIndent, ctx.match) then
+			vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+		end
+	end,
 })
+
 require("nvim-treesitter-textobjects").setup({
 	move = {
 		-- whether to set jumps in the jumplist
@@ -52,45 +62,31 @@ vim.api.nvim_create_autocmd("PackChanged", {
 	end,
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "*" },
+	callback = function()
+		-- remove error = false when nvim 0.12+ is default
+		if vim.treesitter.get_parser(nil, nil, { error = false }) then
+			vim.treesitter.start()
+		end
+	end,
+})
+
 -- TODO: we have to get used to this keymap setting.
 
 -- goto_next_start
-vim.keymap.set({ "n", "x", "o" }, "]m", function()
-	require("nvim-treesitter-textobjects.move").goto_next_start("@function.outer", "textobjects")
-end)
-vim.keymap.set({ "n", "x", "o" }, "]c", function()
-	require("nvim-treesitter-textobjects.move").goto_next_start("@class.outer", "textobjects")
-end)
-vim.keymap.set({ "n", "x", "o" }, "]s", function()
-	require("nvim-treesitter-textobjects.move").goto_next_start("@local.scope", "locals")
-end)
-vim.keymap.set({ "n", "x", "o" }, "]z", function()
-	require("nvim-treesitter-textobjects.move").goto_next_start("@fold", "folds")
-end)
+vim.keymap.set({ "n", "x", "o" }, "]m", function() require("nvim-treesitter-textobjects.move").goto_next_start("@function.outer", "textobjects") end)
+vim.keymap.set({ "n", "x", "o" }, "]c", function() require("nvim-treesitter-textobjects.move").goto_next_start("@class.outer", "textobjects") end)
+vim.keymap.set({ "n", "x", "o" }, "]s", function() require("nvim-treesitter-textobjects.move").goto_next_start("@local.scope", "locals") end)
+vim.keymap.set({ "n", "x", "o" }, "]z", function() require("nvim-treesitter-textobjects.move").goto_next_start("@fold", "folds") end)
 
-vim.keymap.set({ "n", "x", "o" }, "]M", function()
-	require("nvim-treesitter-textobjects.move").goto_next_end("@function.outer", "textobjects")
-end)
-vim.keymap.set({ "n", "x", "o" }, "]C", function()
-	require("nvim-treesitter-textobjects.move").goto_next_end("@class.outer", "textobjects")
-end)
+vim.keymap.set({ "n", "x", "o" }, "]M", function() require("nvim-treesitter-textobjects.move").goto_next_end("@function.outer", "textobjects") end)
+vim.keymap.set({ "n", "x", "o" }, "]C", function() require("nvim-treesitter-textobjects.move").goto_next_end("@class.outer", "textobjects") end)
 
-vim.keymap.set({ "n", "x", "o" }, "[m", function()
-	require("nvim-treesitter-textobjects.move").goto_previous_start("@function.outer", "textobjects")
-end)
-vim.keymap.set({ "n", "x", "o" }, "[c", function()
-	require("nvim-treesitter-textobjects.move").goto_previous_start("@class.outer", "textobjects")
-end)
-vim.keymap.set({ "n", "x", "o" }, "[s", function()
-	require("nvim-treesitter-textobjects.move").goto_previous_start("@local.scope", "locals")
-end)
-vim.keymap.set({ "n", "x", "o" }, "[z", function()
-	require("nvim-treesitter-textobjects.move").goto_previous_start("@fold", "folds")
-end)
+vim.keymap.set({ "n", "x", "o" }, "[m", function() require("nvim-treesitter-textobjects.move").goto_previous_start("@function.outer", "textobjects") end)
+vim.keymap.set({ "n", "x", "o" }, "[c", function() require("nvim-treesitter-textobjects.move").goto_previous_start("@class.outer", "textobjects") end)
+vim.keymap.set({ "n", "x", "o" }, "[s", function() require("nvim-treesitter-textobjects.move").goto_previous_start("@local.scope", "locals") end)
+vim.keymap.set({ "n", "x", "o" }, "[z", function() require("nvim-treesitter-textobjects.move").goto_previous_start("@fold", "folds") end)
 
-vim.keymap.set({ "n", "x", "o" }, "[M", function()
-	require("nvim-treesitter-textobjects.move").goto_previous_end("@function.outer", "textobjects")
-end)
-vim.keymap.set({ "n", "x", "o" }, "[C", function()
-	require("nvim-treesitter-textobjects.move").goto_previous_end("@class.outer", "textobjects")
-end)
+vim.keymap.set({ "n", "x", "o" }, "[M", function() require("nvim-treesitter-textobjects.move").goto_previous_end("@function.outer", "textobjects") end)
+vim.keymap.set({ "n", "x", "o" }, "[C", function() require("nvim-treesitter-textobjects.move").goto_previous_end("@class.outer", "textobjects") end)

@@ -15,12 +15,18 @@ require("conform").setup({
 		["google-java-format"] = {
 			prepend_args = { "--aosp" },
 		},
+		stylua = {
+			prepend_args = {
+				"--collapse-simple-statement",
+				"FunctionOnly",
+				"--column-width",
+				"200",
+			},
+		},
 	},
 })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*",
-	callback = function(args)
-		require("conform").format({ bufnr = args.buf })
-	end,
+	callback = function(args) require("conform").format({ bufnr = args.buf }) end,
 })

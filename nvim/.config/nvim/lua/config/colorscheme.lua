@@ -29,9 +29,9 @@ require("base16-colorscheme").with_config({
 vim.cmd.colorscheme("github_dark")
 
 -- indent highlight group define as github_dark doesn't have highlight group
-vim.api.nvim_set_hl(0, 'IblIndent', { fg = '#21262d', nocombine = true })
-vim.api.nvim_set_hl(0, 'IblScope', { fg = '#1f6feb', nocombine = true })
-vim.api.nvim_set_hl(0, 'IblWhitespace', { fg = '#21262d', nocombine = true })
+vim.api.nvim_set_hl(0, "IblIndent", { fg = "#21262d", nocombine = true })
+vim.api.nvim_set_hl(0, "IblScope", { fg = "#1f6feb", nocombine = true })
+vim.api.nvim_set_hl(0, "IblWhitespace", { fg = "#21262d", nocombine = true })
 
 -- Set transparency AFTER loading colorscheme
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })

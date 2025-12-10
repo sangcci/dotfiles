@@ -50,9 +50,7 @@ require("blink.cmp").setup({
 				opts = {
 					insert = true, -- Insert emoji (default) or complete its name
 					---@type string|table|fun():table
-					trigger = function()
-						return { ":" }
-					end,
+					trigger = function() return { ":" } end,
 				},
 				should_show_items = function()
 					return vim.tbl_contains(

@@ -50,4 +50,6 @@ require("plugins.util.which-key")
 -- lsp
 require("lsp.lsp-configs")
 require("lsp.nvim-dap")
-require("lsp.nvim-jdtls")
+-- require("lsp.nvim-jdtls")
+require("lsp.nvim-java")
+require("lsp.nvim-neotest")

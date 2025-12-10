@@ -4,6 +4,10 @@
       "rev": "e30b7f2008e52442154b66f7c519bfd2f1e32acb",
       "src": "https://github.com/numToStr/Comment.nvim"
     },
+    "FixCursorHold.nvim": {
+      "rev": "1900f89dc17c603eec29960f57c00bd9ae696495",
+      "src": "https://github.com/antoinemadec/FixCursorHold.nvim"
+    },
     "Navigator.nvim": {
       "rev": "91d86506ac2a039504d5205d32a1d4bc7aa57072",
       "src": "https://github.com/numToStr/Navigator.nvim"
@@ -76,6 +80,22 @@
       "rev": "f957373912e88579e26fdaea4735450ff2ef5c9c",
       "src": "https://github.com/karb94/neoscroll.nvim"
     },
+    "neotest": {
+      "rev": "deadfb1af5ce458742671ad3a013acb9a6b41178",
+      "src": "https://github.com/nvim-neotest/neotest"
+    },
+    "neotest-golang": {
+      "rev": "b982da5f39980797c1bdec875d688a302245f31f",
+      "src": "https://github.com/fredrikaverpil/neotest-golang"
+    },
+    "neotest-java": {
+      "rev": "bf3f0f9dc972e36c86798208c205c6a575b72f4b",
+      "src": "https://github.com/rcasia/neotest-java"
+    },
+    "neotest-python": {
+      "rev": "b0d3a861bd85689d8ed73f0590c47963a7eb1bf9",
+      "src": "https://github.com/nvim-neotest/neotest-python"
+    },
     "nui.nvim": {
       "rev": "de740991c12411b663994b2860f1a4fd0937c130",
       "src": "https://github.com/MunifTanjim/nui.nvim"
@@ -112,9 +132,9 @@
       "rev": "62d268a3e582b846f5c20a895a07bd7d563e9db9",
       "src": "https://github.com/yorickpeterse/nvim-grey"
     },
-    "nvim-jdtls": {
-      "rev": "38d265ee4d45da73a083ca83e41de7d37567be5c",
-      "src": "https://github.com/mfussenegger/nvim-jdtls"
+    "nvim-java": {
+      "rev": "011b52180e75c693071106b774cebf64588aa8b0",
+      "src": "https://github.com/nvim-java/nvim-java"
     },
     "nvim-lspconfig": {
       "rev": "b7c48a7111534b66bee077da8035ac7208a294ff",
@@ -129,12 +149,12 @@
       "src": "https://github.com/kylechui/nvim-surround"
     },
     "nvim-treesitter": {
-      "rev": "42fc28ba918343ebfd5565147a42a26580579482",
+      "rev": "b6271b678e035a5cbf62d637364f3eeca0890171",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     },
     "nvim-treesitter-textobjects": {
-      "rev": "6f2dc7e41a648ec90314f0f94b5f574c75c5c58b",
+      "rev": "76deedf0f1cec4496ef8d49b6d1f020f6d0c6ec9",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
       "version": "'main'"
     },
@@ -161,6 +181,11 @@
     "smear-cursor.nvim": {
       "rev": "b9377c0508712c113d73d4ea94190a49b47ac18d",
       "src": "https://github.com/sphamba/smear-cursor.nvim"
+    },
+    "spring-boot.nvim": {
+      "rev": "218c0c26c14d99feca778e4d13f5ec3e8b1b60f0",
+      "src": "https://github.com/JavaHello/spring-boot.nvim",
+      "version": "'218c0c26c14d99feca778e4d13f5ec3e8b1b60f0'"
     },
     "telescope-fzf-native.nvim": {
       "rev": "6fea601bd2b694c6f2ae08a6c6fab14930c60e2c",
