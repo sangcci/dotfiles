@@ -25,6 +25,7 @@ It can be only worked on Mac OS.
 - neovim: +0.12 nightmare
 - zoxide
 - fzf
+- treesitter, treesitter-cli
 
 # Several issues
 

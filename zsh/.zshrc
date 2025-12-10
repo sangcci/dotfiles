@@ -89,6 +89,12 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 export ZVM_VI_EDITOR='nvim'
 
+# Node Path
+export PATH="/opt/homebrew/bin/node:$PATH"
+
+# tree-sitter-cli installed by node_modules PATH
+export PATH="$HOME/node_modules/tree-sitter-cli/:$PATH"
+
 # Bob Neovim Version Manager
 export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
 
