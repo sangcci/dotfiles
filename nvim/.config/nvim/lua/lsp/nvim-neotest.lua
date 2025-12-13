@@ -27,7 +27,7 @@ require("neotest").setup({
 	log_level = vim.log.levels.DEBUG,
 })
 
-vim.api.nvim_create_autocmd("FileType", {
+vim.api.nvim_create_autocmd("LspAttach", {
 	pattern = { "go", "python", "rust", "javascript", "typescript", "lua" }, -- Add your languages
 	callback = function()
 		vim.keymap.set("n", "<leader>ta", function() require("neotest").run.attach() end, { desc = "[t]est [a]ttach" })

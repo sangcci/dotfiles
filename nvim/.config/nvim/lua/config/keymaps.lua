@@ -36,7 +36,7 @@ vim.keymap.set("n", "Y", "yg$", { desc = "Copy from cursor to the end" })
 vim.keymap.set({ "n", "x" }, "<leader>p", '"0p', { desc = "Paste from yank register" })
 
 -- substitute
-vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>", { desc = "Substitute" })
+vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gc<Left><Left><Left>", { desc = "Substitute" })
 
 -- !! Don't use
 vim.keymap.set("n", "Q", "<nop>")

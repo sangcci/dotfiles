@@ -42,7 +42,7 @@ local function java_action(action)
 		})
 	end
 end
-vim.api.nvim_create_autocmd("FileType", {
+vim.api.nvim_create_autocmd("LspAttach", {
 	pattern = "java",
 	callback = function()
 		local opts = { buffer = true, silent = true }

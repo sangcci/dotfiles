@@ -58,11 +58,13 @@ require("mason-tool-installer").setup({
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(args)
 		local opts = { buffer = args.buf }
+		local builtin = require("telescope.builtin")
 
-		-- open diagnositcs on float window
-		vim.keymap.set("n", "gl", vim.diagnostic.open_float, { desc = "Show line diagnostics" })
-
-		-- using conform plugins
+		vim.keymap.set("n", "gl", builtin.diagnostics, { desc = "Diagnostics" })
+		vim.keymap.set("n", "gd", builtin.lsp_definitions, { desc = "Find Definitions" })
+		vim.keymap.set("n", "gr", builtin.lsp_references, { desc = "Find References" })
+		vim.keymap.set("n", "gi", builtin.lsp_implementations, { desc = "Find Implementations" })
+		vim.keymap.set("n", "gt", builtin.lsp_type_definitions, { desc = "Find Type Definitions" })
 		vim.keymap.set("n", "<leader>r", function() require("conform").format({ bufnr = args.buf, async = true, lsp_fallback = true }) end, vim.tbl_extend("force", opts, { desc = "format" }))
 	end,
 })
