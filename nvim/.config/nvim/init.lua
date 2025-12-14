@@ -14,7 +14,6 @@ require("pack.pack-manager")
 
 -- decorator
 require("plugins.decorator.lualine")
-require("plugins.decorator.smear-cursor")
 
 -- fuzzy finder
 require("plugins.fuzzyfinder.telescope")
