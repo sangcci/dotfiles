@@ -26,6 +26,7 @@ It can be only worked on Mac OS.
 - zoxide
 - fzf
 - treesitter, treesitter-cli
+- lsd
 
 # Several issues
 
