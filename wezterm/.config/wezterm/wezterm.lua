@@ -10,50 +10,22 @@ end)
 
 -- font
 config.font = wezterm.font({
-	family = "Iosevka Nerd Font",
-	weight = "Light",
+	family = "JetBrainsMono Nerd Font Mono",
+	weight = "Thin",
 	harfbuzz_features = { "calt=0", "clig=0", "liga=0" }, -- disable ligatures
 })
-config.font_size = 14.0
-config.line_height = 1.2
+config.font_size = 13.0
+config.line_height = 1.3
 
 -- colorscheme
-config.color_scheme = "Github Dark"
+local theme = wezterm.plugin.require("https://github.com/neapsix/wezterm").main
+config.colors = theme.colors()
+config.window_frame = theme.window_frame()
+-- config.color_scheme = "rose-pine"
 
 -- tab bar
 config.use_fancy_tab_bar = false -- don't use the fancy tab bar
 config.hide_tab_bar_if_only_one_tab = false
-config.colors = {
-	tab_bar = {
-		background = "#161b22", -- Github Dark background
-
-		active_tab = {
-			bg_color = "#1f6feb", -- Github blue accent
-			fg_color = "#f0f6fc",
-			intensity = "Bold",
-		},
-
-		inactive_tab = {
-			bg_color = "#161b22",
-			fg_color = "#8b949e",
-		},
-
-		inactive_tab_hover = {
-			bg_color = "#21262d",
-			fg_color = "#c9d1d9",
-		},
-
-		new_tab = {
-			bg_color = "#161b22",
-			fg_color = "#8b949e",
-		},
-
-		new_tab_hover = {
-			bg_color = "#21262d",
-			fg_color = "#c9d1d9",
-		},
-	},
-}
 
 -- window style
 config.window_padding = {
@@ -63,18 +35,8 @@ config.window_padding = {
 	bottom = 50,
 }
 config.window_decorations = "RESIZE"
-config.macos_window_background_blur = 20
-config.window_background_opacity = 0.4
-config.background = {
-	{
-		source = {
-			Color = "#0d1117",
-		},
-		width = "100%",
-		height = "100%",
-		opacity = 0.7,
-	},
-}
+config.macos_window_background_blur = 40
+config.window_background_opacity = 0.9
 config.native_macos_fullscreen_mode = false
 
 -- keymap
@@ -88,18 +50,13 @@ local function is_inside_vim(pane)
 	local success, stdout, stderr = wezterm.run_child_process({
 		"sh",
 		"-c",
-		"ps -o state= -o comm= -t"
-			.. wezterm.shell_quote_arg(tty)
-			.. " | "
-			.. "grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|l?n?vim?x?)(diff)?$'",
+		"ps -o state= -o comm= -t" .. wezterm.shell_quote_arg(tty) .. " | " .. "grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|l?n?vim?x?)(diff)?$'",
 	})
 
 	return success
 end
 
-local function is_outside_vim(pane)
-	return not is_inside_vim(pane)
-end
+local function is_outside_vim(pane) return not is_inside_vim(pane) end
 
 local function bind_if(cond, key, mods, a)
 	local function callback(win, pane)
