@@ -5,15 +5,15 @@ echo "=========================================="
 echo "  Installing bob (Neovim Version Manager)"
 echo "=========================================="
 
+# Source cargo environment if needed
+if [ -f "$HOME/.cargo/env" ]; then
+    source "$HOME/.cargo/env"
+fi
+
 # Ensure cargo is in PATH
 if ! command -v cargo &> /dev/null; then
     echo "Error: Rust/Cargo not found. Please run 07-rust.sh first."
     exit 1
-fi
-
-# Source cargo environment if needed
-if [ -f "$HOME/.cargo/env" ]; then
-    source "$HOME/.cargo/env"
 fi
 
 # Install bob

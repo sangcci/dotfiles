@@ -17,6 +17,7 @@ sudo apt install -y \
     wget \
     build-essential \
     stow \
+    zip \
     unzip \
     ripgrep \
     fd-find \

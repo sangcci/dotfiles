@@ -47,6 +47,14 @@ for script in "${SCRIPTS[@]}"; do
     if bash "$SCRIPT_DIR/$script"; then
         echo ""
         echo "✓ $script completed successfully"
+
+        # Source cargo environment after installing Rust
+        if [ "$script" = "07-rust.sh" ]; then
+            if [ -f "$HOME/.cargo/env" ]; then
+                echo "Sourcing Rust environment..."
+                source "$HOME/.cargo/env"
+            fi
+        fi
     else
         echo ""
         echo "✗ $script failed!"
