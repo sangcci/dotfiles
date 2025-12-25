@@ -61,7 +61,6 @@ telescope.load_extension("fzf")
 telescope.load_extension("grey")
 
 local builtin = require("telescope.builtin")
-vim.keymap.set("n", "gl", builtin.diagnostics, { desc = "Diagnostics" })
 vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Files" })
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Grep" })
 vim.keymap.set("n", "<leader>f.", builtin.lsp_document_symbols, { desc = "Documents Symbols" })
