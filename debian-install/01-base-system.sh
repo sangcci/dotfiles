@@ -25,7 +25,8 @@ sudo apt install -y \
     pkg-config \
     libtool \
     ninja-build \
-    gettext
+    gettext \
+    htop
 
 echo ""
 echo "✓ Base system packages installed successfully!"

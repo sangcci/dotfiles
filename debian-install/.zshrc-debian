@@ -1,8 +1,15 @@
 #!/bin/zsh
-# Debian-compatible .zshrc
+# Cross-platform .zshrc (Debian & macOS compatible)
 
-# zplug configuration (Debian path)
-export ZPLUG_HOME="$HOME/.zplug"
+# zplug configuration - detect OS and set correct path
+if [[ "$(uname -s)" == "Darwin" ]]; then
+    # macOS - using Homebrew
+    export ZPLUG_HOME="/opt/homebrew/opt/zplug"
+else
+    # Linux/Debian - using local installation
+    export ZPLUG_HOME="$HOME/.zplug"
+fi
+
 source $ZPLUG_HOME/init.zsh
 
 # zplug plugins
@@ -65,8 +72,17 @@ alias tracert="traceroute"
 alias ping="ping -c 5"
 
 # Shell Integration
-eval "$(fzf --zsh)"
-eval "$(zoxide init zsh)"
+# fzf - fuzzy finder
+if command -v fzf &> /dev/null; then
+    eval "$(fzf --zsh)"
+elif [ -f ~/.fzf.zsh ]; then
+    source ~/.fzf.zsh
+fi
+
+# zoxide - smart cd
+if command -v zoxide &> /dev/null; then
+    eval "$(zoxide init zsh)"
+fi
 
 # History
 HISTSIZE=10000
