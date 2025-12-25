@@ -1,6 +1,14 @@
 #!/bin/zsh
 
-export ZPLUG_HOME=/opt/homebrew/opt/zplug # your os package manager path
+# zplug configuration - detect OS and set correct path
+if [[ "$(uname -s)" == "Darwin" ]]; then
+    # macOS - using Homebrew
+    export ZPLUG_HOME="/opt/homebrew/opt/zplug"
+else
+    # Linux/Debian - using local installation
+    export ZPLUG_HOME="$HOME/.zplug"
+fi
+
 source $ZPLUG_HOME/init.zsh
 
 zplug "mafredri/zsh-async", from:github
@@ -56,14 +64,29 @@ alias ns='netstat -an'
 alias nst='netstat -anp tcp'
 
 alias myip='echo "IPv4(Public): $(curl -4 -s ifconfig.me)\nIPv6(Public): $(curl -6 -s ifconfig.me 2>/dev/null || echo "Not available")"'
-alias localip='ipconfig getifaddr en0'     # Local IPv4 (WiFi)
+
+# OS-specific localip alias
+if [[ "$(uname -s)" == "Darwin" ]]; then
+    alias localip='ipconfig getifaddr en0'     # Local IPv4 (WiFi - macOS)
+else
+    alias localip='hostname -I | awk "{print \$1}"'  # Local IPv4 (Debian/Linux)
+fi
 
 alias tracert="traceroute"
 alias ping="ping -c 5"
 
 # Shell Integration
-eval "$(fzf --zsh)"
-eval "$(zoxide init zsh)"
+# fzf - fuzzy finder
+if command -v fzf &> /dev/null; then
+    eval "$(fzf --zsh)"
+elif [ -f ~/.fzf.zsh ]; then
+    source ~/.fzf.zsh
+fi
+
+# zoxide - smart cd
+if command -v zoxide &> /dev/null; then
+    eval "$(zoxide init zsh)"
+fi
 
 # History
 HISTSIZE=10000
@@ -80,36 +103,44 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
-# change the tap title name as opening the shell using wezterm
-chpwd() {
-  wezterm cli set-tab-title "$(basename "$(pwd)")"
-}
-wezterm cli set-tab-title $(basename $(pwd))
+# change the tab title name as opening the shell using wezterm (macOS only)
+if command -v wezterm &> /dev/null; then
+  chpwd() {
+    wezterm cli set-tab-title "$(basename "$(pwd)")"
+  }
+  wezterm cli set-tab-title $(basename $(pwd))
+fi
 
 # Set default editor
 export EDITOR='nvim'
 export VISUAL='nvim'
 export ZVM_VI_EDITOR='nvim'
 
-# node.js
-export PATH="/opt/homebrew/bin/node:$PATH"
+# node.js - OS-specific paths
+if [[ "$(uname -s)" == "Darwin" ]]; then
+    export PATH="/opt/homebrew/bin/node:$PATH"
+else
+    export PATH="/usr/bin/node:$PATH"
+fi
 
-# tree-sitter-cli installed by node_modules PATH
-export PATH="$HOME/node_modules/tree-sitter-cli/:$PATH"
+# Local bin
+export PATH="$HOME/.local/bin:$PATH"
 
-# bob
+# Rust cargo bin
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# tree-sitter-cli installed by npm global
+export PATH="$(npm config get prefix)/bin:$PATH"
+
+# Bob Neovim Version Manager
 export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
 
-# sdkman
+# SDKMAN_DIR
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-# uv
-. "$HOME/.local/bin/env"
+# uv python manager
+[ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
 
-# envman
+# Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
-
-# fzf
-export PATH="$HOME/.fzf/bin:$PATH"
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
