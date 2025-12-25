@@ -91,21 +91,25 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 export ZVM_VI_EDITOR='nvim'
 
-# Node Path
+# node.js
 export PATH="/opt/homebrew/bin/node:$PATH"
 
 # tree-sitter-cli installed by node_modules PATH
 export PATH="$HOME/node_modules/tree-sitter-cli/:$PATH"
 
-# Bob Neovim Version Manager
+# bob
 export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
 
-# SDKMAN_DIR
+# sdkman
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-# TODO: set location to run python on neovim lsp 
+# uv
 . "$HOME/.local/bin/env"
 
-# Generated for envman. Do not edit.
+# envman
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
+# fzf
+export PATH="$HOME/.fzf/bin:$PATH"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
