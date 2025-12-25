@@ -75,19 +75,6 @@ fi
 alias tracert="traceroute"
 alias ping="ping -c 5"
 
-# Shell Integration
-# fzf - fuzzy finder
-if command -v fzf &> /dev/null; then
-    eval "$(fzf --zsh)"
-elif [ -f ~/.fzf.zsh ]; then
-    source ~/.fzf.zsh
-fi
-
-# zoxide - smart cd
-if command -v zoxide &> /dev/null; then
-    eval "$(zoxide init zsh)"
-fi
-
 # History
 HISTSIZE=10000
 SAVEHIST=10000
@@ -116,6 +103,7 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 export ZVM_VI_EDITOR='nvim'
 
+
 # node.js - OS-specific paths
 if [[ "$(uname -s)" == "Darwin" ]]; then
     export PATH="/opt/homebrew/bin/node:$PATH"
@@ -125,6 +113,18 @@ fi
 
 # Local bin
 export PATH="$HOME/.local/bin:$PATH"
+
+# Shell Integration
+# fzf - fuzzy finder
+if command -v fzf &> /dev/null; then
+	eval "$(fzf --zsh)"
+elif [ -f ~/.fzf.zsh ]; then
+	source ~/.fzf.zsh
+fi
+
+# zoxide - smart cd
+# NOTE: it should be after registering local bin path
+eval "$(zoxide init zsh)"
 
 # Rust cargo bin
 export PATH="$HOME/.cargo/bin:$PATH"
