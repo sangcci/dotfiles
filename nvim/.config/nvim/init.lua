@@ -13,6 +13,7 @@ require("config.keymaps")
 require("pack.pack-manager")
 
 -- decorator
+require("plugins.decorator.alpha-nvim")
 require("plugins.decorator.lualine")
 
 -- fuzzy finder
