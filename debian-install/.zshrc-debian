@@ -104,27 +104,37 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 export ZVM_VI_EDITOR='nvim'
 
-# Add local bin to PATH
+# ============================================================
+# Language Runtime PATH Configuration
+# ============================================================
+
+# Local binaries (uv, custom scripts, etc.)
 export PATH="$HOME/.local/bin:$PATH"
 
-# Node Path
-export PATH="/usr/bin/node:$PATH"
+# Go Programming Language
+export PATH="/usr/local/go/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
 
-# tree-sitter-cli installed by npm global
-export PATH="$(npm config get prefix)/bin:$PATH"
-
-# Bob Neovim Version Manager
-export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
-
-# Rust cargo bin
+# Rust (Cargo)
 export PATH="$HOME/.cargo/bin:$PATH"
 
-# SDKMAN_DIR
+# Node.js and npm global packages
+export PATH="/usr/bin/node:$PATH"
+export PATH="$(npm config get prefix)/bin:$PATH"
+
+# Python (uv package manager)
+[ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
+
+# Java (SDKMan)
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-# uv python manager
-[ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
+# ============================================================
+# Tool-specific PATH Configuration
+# ============================================================
+
+# Bob Neovim Version Manager
+export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
