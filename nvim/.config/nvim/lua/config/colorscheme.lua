@@ -1,4 +1,5 @@
 vim.pack.add({
+	{ src = "https://github.com/rebelot/kanagawa.nvim" },
 	{ src = "https://github.com/catppuccin/nvim" },
 	{ src = "https://github.com/RRethy/base16-nvim" },
 	{ src = "https://github.com/yorickpeterse/nvim-grey" },
@@ -27,7 +28,7 @@ require("base16-colorscheme").with_config({
 	-- illuminate = true,
 	dapui = true,
 })
-vim.cmd.colorscheme("rose-pine")
+vim.cmd.colorscheme("kanagawa-dragon")
 
 -- indent highlight group define as github_dark doesn't have highlight group
 -- vim.api.nvim_set_hl(0, "IblIndent", { fg = "#21262d", nocombine = true })
@@ -35,10 +36,10 @@ vim.cmd.colorscheme("rose-pine")
 -- vim.api.nvim_set_hl(0, "IblWhitespace", { fg = "#21262d", nocombine = true })
 
 -- Set transparency AFTER loading colorscheme
-vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
-vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
-vim.api.nvim_set_hl(0, "LineNr", { bg = "none" })
-vim.api.nvim_set_hl(0, "Folded", { bg = "none" })
-vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
+-- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+-- vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
+-- vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+-- vim.api.nvim_set_hl(0, "LineNr", { bg = "none" })
+-- vim.api.nvim_set_hl(0, "Folded", { bg = "none" })
+-- vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
