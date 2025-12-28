@@ -20,6 +20,10 @@
       "rev": "e85019b3d2205aa2c57d997bae3b3b01d2c30ad8",
       "src": "https://github.com/RRethy/base16-nvim"
     },
+    "blink-cmp-copilot": {
+      "rev": "439cff78780c033aa23cf061d7315314b347e3c1",
+      "src": "https://github.com/giuxtaposition/blink-cmp-copilot"
+    },
     "blink-emoji.nvim": {
       "rev": "066013e4c98a9318408ee3f1ca2dbcb6fa3e4c06",
       "src": "https://github.com/moyiz/blink-emoji.nvim"
@@ -35,6 +39,14 @@
     "conform.nvim": {
       "rev": "ffe26e8df8115c9665d24231f8a49fadb2d611ce",
       "src": "https://github.com/stevearc/conform.nvim"
+    },
+    "copilot-lsp": {
+      "rev": "884034b23c3716d55b417984ad092dc2b011115b",
+      "src": "https://github.com/copilotlsp-nvim/copilot-lsp"
+    },
+    "copilot.lua": {
+      "rev": "e78d1ffebdf6ccb6fd8be4e6898030c1cf5f9b64",
+      "src": "https://github.com/zbirenbaum/copilot.lua"
     },
     "diffview.nvim": {
       "rev": "4516612fe98ff56ae0415a259ff6361a89419b0a",
@@ -59,6 +71,10 @@
     "live-preview.nvim": {
       "rev": "0e7c0d62d4ab422a204ce6ad57fb408c4fc03b7c",
       "src": "https://github.com/brianhuster/live-preview.nvim"
+    },
+    "lspkind.nvim": {
+      "rev": "3ddd1b4edefa425fda5a9f95a4f25578727c0bb3",
+      "src": "https://github.com/onsails/lspkind.nvim"
     },
     "lualine.nvim": {
       "rev": "3946f0122255bc377d14a59b27b609fb3ab25768",

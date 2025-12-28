@@ -2,6 +2,7 @@ vim.pack.add({
 	{ src = "https://github.com/rafamadriz/friendly-snippets" },
 	{ src = "https://github.com/Saghen/blink.cmp" },
 	{ src = "https://github.com/moyiz/blink-emoji.nvim" },
+	{ src = "https://github.com/onsails/lspkind.nvim" },
 })
 
 -- Enable Blink Completion
@@ -21,14 +22,44 @@ require("blink.cmp").setup({
 	},
 
 	completion = {
+		accept = { auto_brackets = { enabled = true } },
+		list = {
+			selection = {
+				preselect = false,
+				auto_insert = true,
+			},
+		},
 		menu = {
-			border = "rounded",
+			draw = {
+				columns = {
+					{ "kind_icon", "label", gap = 1 },
+					{ "kind" },
+				},
+				components = {
+					kind_icon = {
+						text = function(item)
+							local kind = require("lspkind").symbol_map[item.kind] or ""
+							return kind .. " "
+						end,
+						highlight = "CmpItemKind",
+					},
+					label = {
+						text = function(item) return item.label end,
+						highlight = "CmpItemAbbr",
+					},
+					kind = {
+						text = function(item) return item.kind end,
+						highlight = "CmpItemKind",
+					},
+				},
+			},
 		},
 		ghost_text = {
 			enabled = true,
 		},
 		documentation = {
 			auto_show = true,
+			auto_show_delay_ms = 500,
 		},
 	},
 
@@ -41,7 +72,7 @@ require("blink.cmp").setup({
 	},
 
 	sources = {
-		default = { "lsp", "path", "snippets", "buffer", "emoji" },
+		default = { "lsp", "path", "snippets", "buffer", "emoji", "copilot" },
 		providers = {
 			emoji = {
 				module = "blink-emoji",
@@ -60,6 +91,12 @@ require("blink.cmp").setup({
 						vim.o.filetype
 					)
 				end,
+			},
+			copilot = {
+				name = "copilot",
+				module = "blink-cmp-copilot",
+				score_offset = 100,
+				async = true,
 			},
 		},
 	},

@@ -47,6 +47,9 @@ require("plugins.util.live-preview")
 require("plugins.util.navigator")
 require("plugins.util.which-key")
 
+-- ai
+require("ai.copilot")
+
 -- lsp
 require("lsp.lsp-configs")
 require("lsp.nvim-dap")
