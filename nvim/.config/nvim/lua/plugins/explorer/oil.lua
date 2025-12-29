@@ -33,4 +33,5 @@ require("oil-git").setup({
 	},
 })
 
-vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>", { desc = "Explorer Oil" })
+vim.keymap.set("n", "<leader>ee", "<CMD>Oil<CR>", { desc = "Explorer Oil" })
+vim.keymap.set("n", "<leader>eh", require("oil").toggle_hidden, { desc = "Show hidden files in Oil" })

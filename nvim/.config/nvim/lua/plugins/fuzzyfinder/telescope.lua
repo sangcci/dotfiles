@@ -1,4 +1,4 @@
--- NOTE: if you want to use on Debian ver +12, we have to create a symlink
+-- NOTE: if you want to use on Debian ver +12, we have to create a symlink. Unless not using fd, nothing to do.
 -- `sudo ln -s -f "$(which fdfind)" /usr/local/bin/fd`
 local pack_builder = require("pack.pack-builder")
 
@@ -39,12 +39,10 @@ telescope.setup({
 	},
 	pickers = {
 		find_files = {
-			hidden = true,
 			find_command = {
 				"fd",
 				"--type",
 				"f",
-				"--hidden",
 				"--exclude",
 				".git",
 				"--exclude",
@@ -63,7 +61,31 @@ telescope.load_extension("fzf")
 telescope.load_extension("grey")
 
 local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Files" })
+vim.keymap.set(
+	"n",
+	"<leader>ff",
+	function()
+		builtin.find_files({
+			find_command = {
+				"fd",
+				"--type",
+				"f",
+				"--exclude",
+				"node_modules",
+				"--exclude",
+				".npm",
+				"--exclude",
+				".git",
+				"--exclude",
+				"bin/",
+				"--exclude",
+				"build/",
+			},
+		})
+	end,
+	{ desc = "Find Files" }
+)
+vim.keymap.set("n", "<leader>fa", builtin.find_files, { desc = "Find Files All" })
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Grep" })
 vim.keymap.set("n", "<leader>f.", builtin.lsp_document_symbols, { desc = "Documents Symbols" })
 vim.keymap.set("n", "<leader>fw", builtin.lsp_dynamic_workspace_symbols, { desc = "Workspace Symbols" })
