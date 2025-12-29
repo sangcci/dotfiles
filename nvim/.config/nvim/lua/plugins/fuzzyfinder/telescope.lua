@@ -1,3 +1,5 @@
+-- NOTE: if you want to use on Debian ver +12, we have to create a symlink
+-- `sudo ln -s -f "$(which fdfind)" /usr/local/bin/fd`
 local pack_builder = require("pack.pack-builder")
 
 vim.pack.add({
