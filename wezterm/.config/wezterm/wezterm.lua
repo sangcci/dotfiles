@@ -15,7 +15,7 @@ config.font = wezterm.font({
 	harfbuzz_features = { "calt=0", "clig=0", "liga=0" }, -- disable ligatures
 })
 config.font_size = 13.0
-config.line_height = 1.3
+config.line_height = 1.4
 
 -- colorscheme
 -- config.color_scheme = "Kanagawa Dragon (Gogh)"
@@ -63,12 +63,21 @@ config.colors = {
 config.use_fancy_tab_bar = false -- don't use the fancy tab bar
 config.hide_tab_bar_if_only_one_tab = false
 
+local tabline = wezterm.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
+tabline.setup({
+	options = {
+		theme = config.colors,
+	},
+	extensions = { "resurrect" },
+})
+-- tabline.apply_to_config(config)
+
 -- window style
 config.window_padding = {
-	left = 120,
-	right = 120,
-	top = 100,
-	bottom = 50,
+	left = 0,
+	right = 0,
+	top = 0,
+	bottom = 0,
 }
 config.window_decorations = "RESIZE"
 -- config.macos_window_background_blur = 40
@@ -123,4 +132,5 @@ config.keys = {
 	{ key = "p", mods = "ALT", action = action.ActivateTabRelative(-1) },
 }
 
+tabline.apply_to_config(config)
 return config
