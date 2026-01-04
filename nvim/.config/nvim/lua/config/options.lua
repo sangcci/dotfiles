@@ -73,3 +73,16 @@ for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
+
+-- tabline
+vim.o.showtabline = 2
+
+function _G.custom_tabline()
+	local bufname = vim.fn.expand("%:~:.")
+	if bufname == "" then
+		bufname = "[No Name]"
+	end
+	return "%=" .. bufname .. "%=" -- centered
+end
+
+vim.o.tabline = "%!v:lua.custom_tabline()"
