@@ -43,6 +43,7 @@ require("plugins.editor.undotree")
 require("plugins.git.diffview")
 
 -- util
+require("plugins.util.fidget")
 require("plugins.util.harpoon2")
 require("plugins.util.live-preview")
 require("plugins.util.navigator")
