@@ -90,13 +90,17 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
+# Forcing the Prompt to the Bottom
+end=$(tput cup 9999 0)
+PROMPT="%{${end}%}> "
+
 # change the tab title name as opening the shell using wezterm (macOS only)
-if command -v wezterm &> /dev/null; then
-  chpwd() {
-    wezterm cli set-tab-title "$(basename "$(pwd)")"
-  }
-  wezterm cli set-tab-title $(basename $(pwd))
-fi
+# if command -v wezterm &> /dev/null; then
+#   chpwd() {
+#     wezterm cli set-tab-title "$(basename "$(pwd)")"
+#   }
+#   wezterm cli set-tab-title $(basename $(pwd))
+# fi
 
 # fzf Kanagawa Dragon theme
 if command -v fzf &> /dev/null; then
