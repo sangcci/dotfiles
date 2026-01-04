@@ -10,12 +10,12 @@ end)
 
 -- font
 config.font = wezterm.font({
-	family = "JetBrainsMono Nerd Font Mono",
-	weight = "Thin",
+	family = "SFMono Nerd Font",
+	weight = "Regular",
 	harfbuzz_features = { "calt=0", "clig=0", "liga=0" }, -- disable ligatures
 })
-config.font_size = 13.0
-config.line_height = 1.4
+config.font_size = 13.5
+config.line_height = 1.5
 
 -- colorscheme
 -- config.color_scheme = "Kanagawa Dragon (Gogh)"

@@ -158,6 +158,9 @@ export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
+# JLS
+# export JAVA_LSP_HOST_JAVA="$HOME/.sdkman/candidates/java/25.0.1-tem/bin/java"
+
 # uv python manager
 [ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
 

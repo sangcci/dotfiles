@@ -166,7 +166,7 @@
       "src": "https://github.com/yorickpeterse/nvim-grey"
     },
     "nvim-java": {
-      "rev": "011b52180e75c693071106b774cebf64588aa8b0",
+      "rev": "d196b25eda89ae957110f2966d1753889dc197b2",
       "src": "https://github.com/nvim-java/nvim-java"
     },
     "nvim-lspconfig": {
