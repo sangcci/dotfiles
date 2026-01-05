@@ -20,6 +20,7 @@ zplug 'zsh-users/zsh-autosuggestions', defer:2
 zplug "zsh-users/zsh-history-substring-search", as:plugin
 zplug "Aloxaf/fzf-tab", from:github
 zplug "jeffreytse/zsh-vi-mode"
+zplug "olets/zsh-transient-prompt"
 
 zplug "plugins/git", from:oh-my-zsh
 
@@ -31,6 +32,10 @@ if ! zplug check --verbose; then
 fi
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
+
+# Pure enhanced with transient prompt
+TRANSIENT_PROMPT_PROMPT=$'%F{${prompt_pure_colors[path]}}%~%f\n%{\C-M%}%(12V.%F{$prompt_pure_colors[virtualenv]}%12v%f .)%(?.%F{$prompt_pure_colors[prompt:success]}.%F{$prompt_pure_colors[prompt:error]})${prompt_pure_state[prompt]}%f '
+TRANSIENT_PROMPT_TRANSIENT_PROMPT='%(12V.%F{$prompt_pure_colors[virtualenv]}%12v%f .)%(?.%F{$prompt_pure_colors[prompt:success]}.%F{$prompt_pure_colors[prompt:error]})${prompt_pure_state[prompt]} %f'
 
 zplug load
 
@@ -91,8 +96,8 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
 # Forcing the Prompt to the Bottom
-end=$(tput cup 9999 0)
-PROMPT="%{${end}%}> "
+#end=$(tput cup 9999 0)
+#PROMPT="%{${end}%}> "
 
 # change the tab title name as opening the shell using wezterm (macOS only)
 # if command -v wezterm &> /dev/null; then
@@ -166,3 +171,6 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
+# fetch
+nerdfetch
