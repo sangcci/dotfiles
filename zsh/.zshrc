@@ -19,7 +19,6 @@ zplug 'zsh-users/zsh-completions', defer:2
 zplug 'zsh-users/zsh-autosuggestions', defer:2
 zplug "zsh-users/zsh-history-substring-search", as:plugin
 zplug "Aloxaf/fzf-tab", from:github
-zplug "jeffreytse/zsh-vi-mode"
 zplug "olets/zsh-transient-prompt"
 
 zplug "plugins/git", from:oh-my-zsh
@@ -36,6 +35,16 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 # Pure enhanced with transient prompt
 TRANSIENT_PROMPT_PROMPT=$'%F{${prompt_pure_colors[path]}}%~%f\n%{\C-M%}%(12V.%F{$prompt_pure_colors[virtualenv]}%12v%f .)%(?.%F{$prompt_pure_colors[prompt:success]}.%F{$prompt_pure_colors[prompt:error]})${prompt_pure_state[prompt]}%f '
 TRANSIENT_PROMPT_TRANSIENT_PROMPT='%(12V.%F{$prompt_pure_colors[virtualenv]}%12v%f .)%(?.%F{$prompt_pure_colors[prompt:success]}.%F{$prompt_pure_colors[prompt:error]})${prompt_pure_state[prompt]} %f'
+
+# fzf integration
+if command -v fzf &> /dev/null; then
+  eval "$(fzf --zsh)"
+elif [ -f ~/.fzf.zsh ]; then
+  source ~/.fzf.zsh
+fi
+
+# fzf-git.sh integration
+[ -f ~/dotfiles/fzf-git.sh/fzf-git.sh ] && source ~/dotfiles/fzf-git.sh/fzf-git.sh
 
 zplug load
 
@@ -57,6 +66,7 @@ alias lt='lsd --tree'
 alias mkdir='mkdir -p -v'
 alias n='nvim'
 alias c='clear' 
+alias cat='bat'
 alias more='less'
 
 alias lessf='less +F'
@@ -95,18 +105,6 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
-# Forcing the Prompt to the Bottom
-#end=$(tput cup 9999 0)
-#PROMPT="%{${end}%}> "
-
-# change the tab title name as opening the shell using wezterm (macOS only)
-# if command -v wezterm &> /dev/null; then
-#   chpwd() {
-#     wezterm cli set-tab-title "$(basename "$(pwd)")"
-#   }
-#   wezterm cli set-tab-title $(basename $(pwd))
-# fi
-
 # fzf Kanso Zen theme
 if command -v fzf &> /dev/null; then
   export FZF_DEFAULT_OPTS="
@@ -126,7 +124,6 @@ zstyle ':fzf-tab:*' fzf-flags \
 # Set default editor
 export EDITOR='nvim'
 export VISUAL='nvim'
-export ZVM_VI_EDITOR='nvim'
 
 # node.js - OS-specific paths
 if [[ "$(uname -s)" == "Darwin" ]]; then
@@ -139,12 +136,6 @@ fi
 export PATH="$HOME/.local/bin:$PATH"
 
 # Shell Integration
-# fzf - fuzzy finder
-if command -v fzf &> /dev/null; then
-	eval "$(fzf --zsh)"
-elif [ -f ~/.fzf.zsh ]; then
-	source ~/.fzf.zsh
-fi
 
 # zoxide - smart cd
 # NOTE: it should be after registering local bin path
