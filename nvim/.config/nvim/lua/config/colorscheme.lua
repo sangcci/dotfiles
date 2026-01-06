@@ -90,7 +90,7 @@ require("kanagawa").setup({
 require("kanso").setup({
 	bold = true,
 	italics = true,
-	transparent = false,
+	transparent = true,
 	dimInactive = false,
 	terminalColors = true,
 	colors = {

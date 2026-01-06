@@ -117,8 +117,8 @@ config.window_padding = {
 	bottom = 0,
 }
 config.window_decorations = "RESIZE"
--- config.macos_window_background_blur = 40
--- config.window_background_opacity = 0.9
+config.macos_window_background_blur = 40
+config.window_background_opacity = 0.9
 config.native_macos_fullscreen_mode = false
 
 -- keymap
