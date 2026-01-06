@@ -5,6 +5,7 @@ vim.pack.add({
 	{ src = "https://github.com/yorickpeterse/nvim-grey" },
 	{ src = "https://github.com/projekt0n/github-nvim-theme" },
 	{ src = "https://github.com/rose-pine/neovim" },
+	{ src = "https://github.com/webhooked/kanso.nvim" },
 })
 
 require("catppuccin").setup({
@@ -86,7 +87,74 @@ require("kanagawa").setup({
 	end,
 })
 
-vim.cmd.colorscheme("kanagawa-dragon")
+require("kanso").setup({
+	bold = true,
+	italics = true,
+	transparent = false,
+	dimInactive = false,
+	terminalColors = true,
+	colors = {
+		theme = {
+			all = {
+				ui = {
+					bg_gutter = "none",
+				},
+			},
+		},
+	},
+	background = {
+		dark = "zen", -- zen, ink, or mist
+		light = "pearl",
+	},
+	overrides = function(colors)
+		local theme = colors.theme
+		local palette = colors.palette
+		local makeDiagnosticColor = function(color)
+			local c = require("kanso.lib.color")
+			return { fg = color, bg = c(color):blend(theme.ui.bg, 0.95):to_hex() }
+		end
+		return {
+			-- Dark background variants for special windows
+			NormalDark = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m3 },
+
+			-- Plugin windows with dark background
+			LazyNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
+			MasonNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
+
+			-- Popup menu
+			Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 },
+			PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
+			PmenuSbar = { bg = theme.ui.bg_m1 },
+			PmenuThumb = { bg = palette.sumiInk4 or theme.ui.bg_p2 },
+			BlinkCmpMenuBorder = { fg = "", bg = "" },
+
+			-- Float windows
+			NormalFloat = { bg = theme.ui.bg_m1 },
+			FloatBorder = { bg = theme.ui.bg_m1, fg = theme.ui.bg_m1 },
+			FloatTitle = { fg = theme.ui.special, bold = true },
+
+			-- Line numbers
+			CursorLineNr = { fg = palette.sakuraPink or theme.syn.special1, bg = "NONE" },
+
+			-- Telescope
+			TelescopeTitle = { fg = theme.ui.special, bold = true },
+			TelescopePromptNormal = { bg = theme.ui.bg_p1 },
+			TelescopePromptBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
+			TelescopeResultsNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m1 },
+			TelescopeResultsBorder = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
+			TelescopePreviewNormal = { bg = theme.ui.bg_dim },
+			TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
+
+			-- Diagnostic virtual text
+			DiagnosticVirtualTextHint = makeDiagnosticColor(theme.diag.hint),
+			DiagnosticVirtualTextInfo = makeDiagnosticColor(theme.diag.info),
+			DiagnosticVirtualTextWarn = makeDiagnosticColor(theme.diag.warning),
+			DiagnosticVirtualTextError = makeDiagnosticColor(theme.diag.error),
+		}
+	end,
+})
+
+vim.cmd.colorscheme("kanso-zen")
 
 -- indent highlight group define as github_dark doesn't have highlight group
 -- vim.api.nvim_set_hl(0, "IblIndent", { fg = "#21262d", nocombine = true })

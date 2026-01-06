@@ -18,44 +18,44 @@ config.font_size = 13.5
 config.line_height = 1.5
 
 -- colorscheme
--- config.color_scheme = "Kanagawa Dragon (Gogh)"
+-- config.color_scheme = "Kanso"
 -- local theme = wezterm.plugin.require("https://github.com/neapsix/wezterm").main
 -- config.colors = theme.colors()
 -- config.window_frame = theme.window_frame()
 config.force_reverse_video_cursor = true
 config.colors = {
-	foreground = "#c5c9c5",
-	background = "#181616",
+	foreground = "#C5C9C7",
+	background = "#090E13",
 
-	cursor_bg = "#C8C093",
-	cursor_fg = "#C8C093",
-	cursor_border = "#C8C093",
+	cursor_bg = "#090E13",
+	cursor_fg = "#C5C9C7",
+	cursor_border = "#C5C9C7",
 
-	selection_fg = "#C8C093",
-	selection_bg = "#2D4F67",
+	selection_fg = "#C5C9C7",
+	selection_bg = "#22262D",
 
-	scrollbar_thumb = "#16161D",
-	split = "#16161D",
+	scrollbar_thumb = "#22262D",
+	split = "#22262D",
 
 	ansi = {
-		"#0D0C0C",
+		"#090E13",
 		"#C4746E",
 		"#8A9A7B",
 		"#C4B28A",
 		"#8BA4B0",
 		"#A292A3",
 		"#8EA4A2",
-		"#C8C093",
+		"#A4A7A4",
 	},
 	brights = {
-		"#A6A69C",
+		"#A4A7A4",
 		"#E46876",
 		"#87A987",
 		"#E6C384",
 		"#7FB4CA",
 		"#938AA9",
 		"#7AA89F",
-		"#C5C9C5",
+		"#C5C9C7",
 	},
 }
 
@@ -67,10 +67,47 @@ local tabline = wezterm.plugin.require("https://github.com/michaelbrusegard/tabl
 tabline.setup({
 	options = {
 		theme = config.colors,
+		theme_overrides = {
+			tab = {
+				active = {
+					bg = "#8BA4B0",
+					fg = "#090E13",
+				},
+				inactive = {
+					bg = "#1a1f26",
+					fg = "#A4A7A4",
+				},
+			},
+		},
+		section_separators = {
+			left = "",
+			right = "",
+		},
+		component_separators = {
+			left = "",
+			right = "",
+		},
+		tab_separators = {
+			left = "",
+			right = "",
+		},
+	},
+	sections = {
+		tabline_a = { "mode" },
+		tabline_b = { "workspace" },
+		tabline_c = { "" },
+		tab_active = {
+			{ "process" },
+		},
+		tab_inactive = {
+			{ "process" },
+		},
+		tabline_x = { "ram", "cpu" },
+		tabline_y = { "datetime" },
+		tabline_z = { "domain" },
 	},
 	extensions = { "resurrect" },
 })
--- tabline.apply_to_config(config)
 
 -- window style
 config.window_padding = {

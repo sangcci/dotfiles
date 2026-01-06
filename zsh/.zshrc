@@ -107,21 +107,21 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 #   wezterm cli set-tab-title $(basename $(pwd))
 # fi
 
-# fzf Kanagawa Dragon theme
+# fzf Kanso Zen theme
 if command -v fzf &> /dev/null; then
   export FZF_DEFAULT_OPTS="
-  --color=fg:#c5c9c5,fg+:#c5c9c5,bg:#181616,bg+:#282727
-  --color=hl:#87a987,hl+:#87a987,info:#c4b28a,marker:#c4746e
+  --color=fg:#C5C9C7,fg+:#f2f1ef,bg:#090E13,bg+:#1C1E25
+  --color=hl:#8a9a7b,hl+:#8a9a7b,info:#c4b28a,marker:#c4746e
   --color=prompt:#c4746e,spinner:#8992a7,pointer:#c4746e,header:#949fb5
-  --color=border:#393836,gutter:#181616,query:#c5c9c5"
+  --color=border:#22262D,gutter:#090E13,query:#C5C9C7"
 fi
 
-# fzf-tab Kanagawa Dragon theme
+# fzf-tab Kanso Zen theme
 zstyle ':fzf-tab:*' fzf-flags \
-  --color=fg:#c5c9c5,fg+:#c5c9c5,bg:#181616,bg+:#282727 \
-  --color=hl:#87a987,hl+:#87a987,info:#c4b28a,marker:#c4746e \
+  --color=fg:#C5C9C7,fg+:#f2f1ef,bg:#090E13,bg+:#1C1E25 \
+  --color=hl:#8a9a7b,hl+:#8a9a7b,info:#c4b28a,marker:#c4746e \
   --color=prompt:#c4746e,spinner:#8992a7,pointer:#c4746e,header:#949fb5 \
-  --color=border:#393836,gutter:#181616
+  --color=border:#22262D,gutter:#090E13
 
 # Set default editor
 export EDITOR='nvim'
