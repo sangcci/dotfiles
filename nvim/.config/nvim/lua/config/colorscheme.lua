@@ -170,6 +170,11 @@ require("kanso").setup({
 			RenderMarkdownQuote = { fg = theme.ui.fg_dim, italic = true },
 			RenderMarkdownLink = { fg = palette.crystalBlue or theme.syn.special2, underline = true },
 			RenderMarkdownDash = { fg = theme.ui.fg_dim },
+
+			-- Tabline highlights (transparent)
+			TabLine = { fg = theme.ui.fg, bg = "NONE", bold = true },
+			TabLineFill = { bg = "NONE" },
+			TabLineSel = { fg = theme.ui.fg, bg = "NONE", bold = true },
 		}
 	end,
 })
