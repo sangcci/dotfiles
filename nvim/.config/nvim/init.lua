@@ -46,7 +46,9 @@ require("plugins.git.diffview")
 require("plugins.util.fidget")
 require("plugins.util.harpoon2")
 require("plugins.util.live-preview")
+require("plugins.util.markview")
 require("plugins.util.navigator")
+require("plugins.util.render-markdown")
 require("plugins.util.which-key")
 
 -- ai

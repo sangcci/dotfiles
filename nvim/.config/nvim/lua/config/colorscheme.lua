@@ -150,6 +150,26 @@ require("kanso").setup({
 			DiagnosticVirtualTextInfo = makeDiagnosticColor(theme.diag.info),
 			DiagnosticVirtualTextWarn = makeDiagnosticColor(theme.diag.warning),
 			DiagnosticVirtualTextError = makeDiagnosticColor(theme.diag.error),
+
+			-- Render-markdown highlights
+			RenderMarkdownH1Bg = { bg = theme.ui.bg_p1 },
+			RenderMarkdownH2Bg = { bg = theme.ui.bg_p1 },
+			RenderMarkdownH3Bg = { bg = theme.ui.bg_p1 },
+			RenderMarkdownH4Bg = { bg = theme.ui.bg_p1 },
+			RenderMarkdownH5Bg = { bg = theme.ui.bg_p1 },
+			RenderMarkdownH6Bg = { bg = theme.ui.bg_p1 },
+			RenderMarkdownH1 = { fg = palette.sakuraPink or theme.syn.special1, bold = true },
+			RenderMarkdownH2 = { fg = palette.oniViolet or theme.syn.identifier, bold = true },
+			RenderMarkdownH3 = { fg = palette.crystalBlue or theme.syn.special2, bold = true },
+			RenderMarkdownH4 = { fg = palette.springGreen or theme.syn.string, bold = true },
+			RenderMarkdownH5 = { fg = palette.carpYellow or theme.syn.operator, bold = true },
+			RenderMarkdownH6 = { fg = palette.waveAqua1 or theme.syn.fun, bold = true },
+			RenderMarkdownCode = { bg = theme.ui.bg_m1 },
+			RenderMarkdownCodeInline = { bg = theme.ui.bg_m1, fg = palette.springGreen or theme.syn.string },
+			RenderMarkdownBullet = { fg = palette.oniViolet or theme.syn.identifier },
+			RenderMarkdownQuote = { fg = theme.ui.fg_dim, italic = true },
+			RenderMarkdownLink = { fg = palette.crystalBlue or theme.syn.special2, underline = true },
+			RenderMarkdownDash = { fg = theme.ui.fg_dim },
 		}
 	end,
 })
