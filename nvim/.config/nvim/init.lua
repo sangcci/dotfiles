@@ -54,6 +54,9 @@ require("plugins.util.which-key")
 -- ai
 require("ai.copilot")
 
+-- db
+require("db.nvim-dbee")
+
 -- lsp
 require("lsp.lsp-configs")
 require("lsp.nvim-dap")
