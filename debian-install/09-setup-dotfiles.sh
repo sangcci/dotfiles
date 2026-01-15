@@ -30,13 +30,17 @@ stow -v nvim
 # Stow git configuration
 stow -v git
 
+# Stow zed configuration
+stow -v zed
+
 echo ""
 echo "✓ Dotfiles setup complete!"
 echo ""
 echo "Symlinks created:"
 echo "  ~/.zshrc -> ~/dotfiles/zsh/.zshrc"
 echo "  ~/.config/nvim -> ~/dotfiles/nvim/.config/nvim"
-echo "  ~/.gitignore_global -> ~/dotfiles/git/.gitignore_global"
+echo "  ~/.gitignore_global -> ~/dotfiles/git/.gitignore_global
+  ~/.config/zed -> ~/dotfiles/zed/.config/zed"
 echo ""
 echo "Note: To activate zsh configuration, run:"
 echo "  source ~/.zshrc"
