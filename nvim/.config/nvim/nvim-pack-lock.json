@@ -169,6 +169,10 @@
       "rev": "fbdb48c2ed45f4a8293d0d483f7730d24467ccb6",
       "src": "https://github.com/theHamsta/nvim-dap-virtual-text"
     },
+    "nvim-dbee": {
+      "rev": "dda517694889a5d238d7aa407403984da9f80cc0",
+      "src": "https://github.com/kndndrj/nvim-dbee"
+    },
     "nvim-grey": {
       "rev": "62d268a3e582b846f5c20a895a07bd7d563e9db9",
       "src": "https://github.com/yorickpeterse/nvim-grey"
