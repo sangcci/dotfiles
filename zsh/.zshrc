@@ -100,6 +100,11 @@ setopt HIST_FIND_NO_DUPS          # Don't show duplicates in search
 setopt HIST_REDUCE_BLANKS         # Remove extra blanks
 setopt INC_APPEND_HISTORY         # Add commands immediately
 
+# Keep prompt at bottom of terminal
+precmd() { 
+    tput cup $LINES 0
+}
+
 # Completion
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' menu no
