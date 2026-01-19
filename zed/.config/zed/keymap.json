@@ -1,0 +1,163 @@
+[
+  // ============================================
+  // Global keybindings
+  // ============================================
+  {
+    "bindings": {
+      // Window split
+      "space w v": "pane::SplitRight",
+      "space w h": "pane::SplitDown",
+      // Pane navigation (Alt + h/j/k/l)
+      "alt-h": "workspace::ActivatePaneLeft",
+      "alt-j": "workspace::ActivatePaneDown",
+      "alt-k": "workspace::ActivatePaneUp",
+      "alt-l": "workspace::ActivatePaneRight",
+      // Tab navigation (Harpoon replacement)
+      "space 1": "workspace::ActivatePaneLeft",
+      "space 2": "workspace::ActivatePaneRight",
+      // File explorer
+      "space e e": "workspace::ToggleLeftDock",
+      // Find
+      "space f f": "file_finder::Toggle",
+      "space f g": "pane::DeploySearch",
+      "space f b": "tab_switcher::Toggle",
+      "space f .": "outline::Toggle",
+      "space f w": "project_symbols::Toggle",
+    },
+  },
+  // ============================================
+  // Vim Normal mode
+  // ============================================
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      // Remove search highlights
+      "escape": "buffer_search::Dismiss",
+      // LSP navigation
+      "g d": "editor::GoToDefinition",
+      "g r": "editor::FindAllReferences",
+      "g i": "editor::GoToImplementation",
+      "g t": "editor::GoToTypeDefinition",
+      "g l": "diagnostics::Deploy",
+      "g shift-l": "editor::Hover",
+      // Format
+      "space r": "editor::Format",
+      // Add blank line below/above (oo / OO)
+      "o o": [
+        "workspace::SendKeystrokes",
+        "o escape"
+      ],
+      "shift-o shift-o": [
+        "workspace::SendKeystrokes",
+        "shift-o escape"
+      ],
+      // Copy from cursor to end (Y)
+      "shift-y": [
+        "workspace::SendKeystrokes",
+        "y $"
+      ],
+      // Join lines (preserve cursor) - J
+      "shift-j": "vim::JoinLines",
+      // Substitute (leader s)
+      "space s": "editor::Rename",
+      // Disable Q
+      "shift-q": null,
+      // Center after search
+      "n": [
+        "workspace::SendKeystrokes",
+        "n z z"
+      ],
+      "shift-n": [
+        "workspace::SendKeystrokes",
+        "shift-n z z"
+      ],
+      // Git
+      "space g o": "git::Diff",
+      "space g h": "git::FileHistory",
+      // Debug
+      "space d s": "debugger::Start",
+      "space d b": "editor::ToggleBreakpoint",
+      "space d d": "debugger::StepOver",
+      "space d i": "debugger::StepInto",
+      "space d o": "debugger::StepOut",
+      "space d r": "debugger::Restart",
+      "space d t": "debugger::Stop",
+      // Test
+      "space t n": "task::Rerun",
+      // Tab navigation (Harpoon replacement)
+      "space h": "tab_switcher::Toggle",
+      "space shift-n": "pane::ActivateNextItem",
+      "space shift-p": "pane::ActivatePreviousItem",
+      // Function/Class navigation
+      "] m": "vim::NextMethodStart",
+      "[ m": "vim::PreviousMethodStart",
+      "] d": "editor::GoToDiagnostic",
+      "[ d": "editor::GoToPreviousDiagnostic",
+    },
+  },
+  // ============================================
+  // Vim Visual mode
+  // ============================================
+  {
+    "context": "vim_mode == visual",
+    "bindings": {
+      // Move selected lines down (J)
+      "shift-j": "editor::MoveLineDown",
+      // Move selected lines up (K)
+      "shift-k": "editor::MoveLineUp",
+      // Stay in visual mode after indent
+      "<": [
+        "workspace::SendKeystrokes",
+        "< g v"
+      ],
+      ">": [
+        "workspace::SendKeystrokes",
+        "> g v"
+      ],
+    },
+  },
+  // ============================================
+  // Vim Insert mode
+  // ============================================
+  {
+    "context": "vim_mode == insert",
+    "bindings": {
+      // Jump to next line
+      "ctrl-enter": [
+        "workspace::SendKeystrokes",
+        "escape o"
+      ],
+    },
+  },
+  // ============================================
+  // Editor context
+  // ============================================
+  {
+    "context": "Editor && !menu",
+    "bindings": {
+      // Ctrl-d / Ctrl-u scroll (default vim behavior)
+      "ctrl-d": "editor::MovePageDown",
+      "ctrl-u": "editor::MovePageUp",
+    },
+  },
+  // ============================================
+  // File panel (Project panel)
+  // ============================================
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      // Toggle hidden files
+      "space e h": "project_panel::ToggleHideHidden",
+    },
+  },
+  // ============================================
+  // Picker/Search navigation
+  // ============================================
+  {
+    "context": "Picker || BufferSearchBar || ProjectSearchBar",
+    "bindings": {
+      "ctrl-n": "menu::SelectNext",
+      "ctrl-p": "menu::SelectPrevious",
+    },
+  },
+]
