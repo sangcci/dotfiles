@@ -1,0 +1,216 @@
+" ============================================================================
+" IdeaVim Configuration
+" Based on: nvim/.config/nvim
+" ============================================================================
+
+" ----------------------------------------------------------------------------
+" Options
+" ----------------------------------------------------------------------------
+set relativenumber
+set number
+set numberwidth=4
+
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch
+
+set scrolloff=10
+set showmode
+
+set clipboard+ideaput
+
+" timeout for key sequences
+set timeoutlen=300
+
+" ----------------------------------------------------------------------------
+" Plugins
+" ----------------------------------------------------------------------------
+set surround
+set commentary
+set highlightedyank
+set argtextobj
+set exchange
+set matchit
+set NERDTree
+
+" IdeaVim specific
+set ideajoin
+set ideastatusicon=gray
+
+" ----------------------------------------------------------------------------
+" Leader Key
+" ----------------------------------------------------------------------------
+let mapleader = " "
+
+" ----------------------------------------------------------------------------
+" Basic Keymaps
+" ----------------------------------------------------------------------------
+" Remove search highlights
+nnoremap <Esc> :nohlsearch<CR>
+
+" Disable Q
+nnoremap Q <nop>
+
+" ----------------------------------------------------------------------------
+" Window Management
+" ----------------------------------------------------------------------------
+nnoremap <leader>wv :vsplit<CR>
+nnoremap <leader>wh :split<CR>
+nnoremap <leader>wc :close<CR>
+
+" Window navigation (using IDE actions)
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" ----------------------------------------------------------------------------
+" Indent Mode (stay in visual mode)
+" ----------------------------------------------------------------------------
+vnoremap < <gv
+vnoremap > >gv
+
+" ----------------------------------------------------------------------------
+" Center Cursor After Movements
+" ----------------------------------------------------------------------------
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" ----------------------------------------------------------------------------
+" Moving Lines
+" ----------------------------------------------------------------------------
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
+" Join lines (preserve cursor position)
+nnoremap J mzJ`z
+
+" Add blank lines
+nnoremap oo o<Esc>k
+nnoremap OO O<Esc>j
+
+" Jump to next line (insert mode)
+inoremap <C-CR> <Esc>o
+
+" ----------------------------------------------------------------------------
+" Copy & Paste
+" ----------------------------------------------------------------------------
+" Copy from cursor to end of line
+nnoremap Y yg$
+
+" Paste from yank register (register 0)
+nnoremap <leader>p "0p
+xnoremap <leader>p "0p
+
+" ----------------------------------------------------------------------------
+" Substitute
+" ----------------------------------------------------------------------------
+nnoremap <leader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gc<Left><Left><Left>
+
+" ----------------------------------------------------------------------------
+" LSP / IDE Actions
+" ----------------------------------------------------------------------------
+" Diagnostics
+nnoremap gL :action ShowErrorDescription<CR>
+nnoremap gl :action ActivateProblemsViewToolWindow<CR>
+
+" Go to definitions/references
+nnoremap gd :action GotoDeclaration<CR>
+nnoremap gr :action FindUsages<CR>
+nnoremap gi :action GotoImplementation<CR>
+nnoremap gt :action GotoTypeDeclaration<CR>
+nnoremap gD :action GotoSuperMethod<CR>
+
+" Code actions
+nnoremap <leader>ca :action ShowIntentionActions<CR>
+nnoremap <leader>rn :action RenameElement<CR>
+nnoremap <leader>r :action ReformatCode<CR>
+
+" Documentation
+nnoremap K :action QuickJavaDoc<CR>
+
+" ----------------------------------------------------------------------------
+" Find / Search (Telescope equivalents)
+" ----------------------------------------------------------------------------
+nnoremap <leader>ff :action GotoFile<CR>
+nnoremap <leader>fa :action SearchEverywhere<CR>
+nnoremap <leader>fg :action FindInPath<CR>
+nnoremap <leader>fb :action RecentFiles<CR>
+nnoremap <leader>f. :action FileStructurePopup<CR>
+nnoremap <leader>fw :action GotoSymbol<CR>
+nnoremap <leader>fh :action HelpTopics<CR>
+
+" ----------------------------------------------------------------------------
+" Harpoon-like (using Bookmarks)
+" ----------------------------------------------------------------------------
+nnoremap <leader>a :action ToggleBookmark<CR>
+nnoremap <leader>h :action ShowBookmarks<CR>
+
+" Quick access to bookmarks 1-4
+nnoremap <leader>1 :action GotoBookmark1<CR>
+nnoremap <leader>2 :action GotoBookmark2<CR>
+nnoremap <leader>3 :action GotoBookmark3<CR>
+nnoremap <leader>4 :action GotoBookmark4<CR>
+
+" Set bookmarks 1-4
+nnoremap <leader>m1 :action ToggleBookmark1<CR>
+nnoremap <leader>m2 :action ToggleBookmark2<CR>
+nnoremap <leader>m3 :action ToggleBookmark3<CR>
+nnoremap <leader>m4 :action ToggleBookmark4<CR>
+
+" Navigate bookmarks
+nnoremap <leader>P :action GotoPreviousBookmark<CR>
+nnoremap <leader>N :action GotoNextBookmark<CR>
+
+" ----------------------------------------------------------------------------
+" File Explorer (NERDTree / Project View)
+" ----------------------------------------------------------------------------
+nnoremap <leader>e :NERDTreeToggle<CR>
+nnoremap <leader>E :NERDTreeFind<CR>
+
+" ----------------------------------------------------------------------------
+" Run & Debug
+" ----------------------------------------------------------------------------
+nnoremap <leader>dr :action Run<CR>
+nnoremap <leader>dd :action Debug<CR>
+nnoremap <leader>ds :action Stop<CR>
+nnoremap <leader>db :action ToggleLineBreakpoint<CR>
+nnoremap <leader>dc :action Resume<CR>
+
+" ----------------------------------------------------------------------------
+" Git
+" ----------------------------------------------------------------------------
+nnoremap <leader>gg :action ActivateVersionControlToolWindow<CR>
+nnoremap <leader>gb :action Annotate<CR>
+nnoremap <leader>gd :action Compare.SameVersion<CR>
+nnoremap <leader>gh :action Vcs.ShowTabbedFileHistory<CR>
+
+" ----------------------------------------------------------------------------
+" Terminal
+" ----------------------------------------------------------------------------
+nnoremap <leader>t :action ActivateTerminalToolWindow<CR>
+
+" ----------------------------------------------------------------------------
+" Tab Navigation
+" ----------------------------------------------------------------------------
+nnoremap <S-h> :action PreviousTab<CR>
+nnoremap <S-l> :action NextTab<CR>
+nnoremap <leader>bd :action CloseContent<CR>
+
+" ----------------------------------------------------------------------------
+" Other Useful Actions
+" ----------------------------------------------------------------------------
+nnoremap <leader>o :action OptimizeImports<CR>
+nnoremap <leader>z :action ToggleDistractionFreeMode<CR>
+
+" Select all
+nnoremap <C-a> ggVG
+
+" Quick fix
+nnoremap <leader>. :action ShowIntentionActions<CR>
+
+" Generate
+nnoremap <leader>ig :action Generate<CR>

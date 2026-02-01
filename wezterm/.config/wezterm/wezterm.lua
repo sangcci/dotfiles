@@ -2,6 +2,8 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 local action = wezterm.action
 local mux = wezterm.mux
+local colors = require("colors")
+local tabline_theme = require("tabline_theme")
 
 wezterm.on("gui-startup", function()
 	local tab, pane, window = mux.spawn_window({})
@@ -23,41 +25,7 @@ config.line_height = 1.5
 -- config.colors = theme.colors()
 -- config.window_frame = theme.window_frame()
 config.force_reverse_video_cursor = true
-config.colors = {
-	foreground = "#C5C9C7",
-	background = "#090E13",
-
-	cursor_bg = "#090E13",
-	cursor_fg = "#C5C9C7",
-	cursor_border = "#C5C9C7",
-
-	selection_fg = "#C5C9C7",
-	selection_bg = "#22262D",
-
-	scrollbar_thumb = "#22262D",
-	split = "#22262D",
-
-	ansi = {
-		"#090E13",
-		"#C4746E",
-		"#8A9A7B",
-		"#C4B28A",
-		"#8BA4B0",
-		"#A292A3",
-		"#8EA4A2",
-		"#A4A7A4",
-	},
-	brights = {
-		"#A4A7A4",
-		"#E46876",
-		"#87A987",
-		"#E6C384",
-		"#7FB4CA",
-		"#938AA9",
-		"#7AA89F",
-		"#C5C9C7",
-	},
-}
+config.colors = colors
 
 -- tab bar
 config.use_fancy_tab_bar = false -- don't use the fancy tab bar
@@ -66,19 +34,7 @@ config.hide_tab_bar_if_only_one_tab = false
 local tabline = wezterm.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
 tabline.setup({
 	options = {
-		theme = config.colors,
-		theme_overrides = {
-			tab = {
-				active = {
-					bg = "#8BA4B0",
-					fg = "#090E13",
-				},
-				inactive = {
-					bg = "#1a1f26",
-					fg = "#A4A7A4",
-				},
-			},
-		},
+		theme = tabline_theme,
 		section_separators = {
 			left = "",
 			right = "",

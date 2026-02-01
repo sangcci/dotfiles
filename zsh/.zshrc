@@ -110,21 +110,15 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
-# fzf Kanso Zen theme
-if command -v fzf &> /dev/null; then
-  export FZF_DEFAULT_OPTS="
-  --color=fg:#C5C9C7,fg+:#f2f1ef,bg:#090E13,bg+:#1C1E25
-  --color=hl:#8a9a7b,hl+:#8a9a7b,info:#c4b28a,marker:#c4746e
-  --color=prompt:#c4746e,spinner:#8992a7,pointer:#c4746e,header:#949fb5
-  --color=border:#22262D,gutter:#090E13,query:#C5C9C7"
+# fzf theme source
+if [ -f "$HOME/.config/fzf/colors.sh" ]; then
+    source "$HOME/.config/fzf/colors.sh"
 fi
 
-# fzf-tab Kanso Zen theme
-zstyle ':fzf-tab:*' fzf-flags \
-  --color=fg:#C5C9C7,fg+:#f2f1ef,bg:#090E13,bg+:#1C1E25 \
-  --color=hl:#8a9a7b,hl+:#8a9a7b,info:#c4b28a,marker:#c4746e \
-  --color=prompt:#c4746e,spinner:#8992a7,pointer:#c4746e,header:#949fb5 \
-  --color=border:#22262D,gutter:#090E13
+# fzf-tab colors
+if [ -f "$HOME/.config/fzf/tab-colors.sh" ]; then
+    source "$HOME/.config/fzf/tab-colors.sh"
+fi
 
 # Set default editor
 export EDITOR='nvim'
