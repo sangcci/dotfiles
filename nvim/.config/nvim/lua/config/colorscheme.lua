@@ -254,7 +254,7 @@ require("kanso").setup({
 	end,
 })
 
-vim.cmd.colorscheme("kanagawa-paper-ink")
+vim.cmd.colorscheme("kanso")
 
 -- indent highlight group define as github_dark doesn't have highlight group
 -- vim.api.nvim_set_hl(0, "IblIndent", { fg = "#21262d", nocombine = true })

@@ -20,7 +20,7 @@ config.font_size = 13.5
 config.line_height = 1.5
 
 -- colorscheme
--- config.color_scheme = "Kanso"
+config.color_scheme = "Kanso"
 -- local theme = wezterm.plugin.require("https://github.com/neapsix/wezterm").main
 -- config.colors = theme.colors()
 -- config.window_frame = theme.window_frame()

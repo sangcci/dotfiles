@@ -1,64 +1,64 @@
 local colors = {
 	foreground = "#DCD7BA",
-	background = "#1F1F28",
-	cursor_bg = "#c4b28a",
-	cursor_border = "#c4b28a",
-	cursor_fg = "#1F1F28",
-	selection_bg = "#363646",
+	background = "#16161D", -- Kanso Zen Darker Background
+	cursor_bg = "#C8C093",
+	cursor_border = "#C8C093",
+	cursor_fg = "#16161D",
+	selection_bg = "#2D4F67",
 	selection_fg = "#DCD7BA",
-	split = "#8992a7",
-	compose_cursor = "#8ea49e",
-	scrollbar_thumb = "#363646",
+	split = "#16161D",
+	compose_cursor = "#6A9589",
+	scrollbar_thumb = "#2D4F67",
 
 	ansi = {
-		"#393836",
-		"#c4746e",
-		"#699469",
-		"#c4b28a",
-		"#435965",
-		"#a292a3",
-		"#8ea49e",
-		"#C8C093",
+		"#090618", -- black
+		"#C34043", -- red
+		"#76946A", -- green
+		"#C0A36E", -- yellow
+		"#7E9CD8", -- blue
+		"#957FB8", -- magenta
+		"#6A9589", -- cyan
+		"#DCD7BA", -- white
 	},
 	brights = {
-		"#aca9a4",
-		"#cc928e",
-		"#72a072",
-		"#d4c196",
-		"#698a9b",
-		"#b4a7b5",
-		"#96ada7",
-		"#d5cd9d",
+		"#727169", -- bright black
+		"#E82424", -- bright red
+		"#98BB6C", -- bright green
+		"#E6C384", -- bright yellow
+		"#7FB4CA", -- bright blue
+		"#938AA9", -- bright magenta
+		"#7AA89F", -- bright cyan
+		"#DCD7BA", -- bright white
 	},
 
 	indexed = {
-		[16] = "#b6927b",
-		[17] = "#c4746e",
+		[16] = "#FFA066", -- orange
+		[17] = "#FF5D62", -- red
 	},
 
 	tab_bar = {
-		background = "#2A2A37",
-		inactive_tab_edge = "#658594",
+		background = "#16161D",
+		inactive_tab_edge = "#54546D",
 		active_tab = {
-			fg_color = "#c4b28a",
-			bg_color = "#1F1F28",
+			fg_color = "#C8C093",
+			bg_color = "#16161D",
 			intensity = "Bold",
 		},
 		inactive_tab = {
-			fg_color = "#9e9b93",
-			bg_color = "#2A2A37",
+			fg_color = "#727169",
+			bg_color = "#1F1F28",
 		},
 		inactive_tab_hover = {
-			fg_color = "#a292a3",
-			bg_color = "#1F1F28",
+			fg_color = "#DCD7BA",
+			bg_color = "#16161D",
 		},
 		new_tab = {
-			fg_color = "#9e9b93",
-			bg_color = "#2A2A37",
+			fg_color = "#727169",
+			bg_color = "#1F1F28",
 		},
 		new_tab_hover = {
-			fg_color = "#a292a3",
-			bg_color = "#1F1F28",
+			fg_color = "#DCD7BA",
+			bg_color = "#16161D",
 			intensity = "Bold",
 		},
 	},
