@@ -1,6 +1,6 @@
 " ============================================================================
 " IdeaVim Configuration
-" Based on: nvim/.config/nvim
+" Based on: ~/obsidian-note/00-Meta/keymaps.md
 " ============================================================================
 
 " ----------------------------------------------------------------------------
@@ -12,16 +12,37 @@ set numberwidth=4
 
 set ignorecase
 set smartcase
-set hlsearch
+set nohls
 set incsearch
 
 set scrolloff=10
-set showmode
+set noshowmode
 
-set clipboard+ideaput
+set clipboard+=ideaput
 
 " timeout for key sequences
 set timeoutlen=300
+
+" ----------------------------------------------------------------------------
+" Key Handler
+"
+" 충돌 해결 원칙:
+"   a:vim  → IdeaVim이 모든 모드에서 선점  (IntelliJ 단축키 무효화)
+"   a:ide  → IntelliJ가 모든 모드에서 선점 (vim 동작 무효화)
+"   n:vim i:ide → normal은 vim, insert는 IntelliJ
+"
+" <C-h/j/k/l> : 창 이동에서 <A-h/j/k/l>로 이전.
+"               sethandler 제거 → IntelliJ 기본 동작 복원
+"               (C-h=Replace, C-j=SmartJoin, C-k=Commit, C-l=Reformat)
+" <A-h/j/k/l> : 새로운 창 이동 키 — vim이 선점
+" ----------------------------------------------------------------------------
+sethandler <C-d>     a:vim
+sethandler <C-u>     a:vim
+sethandler <C-a>     a:vim
+sethandler <C-Enter> a:vim
+
+" <A-hjkl> 창 이동 → IntelliJ Keymap에서 직접 등록 (파일 하단 주석 참고)
+" sethandler를 넣지 않아야 IntelliJ Keymap의 단축키가 우선 동작함
 
 " ----------------------------------------------------------------------------
 " Plugins
@@ -43,174 +64,213 @@ set ideastatusicon=gray
 " ----------------------------------------------------------------------------
 let mapleader = " "
 
-" ----------------------------------------------------------------------------
-" Basic Keymaps
-" ----------------------------------------------------------------------------
-" Remove search highlights
+" ============================================================================
+" 1. General
+" ============================================================================
 nnoremap <Esc> :nohlsearch<CR>
-
-" Disable Q
 nnoremap Q <nop>
 
-" ----------------------------------------------------------------------------
-" Window Management
-" ----------------------------------------------------------------------------
+" ============================================================================
+" 2. Pane / Split
+" ============================================================================
 nnoremap <leader>wv :vsplit<CR>
 nnoremap <leader>wh :split<CR>
 nnoremap <leader>wc :close<CR>
 
-" Window navigation (using IDE actions)
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
-" ----------------------------------------------------------------------------
-" Indent Mode (stay in visual mode)
-" ----------------------------------------------------------------------------
-vnoremap < <gv
-vnoremap > >gv
-
-" ----------------------------------------------------------------------------
-" Center Cursor After Movements
-" ----------------------------------------------------------------------------
+" ============================================================================
+" 3. Cursor & Scroll
+" ============================================================================
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
-" ----------------------------------------------------------------------------
-" Moving Lines
-" ----------------------------------------------------------------------------
+" ============================================================================
+" 4. Editing
+" ============================================================================
+" Indent — keep visual selection
+vnoremap < <gv
+vnoremap > >gv
+
+" Move selected lines
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
-" Join lines (preserve cursor position)
+" Join lines — preserve cursor position
 nnoremap J mzJ`z
 
-" Add blank lines
+" Add blank line without entering insert mode
 nnoremap oo o<Esc>k
 nnoremap OO O<Esc>j
 
-" Jump to next line (insert mode)
-inoremap <C-CR> <Esc>o
+" Break line at cursor, stay in normal
+nnoremap <Enter> i<Enter><Esc>
 
-" ----------------------------------------------------------------------------
-" Copy & Paste
-" ----------------------------------------------------------------------------
-" Copy from cursor to end of line
+" Insert new line below (normal / insert)
+inoremap <C-Enter> <Esc>o
+
+" Copy to end of line
 nnoremap Y yg$
 
-" Paste from yank register (register 0)
-nnoremap <leader>p "0p
-xnoremap <leader>p "0p
-
-" ----------------------------------------------------------------------------
-" Substitute
-" ----------------------------------------------------------------------------
+" Find and replace word under cursor
 nnoremap <leader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gc<Left><Left><Left>
 
-" ----------------------------------------------------------------------------
-" LSP / IDE Actions
-" ----------------------------------------------------------------------------
-" Diagnostics
-nnoremap gL :action ShowErrorDescription<CR>
-nnoremap gl :action ActivateProblemsViewToolWindow<CR>
+" ============================================================================
+" 5. File Explorer
+" ============================================================================
+nnoremap <leader>ee :action ActivateProjectToolWindow<CR>
 
-" Go to definitions/references
-nnoremap gd :action GotoDeclaration<CR>
-nnoremap gr :action FindUsages<CR>
-nnoremap gi :action GotoImplementation<CR>
-nnoremap gt :action GotoTypeDeclaration<CR>
-nnoremap gD :action GotoSuperMethod<CR>
-
-" Code actions
-nnoremap <leader>ca :action ShowIntentionActions<CR>
-nnoremap <leader>rn :action RenameElement<CR>
-nnoremap <leader>r :action ReformatCode<CR>
-
-" Documentation
-nnoremap K :action QuickJavaDoc<CR>
-
-" ----------------------------------------------------------------------------
-" Find / Search (Telescope equivalents)
-" ----------------------------------------------------------------------------
+" ============================================================================
+" 6. Quick Search
+" ============================================================================
 nnoremap <leader>ff :action GotoFile<CR>
 nnoremap <leader>fa :action SearchEverywhere<CR>
 nnoremap <leader>fg :action FindInPath<CR>
 nnoremap <leader>fb :action RecentFiles<CR>
+nnoremap <leader>fh :action HelpTopics<CR>
+nnoremap <leader>ft :action ActivateTODOToolWindow<CR>
+nnoremap <leader>fT :action ActivateTODOToolWindow<CR>
 nnoremap <leader>f. :action FileStructurePopup<CR>
 nnoremap <leader>fw :action GotoSymbol<CR>
-nnoremap <leader>fh :action HelpTopics<CR>
 
-" ----------------------------------------------------------------------------
-" Harpoon-like (using Bookmarks)
-" ----------------------------------------------------------------------------
-nnoremap <leader>a :action ToggleBookmark<CR>
-nnoremap <leader>h :action ShowBookmarks<CR>
+" ============================================================================
+" 7. Pinned File Navigation (Bookmarks)
+" ============================================================================
+nnoremap <leader>h  :action ShowBookmarks<CR>
+nnoremap <leader>a  :action ToggleBookmark<CR>
+nnoremap <leader>1  :action GotoBookmark1<CR>
+nnoremap <leader>2  :action GotoBookmark2<CR>
+nnoremap <leader>3  :action GotoBookmark3<CR>
+nnoremap <leader>4  :action GotoBookmark4<CR>
+nnoremap <leader>P  :action GotoPreviousBookmark<CR>
+nnoremap <leader>N  :action GotoNextBookmark<CR>
 
-" Quick access to bookmarks 1-4
-nnoremap <leader>1 :action GotoBookmark1<CR>
-nnoremap <leader>2 :action GotoBookmark2<CR>
-nnoremap <leader>3 :action GotoBookmark3<CR>
-nnoremap <leader>4 :action GotoBookmark4<CR>
-
-" Set bookmarks 1-4
+" Assign specific bookmark slots
 nnoremap <leader>m1 :action ToggleBookmark1<CR>
 nnoremap <leader>m2 :action ToggleBookmark2<CR>
 nnoremap <leader>m3 :action ToggleBookmark3<CR>
 nnoremap <leader>m4 :action ToggleBookmark4<CR>
 
-" Navigate bookmarks
-nnoremap <leader>P :action GotoPreviousBookmark<CR>
-nnoremap <leader>N :action GotoNextBookmark<CR>
+" ============================================================================
+" 8. Code Intelligence
+" ============================================================================
+nnoremap gd :action GotoDeclaration<CR>
+nnoremap gr :action FindUsages<CR>
+nnoremap gi :action GotoImplementation<CR>
+nnoremap gt :action GotoTypeDeclaration<CR>
+nnoremap gl :action ActivateProblemsViewToolWindow<CR>
+nnoremap gL :action ShowErrorDescription<CR>
+nnoremap gD :action GotoSuperMethod<CR>
 
-" ----------------------------------------------------------------------------
-" File Explorer (NERDTree / Project View)
-" ----------------------------------------------------------------------------
-nnoremap <leader>e :NERDTreeToggle<CR>
-nnoremap <leader>E :NERDTreeFind<CR>
+nnoremap K         :action QuickJavaDoc<CR>
+nnoremap <leader>r :action ReformatCode<CR>
 
-" ----------------------------------------------------------------------------
-" Run & Debug
-" ----------------------------------------------------------------------------
-nnoremap <leader>dr :action Run<CR>
-nnoremap <leader>dd :action Debug<CR>
-nnoremap <leader>ds :action Stop<CR>
+" ============================================================================
+" 9. Code Actions / Refactoring
+" ============================================================================
+nnoremap <leader>ci :action OptimizeImports<CR>
+nnoremap <leader>cr :action IntroduceVariable<CR>
+nnoremap <leader>rn :action RenameElement<CR>
+nnoremap <leader>ca :action ShowIntentionActions<CR>
+nnoremap <leader>.  :action ShowIntentionActions<CR>
+nnoremap <leader>ig :action Generate<CR>
+
+" ============================================================================
+" 10. Version Control (Git)
+" ============================================================================
+" go = open diff (현재 파일 vs VCS)
+nnoremap <leader>go :action Compare.SameVersion<CR>
+" gc = close current tab (diff 탭 닫기)
+nnoremap <leader>gc :action CloseContent<CR>
+" gh = project-wide VCS log
+nnoremap <leader>gh :action ActivateVersionControlToolWindow<CR>
+" gf = current file commit history
+nnoremap <leader>gf :action Vcs.ShowTabbedFileHistory<CR>
+
+" ============================================================================
+" 11. Debugger
+" ============================================================================
+nnoremap <leader>ds :action Resume<CR>
 nnoremap <leader>db :action ToggleLineBreakpoint<CR>
-nnoremap <leader>dc :action Resume<CR>
+nnoremap <leader>dc :action ForceRunToCursor<CR>
+nnoremap <leader>dd :action StepOver<CR>
+nnoremap <leader>di :action StepInto<CR>
+nnoremap <leader>do :action StepOut<CR>
+nnoremap <leader>dr :action Rerun<CR>
+nnoremap <leader>dp :action Pause<CR>
+nnoremap <leader>dt :action Stop<CR>
 
-" ----------------------------------------------------------------------------
-" Git
-" ----------------------------------------------------------------------------
-nnoremap <leader>gg :action ActivateVersionControlToolWindow<CR>
-nnoremap <leader>gb :action Annotate<CR>
-nnoremap <leader>gd :action Compare.SameVersion<CR>
-nnoremap <leader>gh :action Vcs.ShowTabbedFileHistory<CR>
+" ============================================================================
+" 12. Test Runner
+" ============================================================================
+" tn / tf : run test at cursor / in current file (IntelliJ auto-detects scope)
+nnoremap <leader>tn :action RunContextConfiguration<CR>
+nnoremap <leader>tf :action RunContextConfiguration<CR>
+" tl : re-run last test configuration
+nnoremap <leader>tl :action Rerun<CR>
+" ta : attach / choose run configuration
+nnoremap <leader>ta :action ChooseRunConfiguration<CR>
+" ts / to / tO : open test results panel
+nnoremap <leader>ts :action ActivateTestResultsToolWindow<CR>
+nnoremap <leader>to :action ActivateTestResultsToolWindow<CR>
+nnoremap <leader>tO :action ActivateTestResultsToolWindow<CR>
+" tt : stop running test
+nnoremap <leader>tt :action Stop<CR>
+" td / tD : debug test at cursor / in current file
+nnoremap <leader>td :action DebugContextConfiguration<CR>
+nnoremap <leader>tD :action DebugContextConfiguration<CR>
 
-" ----------------------------------------------------------------------------
-" Terminal
-" ----------------------------------------------------------------------------
-nnoremap <leader>t :action ActivateTerminalToolWindow<CR>
+" NOTE: <leader>tA (run all), <leader>tS (test suite) 은
+"       IntelliJ에 범용 단일 액션이 없어 미구현.
+"       프로젝트 별 Run Configuration을 <leader>ta 로 선택 후 실행하세요.
 
-" ----------------------------------------------------------------------------
-" Tab Navigation
-" ----------------------------------------------------------------------------
+" ============================================================================
+" 13. Annotation Navigation
+" ============================================================================
+nnoremap ]e :action GotoNextError<CR>
+nnoremap [e :action GotoPreviousError<CR>
+
+" NOTE: ]t / [t (TODO 이동) — IntelliJ에 단독 액션 없음. 미구현.
+
+" ============================================================================
+" 14. History
+" ============================================================================
+nnoremap <leader>u :action LocalHistory.ShowHistory<CR>
+
+" ============================================================================
+" Extra (keymaps.md 외 유용한 단축키)
+" ============================================================================
+" Tab navigation
 nnoremap <S-h> :action PreviousTab<CR>
 nnoremap <S-l> :action NextTab<CR>
 nnoremap <leader>bd :action CloseContent<CR>
 
-" ----------------------------------------------------------------------------
-" Other Useful Actions
-" ----------------------------------------------------------------------------
-nnoremap <leader>o :action OptimizeImports<CR>
+" Distraction-free mode
 nnoremap <leader>z :action ToggleDistractionFreeMode<CR>
 
-" Select all
-nnoremap <C-a> ggVG
-
-" Quick fix
-nnoremap <leader>. :action ShowIntentionActions<CR>
-
-" Generate
-nnoremap <leader>ig :action Generate<CR>
+" ============================================================================
+" IntelliJ Keymap 등록 필요 항목
+" Settings > Keymap 에서 직접 등록 (IdeaVim으로는 처리 불가)
+" ============================================================================
+"
+" ── Pane 이동 (Alt+hjkl) ────────────────────────────────────────────────────
+" IntelliJ는 방향 기반(left/right/up/down) split focus action을 기본 제공하지 않음.
+" 아래 두 action에 원하는 단축키를 등록하면 탭/split 간 순환 이동 가능:
+"
+"   Goto Next Splitter   → Alt+L (또는 원하는 키)
+"   Goto Previous Splitter → Alt+H
+"
+" 4-방향 이동이 필요하면 vim 기본 <C-w>h/j/k/l 을 사용하거나
+" 'Focus Editor' 계열 플러그인(Window Manager 등)을 설치할 것.
+"
+" ── File Explorer 토글 (<leader>ee) ─────────────────────────────────────────
+" :action ActivateProjectToolWindow 은 열기/포커스만 함. 닫기 불가.
+" IntelliJ native 단축키는 자체적으로 열림/닫힘을 토글함.
+"
+"   등록 방법:
+"   Settings > Keymap > Tool Windows > Project > Add Keyboard Shortcut
+"   → Alt+E (또는 원하는 키) 등록
+"
+"   이후 vim에서 <leader>ee는 "열기/포커스",
+"   Alt+E는 "열기/닫기 토글" 로 병행 사용 가능.
+" ============================================================================

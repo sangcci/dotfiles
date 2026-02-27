@@ -65,7 +65,7 @@ alias lah='lsd -lah'
 alias lt='lsd --tree'
 alias mkdir='mkdir -p -v'
 alias n='nvim'
-alias c='clear' 
+alias c='clear'
 alias cat='bat'
 alias more='less'
 
@@ -157,5 +157,14 @@ export SDKMAN_DIR="$HOME/.sdkman"
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
-# fetch
-nerdfetch
+# bun completions
+[ -s "/Users/sangcci/.bun/_bun" ] && source "/Users/sangcci/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+alias claude-mem='/Users/sangcci/.bun/bin/bun "/Users/sangcci/.claude/plugins/marketplaces/thedotmack/plugin/scripts/worker-service.cjs"'
+
+# Added by Antigravity
+export PATH="/Users/sangcci/.antigravity/antigravity/bin:$PATH"
