@@ -4,63 +4,74 @@
 -- doc: https://github.com/neovim/neovim/blob/8bce9342d101eed4bb16fe03d36e7f89bac991ab/runtime/doc/pack.txt#L214-L216
 vim.o.packpath = vim.fn.stdpath("config") .. "," .. vim.o.packpath .. "," .. vim.fn.expand("~/.local/share/nvim/site")
 
--- config
-require("config.colorscheme")
-require("config.options")
-require("config.keymaps")
+if vim.g.vscode then
+	-- VS Code specific config
+	require("vsc_config.options")
+	require("vsc_config.keymaps")
 
--- vim.pack
-require("pack.pack-manager")
+	-- Essential plugins for VS Code
+	require("plugins.editor.surround")
+	require("plugins.syntaxtree.treesitter")
+else
+	-- Native Neovim config
+	require("config.colorscheme")
+	require("config.options")
+	require("config.keymaps")
 
--- decorator
-require("plugins.decorator.alpha-nvim")
-require("plugins.decorator.lualine")
+	-- vim.pack
+	require("pack.pack-manager")
 
--- fuzzy finder
-require("plugins.fuzzyfinder.telescope")
+	-- Plugins (Loaded in both but categorized here for clarity)
+	require("plugins.editor.surround")
+	require("plugins.util.harpoon2")
+	require("plugins.syntaxtree.treesitter")
 
--- syntax tree
-require("plugins.syntaxtree.treesitter")
+	-- decorator
+	require("plugins.decorator.alpha-nvim")
+	require("plugins.decorator.lualine")
 
--- auto completion
-require("plugins.autocompletion.blink-cmp")
+	-- fuzzy finder
+	require("plugins.fuzzyfinder.telescope")
 
--- formatter
-require("plugins.formatter.conform")
+	-- auto completion
+	require("plugins.autocompletion.blink-cmp")
 
--- explorer
-require("plugins.explorer.oil")
+	-- formatter
+	require("plugins.formatter.conform")
 
--- editor
-require("plugins.editor.autopair")
-require("plugins.editor.comment")
-require("plugins.editor.indent-blankline")
-require("plugins.editor.surround")
-require("plugins.editor.todo-comments")
-require("plugins.editor.undotree")
+	-- explorer
+	require("plugins.explorer.oil")
 
--- git
-require("plugins.git.diffview")
+	-- editor
+	require("plugins.editor.autopair")
+	require("plugins.editor.comment")
+	require("plugins.editor.indent-blankline")
+	require("plugins.editor.todo-comments")
+	require("plugins.editor.undotree")
 
--- util
-require("plugins.util.fidget")
-require("plugins.util.harpoon2")
-require("plugins.util.live-preview")
-require("plugins.util.markview")
-require("plugins.util.navigator")
-require("plugins.util.render-markdown")
-require("plugins.util.which-key")
+	-- git
+	require("plugins.git.diffview")
 
--- ai
-require("ai.copilot")
+	-- util
+	require("plugins.util.fidget")
+	require("plugins.util.live-preview")
+	require("plugins.util.markview")
+	require("plugins.util.navigator")
+	require("plugins.util.render-markdown")
+	require("plugins.util.which-key")
 
--- db
-require("db.nvim-dbee")
+	-- ai
+	require("ai.copilot")
 
--- lsp
-require("lsp.lsp-configs")
-require("lsp.nvim-dap")
--- require("lsp.nvim-jdtls")
-require("lsp.nvim-java")
--- require("lsp.nvim-jls")
-require("lsp.nvim-neotest")
+	-- db
+	require("db.nvim-dbee")
+
+	-- lsp
+	require("lsp.lsp-configs")
+	require("lsp.nvim-dap")
+	-- require("lsp.nvim-jdtls")
+	require("lsp.nvim-java")
+	-- require("lsp.nvim-jls")
+	require("lsp.nvim-neotest")
+end
+
