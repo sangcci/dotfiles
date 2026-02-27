@@ -30,6 +30,14 @@ vim.keymap.set("n", "<Enter>", "i<Enter><Esc>", { desc = "Enter and back to norm
 vim.keymap.set("n", "Y", "yg$", { desc = "Copy from cursor to the end" })
 vim.keymap.set({ "n", "x" }, "<leader>p", '"0p', { desc = "Paste from yank register" })
 
+-- Fuzzy Finder (Telescope equivalents) (<leader>f)
+vim.keymap.set("n", "<leader>ff", function() vscode.action("workbench.action.quickOpen") end, { desc = "Find Files" })
+vim.keymap.set("n", "<leader>fg", function() vscode.action("workbench.action.findInFiles") end, { desc = "Grep (Global Search)" })
+vim.keymap.set("n", "<leader>fb", function() vscode.action("workbench.action.showAllEditors") end, { desc = "Existing Buffers" })
+vim.keymap.set("n", "<leader>f.", function() vscode.action("workbench.action.gotoSymbol") end, { desc = "Document Symbols" })
+vim.keymap.set("n", "<leader>fw", function() vscode.action("workbench.action.showAllSymbols") end, { desc = "Workspace Symbols" })
+vim.keymap.set("n", "<leader>fc", function() vscode.action("workbench.action.showCommands") end, { desc = "Show Commands" })
+
 -- Explorer / Sidebar
 vim.keymap.set("n", "<leader>ee", function() vscode.action("workbench.view.explorer") end, { desc = "Focus Explorer" })
 
