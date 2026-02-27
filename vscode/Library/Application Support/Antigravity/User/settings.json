@@ -1,6 +1,6 @@
 {
   "extensions.experimental.affinity": {
-    "asvetliakov.vscode-neovim": 1
+    "asvetliakov.vscode-neovim": 1,
   },
   "vscode-neovim.editorCursorStyle": "block", // 커서 스타일 고정
   // antigravity settings
@@ -27,12 +27,12 @@
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmDelete": false,
   // ui settings
-  "window.zoomLevel": 1,
+  "window.zoomLevel": 0,
   "window.customTitleBarVisibility": "never",
   "window.titleBarStyle": "native",
   "custom-ui-style.electron": {
     "titleBarStyle": "hiddenInset",
-    "trafficLightPosition": "hidden"
+    "trafficLightPosition": "hidden",
   },
   "custom-ui-style.stylesheet": {
     ".notification-toast": "box-shadow: none !important",
@@ -52,7 +52,7 @@
     ".title-actions": "display: none !important",
     ".title.show-file-icons .label-container .monaco-icon-label.file-icon": "justify-content: center; padding: 0 !important",
     ".title .monaco-icon-label:after": "margin-right: 0",
-    ".monaco-workbench .part.editor > .content .editor-group-container > .title > .label-container > .title-label": "padding-left: 80px"
+    ".monaco-workbench .part.editor > .content .editor-group-container > .title > .label-container > .title-label": "padding-left: 80px",
   },
   "custom-ui-style.font.sansSerif": "SFMono Nerd Font",
   // cursor settings
@@ -63,17 +63,17 @@
   "editor.fontFamily": "SFMono Nerd Font",
   "editor.fontWeight": "normal",
   "editor.fontLigatures": true,
-  "editor.lineHeight": 25,
+  "editor.lineHeight": 26,
   "editor.lineNumbers": "relative",
   "editor.tokenColorCustomizations": {
     "textMateRules": [
       {
         "scope": "comment",
         "settings": {
-          "fontStyle": "italic"
-        }
-      }
-    ]
+          "fontStyle": "italic",
+        },
+      },
+    ],
   },
   // editor settings
   "editor.stickyScroll.enabled": false,
@@ -110,18 +110,20 @@
     "editorOverviewRuler.addedForeground": "#0000",
     "editorOverviewRuler.errorForeground": "#0000",
     "editorOverviewRuler.infoForeground": "#0000",
-    "editorOverviewRuler.border": "#0000"
+    "editorOverviewRuler.border": "#0000",
   },
   "editor.quickSuggestions": {
     "other": "on",
     "comments": "off",
-    "strings": "off"
+    "strings": "off",
   },
   "editor.suggestOnTriggerCharacters": true,
   "editor.tabCompletion": "off",
   "update.mode": "none",
   "extensions.ignoreRecommendations": true,
   "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "git.autofetch": true,
+  "redhat.telemetry.enabled": false,
 }
