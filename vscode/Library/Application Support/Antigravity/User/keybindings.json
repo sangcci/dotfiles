@@ -1,0 +1,126 @@
+[
+  // ┌────────────────────────────────────────────────────────────────────────────────────┐
+  // │ EXPLORER KEYMAP SETTINGS                                                         │
+  // └────────────────────────────────────────────────────────────────────────────────────┘
+  {
+    "key": "j",
+    "command": "list.focusDown",
+    "when": "listFocus && !inputFocus"
+  },
+  {
+    "key": "k",
+    "command": "list.focusUp",
+    "when": "listFocus && !inputFocus"
+  },
+  {
+    "key": "h",
+    "command": "list.collapse",
+    "when": "listFocus && !inputFocus"
+  },
+  {
+    "key": "l",
+    "command": "list.select",
+    "when": "listFocus && !inputFocus"
+  },
+  {
+    "key": "a",
+    "command": "explorer.newFile",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "A",
+    "command": "explorer.newFolder",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "r",
+    "command": "renameFile",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "d",
+    "command": "deleteFile",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "y",
+    "command": "filesExplorer.copy",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "x",
+    "command": "filesExplorer.cut",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "p",
+    "command": "filesExplorer.paste",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "enter",
+    "command": "list.select",
+    "when": "listFocus && !inputFocus"
+  },
+  {
+    "key": "R",
+    "command": "workbench.files.action.refreshFilesExplorer",
+    "when": "filesExplorerFocus"
+  },
+  {
+    "key": "shift+a",
+    "command": "-explorer.newFolder",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "a",
+    "command": "-explorer.newFile",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  // SIDEBAR & PANEL CLOSE
+  {
+    "key": "alt+q",
+    "command": "workbench.action.closeSidebar",
+    "when": "sideBarFocus"
+  },
+  {
+    "key": "alt+q",
+    "command": "workbench.action.closePanel",
+    "when": "panelFocus || terminalFocus"
+  },
+  // ┌────────────────────────────────────────────────────────────────────────────────────┐
+  // │ WINDOW NAVIGATION - Alt+h/j/k/l                                                  │
+  // └────────────────────────────────────────────────────────────────────────────────────┘
+  {
+    "key": "alt+h",
+    "command": "workbench.action.navigateLeft"
+  },
+  {
+    "key": "alt+l",
+    "command": "workbench.action.navigateRight"
+  },
+  {
+    "key": "alt+k",
+    "command": "workbench.action.navigateUp"
+  },
+  {
+    "key": "alt+j",
+    "command": "workbench.action.navigateDown"
+  },
+  // TERMINAL & PANEL NAVIGATION
+  {
+    "key": "alt+h",
+    "command": "workbench.action.terminal.focusPreviousPane",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "alt+l",
+    "command": "workbench.action.terminal.focusNextPane",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "alt+k",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "terminalFocus || panelFocus"
+  }
+]
