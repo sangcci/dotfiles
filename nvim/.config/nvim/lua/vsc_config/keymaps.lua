@@ -3,6 +3,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 local vscode = require("vscode")
+local utils = require("vsc_config.utils")
 
 -- Remove search highlights after searching
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Remove search highlights" })
@@ -12,14 +13,20 @@ vim.keymap.set("v", "<", "<gv", { desc = "Indent left in visual mode" })
 vim.keymap.set("v", ">", ">gv", { desc = "Indent right in visual mode" })
 
 -- Center cursor after movements
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
-vim.keymap.set("n", "N", "Nzzzv")
-vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "*", function()
+  vim.cmd(":norm! *")
+  local curline = vim.fn.line(".")
+  vscode.call("revealLine", { args = {lineNumber = curline, at = "center"} })
+end, { noremap = true, silent = true })
+vim.keymap.set("n", "n", function()
+	vim.cmd(":norm! n")
+	local curline = vim.fn.line(".")
+	vscode.call("revealLine", { args = {lineNumber = curline, at = "center"} })
+end, { noremap = true, silent = true })
 
 -- Moving
-vim.keymap.set("v", "J", ":m '>+1<CR>gv", { desc = "Move visual block down" })
-vim.keymap.set("v", "K", ":m '<-2<CR>gv", { desc = "Move visual block up" })
+vim.keymap.set("v", "J", function() utils.move_selection("Down") end, { desc = "Move visual block down" })
+vim.keymap.set("v", "K", function() utils.move_selection("Up") end, { desc = "Move visual block up" })
 vim.keymap.set("n", "J", "mzJ`z", { desc = "Join lines (preserve cursor)" })
 vim.keymap.set("n", "oo", "mao<esc>0<S-d>`a<cmd>delmarks a<cr>", { desc = "Add blank line below" })
 vim.keymap.set("n", "OO", "maO<esc>0<S-d>`a<cmd>delmarks a<cr>", { desc = "Add blank line above" })
@@ -37,6 +44,8 @@ vim.keymap.set("n", "<leader>fb", function() vscode.action("workbench.action.sho
 vim.keymap.set("n", "<leader>f.", function() vscode.action("workbench.action.gotoSymbol") end, { desc = "Document Symbols" })
 vim.keymap.set("n", "<leader>fw", function() vscode.action("workbench.action.showAllSymbols") end, { desc = "Workspace Symbols" })
 vim.keymap.set("n", "<leader>fc", function() vscode.action("workbench.action.showCommands") end, { desc = "Show Commands" })
+vim.keymap.set("n", "<leader>fp", function() vscode.action("projectManager.listProjects") end, { desc = "List Projects" })
+vim.keymap.set("n", "<leader>fpn", function() vscode.action("projectManager.listProjectsNewWindow") end, { desc = "List Projects in New Window" })
 
 -- Explorer / Sidebar
 vim.keymap.set("n", "<leader>ee", function() vscode.action("workbench.view.explorer") end, { desc = "Focus Explorer" })
