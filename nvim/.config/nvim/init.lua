@@ -8,10 +8,6 @@ if vim.g.vscode then
 	-- VS Code specific config
 	require("vsc_config.options")
 	require("vsc_config.keymaps")
-
-	-- Essential plugins for VS Code
-	require("plugins.editor.surround")
-	require("plugins.syntaxtree.treesitter")
 else
 	-- Native Neovim config
 	require("config.colorscheme")
