@@ -74,6 +74,7 @@ vim.keymap.set("n", "<leader>go", function() vscode.action("workbench.view.scm")
 -- Testing
 vim.keymap.set("n", "<leader>tn", function() vscode.action("testing.runAtCursor") end, { desc = "Run Test at Cursor" })
 vim.keymap.set("n", "<leader>tf", function() vscode.action("testing.runCurrentFile") end, { desc = "Run Test File" })
+vim.keymap.set("n", "<leader>ta", function() vscode.action("testing.runAll") end, { desc = "Run All Tests" })
 vim.keymap.set("n", "<leader>ts", function() vscode.action("testing.showMostRecentOutput") end, { desc = "Show Test Output" })
 
 -- Debug
@@ -84,6 +85,7 @@ vim.keymap.set("n", "<leader>ds", function() vscode.action("workbench.action.deb
 vim.keymap.set("n", "<leader>r", function() vscode.action("editor.action.formatDocument") end, { desc = "Format Document" })
 vim.keymap.set("n", "<leader>cr", function() vscode.action("editor.action.refactor") end, { desc = "Refactor" })
 vim.keymap.set("n", "<leader>ci", function() vscode.action("editor.action.organizeImports") end, { desc = "Organize Imports" })
+vim.keymap.set({ "n", "v" }, "<leader>rn", function() vscode.action("editor.action.rename") end, { desc = "Rename" })
 
 -- Comment
 vim.keymap.set("n", "gcc", function() vscode.action("editor.action.commentLine") end, { desc = "Toggle line comment" })
