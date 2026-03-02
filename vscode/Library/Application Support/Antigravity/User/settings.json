@@ -126,4 +126,20 @@
   },
   "git.autofetch": true,
   "redhat.telemetry.enabled": false,
+  "java.format.enabled": false,
+  "spotlessGradle.format.enable": true,
+  "[java]": {
+    "spotlessGradle.diagnostics.enable": true,
+    "editor.defaultFormatter": "richardwillis.vscode-spotless-gradle",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.spotlessGradle": "explicit",
+    },
+  },
+  "[gradle]": {
+    "spotlessGradle.diagnostics.enable": true,
+    "editor.defaultFormatter": "richardwillis.vscode-spotless-gradle",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.spotlessGradle": "explicit",
+    },
+  },
 }
