@@ -168,3 +168,6 @@ alias claude-mem='/Users/sangcci/.bun/bin/bun "/Users/sangcci/.claude/plugins/ma
 
 # Added by Antigravity
 export PATH="/Users/sangcci/.antigravity/antigravity/bin:$PATH"
+
+# postgresql
+export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
