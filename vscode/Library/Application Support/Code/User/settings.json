@@ -32,7 +32,7 @@
   "window.titleBarStyle": "native",
   "custom-ui-style.electron": {
     "titleBarStyle": "hiddenInset",
-    "trafficLightPosition": "hidden",
+    "trafficLightPosition": { "x": 15, "y": 13 },
   },
   "custom-ui-style.stylesheet": {
     ".notification-toast": "box-shadow: none !important",
@@ -44,7 +44,7 @@
     ".quick-input-titlebar": "background: #100B15 !important",
     ".monaco-workbench .part.editor > .content .editor-group-container > .title.title-border-bottom:after": "display: none",
     ".monaco-scrollable-element > .shadow.top": "display: none",
-    ".sidebar .title-label": "padding: 0 !important",
+    ".sidebar .title-label": "padding-left: 70px !important",
     ".sidebar": "border: none !important",
     ".monaco-workbench .monaco-list:not(.element-focused):focus:before": "outline: none !important",
     ".monaco-list-row.focused": "outline: none !important",
@@ -120,7 +120,6 @@
   "editor.suggestOnTriggerCharacters": true,
   "editor.tabCompletion": "off",
   "update.mode": "none",
-  "extensions.ignoreRecommendations": true,
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
@@ -142,4 +141,6 @@
       "source.fixAll.spotlessGradle": "explicit",
     },
   },
+  "gitlens.ai.model": "vscode",
+  "gitlens.ai.vscode.model": "copilot:gpt-4.1",
 }
