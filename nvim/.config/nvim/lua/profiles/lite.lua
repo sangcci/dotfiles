@@ -23,6 +23,9 @@ require("plugins.editor.undotree")
 -- UI
 require("plugins.decorator.lualine")
 
+-- Explorer
+require("plugins.explorer.oil")
+
 -- Util
 require("plugins.util.navigator")
 require("plugins.util.which-key")
