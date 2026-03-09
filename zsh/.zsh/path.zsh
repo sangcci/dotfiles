@@ -8,17 +8,18 @@ case "$DOTFILES_OS" in
     ;;
 esac
 
+# ── Lite + Full (rust & neovim via bob) ───────────────────────────────────────
+# Rust cargo (lite에서 bob 의존성으로 설치됨)
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# Bob Neovim Version Manager (lite 포함 모든 프로파일)
+export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
+
 # ── Full profile only ─────────────────────────────────────────────────────────
 if [[ "$DOTFILES_PROFILE" == "full" ]]; then
-  # Rust
-  export PATH="$HOME/.cargo/bin:$PATH"
-
   # Bun
   export BUN_INSTALL="$HOME/.bun"
   export PATH="$BUN_INSTALL/bin:$PATH"
-
-  # Bob Neovim Version Manager
-  export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
 
   # tree-sitter-cli (npm global)
   export PATH="$(npm config get prefix)/bin:$PATH"
