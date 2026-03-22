@@ -27,7 +27,7 @@ if [[ "$DOTFILES_PROFILE" == "full" ]]; then
   # OS-specific full paths
   case "$DOTFILES_OS" in
     macos)
-	  export PATH="$(brew --prefix postgresql@18)/bin:$PATH"
+	  export PATH="$(brew --prefix postgresql@16)/bin:$PATH"
       export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
       ;;
     debian|linux)
