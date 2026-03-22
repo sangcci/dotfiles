@@ -15,7 +15,6 @@ local servers = {
 	"marksman", -- markdown
 	"yamlls", -- yaml
 	"lemminx", -- xml
-	"jdtls", -- java
 	"gradle_ls", -- gradle
 	"groovyls", -- groovy
 	"quick_lint_js", -- javascript/typescript

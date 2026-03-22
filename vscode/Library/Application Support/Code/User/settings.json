@@ -54,16 +54,16 @@
     ".title .monaco-icon-label:after": "margin-right: 0",
     ".monaco-workbench .part.editor > .content .editor-group-container > .title > .label-container > .title-label": "padding-left: 80px",
   },
-  "custom-ui-style.font.sansSerif": "SFMono Nerd Font",
+  "custom-ui-style.font.sansSerif": "D2CodingLigature Nerd Font Mono",
   // cursor settings
   "editor.cursorBlinking": "solid",
   "editor.cursorStyle": "block",
   // typography settings
-  "editor.fontSize": 14,
-  "editor.fontFamily": "SFMono Nerd Font",
+  "editor.fontSize": 15,
+  "editor.fontFamily": "D2CodingLigature Nerd Font Mono",
   "editor.fontWeight": "normal",
   "editor.fontLigatures": true,
-  "editor.lineHeight": 26,
+  "editor.lineHeight": 23,
   "editor.lineNumbers": "relative",
   "editor.tokenColorCustomizations": {
     "textMateRules": [
@@ -143,4 +143,5 @@
   },
   "gitlens.ai.model": "vscode",
   "gitlens.ai.vscode.model": "copilot:gpt-4.1",
+  "terminal.integrated.enableMultiLinePasteWarning": "never",
 }

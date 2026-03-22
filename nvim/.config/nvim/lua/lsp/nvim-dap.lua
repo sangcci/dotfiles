@@ -9,8 +9,6 @@ vim.pack.add({
 })
 
 local debug_adapters = {
-	"java-debug-adapter",
-	"java-test",
 	"debugpy",
 	"delve",
 }
