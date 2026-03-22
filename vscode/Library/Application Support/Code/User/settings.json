@@ -54,13 +54,13 @@
     ".title .monaco-icon-label:after": "margin-right: 0",
     ".monaco-workbench .part.editor > .content .editor-group-container > .title > .label-container > .title-label": "padding-left: 80px",
   },
-  "custom-ui-style.font.sansSerif": "D2CodingLigature Nerd Font Mono",
+  "custom-ui-style.font.sansSerif": "D2CodingLigature Nerd Font",
   // cursor settings
   "editor.cursorBlinking": "solid",
   "editor.cursorStyle": "block",
   // typography settings
   "editor.fontSize": 15,
-  "editor.fontFamily": "D2CodingLigature Nerd Font Mono",
+  "editor.fontFamily": "D2CodingLigature Nerd Font",
   "editor.fontWeight": "normal",
   "editor.fontLigatures": true,
   "editor.lineHeight": 23,
