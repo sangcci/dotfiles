@@ -67,6 +67,8 @@ vim.keymap.set("n", "gr", function() vscode.action("editor.action.goToReferences
 vim.keymap.set("n", "gi", function() vscode.action("editor.action.goToImplementation") end, { desc = "Go to Implementation" })
 vim.keymap.set("n", "gt", function() vscode.action("editor.action.goToTypeDefinition") end, { desc = "Go to Type Definition" })
 vim.keymap.set("n", "gl", function() vscode.action("editor.action.showHover") end, { desc = "Show Hover (Diagnostic)" })
+vim.keymap.set("n", "]d", function() vscode.action("editor.action.marker.nextInFiles") end, { desc = "Next Diagnostic" })
+vim.keymap.set("n", "[d", function() vscode.action("editor.action.marker.prevInFiles") end, { desc = "Prev Diagnostic" })
 
 -- Git
 vim.keymap.set("n", "<leader>go", function() vscode.action("workbench.view.scm") end, { desc = "Open Git View" })
@@ -83,6 +85,7 @@ vim.keymap.set("n", "<leader>ds", function() vscode.action("workbench.action.deb
 
 -- Refactor
 vim.keymap.set("n", "<leader>r", function() vscode.action("editor.action.formatDocument") end, { desc = "Format Document" })
+vim.keymap.set("n", "<leader>ca", function() vscode.action("editor.action.quickFix") end, { desc = "Code Action" })
 vim.keymap.set("n", "<leader>cr", function() vscode.action("editor.action.refactor") end, { desc = "Refactor" })
 vim.keymap.set("n", "<leader>ci", function() vscode.action("editor.action.organizeImports") end, { desc = "Organize Imports" })
 vim.keymap.set({ "n", "v" }, "<leader>rn", function() vscode.action("editor.action.rename") end, { desc = "Rename" })

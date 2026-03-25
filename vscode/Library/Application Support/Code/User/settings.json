@@ -114,6 +114,7 @@
     "editorOverviewRuler.infoForeground": "#0000",
     "editorOverviewRuler.border": "#0000",
   },
+  "editor.inlineSuggest.enabled": true,
   "editor.quickSuggestions": {
     "other": "on",
     "comments": "off",
@@ -147,4 +148,10 @@
   "gitlens.ai.vscode.model": "copilot:gpt-4.1",
   "terminal.integrated.enableMultiLinePasteWarning": "never",
   "chat.viewSessions.orientation": "stacked",
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
 }

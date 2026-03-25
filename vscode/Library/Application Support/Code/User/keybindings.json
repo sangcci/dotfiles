@@ -84,5 +84,16 @@
     "key": "alt+k",
     "command": "workbench.action.focusActiveEditorGroup",
     "when": "terminalFocus || panelFocus"
+  },
+  // Inline suggestion priority in Neovim insert mode
+  {
+    "key": "tab",
+    "command": "-acceptSelectedSuggestion",
+    "when": "suggestWidgetVisible && suggestWidgetHasFocusedSuggestion && textInputFocus && neovim.mode == insert"
+  },
+  {
+    "key": "tab",
+    "command": "editor.action.inlineSuggest.commit",
+    "when": "editorTextFocus && inlineSuggestionVisible && neovim.mode == insert"
   }
 ]
