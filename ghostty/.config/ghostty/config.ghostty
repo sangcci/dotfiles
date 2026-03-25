@@ -1,0 +1,15 @@
+# Font
+font-family = D2CodingLigature Nerd Font Mono
+font-size = 15
+adjust-cell-height = 25%
+
+# macOS Option as Alt (for tmux/nvim keybindings)
+macos-option-as-alt = true
+
+# Appearance
+theme = Kanso Ink
+background-opacity = 0.8
+background-blur-radius = 40
+
+# tmux
+command = /opt/homebrew/bin/tmux new-session -A -s main
