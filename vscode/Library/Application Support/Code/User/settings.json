@@ -51,6 +51,8 @@
     ".title.show-file-icons .label-container .monaco-icon-label.file-icon": "justify-content: center; padding: 0 !important",
     ".title .monaco-icon-label:after": "margin-right: 0",
     ".monaco-workbench .part.editor > .content .editor-group-container > .title > .label-container > .title-label": "padding-left: 80px",
+    ".interactive-session .value, .interactive-session .message, .chat-view .chat-request, .chat-view .chat-response, .chat-view .rendered-markdown": "font-family: 'Pretendard' !important; font-size: 15px !important; line-height: 1.55 !important; letter-spacing: -0.01em !important",
+    ".interactive-input-part .monaco-editor, .interactive-input-part textarea, .chat-input-part .monaco-editor": "font-family: 'Pretendard' !important; font-size: 15px !important; line-height: 23px !important; letter-spacing: -0.2px !important",
   },
   // cursor settings
   "editor.cursorBlinking": "solid",
@@ -147,6 +149,10 @@
   "gitlens.ai.model": "vscode",
   "gitlens.ai.vscode.model": "copilot:gpt-4.1",
   "terminal.integrated.enableMultiLinePasteWarning": "never",
+  "chat.editor.fontFamily": "Pretendard",
+  "chat.editor.fontSize": 15,
+  "chat.editor.lineHeight": 23,
+  "chat.editor.fontWeight": "normal",
   "chat.viewSessions.orientation": "stacked",
   "github.copilot.enable": {
     "*": false,
