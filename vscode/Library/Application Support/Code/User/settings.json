@@ -1,106 +1,87 @@
 {
+  // ─────────────────────────────────────────────
+  // EXTENSIONS
+  // ─────────────────────────────────────────────
+
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1,
   },
   "vscode-neovim.editorCursorStyle": "block",
-  // antigravity settings
+
+  // antigravity (VSX registry redirect)
   "antigravity.marketplaceGalleryItemURL": "https://marketplace.visualstudio.com/items",
   "antigravity.marketplaceExtensionGalleryServiceURL": "https://marketplace.visualstudio.com/_apis/public/gallery",
+
+
+  // ─────────────────────────────────────────────
+  // SYSTEM / OS
+  // ─────────────────────────────────────────────
+
   // mac os 한영키 인식
   "keyboard.dispatch": "keyCode",
-  // workbench settings
+
+  "update.mode": "none",
+  "telemetry.telemetryLevel": "off",
+  "redhat.telemetry.enabled": false,
+
+
+  // ─────────────────────────────────────────────
+  // WINDOW
+  // ─────────────────────────────────────────────
+
+  "window.zoomLevel": 0,
+  "window.titleBarStyle": "custom",
+  "window.customTitleBarVisibility": "auto",
+  "window.title": " ",
+  "window.commandCenter": false,
+  "window.menuBarVisibility": "compact",
+
+
+  // ─────────────────────────────────────────────
+  // WORKBENCH
+  // ─────────────────────────────────────────────
+
   "workbench.colorTheme": "Kanso Ink",
-  "workbench.activityBar.location": "hidden",
-  "workbench.editor.showTabs": "single",
-  "workbench.statusBar.visible": false,
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.productIconTheme": "material-product-icons",
+
   "workbench.startupEditor": "none",
   "workbench.tips.enabled": false,
-  "editor.minimap.enabled": false,
-  "breadcrumbs.enabled": false,
-  // sidebar settings
-  "workbench.sideBar.location": "left",
-  "workbench.iconTheme": "material-icon-theme",
-  "material-icon-theme.hidesExplorerArrows": true,
+  "workbench.layoutControl.enabled": false,
+  "workbench.reduceMotion": "on",
+
+  // activity bar
+  "workbench.activityBar.location": "hidden",
+
+  // status bar
+  "workbench.statusBar.visible": false,
+
+  // editor tabs
+  "workbench.editor.showTabs": "single",
+  "workbench.editor.tabSizing": "shrink",
+  "workbench.editor.labelFormat": "short",
+  "workbench.editor.empty.hint": "hidden",
+  "workbench.editor.enablePreview": true,
+  "workbench.editor.scrollToSwitchTabs": true,
+  "workbench.editor.focusRecentEditorAfterClose": false,
+  "workbench.view.alwaysShowHeaderActions": true,
+
+  // list / tree
+  "workbench.list.smoothScrolling": true,
   "workbench.tree.renderIndentGuides": "none",
   "workbench.tree.indent": 8,
-  "explorer.compactFolders": false,
-  "explorer.confirmDragAndDrop": false,
-  "explorer.confirmDelete": false,
-  // ui settings
-  "window.zoomLevel": 0,
-  "window.customTitleBarVisibility": "auto",
-  "window.titleBarStyle": "custom",
-  "custom-ui-style.font.sansSerif": "D2CodingLigature Nerd Font",
-  "custom-ui-style.stylesheet": {
-    ".window-title": "display: none !important",
-    ".notification-toast": "box-shadow: none !important",
-    ".quick-input-widget.show-file-icons": "box-shadow: none !important",
-    ".quick-input-widget": "top: 25vh !important",
-    ".quick-input-list .scrollbar": "display: none",
-    ".monaco-action-bar.quick-input-inline-action-bar": "display: none",
-    ".editor-widget.find-widget": "box-shadow: none; border-radius: 4px",
-    ".quick-input-titlebar": "background: #100B15 !important",
-    ".monaco-workbench .part.editor > .content .editor-group-container > .title.title-border-bottom:after": "display: none",
-    ".monaco-scrollable-element > .shadow.top": "display: none",
-    ".sidebar .title-label": "padding-left: 70px !important",
-    ".sidebar": "border: none !important",
-    ".monaco-workbench .monaco-list:not(.element-focused):focus:before": "outline: none !important",
-    ".monaco-list-row.focused": "outline: none !important",
-    ".monaco-editor .scroll-decoration": "display: none",
-    ".title-actions": "display: none !important",
-    ".title.show-file-icons .label-container .monaco-icon-label.file-icon": "justify-content: center; padding: 0 !important",
-    ".title .monaco-icon-label:after": "margin-right: 0",
-    ".monaco-workbench .part.editor > .content .editor-group-container > .title > .label-container > .title-label": "padding-left: 80px",
-    ".interactive-session .value, .interactive-session .message, .chat-view .chat-request, .chat-view .chat-response, .chat-view .rendered-markdown": "font-family: 'Pretendard' !important; font-size: 15px !important; line-height: 1.55 !important; letter-spacing: -0.01em !important",
-    ".interactive-input-part .monaco-editor, .interactive-input-part textarea, .chat-input-part .monaco-editor": "font-family: 'Pretendard' !important; font-size: 15px !important; line-height: 23px !important; letter-spacing: -0.2px !important",
-  },
-  // cursor settings
-  "editor.cursorBlinking": "solid",
-  "editor.cursorStyle": "block",
-  // typography settings
-  "editor.fontSize": 15,
-  "editor.fontFamily": "D2CodingLigature Nerd Font",
-  "editor.fontWeight": "normal",
-  "editor.fontLigatures": true,
-  "editor.lineHeight": 23,
-  "editor.lineNumbers": "relative",
-  "editor.tokenColorCustomizations": {
-    "textMateRules": [
-      {
-        "scope": "comment",
-        "settings": {
-          "fontStyle": "italic",
-        },
-      },
-    ],
-  },
-  // editor settings
-  "editor.stickyScroll.enabled": false,
-  "editor.codeLens": false,
-  "editor.links": false,
-  "editor.matchBrackets": "never",
-  "editor.parameterHints.enabled": true,
-  "editor.lightbulb.enabled": "off",
-  "editor.hover.enabled": "off",
-  "files.trimTrailingWhitespace": true,
-  "files.autoSave": "afterDelay",
-  "editor.tabSize": 4,
-  "editor.detectIndentation": true,
-  "editor.showFoldingControls": "never",
-  "editor.renderWhitespace": "none",
-  "editor.renderLineHighlight": "none",
-  "editor.occurrencesHighlight": "off",
-  "editor.selectionHighlight": false,
-  "editor.scrollbar.horizontal": "hidden",
-  "editor.scrollbar.vertical": "hidden",
-  "editor.overviewRulerBorder": false,
-  "editor.hideCursorInOverviewRuler": true,
+  "workbench.tree.enableStickyScroll": false,
+
+  // color customizations
   "workbench.colorCustomizations": {
+    // title bar
     "titleBar.activeBackground": "#16161D",
     "titleBar.inactiveBackground": "#16161D",
     "titleBar.activeForeground": "#00000000",
     "titleBar.inactiveForeground": "#00000000",
     "titleBar.border": "#00000000",
+
+    // overview ruler (모두 투명)
     "editorCursor.background": "#000000",
     "editorOverviewRuler.wordHighlightStrongForeground": "#0000",
     "editorOverviewRuler.selectionHighlightForeground": "#0000",
@@ -115,8 +96,114 @@
     "editorOverviewRuler.errorForeground": "#0000",
     "editorOverviewRuler.infoForeground": "#0000",
     "editorOverviewRuler.border": "#0000",
+
+    // border / shadow 전체 제거
+    "activityBar.border": "#00000000",
+    "sideBar.border": "#00000000",
+    "sideBarTitle.background": "#00000000",
+    "tab.border": "#00000000",
+    "tab.activeBorder": "#00000000",
+    "panel.border": "#00000000",
+    "terminal.border": "#00000000",
+    "diffEditor.border": "#00000000",
+    "editorGroupHeader.border": "#00000000",
+    "editorGroupHeader.tabsBorder": "#00000000",
+    "editorGroup.border": "#00000000",
+    "statusBar.border": "#00000000",
+    "focusBorder": "#00000000",
+    "scrollbar.shadow": "#acabab00",
+    "widget.shadow": "#00000000",
+    "editor.foldBackground": "#00000000",
+    "list.focusOutline": "#00000000",
   },
+
+
+  // ─────────────────────────────────────────────
+  // SIDEBAR / EXPLORER
+  // ─────────────────────────────────────────────
+
+  "workbench.sideBar.location": "left",
+  "material-icon-theme.hidesExplorerArrows": true,
+  "explorer.openEditors.visible": 0,
+  "explorer.compactFolders": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+  "explorer.fileNesting.enabled": false,
+  "explorer.fileNesting.expand": false,
+
+  "breadcrumbs.enabled": false,
+
+
+  // ─────────────────────────────────────────────
+  // EDITOR — TYPOGRAPHY
+  // ─────────────────────────────────────────────
+
+  "editor.fontFamily": "D2CodingLigature Nerd Font",
+  "editor.fontSize": 15,
+  "editor.fontWeight": "normal",
+  "editor.fontLigatures": true,
+  "editor.lineHeight": 23,
+  "editor.lineNumbers": "relative",
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": "comment",
+        "settings": {
+          "fontStyle": "italic",
+        },
+      },
+    ],
+  },
+
+
+  // ─────────────────────────────────────────────
+  // EDITOR — CURSOR
+  // ─────────────────────────────────────────────
+
+  "editor.cursorStyle": "block",
+  "editor.cursorBlinking": "solid",
+  "editor.cursorSmoothCaretAnimation": "on",
+
+
+  // ─────────────────────────────────────────────
+  // EDITOR — APPEARANCE
+  // ─────────────────────────────────────────────
+
+  "editor.minimap.enabled": false,
+  "editor.smoothScrolling": true,
+  "editor.renderLineHighlight": "none",
+  "editor.renderWhitespace": "none",
+  "editor.glyphMargin": false,
+  "editor.overviewRulerBorder": false,
+  "editor.hideCursorInOverviewRuler": true,
+  "editor.scrollbar.horizontal": "hidden",
+  "editor.scrollbar.vertical": "hidden",
+  "editor.scrollbar.verticalScrollbarSize": 0,
+  "editor.showFoldingControls": "never",
+  "editor.guides.highlightActiveBracketPair": false,
+  "editor.guides.indentation": false,
+  "editor.bracketPairColorization.enabled": false,
+  "editor.stickyScroll.enabled": false,
+
+
+  // ─────────────────────────────────────────────
+  // EDITOR — BEHAVIOR
+  // ─────────────────────────────────────────────
+
+  "editor.tabSize": 4,
+  "editor.detectIndentation": true,
+  "editor.matchBrackets": "never",
+  "editor.parameterHints.enabled": true,
+  "editor.lightbulb.enabled": "off",
+  "editor.hover.enabled": "off",
+  "editor.codeLens": false,
+  "editor.links": false,
+  "editor.occurrencesHighlight": "off",
+  "editor.selectionHighlight": false,
+
+  // suggestions
   "editor.inlineSuggest.enabled": true,
+  "editor.inlineSuggest.syntaxHighlightingEnabled": true,
   "editor.quickSuggestions": {
     "other": "on",
     "comments": "off",
@@ -124,14 +211,70 @@
   },
   "editor.suggestOnTriggerCharacters": true,
   "editor.tabCompletion": "off",
-  "update.mode": "none",
+
+
+  // ─────────────────────────────────────────────
+  // FILES
+  // ─────────────────────────────────────────────
+
+  "files.trimTrailingWhitespace": true,
+  "files.autoSave": "afterDelay",
+
+
+  // ─────────────────────────────────────────────
+  // TERMINAL
+  // ─────────────────────────────────────────────
+
+  "terminal.integrated.smoothScrolling": true,
+  "terminal.integrated.enableMultiLinePasteWarning": "never",
+
+
+  // ─────────────────────────────────────────────
+  // CHAT / AI
+  // ─────────────────────────────────────────────
+
+  "chat.editor.fontFamily": "Pretendard",
+  "chat.editor.fontSize": 15,
+  "chat.editor.lineHeight": 23,
+  "chat.editor.fontWeight": "normal",
+  "chat.editor.wordWrap": "on",
+  "chat.viewSessions.orientation": "stacked",
+
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
+
+
+  // ─────────────────────────────────────────────
+  // GIT / SCM
+  // ─────────────────────────────────────────────
+
+  "git.autofetch": true,
+  "git.mergeEditor": true,
+  "git.confirmSync": false,
+  "git.alwaysShowStagedChangesResourceGroup": true,
+
+  "scm.providers.visible": 0,
+  "scm.alwaysShowActions": true,
+  "scm.alwaysShowRepositories": true,
+  "scm.diffDecorations": "gutter",
+  "scm.showIncomingChanges": "always",
+  "scm.showOutgoingChanges": "always",
+
+  "gitlens.ai.model": "vscode",
+  "gitlens.ai.vscode.model": "copilot:gpt-4.1",
+
+
+  // ─────────────────────────────────────────────
+  // LANGUAGE — FORMATTERS
+  // ─────────────────────────────────────────────
+
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
-  "git.autofetch": true,
-  "redhat.telemetry.enabled": false,
-  "java.format.enabled": false,
-  "spotlessGradle.format.enable": true,
   "[java]": {
     "spotlessGradle.diagnostics.enable": true,
     "editor.defaultFormatter": "richardwillis.vscode-spotless-gradle",
@@ -146,18 +289,136 @@
       "source.fixAll.spotlessGradle": "explicit",
     },
   },
-  "gitlens.ai.model": "vscode",
-  "gitlens.ai.vscode.model": "copilot:gpt-4.1",
-  "terminal.integrated.enableMultiLinePasteWarning": "never",
-  "chat.editor.fontFamily": "Pretendard",
-  "chat.editor.fontSize": 15,
-  "chat.editor.lineHeight": 23,
-  "chat.editor.fontWeight": "normal",
-  "chat.viewSessions.orientation": "stacked",
-  "github.copilot.enable": {
-    "*": false,
-    "plaintext": false,
-    "markdown": false,
-    "scminput": false
+
+  "java.format.enabled": false,
+  "spotlessGradle.format.enable": true,
+
+
+  // ─────────────────────────────────────────────
+  // APC CUSTOMIZE UI++ (requires drcika.apc-extension)
+  // ─────────────────────────────────────────────
+
+  "apc.electron": {
+    "backgroundColor": "#00000000",
+    "frame": false,
+    "vibrancy": "fullscreen-ui",
+    "visualEffectState": "active",
+    "titleBarStyle": "hidden",
+    "trafficLightPosition": {
+      "x": 15,
+      "y": 14
+    }
   },
+  "apc.header": {
+    "height": 32,
+    "fontSize": 11
+  },
+  "apc.sidebar.titlebar": {
+    "height": -20,
+    "fontSize": -10
+  },
+  "apc.stylesheet": {
+    ".tabs-container": "margin-bottom: 10px;"
+  },
+  "apc.listRow": {
+    "height": 19.5,
+    "fontSize": 11.5
+  },
+  "apc.menubar.compact": true,
+  "apc.imports": [],
+
+
+  // ─────────────────────────────────────────────
+  // CUSTOM UI STYLE (requires drcika.apc-extension 또는 be5invis.vscode-custom-css)
+  // ─────────────────────────────────────────────
+
+  "custom-ui-style.font.sansSerif": "D2CodingLigature Nerd Font",
+  "custom-ui-style.stylesheet": {
+
+    // title bar
+    ".window-title": "display: none !important",
+
+    // command palette (quick input)
+    ".notification-toast": "box-shadow: none !important",
+    ".quick-input-widget.show-file-icons": "box-shadow: none !important",
+    ".quick-input-widget": "top: 25vh !important; backdrop-filter: blur(60px) saturate(180%) !important; border: 1px solid rgba(255,255,255,0.07) !important; border-radius: 12px !important;",
+    ".quick-input-widget .monaco-inputbox": "border-radius: 3px; margin-bottom: 4px;",
+    ".quick-input-widget .monaco-list-rows": "background: transparent !important;",
+    ".quick-input-list .scrollbar": "display: none",
+    ".monaco-action-bar.quick-input-inline-action-bar": "display: none",
+    ".editor-widget.find-widget": "box-shadow: none; border-radius: 4px",
+    ".quick-input-titlebar": "background: #100B15 !important",
+
+    // editor rounded corners (외곽만 둥글게, 내부는 0)
+    ".editor-group-container .editor-container:has(.extension-editor)": "border-radius: 0.5rem;",
+    ".monaco-editor": "border-radius: 0.5rem; overflow: hidden;",
+    ".monaco-editor .overflow-guard": "border-radius: 0rem;",
+    ".monaco-editor .overflow-guard .monaco-scrollable-element": "border-radius: 0rem;",
+    ".monaco-editor .margin": "border-radius: 0rem;",
+    ".monaco-editor .margin-view-overlays": "border-radius: 0rem;",
+    ".monaco-editor .monaco-editor-background": "border-radius: 0rem;",
+    ".monaco-editor-background": "border-radius: 0rem !important;",
+    ".monaco-editor .monaco-scrollable-element": "border-radius: 0rem !important;",
+    ".monaco-scrollable-element > .scrollbar.vertical": "border-radius: 0rem !important;",
+    ".monaco-scrollable-element > .scrollbar.horizontal": "border-radius: 0rem !important;",
+    ".monaco-editor .editor-scrollable": "border-radius: 0rem !important;",
+    ".editor-group-container .editor-instance": "border-radius: 0rem !important; overflow: hidden !important;",
+    ".editor-group-container": "border-radius: 0.5rem !important; overflow: hidden !important;",
+    ".monaco-workbench .part.editor > .content": "border-radius: 0.5rem !important; overflow: hidden !important;",
+
+    // tab styling
+    ".monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab": "border-radius: 0.5rem 0.5rem 0 0 !important; overflow: hidden !important;",
+    ".monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab.active": "border-radius: 0.5rem 0.5rem 0 0 !important; overflow: hidden !important;",
+    ".monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab.active.tab-border-top>.tab-border-top-container, .monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab.selected.tab-border-top>.tab-border-top-container": "height: 0 !important;",
+    ".monaco-workbench .part.editor>.content .editor-group-container.active>.title .tabs-container>.tab.active": "box-shadow: 0 6px 0 0 var(--vscode-editor-background) !important;",
+    ".tabs-and-actions-container:has(.tab.active:first-child)": "box-shadow: -20px 5px 0 0 var(--vscode-editor-background) !important;",
+
+    // breadcrumbs
+    ".breadcrumbs-below-tabs": "border-radius: 0.5rem 0.5rem 0 0 !important; overflow: hidden !important; padding: 9px 0 !important; background: var(--vscode-editor-background) !important; color: var(--vscode-editor-foreground) !important;",
+    ".monaco-breadcrumbs": "font-size: 0.7rem !important;",
+
+    // split view
+    ".split-view-view.visible": "background: var(--vscode-editorGroupHeader-tabsBackground) !important;",
+    ".monaco-split-view2.separator-border.vertical>.monaco-scrollable-element>.split-view-container>.split-view-view:not(:first-child):before": "background: var(--vscode-editorGroupHeader-tabsBackground) !important;",
+    ".monaco-split-view2.separator-border>.monaco-scrollable-element>.split-view-container>.split-view-view:not(:first-child):before": "background: var(--vscode-editorGroupHeader-tabsBackground) !important;",
+
+    // editor actions (hover 시 표시)
+    ".editor-actions": "opacity: 0 !important; transition: opacity 0.2s ease-in-out;",
+    ".editor-actions:hover": "opacity: 1 !important;",
+
+    // sidebar
+    ".monaco-workbench .part.sidebar .secondary-sidebar": "border-radius: .5rem !important;",
+    ".monaco-workbench .part.sidebar": "border-radius: 0.5rem !important; overflow: hidden !important;",
+    ".monaco-workbench .part.sidebar>.title": "background: transparent !important; padding: 0 !important; border-radius: .5rem !important;",
+    ".monaco-workbench .part.sidebar .title-actions": "display: none",
+    ".sidebar": "border: none !important",
+
+    // pane headers
+    ".monaco-pane-view .pane>.pane-header": "padding: 0 6px !important; border-radius: 5px !important; margin: 1px 5px 0 !important;",
+
+    // activity bar icons
+    "li.action-item.icon": "transition: all 0.15s !important; opacity: 0.7 !important;",
+    "li.action-item.icon.checked, li.action-item.icon:hover": "opacity: 1 !important;",
+
+    // terminal
+    ".terminal-wrapper.active": "background: transparent !important;",
+    "div#terminal": "border-radius: .75rem !important; overflow: hidden !important;",
+    ".monaco-workbench .pane-body.integrated-terminal .terminal-split-pane": "border-radius: 0.5rem !important; overflow: hidden !important;",
+
+    // misc cleanups
+    ".monaco-editor .sticky-widget": "box-shadow: none !important; border-color: var(--vscode-editor-background) !important;",
+    ".monaco-workbench .part.editor > .content .editor-group-container > .title.title-border-bottom:after": "display: none",
+    ".monaco-scrollable-element > .shadow.top": "display: none",
+    ".monaco-workbench .monaco-list:not(.element-focused):focus:before": "outline: none !important",
+    ".monaco-list-row.focused": "outline: none !important",
+    ".monaco-editor .scroll-decoration": "display: none !important",
+    ".title-actions": "display: none !important",
+    ".title.show-file-icons .label-container .monaco-icon-label.file-icon": "justify-content: flex-start; padding: 0 !important",
+
+    // chat — Pretendard 폰트
+    ".interactive-session .value, .interactive-session .message, .chat-view .chat-request, .chat-view .chat-response, .chat-view .rendered-markdown": "font-family: 'Pretendard' !important; font-size: 15px !important; line-height: 1.55 !important; letter-spacing: -0.01em !important",
+    ".interactive-input-part .monaco-editor, .interactive-input-part textarea, .chat-input-part .monaco-editor": "font-family: 'Pretendard' !important; font-size: 15px !important; line-height: 23px !important; letter-spacing: -0.2px !important",
+  },
+  "workbench.panel.showLabels": false,
+  "terminal.integrated.tabs.location": "left",
 }
