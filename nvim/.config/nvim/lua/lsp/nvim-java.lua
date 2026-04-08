@@ -5,13 +5,19 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-java/nvim-java" },
 })
 
+-- NOTE: Manual fix applied to nvim-java plugin:
+-- ~/.local/share/nvim/site/pack/core/opt/nvim-java/lua/java-refactor/client-command-handlers.lua:21
+-- `action.rename(params)` → `action:rename(params)`
+-- Using `.` passes `params` as `self`, making the actual param nil → ipairs(nil) error on extract variable.
+-- Reapply after plugin updates.
+
 -- NOTE: before use it, ensure installed `wget` in local
 require("java").setup()
 vim.lsp.config("jdtls", {
 	on_attach = function(client, bufnr)
 		vim.keymap.set("n", "<leader>ci", java_action("source.organizeImports"), { buffer = bufnr, silent = true, desc = "Organize imports" })
-		vim.keymap.set("n", "<leader>cr", java_action("refactor.extract.variable"), { buffer = bufnr, silent = true, desc = "Extract variable" })
-		vim.keymap.set("n", "<leader>cm", java_action("refactor.extract.method"), { buffer = bufnr, silent = true, desc = "Extract method" })
+		vim.keymap.set("v", "<leader>cr", java_action("refactor.extract.variable"), { buffer = bufnr, silent = true, desc = "Extract variable" })
+		vim.keymap.set("v", "<leader>cm", java_action("refactor.extract.method"), { buffer = bufnr, silent = true, desc = "Extract method" })
 		-- Use conform for formatting instead of jdtls
 		client.server_capabilities.documentFormattingProvider = false
 		client.server_capabilities.documentRangeFormattingProvider = false
