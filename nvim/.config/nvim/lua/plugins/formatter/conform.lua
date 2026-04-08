@@ -4,16 +4,21 @@ vim.pack.add({
 
 require("conform").setup({
 	formatters_by_ft = {
-		java = { "google-java-format" },
+		java = { "spotless" },
 		lua = { "stylua" },
 		python = { "ruff_format", "ruff_organize_imports" },
 		javascript = { "prettierd", "prettier", stop_after_first = true },
 		go = { "goimports", "gofmt" },
 	},
 	formatters = {
-		-- ensures 4-space indentation for java
-		["google-java-format"] = {
-			prepend_args = { "--aosp" },
+		spotless = {
+			command = "sh",
+			args = {
+				"-c",
+				"cd " .. vim.fn.getcwd() .. " && ./gradlew spotlessApply",
+			},
+			stdin = false,
+			exit_codes = { 0, 1 },
 		},
 		stylua = {
 			prepend_args = {
@@ -28,5 +33,22 @@ require("conform").setup({
 
 vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*",
-	callback = function(args) require("conform").format({ bufnr = args.buf }) end,
+	callback = function(args)
+		require("conform").format({ bufnr = args.buf, async = false }, function(err)
+			if err then
+				vim.notify(
+					"Format failed: " .. tostring(err),
+					vim.log.levels.ERROR
+				)
+			else
+				local formatters = require("conform").list_formatters(args.buf)
+				if #formatters > 0 then
+					vim.notify(
+						"Formatted with: " .. table.concat(formatters, ", "),
+						vim.log.levels.INFO
+					)
+				end
+			end
+		end)
+	end,
 })
