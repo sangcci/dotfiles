@@ -1,5 +1,5 @@
 -- timeout
-vim.opt.timeoutlen = 300
+vim.opt.timeoutlen = 200
 
 -- searching
 vim.opt.ignorecase = true -- "hello", "Hello" both can be found.
