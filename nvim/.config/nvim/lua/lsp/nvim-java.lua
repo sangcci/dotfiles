@@ -1,21 +1,9 @@
 vim.pack.add({
-	{
-		src = "https://github.com/JavaHello/spring-boot.nvim",
-		version = "218c0c26c14d99feca778e4d13f5ec3e8b1b60f0",
-	},
-	"https://github.com/MunifTanjim/nui.nvim",
-	"https://github.com/mfussenegger/nvim-dap",
-	"https://github.com/nvim-java/nvim-java",
+	{ src = "https://github.com/JavaHello/spring-boot.nvim", version = "218c0c26c14d99feca778e4d13f5ec3e8b1b60f0" },
+	{ src = "https://github.com/MunifTanjim/nui.nvim" },
+	{ src = "https://github.com/mfussenegger/nvim-dap" },
+	{ src = "https://github.com/nvim-java/nvim-java" },
 })
-
-local function java_action(action)
-	return function()
-		vim.lsp.buf.code_action({
-			context = { only = { action } },
-			apply = true,
-		})
-	end
-end
 
 -- NOTE: before use it, ensure installed `wget` in local
 require("java").setup()
@@ -23,6 +11,10 @@ vim.lsp.config("jdtls", {
 	on_attach = function(client, bufnr)
 		vim.keymap.set("n", "<leader>ci", java_action("source.organizeImports"), { buffer = bufnr, silent = true, desc = "Organize imports" })
 		vim.keymap.set("n", "<leader>cr", java_action("refactor.extract.variable"), { buffer = bufnr, silent = true, desc = "Extract variable" })
+		vim.keymap.set("n", "<leader>cm", java_action("refactor.extract.method"), { buffer = bufnr, silent = true, desc = "Extract method" })
+		-- Use conform for formatting instead of jdtls
+		client.server_capabilities.documentFormattingProvider = false
+		client.server_capabilities.documentRangeFormattingProvider = false
 	end,
 	capabilities = require("blink.cmp").get_lsp_capabilities(),
 	settings = {
