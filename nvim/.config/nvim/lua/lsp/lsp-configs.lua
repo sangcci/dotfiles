@@ -64,6 +64,24 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("n", "gr", builtin.lsp_references, { desc = "Find References" })
 		vim.keymap.set("n", "gi", builtin.lsp_implementations, { desc = "Find Implementations" })
 		vim.keymap.set("n", "gt", builtin.lsp_type_definitions, { desc = "Find Type Definitions" })
-		vim.keymap.set("n", "<leader>r", function() require("conform").format({ bufnr = args.buf, async = true, lsp_fallback = true }) end, vim.tbl_extend("force", opts, { desc = "format" }))
+		vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, { desc = "Code Action" }))
+		vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "Rename" }))
+		vim.keymap.set("n", "<leader>r", function()
+			require("conform").format({ bufnr = args.buf, async = false }, function(err)
+				if err then
+					vim.notify("Format failed: " .. tostring(err), vim.log.levels.ERROR)
+				else
+					local formatters = require("conform").list_formatters(args.buf)
+					if #formatters > 0 then
+						vim.notify(
+							"Formatted with: " .. table.concat(formatters, ", "),
+							vim.log.levels.INFO
+						)
+					else
+						vim.notify("No formatters available", vim.log.levels.WARN)
+					end
+				end
+			end)
+		end, vim.tbl_extend("force", opts, { desc = "format" }))
 	end,
 })
