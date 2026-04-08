@@ -8,6 +8,9 @@ require("conform").setup({
 		lua = { "stylua" },
 		python = { "ruff_format", "ruff_organize_imports" },
 		javascript = { "prettierd", "prettier", stop_after_first = true },
+		typescript = { "prettierd", "prettier", stop_after_first = true },
+		typescriptreact = { "prettierd", "prettier", stop_after_first = true },
+		javascriptreact = { "prettierd", "prettier", stop_after_first = true },
 		go = { "goimports", "gofmt" },
 	},
 	formatters = {

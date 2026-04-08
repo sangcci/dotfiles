@@ -17,7 +17,7 @@ local servers = {
 	"lemminx", -- xml
 	"gradle_ls", -- gradle
 	"groovyls", -- groovy
-	"quick_lint_js", -- javascript/typescript
+	"ts_ls", -- typescript/javascript
 	"pyright", -- python
 	"gopls", -- golang
 }
