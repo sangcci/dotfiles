@@ -51,7 +51,7 @@ require("mason-lspconfig").setup({
 })
 
 require("mason-tool-installer").setup({
-	eusure_installed = vim.list_extend(vim.deepcopy(servers), formatters),
+	ensure_installed = vim.list_extend(vim.deepcopy(servers), formatters),
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -71,10 +71,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
 				if err then
 					vim.notify("Format failed: " .. tostring(err), vim.log.levels.ERROR)
 				else
-					local formatters = require("conform").list_formatters(args.buf)
-					if #formatters > 0 then
+					local formatter_list = require("conform").list_formatters(args.buf)
+					if #formatter_list > 0 then
+						local names = vim.tbl_map(function(f) return f.name end, formatter_list)
 						vim.notify(
-							"Formatted with: " .. table.concat(formatters, ", "),
+							"Formatted with: " .. table.concat(names, ", "),
 							vim.log.levels.INFO
 						)
 					else

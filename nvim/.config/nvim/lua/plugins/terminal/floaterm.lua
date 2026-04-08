@@ -3,7 +3,7 @@ vim.pack.add({
 })
 
 require("toggleterm").setup({
-	open_mapping = "<leader>tt",
+	open_mapping = "<leader>T",
 	direction = "float",
 	float_opts = {
 		border = "rounded",

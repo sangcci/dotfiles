@@ -6,6 +6,7 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-neotest/neotest" },
 	{ src = "https://github.com/fredrikaverpil/neotest-golang" },
 	{ src = "https://github.com/nvim-neotest/neotest-python" },
+	{ src = "https://github.com/rcasia/neotest-java" },
 })
 
 -- TODO: to fix the neotest-golang setup for attach to go
@@ -22,7 +23,7 @@ require("neotest").setup({
 			},
 		}),
 		require("neotest-python"),
-		-- NOTE: don't use the neotest-java. it's config makes me so confuse. instead using nvim-java built in test api and using cli.
+		require("neotest-java"),
 	},
 	log_level = vim.log.levels.DEBUG,
 })
