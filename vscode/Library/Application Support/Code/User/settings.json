@@ -116,13 +116,6 @@
     "editor.foldBackground": "#00000000",
     "list.focusOutline": "#00000000",
   },
-
-
-  // ─────────────────────────────────────────────
-  // SIDEBAR / EXPLORER
-  // ─────────────────────────────────────────────
-
-  "workbench.sideBar.location": "left",
   "material-icon-theme.hidesExplorerArrows": true,
   "explorer.openEditors.visible": 0,
   "explorer.compactFolders": false,
@@ -227,6 +220,8 @@
 
   "terminal.integrated.smoothScrolling": true,
   "terminal.integrated.enableMultiLinePasteWarning": "never",
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.wordWrap": false,
 
 
   // ─────────────────────────────────────────────
@@ -238,7 +233,6 @@
   "chat.editor.lineHeight": 23,
   "chat.editor.fontWeight": "normal",
   "chat.editor.wordWrap": "on",
-  "chat.viewSessions.orientation": "stacked",
 
   "github.copilot.enable": {
     "*": false,
@@ -292,7 +286,8 @@
 
   "java.format.enabled": false,
   "spotlessGradle.format.enable": true,
-
+  "java.compile.nullAnalysis.mode": "automatic",
+  "java.compilerArgs": ["-parameters"],
 
   // ─────────────────────────────────────────────
   // APC CUSTOMIZE UI++ (requires drcika.apc-extension)
@@ -421,4 +416,5 @@
   },
   "workbench.panel.showLabels": false,
   "terminal.integrated.tabs.location": "left",
+  "chat.viewSessions.orientation": "stacked",
 }

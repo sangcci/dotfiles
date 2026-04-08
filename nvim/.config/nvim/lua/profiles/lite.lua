@@ -26,6 +26,9 @@ require("plugins.decorator.lualine")
 -- Explorer
 require("plugins.explorer.oil")
 
+-- Terminal
+require("plugins.terminal.floaterm")
+
 -- Util
 require("plugins.util.navigator")
 require("plugins.util.which-key")

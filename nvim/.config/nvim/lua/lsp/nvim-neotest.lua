@@ -27,20 +27,15 @@ require("neotest").setup({
 	log_level = vim.log.levels.DEBUG,
 })
 
-vim.api.nvim_create_autocmd("LspAttach", {
-	pattern = { "go", "python", "rust", "javascript", "typescript", "lua" }, -- Add your languages
-	callback = function()
-		vim.keymap.set("n", "<leader>ta", function() require("neotest").run.attach() end, { desc = "[t]est [a]ttach" })
-		vim.keymap.set("n", "<leader>tf", function() require("neotest").run.run(vim.fn.expand("%")) end, { desc = "[t]est run [f]ile" })
-		vim.keymap.set("n", "<leader>tA", function() require("neotest").run.run(vim.uv.cwd()) end, { desc = "[t]est [A]ll files" })
-		vim.keymap.set("n", "<leader>tS", function() require("neotest").run.run({ suite = true }) end, { desc = "[t]est [S]uite" })
-		vim.keymap.set("n", "<leader>tn", function() require("neotest").run.run() end, { desc = "[t]est [n]earest" })
-		vim.keymap.set("n", "<leader>tl", function() require("neotest").run.run_last() end, { desc = "[t]est [l]ast" })
-		vim.keymap.set("n", "<leader>ts", function() require("neotest").summary.toggle() end, { desc = "[t]est [s]ummary" })
-		vim.keymap.set("n", "<leader>to", function() require("neotest").output.open({ enter = true, auto_close = true }) end, { desc = "[t]est [o]utput" })
-		vim.keymap.set("n", "<leader>tO", function() require("neotest").output_panel.toggle() end, { desc = "[t]est [O]utput panel" })
-		vim.keymap.set("n", "<leader>tt", function() require("neotest").run.stop() end, { desc = "[t]est [t]erminate" })
-		vim.keymap.set("n", "<leader>td", function() require("neotest").run.run({ suite = false, strategy = "dap" }) end, { desc = "Debug nearest test" })
-		vim.keymap.set("n", "<leader>tD", function() require("neotest").run.run({ vim.fn.expand("%"), strategy = "dap" }) end, { desc = "Debug current file" })
-	end,
-})
+vim.keymap.set("n", "<leader>ta", function() require("neotest").run.attach() end, { desc = "Test Attach" })
+vim.keymap.set("n", "<leader>tf", function() require("neotest").run.run(vim.fn.expand("%")) end, { desc = "Test Run File" })
+vim.keymap.set("n", "<leader>tA", function() require("neotest").run.run(vim.uv.cwd()) end, { desc = "Test All Files" })
+vim.keymap.set("n", "<leader>tS", function() require("neotest").run.run({ suite = true }) end, { desc = "Test Suite" })
+vim.keymap.set("n", "<leader>tn", function() require("neotest").run.run() end, { desc = "Test Nearest" })
+vim.keymap.set("n", "<leader>tl", function() require("neotest").run.run_last() end, { desc = "Test Last" })
+vim.keymap.set("n", "<leader>ts", function() require("neotest").summary.toggle() end, { desc = "Test Summary" })
+vim.keymap.set("n", "<leader>to", function() require("neotest").output.open({ enter = true, auto_close = true }) end, { desc = "Test Output" })
+vim.keymap.set("n", "<leader>tO", function() require("neotest").output_panel.toggle() end, { desc = "Test Output Panel" })
+vim.keymap.set("n", "<leader>tt", function() require("neotest").run.stop() end, { desc = "Test Terminate" })
+vim.keymap.set("n", "<leader>td", function() require("neotest").run.run({ suite = false, strategy = "dap" }) end, { desc = "Debug Nearest Test" })
+vim.keymap.set("n", "<leader>tD", function() require("neotest").run.run({ vim.fn.expand("%"), strategy = "dap" }) end, { desc = "Debug Current File" })

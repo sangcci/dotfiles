@@ -36,6 +36,9 @@ require("plugins.explorer.oil")
 -- Git
 require("plugins.git.diffview")
 
+-- Terminal
+require("plugins.terminal.floaterm")
+
 -- Util
 require("plugins.util.fidget")
 require("plugins.util.harpoon2")
