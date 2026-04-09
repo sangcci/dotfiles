@@ -145,6 +145,12 @@ ctrl-alt-3 = ['move-node-to-monitor 3', 'focus-monitor 3']
 ctrl-alt-4 = ['move-node-to-monitor 4', 'focus-monitor 4']
 ctrl-alt-5 = ['move-node-to-monitor 5', 'focus-monitor 5']
 
+ctrl-alt-cmd-c = 'move-node-to-workspace Code'
+ctrl-alt-cmd-n = 'move-node-to-workspace Note'
+ctrl-alt-cmd-b = 'move-node-to-workspace Browser'
+ctrl-alt-cmd-t = 'move-node-to-workspace Terminal'
+ctrl-alt-cmd-e = 'move-node-to-workspace Etc'
+
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 ctrl-alt-tab = 'workspace-back-and-forth'
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
@@ -205,7 +211,7 @@ run = 'move-node-to-workspace Note'
 
 # Browser
 [[on-window-detected]]
-if.app-id = 'com.brave.Browser.<app id>'
+if.app-id = 'com.brave.Browser'
 run = 'move-node-to-workspace Browser'
 
 [[on-window-detected]]
