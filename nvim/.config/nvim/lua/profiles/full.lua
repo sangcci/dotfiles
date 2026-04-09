@@ -50,6 +50,7 @@ require("plugins.util.which-key")
 
 -- AI
 require("ai.copilot")
+require("ai.claude-preview")
 
 -- DB
 require("db.nvim-dbee")

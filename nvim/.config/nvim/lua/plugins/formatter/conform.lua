@@ -12,6 +12,9 @@ require("conform").setup({
 		typescriptreact = { "prettierd", "prettier", stop_after_first = true },
 		javascriptreact = { "prettierd", "prettier", stop_after_first = true },
 		go = { "goimports", "gofmt" },
+		json = { "prettierd" },
+		yaml = { "prettierd" },
+		toml = { "taplo" },
 	},
 	formatters = {
 		spotless = {
@@ -37,20 +40,17 @@ require("conform").setup({
 vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*",
 	callback = function(args)
+		if vim.bo[args.buf].filetype == "oil" then
+			return
+		end
 		require("conform").format({ bufnr = args.buf, async = false }, function(err)
 			if err then
-				vim.notify(
-					"Format failed: " .. tostring(err),
-					vim.log.levels.ERROR
-				)
+				vim.notify("Format failed: " .. tostring(err), vim.log.levels.ERROR)
 			else
 				local formatter_list = require("conform").list_formatters(args.buf)
 				if #formatter_list > 0 then
 					local names = vim.tbl_map(function(f) return f.name end, formatter_list)
-					vim.notify(
-						"Formatted with: " .. table.concat(names, ", "),
-						vim.log.levels.INFO
-					)
+					vim.notify("Formatted with: " .. table.concat(names, ", "), vim.log.levels.INFO)
 				end
 			end
 		end)
