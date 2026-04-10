@@ -1,6 +1,7 @@
 vim.pack.add({
+	{ src = "https://github.com/saghen/blink.compat", version = "v2.5.0" },
 	{ src = "https://github.com/rafamadriz/friendly-snippets" },
-	{ src = "https://github.com/Saghen/blink.cmp" },
+	{ src = "https://github.com/Saghen/blink.cmp", version = "v1.10.2" },
 	{ src = "https://github.com/moyiz/blink-emoji.nvim" },
 	{ src = "https://github.com/onsails/lspkind.nvim" },
 })
@@ -72,7 +73,7 @@ require("blink.cmp").setup({
 	},
 
 	sources = {
-		default = { "lsp", "path", "snippets", "buffer", "emoji", "copilot" },
+		default = { "lsp", "path", "snippets", "buffer", "emoji", "99" },
 		providers = {
 			emoji = {
 				module = "blink-emoji",
@@ -92,11 +93,9 @@ require("blink.cmp").setup({
 					)
 				end,
 			},
-			copilot = {
-				name = "copilot",
-				module = "blink-cmp-copilot",
-				score_offset = 100,
-				async = true,
+			["99"] = {
+				name = "99",
+				module = "blink.compat.source",
 			},
 		},
 	},

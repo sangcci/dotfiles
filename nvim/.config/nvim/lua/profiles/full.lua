@@ -49,7 +49,7 @@ require("plugins.util.render-markdown")
 require("plugins.util.which-key")
 
 -- AI
-require("ai.copilot")
+require("ai._99")
 require("ai.claude-preview")
 
 -- DB
