@@ -9,3 +9,4 @@ source "$_ZSH_MODULES/history.zsh"   # history 설정
 source "$_ZSH_MODULES/completion.zsh" # completion 설정
 source "$_ZSH_MODULES/keybinds.zsh"  # 키바인딩
 source "$_ZSH_MODULES/aliases.zsh"   # alias
+source "$_ZSH_MODULES/functions.zsh" # shell functions
