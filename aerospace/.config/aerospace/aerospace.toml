@@ -45,14 +45,7 @@ automatically-unhide-macos-hidden-apps = false
 # even when they are invisible.
 # This config version is only available since 'config-version = 2'
 # Fallback value (if you omit the key): persistent-workspaces = []
-persistent-workspaces = ["Code", "Note", "Browser", "Terminal", "Etc"]
-
-[workspace-to-monitor-force-assignment]
-Code = 1
-Note = 2
-Browser = 3
-Terminal = 4
-Etc = 5
+persistent-workspaces = ["1", "2", "3", "4", "5"]
 
 # A callback that runs every time binding mode changes
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -112,11 +105,6 @@ outer.right = 24
 #     activate
 # end tell'
 # '''
-ctrl-alt-shift-c = 'workspace Code'
-ctrl-alt-shift-n = 'workspace Note'
-ctrl-alt-shift-b = 'workspace Browser'
-ctrl-alt-shift-t = 'workspace Terminal'
-ctrl-alt-shift-e = 'workspace Etc'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 alt-slash = 'layout tiles horizontal vertical'
@@ -139,17 +127,17 @@ ctrl-alt-minus = 'resize smart -50'
 ctrl-alt-equal = 'resize smart +50'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-ctrl-alt-1 = ['move-node-to-monitor 1', 'focus-monitor 1']
-ctrl-alt-2 = ['move-node-to-monitor 2', 'focus-monitor 2']
-ctrl-alt-3 = ['move-node-to-monitor 3', 'focus-monitor 3']
-ctrl-alt-4 = ['move-node-to-monitor 4', 'focus-monitor 4']
-ctrl-alt-5 = ['move-node-to-monitor 5', 'focus-monitor 5']
+ctrl-alt-1 = 'workspace 1'
+ctrl-alt-2 = 'workspace 2'
+ctrl-alt-3 = 'workspace 3'
+ctrl-alt-4 = 'workspace 4'
+ctrl-alt-5 = 'workspace 5'
 
-ctrl-alt-cmd-c = 'move-node-to-workspace Code'
-ctrl-alt-cmd-n = 'move-node-to-workspace Note'
-ctrl-alt-cmd-b = 'move-node-to-workspace Browser'
-ctrl-alt-cmd-t = 'move-node-to-workspace Terminal'
-ctrl-alt-cmd-e = 'move-node-to-workspace Etc'
+ctrl-alt-cmd-1 = ['move-node-to-workspace 1']
+ctrl-alt-cmd-2 = ['move-node-to-workspace 2']
+ctrl-alt-cmd-3 = ['move-node-to-workspace 3']
+ctrl-alt-cmd-4 = ['move-node-to-workspace 4']
+ctrl-alt-cmd-5 = ['move-node-to-workspace 5']
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 ctrl-alt-tab = 'workspace-back-and-forth'
@@ -177,60 +165,3 @@ alt-shift-h = ['join-with left', 'mode main']
 alt-shift-j = ['join-with down', 'mode main']
 alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
-
-# Window Dection Rules - Auto move apps to workspaces
-# Code
-[[on-window-detected]]
-if.app-id = 'com.jetbrains.intellij'
-run = 'move-node-to-workspace Code'
-
-[[on-window-detected]]
-if.app-id = 'com.microsoft.VSCode'
-run = 'move-node-to-workspace Code'
-
-[[on-window-detected]]
-if.app-id = 'dev.zed.Zed'
-run = 'move-node-to-workspace Code'
-
-[[on-window-detected]]
-if.app-id = 'com.docker.docker'
-run = 'move-node-to-workspace Code'
-
-# Note
-[[on-window-detected]]
-if.app-id = 'md.obsidian'
-run = 'move-node-to-workspace Note'
-
-[[on-window-detected]]
-if.app-id = 'notion.id'
-run = 'move-node-to-workspace Note'
-
-[[on-window-detected]]
-if.app-id = 'net.ankiweb.launcher'
-run = 'move-node-to-workspace Note'
-
-# Browser
-[[on-window-detected]]
-if.app-id = 'com.brave.Browser'
-run = 'move-node-to-workspace Browser'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.Safari'
-run = 'move-node-to-workspace Browser'
-
-# Terminal
-[[on-window-detected]]
-if.app-id = 'com.mitchellh.ghostty'
-run = 'move-node-to-workspace Terminal'
-
-[[on-window-detected]]
-if.app-id = 'com.github.wez.wezterm'
-run = 'move-node-to-workspace Terminal'
-
-[[on-window-detected]]
-if.app-id = 'com.googlecode.iterm2'
-run = 'move-node-to-workspace Terminal'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.Terminal'
-run = 'move-node-to-workspace Terminal'
