@@ -43,15 +43,13 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 		if vim.bo[args.buf].filetype == "oil" then
 			return
 		end
+		local formatter_list = require("conform").list_formatters(args.buf)
+		if #formatter_list == 0 then
+			return
+		end
 		require("conform").format({ bufnr = args.buf, async = false }, function(err)
 			if err then
 				vim.notify("Format failed: " .. tostring(err), vim.log.levels.ERROR)
-			else
-				local formatter_list = require("conform").list_formatters(args.buf)
-				if #formatter_list > 0 then
-					local names = vim.tbl_map(function(f) return f.name end, formatter_list)
-					vim.notify("Formatted with: " .. table.concat(names, ", "), vim.log.levels.INFO)
-				end
 			end
 		end)
 	end,

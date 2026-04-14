@@ -67,20 +67,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, { desc = "Code Action" }))
 		vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "Rename" }))
 		vim.keymap.set("n", "<leader>r", function()
+			local formatter_list = require("conform").list_formatters(args.buf)
+			if #formatter_list == 0 then
+				vim.notify("No formatters available", vim.log.levels.WARN)
+				return
+			end
 			require("conform").format({ bufnr = args.buf, async = false }, function(err)
 				if err then
 					vim.notify("Format failed: " .. tostring(err), vim.log.levels.ERROR)
 				else
-					local formatter_list = require("conform").list_formatters(args.buf)
-					if #formatter_list > 0 then
-						local names = vim.tbl_map(function(f) return f.name end, formatter_list)
-						vim.notify(
-							"Formatted with: " .. table.concat(names, ", "),
-							vim.log.levels.INFO
-						)
-					else
-						vim.notify("No formatters available", vim.log.levels.WARN)
-					end
+					local names = vim.tbl_map(function(f) return f.name end, formatter_list)
+					vim.notify("Formatted with: " .. table.concat(names, ", "), vim.log.levels.INFO)
 				end
 			end)
 		end, vim.tbl_extend("force", opts, { desc = "format" }))
