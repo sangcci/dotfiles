@@ -5,6 +5,7 @@ export VISUAL='nvim'
 # ── Shell Integrations ────────────────────────────────────────────────────────
 # zoxide (smart cd) - must be after path.zsh
 command -v zoxide &>/dev/null && eval "$(zoxide init zsh)"
+DISABLE_AUTO_TITLE="true"
 
 # ── Full profile only ─────────────────────────────────────────────────────────
 if [[ "$DOTFILES_PROFILE" == "full" ]]; then
