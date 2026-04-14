@@ -15,9 +15,15 @@ vim.pack.add({
 require("java").setup()
 vim.lsp.config("jdtls", {
 	on_attach = function(client, bufnr)
-		vim.keymap.set("n", "<leader>ci", java_action("source.organizeImports"), { buffer = bufnr, silent = true, desc = "Organize imports" })
-		vim.keymap.set("v", "<leader>cr", java_action("refactor.extract.variable"), { buffer = bufnr, silent = true, desc = "Extract variable" })
-		vim.keymap.set("v", "<leader>cm", java_action("refactor.extract.method"), { buffer = bufnr, silent = true, desc = "Extract method" })
+		vim.keymap.set("n", "<leader>ci", function()
+			java_action("source.organizeImports")()
+		end, { buffer = bufnr, silent = true, desc = "Organize imports" })
+		vim.keymap.set("v", "<leader>cr", function()
+			java_action("refactor.extract.variable")()
+		end, { buffer = bufnr, silent = true, desc = "Extract variable" })
+		vim.keymap.set("v", "<leader>cm", function()
+			java_action("refactor.extract.method")()
+		end, { buffer = bufnr, silent = true, desc = "Extract method" })
 		-- Use conform for formatting instead of jdtls
 		client.server_capabilities.documentFormattingProvider = false
 		client.server_capabilities.documentRangeFormattingProvider = false
