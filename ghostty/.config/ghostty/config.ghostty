@@ -3,13 +3,33 @@ font-family = D2CodingLigature Nerd Font Mono
 font-size = 15
 adjust-cell-height = 25%
 
-# macOS Option as Alt (for tmux/nvim keybindings)
+# macOS Option as Alt (for nvim keybindings)
 macos-option-as-alt = true
 
 # Appearance
 theme = Kanso Ink
 background-opacity = 0.8
-background-blur-radius = 40
+background-blur-radius = 0
 
-# tmux
-command = /opt/homebrew/bin/tmux new-session -A -s main
+# Splits
+keybind = alt+d=new_split:right
+keybind = alt+shift+d=new_split:down
+keybind = alt+x=close_surface
+
+# Move
+keybind = alt+cmd+h=goto_split:left
+keybind = alt+cmd+j=goto_split:bottom
+keybind = alt+cmd+k=goto_split:top
+keybind = alt+cmd+l=goto_split:right
+
+# Size
+keybind = cmd+ctrl+left=resize_split:left,10
+keybind = cmd+ctrl+down=resize_split:down,10
+keybind = cmd+ctrl+up=resize_split:up,10
+keybind = cmd+ctrl+right=resize_split:right,10
+
+# Tabs
+keybind = alt+c=new_tab
+keybind = alt+n=next_tab
+keybind = alt+p=previous_tab
+
