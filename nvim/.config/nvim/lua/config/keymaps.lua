@@ -33,7 +33,11 @@ vim.keymap.set("n", "<Enter>", "i<Enter><Esc>", { desc = "Enter and back to norm
 
 -- copy
 vim.keymap.set("n", "Y", "yg$", { desc = "Copy from cursor to the end" })
-vim.keymap.set({ "n", "x" }, "<leader>p", '"0p', { desc = "Paste from yank register" })
+
+-- delete to black hole (never pollute registers)
+vim.keymap.set({ "n", "v" }, "d", '"_d', { desc = "Delete to black hole" })
+vim.keymap.set({ "n", "v" }, "D", '"_D', { desc = "Delete to end (black hole)" })
+vim.keymap.set({ "n", "v" }, "x", '"_x', { desc = "Delete char (black hole)" })
 
 -- substitute
 vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gc<Left><Left><Left>", { desc = "Substitute" })

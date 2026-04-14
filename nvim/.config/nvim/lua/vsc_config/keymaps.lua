@@ -14,14 +14,14 @@ vim.keymap.set("v", ">", ">gv", { desc = "Indent right in visual mode" })
 
 -- Center cursor after movements
 vim.keymap.set("n", "*", function()
-  vim.cmd(":norm! *")
-  local curline = vim.fn.line(".")
-  vscode.call("revealLine", { args = {lineNumber = curline, at = "center"} })
+	vim.cmd(":norm! *")
+	local curline = vim.fn.line(".")
+	vscode.call("revealLine", { args = { lineNumber = curline, at = "center" } })
 end, { noremap = true, silent = true })
 vim.keymap.set("n", "n", function()
 	vim.cmd(":norm! n")
 	local curline = vim.fn.line(".")
-	vscode.call("revealLine", { args = {lineNumber = curline, at = "center"} })
+	vscode.call("revealLine", { args = { lineNumber = curline, at = "center" } })
 end, { noremap = true, silent = true })
 
 -- Moving
@@ -55,12 +55,6 @@ vim.keymap.set("n", "<leader>wv", function() vscode.action("workbench.action.spl
 vim.keymap.set("n", "<leader>wh", function() vscode.action("workbench.action.splitEditorDown") end, { desc = "Split Horizontal" })
 vim.keymap.set("n", "<leader>wq", function() vscode.action("workbench.action.closeActiveEditor") end, { desc = "Close Current Window" })
 
--- Navigation (Alt + hjkl) - Directional focus (Editor, Sidebar, Panel)
-vim.keymap.set({ "n", "i", "v" }, "<A-h>", function() vscode.action("workbench.action.navigateLeft") end)
-vim.keymap.set({ "n", "i", "v" }, "<A-j>", function() vscode.action("workbench.action.navigateDown") end)
-vim.keymap.set({ "n", "i", "v" }, "<A-k>", function() vscode.action("workbench.action.navigateUp") end)
-vim.keymap.set({ "n", "i", "v" }, "<A-l>", function() vscode.action("workbench.action.navigateRight") end)
-
 -- LSP / General Nav
 vim.keymap.set("n", "gd", function() vscode.action("editor.action.revealDefinition") end, { desc = "Go to Definition" })
 vim.keymap.set("n", "gr", function() vscode.action("editor.action.goToReferences") end, { desc = "Go to References" })
@@ -93,3 +87,4 @@ vim.keymap.set({ "n", "v" }, "<leader>rn", function() vscode.action("editor.acti
 -- Comment
 vim.keymap.set("n", "gcc", function() vscode.action("editor.action.commentLine") end, { desc = "Toggle line comment" })
 vim.keymap.set("v", "gc", function() vscode.action("editor.action.commentLine") end, { desc = "Toggle selection comment" })
+
