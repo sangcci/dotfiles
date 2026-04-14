@@ -80,3 +80,41 @@
   --bold-color:   #E6C384;
   --italic-color: #A292A3;
 }
+
+/* ── Window Frame ───────────────────────────────────── */
+.titlebar {
+  border: none;
+  background: var(--background-primary);
+  height: 32px;
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.titlebar-inner {
+  padding: 0 8px;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+}
+
+.mod-root {
+  border-radius: 0;
+  border: none;
+}
+
+.sidebar {
+  border-right: none;
+}
+
+.sidebar-toggle-button {
+  color: var(--text-muted);
+}
+
+.sidebar-toggle-button:hover {
+  color: var(--text-normal);
+}
+
+.vertical-tab-header {
+  border-bottom: none;
+}
