@@ -7,6 +7,7 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-telescope/telescope-ui-select.nvim" },
 	{ src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim" },
 	{ src = "https://github.com/nvim-telescope/telescope.nvim", version = "master" },
+	{ src = "https://github.com/jonarrien/telescope-cmdline.nvim" },
 })
 pack_builder.build_plugin("telescope-fzf-native.nvim", "make")
 
@@ -54,11 +55,31 @@ telescope.setup({
 		["ui-select"] = {
 			require("telescope.themes").get_dropdown(),
 		},
+		cmdline = {
+			-- Adjust telescope picker size and layout
+			picker = {
+				layout_config = {
+					width = 120,
+					height = 25,
+				},
+			},
+			-- Adjust your mappings
+			mappings = {
+				complete = "<Tab>",
+				run_selection = "<C-CR>",
+				run_input = "<CR>",
+			},
+			-- Triggers any shell command using overseer.nvim (`:!`)
+			overseer = {
+				enabled = true,
+			},
+		},
 	},
 })
 telescope.load_extension("ui-select")
 telescope.load_extension("fzf")
 telescope.load_extension("grey")
+telescope.load_extension("cmdline")
 
 local builtin = require("telescope.builtin")
 vim.keymap.set(
@@ -93,3 +114,5 @@ vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Existing Buffers" }
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Help tegs" })
 vim.keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Todos" })
 vim.keymap.set("n", "<leader>fT", "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>", { desc = "[T(c)]odos (TODO/FIX only)" })
+
+vim.keymap.set("n", "<leader><leader>", "<cmd>Telescope cmdline<cr>", { desc = "Cmdline" })
