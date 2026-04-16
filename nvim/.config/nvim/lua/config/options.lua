@@ -74,39 +74,40 @@ for type, icon in pairs(signs) do
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 
+-- [ replace it with the dropbar plugin ]
 -- tabline
-vim.o.showtabline = 2
-
-function _G.custom_tabline()
-	local devicons_ok, devicons = pcall(require, "nvim-web-devicons")
-	
-	local bufname = vim.fn.expand("%:~:.")
-	local filename = vim.fn.expand("%:t")
-	local extension = vim.fn.expand("%:e")
-	
-	-- Get icon
-	local icon = ""
-	local icon_hl = "Normal"
-	if devicons_ok and filename ~= "" then
-		icon, icon_hl = devicons.get_icon(filename, extension, { default = true })
-		icon = icon or ""
-	end
-	
-	-- Handle empty buffer
-	if bufname == "" then
-		bufname = "[No Name]"
-		icon = ""
-	end
-	
-	-- Use highlight groups (colors defined in colorscheme.lua)
-	local hl_bg = "%#TabLineFill#"
-	local hl_file = "%#TabLine#"
-	local hl_icon = "%#" .. icon_hl .. "#"
-	
-	-- Format: icon + space + path/filename (centered)
-	local tabline = hl_bg .. "%=" .. hl_icon .. icon .. " " .. hl_file .. bufname .. hl_bg .. "%="
-	
-	return tabline
-end
-
-vim.o.tabline = "%!v:lua.custom_tabline()"
+-- vim.o.showtabline = 2
+--
+-- function _G.custom_tabline()
+-- 	local devicons_ok, devicons = pcall(require, "nvim-web-devicons")
+--
+-- 	local bufname = vim.fn.expand("%:~:.")
+-- 	local filename = vim.fn.expand("%:t")
+-- 	local extension = vim.fn.expand("%:e")
+--
+-- 	-- Get icon
+-- 	local icon = ""
+-- 	local icon_hl = "Normal"
+-- 	if devicons_ok and filename ~= "" then
+-- 		icon, icon_hl = devicons.get_icon(filename, extension, { default = true })
+-- 		icon = icon or ""
+-- 	end
+--
+-- 	-- Handle empty buffer
+-- 	if bufname == "" then
+-- 		bufname = "[No Name]"
+-- 		icon = ""
+-- 	end
+--
+-- 	-- Use highlight groups (colors defined in colorscheme.lua)
+-- 	local hl_bg = "%#TabLineFill#"
+-- 	local hl_file = "%#TabLine#"
+-- 	local hl_icon = "%#" .. icon_hl .. "#"
+--
+-- 	-- Format: icon + space + path/filename (centered)
+-- 	local tabline = hl_bg .. "%=" .. hl_icon .. icon .. " " .. hl_file .. bufname .. hl_bg .. "%="
+--
+-- 	return tabline
+-- end
+--
+-- vim.o.tabline = "%!v:lua.custom_tabline()"

@@ -47,6 +47,7 @@ require("plugins.util.markview")
 require("plugins.util.smart-splits")
 require("plugins.util.render-markdown")
 require("plugins.util.which-key")
+require("plugins.util.dropbar")
 
 -- AI
 require("ai._99")
@@ -58,8 +59,6 @@ require("db.nvim-dbee")
 -- LSP
 require("lsp.lsp-configs")
 require("lsp.nvim-dap")
--- require("lsp.nvim-jdtls")
 require("lsp.nvim-java")
--- require("lsp.nvim-jls")
 require("lsp.nvim-neotest")
 require("lsp.java-helpers")
