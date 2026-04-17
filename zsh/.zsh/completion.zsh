@@ -5,6 +5,5 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 # fzf-tab: select item with Tab (Enter executes command after selection)
 zstyle ':fzf-tab:*' fzf-bindings 'tab:accept'
 
-# fzf theme
 [ -f "$HOME/.config/fzf/colors.sh" ]     && source "$HOME/.config/fzf/colors.sh"
 [ -f "$HOME/.config/fzf/tab-colors.sh" ] && source "$HOME/.config/fzf/tab-colors.sh"

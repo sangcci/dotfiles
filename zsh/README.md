@@ -2,28 +2,46 @@
 
 Minimalist zsh configuration. Modular by design — each concern lives in its own file under `.zsh/`.
 
-## Module Structure
+## Architecture
 
-| File | Description |
-|------|-------------|
-| `detect.zsh` | OS and profile detection (loaded first) |
-| `path.zsh` | `$PATH` setup |
-| `plugins.zsh` | Plugin management via `zplug` |
-| `env.zsh` | Environment variables and shell integrations |
-| `history.zsh` | History settings |
-| `completion.zsh` | Tab completion with `fzf-tab` |
-| `keybinds.zsh` | Key bindings |
-| `aliases.zsh` | Aliases |
-| `functions.zsh` | Shell functions |
+`.zshrc` is the single entry point. Modules load sequentially; earlier modules set variables that later ones depend on.
 
-## Profile System
+```
+.zshrc
+ │
+ ├── [1] detect.zsh      → DOTFILES_OS, DOTFILES_PROFILE, NVIM_PROFILE
+ │                                │
+ │         ┌──────────────────────┤ consumed by all modules below
+ │         ▼                      ▼
+ ├── [2] path.zsh         $PATH (OS-specific + profile-gated)
+ ├── [3] plugins.zsh      zplug
+ ├── [4] env.zsh          EDITOR, shell integrations  (must follow path.zsh)
+ ├── [5] history.zsh      setopt
+ ├── [6] completion.zsh   fzf-tab, completion styles
+ ├── [7] keybinds.zsh     bindkey
+ ├── [8] aliases.zsh      aliases  (OS-gated + profile-gated)
+ └── [9] functions.zsh    shell functions  (profile-gated)
+```
 
-| Profile | Default | Description |
-|---------|---------|-------------|
-| `lite` | Linux | Baseline — minimal tooling for server/remote environments |
-| `full` | macOS | Full dev environment with all integrations enabled |
+### Profile Gate
 
-Override with `export DOTFILES_PROFILE=lite`.
+```
+DOTFILES_PROFILE
+ ├── lite  (Linux default)   core tooling only
+ └── full  (macOS default)   + SDKMAN · uv · bun · npm global · postgresql
+```
+
+Override: `export DOTFILES_PROFILE=lite`
+
+### OS Gate
+
+```
+DOTFILES_OS
+ ├── macos            Homebrew paths · localip via ipconfig
+ ├── debian/ubuntu    apt-based Linux
+ ├── arch/manjaro     Arch-based Linux
+ └── linux            generic fallback
+```
 
 ## Plugins
 
