@@ -9,10 +9,10 @@ case "$DOTFILES_OS" in
 esac
 
 # ── Lite + Full (rust & neovim via bob) ───────────────────────────────────────
-# Rust cargo (lite에서 bob 의존성으로 설치됨)
+# Rust cargo (installed as bob dependency in lite profile)
 export PATH="$HOME/.cargo/bin:$PATH"
 
-# Bob Neovim Version Manager (lite 포함 모든 프로파일)
+# Bob Neovim Version Manager (all profiles including lite)
 export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
 
 # ── Full profile only ─────────────────────────────────────────────────────────
@@ -29,9 +29,6 @@ if [[ "$DOTFILES_PROFILE" == "full" ]]; then
     macos)
 	  export PATH="$(brew --prefix postgresql@16)/bin:$PATH"
       export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
-      ;;
-    debian|linux)
-      export PATH="/usr/bin/node:$PATH"
       ;;
   esac
 fi
