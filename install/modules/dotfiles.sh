@@ -25,8 +25,7 @@ install_dotfiles() {
     mv "$HOME/.zshrc" "$backup"
   fi
 
-  local packages=(zsh git)
-  [[ "${DOTFILES_PROFILE:-lite}" == "full" ]] && packages+=(nvim)
+  local packages=(zsh git nvim fzf)
 
   for pkg in "${packages[@]}"; do
     if [[ -d "$dotfiles_dir/$pkg" ]]; then

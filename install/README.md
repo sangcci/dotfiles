@@ -5,10 +5,10 @@ Linux dotfiles installer. macOS relies on Homebrew directly.
 ## Usage
 
 ```sh
-./install.sh          # interactive profile selection
-./install.sh lite     # server/VM baseline
-./install.sh full     # full dev environment
+./install.sh
 ```
+
+Installs: zsh · zplug · fzf · zoxide · lsd · rust · neovim (via bob) · dotfiles (stow)
 
 ## Structure
 
@@ -20,25 +20,22 @@ install/
  │    ├── pkg.sh         package install abstraction (apt/pacman/dnf)
  │    └── utils.sh       logging helpers
  ├── modules/            per-tool install scripts
- │    ├── neovim.sh      (via bob)
- │    ├── rust.sh        (via rustup)
- │    ├── node.sh        (via fnm)
- │    ├── python.sh      (via uv)
- │    ├── java.sh        (via SDKMAN)
- │    ├── go.sh
+ │    ├── zsh.sh
+ │    ├── zplug.sh
  │    ├── fzf.sh
  │    ├── zoxide.sh
  │    ├── lsd.sh
- │    ├── zsh.sh
+ │    ├── rust.sh        (via rustup — bob dependency)
+ │    ├── neovim.sh      (via bob, nightly)
  │    └── dotfiles.sh    stow symlink setup
  └── packages/
-      ├── lite.sh        package list for lite profile
-      └── full.sh        package list for full profile
+      └── lite.sh        install sequence
 ```
 
-## Profiles
+## Supported Distros
 
-| Profile | Description |
-|---------|-------------|
-| `lite` | zsh, nvim, fzf, zoxide, lsd, bat, ripgrep |
-| `full` | `lite` + rust, node, python, java, go |
+| Distro | Package Manager |
+|--------|----------------|
+| Debian / Ubuntu | apt |
+| Arch / Manjaro | pacman |
+| Fedora / RHEL | dnf |

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # ── lsd ───────────────────────────────────────────────────────────────────────
 # Arch/Fedora : pkg manager
-# Debian      : apt에 없음 → GitHub releases에서 .deb 설치
+# Debian      : not in apt → install .deb from GitHub releases
 
 install_lsd() {
   step "Installing lsd"
