@@ -11,7 +11,8 @@ Primarily optimized for **macOS**, with Linux support via the `install/` script.
   > **Note (macOS 26):** Ghostty exhibits abnormally high CPU usage on macOS 26, causing rapid battery drain. Kitty is unaffected.
 - **Zsh**: Minimalist setup with essential plugins via `zplug` and modern CLI alternatives.
 - **Pre-configured LSP & Debugging**: Ready-to-use development environment.
-- **Visuals**: Kanso Ink theme, font: **D2CodingLigature Nerd Font**.
+- **Visuals**: Kanso Ink theme.
+- **Fonts**: **D2CodingLigature Nerd Font** (coding & terminal), **Pretendard** (system/UI default).
 
 ### Requirements & Toolkit
 
@@ -45,7 +46,7 @@ Primarily optimized for **macOS**, with Linux support via the `install/` script.
 | Code Editor     | **Neovim** (0.12+)                       | VS Code not used                       |
 | File Manager    | **Yazi** (main), Finder (sub)            |                                        |
 | Window Manager  | **Aerospace**                            |                                        |
-| Clipboard       | **Clippy**                               |                                        |
+| Clipboard       | **Clippy**, **Command X**                |                                        |
 | Menu Bar Hide   | **Thaw**                                 |                                        |
 | Notes           | **Obsidian**, **Anki**, **Notion**       |                                        |
 | LLM CLI         | **Claude Code**, **Gemini CLI**, Codex   | Codex API changes frequently           |
