@@ -16,7 +16,5 @@ fi
 # macOS: full by default, Linux: lite by default (opt-in full)
 if [[ -z "$DOTFILES_PROFILE" ]]; then
   [[ "$DOTFILES_OS" == "macos" ]] && export DOTFILES_PROFILE="full" || export DOTFILES_PROFILE="lite"
-else
-  export DOTFILES_PROFILE="$DOTFILES_PROFILE"
 fi
 export NVIM_PROFILE="$DOTFILES_PROFILE"
