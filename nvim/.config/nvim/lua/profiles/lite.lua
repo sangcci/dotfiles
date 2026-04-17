@@ -1,5 +1,5 @@
--- Lite profile: 경량 설정 (서버, 원격 환경)
--- LSP, DAP, AI, DB 없음
+-- Lite profile: light configs (server, remote env)
+-- No LSP, DAP, AI, DB, some Utils
 
 require("config.colorscheme")
 require("config.options")
