@@ -30,5 +30,4 @@ require("plugins.explorer.yazi-nvim")
 require("plugins.terminal.floaterm")
 
 -- Util
-require("plugins.util.navigator")
 require("plugins.util.which-key")
