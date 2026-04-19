@@ -24,7 +24,7 @@ require("plugins.editor.undotree")
 require("plugins.decorator.lualine")
 
 -- Explorer
-require("plugins.explorer.oil")
+require("plugins.explorer.yazi-nvim")
 
 -- Terminal
 require("plugins.terminal.floaterm")
