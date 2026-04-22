@@ -9,7 +9,7 @@ require("lualine").setup({
 		theme = "auto",
 		globalstatus = true,
 		icons_enabled = true,
-		component_separators = "|",
+		component_separators = "",
 		section_separators = "",
 		disable_filetypes = {
 			statusline = { "neo-tree" },
@@ -17,7 +17,12 @@ require("lualine").setup({
 		},
 	},
 	sections = {
-		lualine_a = { "mode" },
+		lualine_a = {
+			{
+				"mode",
+				fmt = function(str) return str:sub(1, 1) end,
+			},
+		},
 		lualine_b = { "branch", "diff", "diagnostics" },
 		lualine_c = {}, -- Remove filename from here
 		lualine_x = { "encoding", "fileformat", "filetype" },

@@ -24,7 +24,7 @@ telescope.setup({
 			"filename_first", -- Truncate from the start
 			-- truncate = 3, -- Show at least 3 chars of each directory
 		},
-		layout_strategy = "grey", -- grey, horizontal
+		layout_strategy = "horizontal", -- grey, horizontal
 		layout_config = {
 			horizontal = {
 				prompt_position = "top",
@@ -78,7 +78,6 @@ telescope.setup({
 })
 telescope.load_extension("ui-select")
 telescope.load_extension("fzf")
-telescope.load_extension("grey")
 telescope.load_extension("cmdline")
 
 local builtin = require("telescope.builtin")

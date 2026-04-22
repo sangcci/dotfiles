@@ -127,6 +127,11 @@
       "rev": "ff2e4f1d29f659cc2bad0f9256f2f6195c6b2428",
       "src": "https://github.com/nvim-mini/mini.icons"
     },
+    "neo-tree.nvim": {
+      "rev": "84c75e7a7e443586f60508d12fc50f90d9aee14e",
+      "src": "https://github.com/nvim-neo-tree/neo-tree.nvim",
+      "version": "3.0.0 - 4.0.0"
+    },
     "neoscroll.nvim": {
       "rev": "f957373912e88579e26fdaea4735450ff2ef5c9c",
       "src": "https://github.com/karb94/neoscroll.nvim"
@@ -285,10 +290,6 @@
     "which-key.nvim": {
       "rev": "3aab2147e74890957785941f0c1ad87d0a44c15a",
       "src": "https://github.com/folke/which-key.nvim"
-    },
-    "yazi.nvim": {
-      "rev": "e7094dcfd897600e02a23e8334cdfeb9ee07dc17",
-      "src": "https://github.com/mikavilpas/yazi.nvim"
     }
   }
 }

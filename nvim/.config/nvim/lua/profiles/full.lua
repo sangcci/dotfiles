@@ -31,7 +31,7 @@ require("plugins.autocompletion.blink-cmp")
 require("plugins.formatter.conform")
 
 -- Explorer
-require("plugins.explorer.yazi-nvim")
+require("plugins.explorer.neo-tree")
 
 -- Git
 require("plugins.git.diffview")
