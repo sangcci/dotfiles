@@ -45,7 +45,19 @@ automatically-unhide-macos-hidden-apps = false
 # even when they are invisible.
 # This config version is only available since 'config-version = 2'
 # Fallback value (if you omit the key): persistent-workspaces = []
-persistent-workspaces = ["1", "2", "3", "4", "5"]
+persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+
+[workspace-to-monitor-force-assignment]
+1 = 'main'       # internal display
+2 = 'main'
+3 = 'main'
+4 = 'main'
+5 = 'main'
+6 = 'secondary'  # external monitor
+7 = 'secondary'
+8 = 'secondary'
+9 = 'secondary'
+10 = 'secondary'
 
 # A callback that runs every time binding mode changes
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -132,12 +144,22 @@ ctrl-alt-2 = 'workspace 2'
 ctrl-alt-3 = 'workspace 3'
 ctrl-alt-4 = 'workspace 4'
 ctrl-alt-5 = 'workspace 5'
+ctrl-alt-6 = 'workspace 6'
+ctrl-alt-7 = 'workspace 7'
+ctrl-alt-8 = 'workspace 8'
+ctrl-alt-9 = 'workspace 9'
+ctrl-alt-0 = 'workspace 10'
 
 ctrl-alt-cmd-1 = ['move-node-to-workspace 1']
 ctrl-alt-cmd-2 = ['move-node-to-workspace 2']
 ctrl-alt-cmd-3 = ['move-node-to-workspace 3']
 ctrl-alt-cmd-4 = ['move-node-to-workspace 4']
 ctrl-alt-cmd-5 = ['move-node-to-workspace 5']
+ctrl-alt-cmd-6 = ['move-node-to-workspace 6']
+ctrl-alt-cmd-7 = ['move-node-to-workspace 7']
+ctrl-alt-cmd-8 = ['move-node-to-workspace 8']
+ctrl-alt-cmd-9 = ['move-node-to-workspace 9']
+ctrl-alt-cmd-0 = ['move-node-to-workspace 10']
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 ctrl-alt-tab = 'workspace-back-and-forth'
