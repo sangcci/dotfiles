@@ -49,10 +49,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- diagnostic
 vim.diagnostic.config({
-	virtual_text = {
-		prefix = "●",
-		source = "if_many",
-	},
+	virtual_text = false,
 	signs = true,
 	underline = true,
 	update_in_insert = false,
