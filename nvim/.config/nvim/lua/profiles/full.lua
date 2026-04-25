@@ -37,7 +37,7 @@ require("plugins.explorer.neo-tree")
 require("plugins.git.diffview")
 
 -- Terminal
-require("plugins.terminal.floaterm")
+require("plugins.terminal.toggleterm")
 
 -- Util
 require("plugins.util.fidget")

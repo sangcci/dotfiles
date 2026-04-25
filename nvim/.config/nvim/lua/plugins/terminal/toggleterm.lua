@@ -4,12 +4,8 @@ vim.pack.add({
 
 require("toggleterm").setup({
 	open_mapping = "<leader>T",
-	direction = "float",
-	float_opts = {
-		border = "rounded",
-		width = math.floor(vim.o.columns * 0.8),
-		height = math.floor(vim.o.lines * 0.8),
-	},
+	direction = "vertical",
+	size = 40,
 })
 
 -- Terminal mode escape

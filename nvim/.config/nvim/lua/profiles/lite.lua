@@ -27,7 +27,7 @@ require("plugins.decorator.lualine")
 require("plugins.explorer.neo-tree")
 
 -- Terminal
-require("plugins.terminal.floaterm")
+require("plugins.terminal.toggleterm")
 
 -- Util
 require("plugins.util.which-key")
