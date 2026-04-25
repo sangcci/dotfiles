@@ -16,9 +16,23 @@ require("java").setup()
 vim.lsp.config("jdtls", {
 	root_dir = vim.fs.root(0, { ".git", "mvnw", "gradlew" }),
 	on_attach = function(client, bufnr)
-		vim.keymap.set("n", "<leader>ci", function() java_action("source.organizeImports")() end, { buffer = bufnr, silent = true, desc = "Organize imports" })
-		vim.keymap.set("v", "<leader>cr", function() java_action("refactor.extract.variable")() end, { buffer = bufnr, silent = true, desc = "Extract variable" })
-		vim.keymap.set("v", "<leader>cm", function() java_action("refactor.extract.method")() end, { buffer = bufnr, silent = true, desc = "Extract method" })
+		vim.keymap.set("n", "<leader>ci", function()
+			vim.lsp.buf.code_action({
+				context = { only = { "source.organizeImports" } },
+				apply = true,
+			})
+		end, { desc = "Organize Imports" })
+		vim.keymap.set(
+			"n",
+			"<leader>cr",
+			function()
+				vim.lsp.buf.code_action({
+					context = { only = { "refactor.extract.variable" } },
+					apply = true,
+				})
+			end,
+			{ desc = "Extract variable" }
+		)
 		-- Use conform for formatting instead of jdtls
 		client.server_capabilities.documentFormattingProvider = false
 		client.server_capabilities.documentRangeFormattingProvider = false
