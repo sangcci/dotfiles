@@ -4,6 +4,6 @@ vim.pack.add({
 
 require("markview").setup({
 	markdown = {
-		enable = false,
+		enable = true,
 	},
 })

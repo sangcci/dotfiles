@@ -45,7 +45,6 @@ require("plugins.util.harpoon2")
 require("plugins.util.live-preview")
 require("plugins.util.markview")
 require("plugins.util.smart-splits")
-require("plugins.util.render-markdown")
 require("plugins.util.which-key")
 require("plugins.util.dropbar")
 
