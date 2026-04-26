@@ -24,6 +24,7 @@ vim.opt.laststatus = 3 -- -- global statusline (one statusline for all windows)
 vim.opt.scrolloff = 10
 vim.opt.showmode = false -- hide mode display
 vim.opt.cursorline = false
+vim.o.showtabline = 0
 
 -- undo
 vim.opt.undofile = true
