@@ -19,8 +19,6 @@ require("neo-tree").setup({
 		show_scrolled_off_parent_node = false,
 		sources = {
 			{ source = "filesystem", display_name = "Explorer" },
-			{ source = "buffers", display_name = "Bufs" },
-			{ source = "git_status", display_name = "Git" },
 		},
 		content_layout = "center",
 		tabs_layout = "equal",
@@ -29,7 +27,32 @@ require("neo-tree").setup({
 		indent = {
 			with_markers = false,
 		},
+		name = {
+			use_git_status_colors = false,
+		},
+		git_status = {
+			symbols = {
+				added = "",
+				modified = "",
+				deleted = "",
+				renamed = "",
+				untracked = "",
+				ignored = "",
+				unstaged = "",
+				staged = "",
+				conflict = "",
+			},
+		},
+		modified = {
+			symbol = "",
+		},
 	},
 })
 
-vim.keymap.set("n", "<leader>e", "<cmd>Neotree<cr>", { desc = "Open NeoTree" })
+vim.keymap.set("n", "<leader>e", function()
+	if vim.bo.filetype == "neo-tree" then
+		vim.cmd("Neotree close")
+	else
+		vim.cmd("Neotree reveal")
+	end
+end, { desc = "Toggle NeoTree (reveal current file)" })
