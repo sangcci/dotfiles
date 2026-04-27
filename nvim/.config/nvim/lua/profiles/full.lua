@@ -49,7 +49,6 @@ require("plugins.util.which-key")
 require("plugins.util.dropbar")
 
 -- AI
-require("ai._99")
 require("ai.claude-preview")
 
 -- DB
