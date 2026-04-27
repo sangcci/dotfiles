@@ -1,9 +1,5 @@
 {
   "plugins": {
-    "99": {
-      "rev": "0172d3caae2d8b967c9d47aa7557295f1481e5df",
-      "src": "https://github.com/ThePrimeagen/99"
-    },
     "Comment.nvim": {
       "rev": "e30b7f2008e52442154b66f7c519bfd2f1e32acb",
       "src": "https://github.com/numToStr/Comment.nvim"
@@ -102,6 +98,10 @@
     "lualine.nvim": {
       "rev": "3946f0122255bc377d14a59b27b609fb3ab25768",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
+    },
+    "lush.nvim": {
+      "rev": "9c60ec2279d62487d942ce095e49006af28eed6e",
+      "src": "https://github.com/rktjmp/lush.nvim"
     },
     "markview.nvim": {
       "rev": "18fc148c83925919d94f3fc8e5c74f2d108b9b44",
@@ -290,6 +290,10 @@
     "which-key.nvim": {
       "rev": "3aab2147e74890957785941f0c1ad87d0a44c15a",
       "src": "https://github.com/folke/which-key.nvim"
+    },
+    "zenbones.nvim": {
+      "rev": "22b7fb75593412e0dc81b4bdefae718e9e84aa82",
+      "src": "https://github.com/zenbones-theme/zenbones.nvim"
     }
   }
 }
