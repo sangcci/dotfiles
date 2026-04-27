@@ -11,6 +11,12 @@ vim.pack.add({
 -- Using `.` passes `params` as `self`, making the actual param nil → ipairs(nil) error on extract variable.
 -- Reapply after plugin updates.
 
+-- NOTE: Manual fix applied to nvim-java plugin:
+-- ~/.local/share/nvim/site/pack/core/opt/nvim-java/lua/java-refactor/client-command-handlers.lua:74
+-- `local selections = params[2]` → `local selections = params[2] or {}`
+-- params[2] can be nil when LSP returns no import candidates (e.g. already imported) → ipairs(nil) error on organize imports.
+-- Reapply after plugin updates.
+
 -- NOTE: before use it, ensure installed `wget` in local
 require("java").setup()
 vim.lsp.config("jdtls", {
