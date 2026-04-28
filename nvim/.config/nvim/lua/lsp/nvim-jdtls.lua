@@ -112,6 +112,15 @@ vim.lsp.config("jdtls", {
 		jdtls.setup_dap({ hotcodereplace = "auto" })
 		require("jdtls.dap").setup_dap_main_class_configs()
 	end,
+	handlers = {
+		-- except QClass diagnostics
+		["textDocument/publishDiagnostics"] = function(err, result, ctx)
+			if result and result.uri and result.uri:match("/Q%u%w+%.java") then
+				result.diagnostics = {}
+			end
+			vim.lsp.diagnostic.on_publish_diagnostics(err, result, ctx)
+		end,
+	},
 	capabilities = require("blink.cmp").get_lsp_capabilities(),
 	init_options = {
 		bundles = get_bundles(),
