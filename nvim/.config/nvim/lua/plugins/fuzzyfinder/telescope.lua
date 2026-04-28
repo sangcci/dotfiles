@@ -111,7 +111,5 @@ vim.keymap.set("n", "<leader>f.", builtin.lsp_document_symbols, { desc = "Docume
 vim.keymap.set("n", "<leader>fw", builtin.lsp_dynamic_workspace_symbols, { desc = "Workspace Symbols" })
 vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Existing Buffers" })
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Help tegs" })
-vim.keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Todos" })
-vim.keymap.set("n", "<leader>fT", "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>", { desc = "[T(c)]odos (TODO/FIX only)" })
 
 vim.keymap.set("n", "<leader><leader>", "<cmd>Telescope cmdline<cr>", { desc = "Cmdline" })

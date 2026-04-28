@@ -46,4 +46,4 @@ vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gc<Left><Left>
 vim.keymap.set("n", "Q", "<nop>")
 
 -- diagnostic
-vim.keymap.set("n", "gL", vim.diagnostic.open_float, { desc = "Diagnostic open float" })
+vim.keymap.set("n", "gl", vim.diagnostic.open_float, { desc = "Diagnostic open float" })

@@ -1,3 +1,5 @@
+require("vim._core.ui2").enable({})
+
 -- numbering
 vim.opt.relativenumber = true
 vim.opt.number = true
