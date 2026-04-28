@@ -5,29 +5,6 @@ vim.pack.add({
 	{ src = "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim" },
 })
 
-local servers = {
-	"bashls", -- bash
-	"lua_ls", -- lua
-	"stylua", -- lua formatter
-	"html", -- html
-	"cssls", -- css
-	"jsonls", -- json
-	"marksman", -- markdown
-	"yamlls", -- yaml
-	"lemminx", -- xml
-	"gradle_ls", -- gradle
-	"groovyls", -- groovy
-	"ts_ls", -- typescript/javascript
-	"pyright", -- python
-	"gopls", -- golang
-}
-
-local formatters = {
-	"prettier", -- javascript/typescript formatter
-	"prettierd", -- javascript/typescript formatter
-	"ruff", -- python linter/formatter
-}
-
 require("mason").setup({
 	ui = {
 		icons = {
@@ -47,11 +24,32 @@ require("mason-lspconfig").setup({
 			"jdtls",
 		},
 	},
-	ensure_installed = servers,
 })
 
 require("mason-tool-installer").setup({
-	ensure_installed = vim.list_extend(vim.deepcopy(servers), formatters),
+	ensure_installed = {
+		"bashls",
+		"lua_ls",
+		"html",
+		"cssls",
+		"jsonls",
+		"marksman",
+		"yamlls",
+		"lemminx",
+		"gradle_ls",
+		"groovyls",
+		"ts_ls",
+		"pyright",
+		"gopls",
+		"stylua",
+		"prettier",
+		"prettierd",
+		"ruff",
+		"jdtls",
+		"java-test",
+		"java-debug-adapter",
+		"sonarlint-language-server",
+	},
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -59,7 +57,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		local opts = { buffer = args.buf }
 		local builtin = require("telescope.builtin")
 
-		vim.keymap.set("n", "gl", builtin.diagnostics, { desc = "Diagnostics" })
+		vim.keymap.set("n", "gL", builtin.diagnostics, { desc = "Diagnostics" })
 		vim.keymap.set("n", "gd", builtin.lsp_definitions, { desc = "Find Definitions" })
 		vim.keymap.set("n", "gr", builtin.lsp_references, { desc = "Find References" })
 		vim.keymap.set("n", "gi", builtin.lsp_implementations, { desc = "Find Implementations" })

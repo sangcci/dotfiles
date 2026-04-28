@@ -17,7 +17,6 @@ require("plugins.editor.surround")
 require("plugins.editor.autopair")
 require("plugins.editor.comment")
 require("plugins.editor.indent-blankline")
-require("plugins.editor.todo-comments")
 require("plugins.editor.undotree")
 
 -- UI / decorator
@@ -35,6 +34,7 @@ require("plugins.explorer.neo-tree")
 
 -- Git
 require("plugins.git.diffview")
+require("plugins.git.gitsigns")
 
 -- Terminal
 require("plugins.terminal.toggleterm")
@@ -57,6 +57,6 @@ require("db.nvim-dbee")
 -- LSP
 require("lsp.lsp-configs")
 require("lsp.nvim-dap")
-require("lsp.nvim-java")
+require("lsp.nvim-jdtls")
 require("lsp.nvim-neotest")
-require("lsp.java-helpers")
+require("lsp.sonarlint")
