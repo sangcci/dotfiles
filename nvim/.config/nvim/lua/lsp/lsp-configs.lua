@@ -49,6 +49,7 @@ require("mason-tool-installer").setup({
 		"java-test",
 		"java-debug-adapter",
 		"sonarlint-language-server",
+		"sql-formatter",
 	},
 })
 

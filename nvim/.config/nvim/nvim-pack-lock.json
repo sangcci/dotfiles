@@ -250,6 +250,10 @@
       "rev": "acd09b78969ddc965a7ddf59abb9d9eec5ecd94f",
       "src": "https://gitlab.com/schrieveslaach/sonarlint.nvim"
     },
+    "sqls.nvim": {
+      "rev": "dfc304f10fe364611ffdb3efc488ae260b0dca78",
+      "src": "https://github.com/nanotee/sqls.nvim"
+    },
     "telescope-cmdline.nvim": {
       "rev": "b1c330835563c9628ce7c095cf20772f22f93f07",
       "src": "https://github.com/jonarrien/telescope-cmdline.nvim"

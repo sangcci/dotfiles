@@ -15,6 +15,7 @@ require("conform").setup({
 		json = { "prettierd" },
 		yaml = { "prettierd" },
 		toml = { "taplo" },
+		sql = { "sql_formatter" },
 	},
 	formatters = {
 		spotless = {
