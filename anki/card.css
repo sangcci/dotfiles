@@ -1,0 +1,139 @@
+.card {
+  font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  text-align: left;
+  color: #DDD8BB;
+  background-color: #1F1F28;
+  padding: 1.25rem;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* ── Outer card wrapper ─────────────────────────────── */
+.anki-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* ── Header ─────────────────────────────────────────── */
+.answer-header {
+  text-align: center;
+  margin-bottom: 0.25rem;
+}
+
+.category-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.72em;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #957FB8;
+  margin-bottom: 0.6rem;
+}
+
+.category-icon {
+  color: #957FB8;
+  flex-shrink: 0;
+}
+
+.question-text {
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #DDD8BB;
+  line-height: 1.45;
+}
+
+.question-text-small {
+  font-size: 0.95em;
+  font-weight: 500;
+  color: #A8A48D;
+  line-height: 1.45;
+}
+
+/* ── Answer divider ─────────────────────────────────── */
+hr#answer {
+  border: none;
+  border-top: 1px solid #3C3C51;
+  margin: 0.25rem 0;
+}
+
+/* ── Section box ────────────────────────────────────── */
+.card-section {
+  background: #26263A;
+  border: 1px solid #3C3C51;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72em;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #636370;
+  background: #1F1F28;
+  border-bottom: 1px solid #3C3C51;
+  padding: 0.4rem 0.9rem;
+}
+
+.section-label svg {
+  flex-shrink: 0;
+  color: #636370;
+}
+
+.section-content {
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+
+/* ── Code block ─────────────────────────────────────── */
+pre {
+  background: #16161E;
+  border-radius: 4px;
+  padding: 0.85rem 1rem;
+  overflow-x: auto;
+  margin: 0;
+}
+
+pre code {
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  font-size: 0.85em;
+  color: #DDD8BB;
+  line-height: 1.7;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+/* ── Inline code ────────────────────────────────────── */
+code {
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  font-size: 0.85em;
+  background: #16161E;
+  color: #98BC6D;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  border: 1px solid #3C3C51;
+}
+
+/* ── Typography ─────────────────────────────────────── */
+b, strong { color: #E5C283; }
+i, em     { color: #957FB8; }
+
+a { color: #7EB3C9; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── Cloze ──────────────────────────────────────────── */
+.cloze {
+  color: #7EB3C9;
+  font-weight: 700;
+  border-bottom: 2px solid #7EB3C960;
+  padding-bottom: 1px;
+}
