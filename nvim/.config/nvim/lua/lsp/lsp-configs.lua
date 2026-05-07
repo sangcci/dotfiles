@@ -50,6 +50,7 @@ require("mason-tool-installer").setup({
 		"java-debug-adapter",
 		"sonarlint-language-server",
 		"sql-formatter",
+		"commitlint",
 	},
 })
 
