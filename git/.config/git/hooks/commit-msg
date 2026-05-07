@@ -1,0 +1,19 @@
+#!/bin/sh
+set -e
+
+if command -v commitlint > /dev/null 2>&1; then
+  COMMITLINT="commitlint"
+else
+  COMMITLINT="npx --no commitlint"
+fi
+
+for f in commitlint.config.js commitlint.config.cjs commitlint.config.mjs \
+          .commitlintrc .commitlintrc.js .commitlintrc.cjs \
+          .commitlintrc.json .commitlintrc.yml .commitlintrc.yaml; do
+  if [ -f "$f" ]; then
+    $COMMITLINT --edit "$1"
+    exit $?
+  fi
+done
+
+$COMMITLINT --config "$HOME/.config/commitlint/config.cjs" --edit "$1"

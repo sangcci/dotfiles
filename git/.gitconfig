@@ -4,6 +4,7 @@
 [core]
 	excludesfile = /Users/sangcci/.gitignore_global
 	pager = delta
+	hooksPath = ~/.config/git/hooks
 [init]
 	defaultBranch = main
 [pull]
