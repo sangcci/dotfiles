@@ -1,10 +1,15 @@
 #!/bin/sh
 set -e
 
+MASON_COMMITLINT="$HOME/.local/share/nvim/mason/bin/commitlint"
+
 if command -v commitlint > /dev/null 2>&1; then
   COMMITLINT="commitlint"
+elif [ -x "$MASON_COMMITLINT" ]; then
+  COMMITLINT="$MASON_COMMITLINT"
 else
-  COMMITLINT="npx --no commitlint"
+  echo "commitlint not found. Install via Mason (:MasonInstall commitlint) or npm install -g @commitlint/cli"
+  exit 1
 fi
 
 for f in commitlint.config.js commitlint.config.cjs commitlint.config.mjs \
