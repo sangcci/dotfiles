@@ -30,7 +30,7 @@ require("plugins.autocompletion.blink-cmp")
 require("plugins.formatter.conform")
 
 -- Explorer
-require("plugins.explorer.neo-tree")
+require("plugins.explorer.fyler")
 
 -- Git
 require("plugins.git.diffview")
