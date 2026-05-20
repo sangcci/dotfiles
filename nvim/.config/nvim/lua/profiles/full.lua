@@ -49,7 +49,7 @@ require("plugins.util.which-key")
 require("plugins.util.dropbar")
 
 -- AI
-require("ai.claude-preview")
+require("ai.code-preview")
 
 -- DB
 require("db.nvim-dbee")

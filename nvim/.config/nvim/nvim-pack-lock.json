@@ -39,6 +39,10 @@
       "src": "https://github.com/Cannon07/claude-preview.nvim"
     },
     "conform.nvim": {
+    "code-preview.nvim": {
+      "rev": "5b09ea2bce8d507e6717bac6292db61b983f3dc5",
+      "src": "https://github.com/Cannon07/code-preview.nvim"
+    },
       "rev": "ffe26e8df8115c9665d24231f8a49fadb2d611ce",
       "src": "https://github.com/stevearc/conform.nvim"
     },
