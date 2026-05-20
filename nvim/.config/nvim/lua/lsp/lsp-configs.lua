@@ -51,6 +51,7 @@ require("mason-tool-installer").setup({
 		"sonarlint-language-server",
 		"sql-formatter",
 		"commitlint",
+		"shellcheck",
 	},
 })
 
