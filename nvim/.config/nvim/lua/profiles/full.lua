@@ -1,5 +1,4 @@
--- Full profile: 메인 개발 환경 (LSP, DAP, AI 전체 지원)
-
+-- Full profile:
 require("config.colorscheme")
 require("config.options")
 require("config.keymaps")
@@ -30,7 +29,7 @@ require("plugins.autocompletion.blink-cmp")
 require("plugins.formatter.conform")
 
 -- Explorer
-require("plugins.explorer.fyler")
+require("plugins.explorer.canola")
 
 -- Git
 require("plugins.git.diffview")

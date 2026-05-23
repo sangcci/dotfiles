@@ -34,17 +34,29 @@
       "src": "https://github.com/saghen/blink.compat",
       "version": "'v2.5.0'"
     },
+    "canola.nvim": {
+      "rev": "88af183e96724cca98a4602511061662cd5e88f3",
+      "src": "https://github.com/barrettruth/canola.nvim"
+    },
     "claude-preview.nvim": {
       "rev": "bdf581ac1490d6af0d7b3700defb3635822d70ab",
       "src": "https://github.com/Cannon07/claude-preview.nvim"
     },
-    "conform.nvim": {
     "code-preview.nvim": {
       "rev": "5b09ea2bce8d507e6717bac6292db61b983f3dc5",
       "src": "https://github.com/Cannon07/code-preview.nvim"
     },
+    "conform.nvim": {
+      "code-preview.nvim": {
+        "rev": "5b09ea2bce8d507e6717bac6292db61b983f3dc5",
+        "src": "https://github.com/Cannon07/code-preview.nvim"
+      },
       "rev": "ffe26e8df8115c9665d24231f8a49fadb2d611ce",
       "src": "https://github.com/stevearc/conform.nvim"
+    },
+    "darkvoid.nvim": {
+      "rev": "45be993a5617e05811b6b293c05e6aded7003cc9",
+      "src": "https://github.com/darkvoid-theme/darkvoid.nvim"
     },
     "diffview.nvim": {
       "rev": "4516612fe98ff56ae0415a259ff6361a89419b0a",
@@ -59,12 +71,12 @@
       "src": "https://github.com/j-hui/fidget.nvim"
     },
     "friendly-snippets": {
+      "fyler.nvim": {
+        "rev": "bb8b9f30c652c948d35211958b0deec3496bcc08",
+        "src": "https://github.com/A7Lavinraj/fyler.nvim",
+        "version": "'stable'"
+      },
       "rev": "572f5660cf05f8cd8834e096d7b4c921ba18e175",
-    "fyler.nvim": {
-      "rev": "bb8b9f30c652c948d35211958b0deec3496bcc08",
-      "src": "https://github.com/A7Lavinraj/fyler.nvim",
-      "version": "'stable'"
-    },
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
     "github-nvim-theme": {
@@ -139,11 +151,6 @@
     "mini.icons": {
       "rev": "ff2e4f1d29f659cc2bad0f9256f2f6195c6b2428",
       "src": "https://github.com/nvim-mini/mini.icons"
-    },
-    "neo-tree.nvim": {
-      "rev": "84c75e7a7e443586f60508d12fc50f90d9aee14e",
-      "src": "https://github.com/nvim-neo-tree/neo-tree.nvim",
-      "version": "3.0.0 - 4.0.0"
     },
     "neoscroll.nvim": {
       "rev": "f957373912e88579e26fdaea4735450ff2ef5c9c",
