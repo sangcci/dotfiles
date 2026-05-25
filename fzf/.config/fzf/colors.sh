@@ -1,8 +1,9 @@
 #!/bin/zsh
 
-# Kanagawa Paper Ink FZF Colors
+# Darkvoid FZF Colors
 export FZF_DEFAULT_OPTS='
-  --color=bg:-1,bg+:#2A2A37,fg:-1,fg+:#DCD7BA,hl:#938AA9,hl+:#c4746e
-  --color=header:#b6927b,info:#658594,pointer:#7AA89F
-  --color=marker:#7AA89F,prompt:#c4746e,spinner:#8ea49e
+  --color=bg:-1,bg+:#303030,fg:#c0c0c0,fg+:#ebdbb2,hl:#d3869b,hl+:#bdfe58
+  --color=header:#b2d8d8,info:#b1b1b1,pointer:#1bfd9c
+  --color=marker:#66b2b2,prompt:#d1d1d1,spinner:#1bfd9c
+  --color=border:#404040,gutter:-1,separator:#404040
 '

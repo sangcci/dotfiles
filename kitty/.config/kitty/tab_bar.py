@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import datetime
+import os
 
 from kitty.fast_data_types import Screen, wcswidth
 from kitty.rgb import to_color
@@ -29,6 +30,8 @@ LEFT_PAD = 1
 # appears to slide left/right instead of only the active highlight moving.
 ACTIVE_PAD = 3
 INACTIVE_PAD = 3
+MAX_TITLE_CELLS = 20
+SHELL_TITLES = {"sh", "bash", "zsh", "fish", "dash", "ksh", "tcsh", "csh"}
 
 ACTIVE_TAB_INDEX = 1
 LAYOUT_TABS: list[tuple[str, bool]] = []
@@ -45,7 +48,11 @@ def width(text: str) -> int:
 
 
 def title_for(tab: TabBarData) -> str:
-    return (tab.title or "shell").strip() or "shell"
+    title = (tab.title or "shell").strip() or "shell"
+    shell_name = os.path.basename(title).lstrip("-").lower()
+    if shell_name in SHELL_TITLES:
+        return "kitty"
+    return title
 
 
 def truncate(text: str, max_cells: int) -> str:
@@ -122,7 +129,7 @@ def center_start(screen: Screen) -> int:
 
 
 def draw_single_tab(screen: Screen, tab: TabBarData, max_title_length: int) -> None:
-    title = truncate(title_for(tab), max_title_length)
+    title = truncate(title_for(tab), min(max_title_length, MAX_TITLE_CELLS))
     if tab.is_active:
         set_colors(screen, ACTIVE_FG, ACTIVE_BG)
         screen.draw(" " * ACTIVE_PAD)
@@ -149,7 +156,7 @@ def draw_tab(
 ) -> int:
     global ACTIVE_TAB_INDEX, LAYOUT_TABS
 
-    title = truncate(title_for(tab), max_title_length)
+    title = truncate(title_for(tab), min(max_title_length, MAX_TITLE_CELLS))
 
     # kitty calls this once for layout measurement before drawing. Use that pass
     # to remember all tab titles, then do the actual center positioning in the
