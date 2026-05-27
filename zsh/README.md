@@ -15,7 +15,7 @@ Minimalist zsh configuration. Modular by design — each concern lives in its ow
  │         ▼                      ▼
  ├── [2] path.zsh         $PATH (OS-specific + profile-gated)
  ├── [3] plugins.zsh      zplug
- ├── [4] env.zsh          EDITOR, shell integrations  (must follow path.zsh)
+ ├── [4] env.zsh          EDITOR, shell integrations, Docker/Testcontainers env
  ├── [5] history.zsh      setopt
  ├── [6] completion.zsh   fzf-tab, completion styles
  ├── [7] keybinds.zsh     bindkey
@@ -77,3 +77,7 @@ Managed via [zplug](https://github.com/zplug/zplug).
 | `c` | `clear` | |
 | `myip` | `curl ifconfig.me` | Shows public IPv4 and IPv6 |
 | `y` | yazi wrapper | `cd`s into the directory yazi exits in |
+
+## Docker / Testcontainers
+
+On macOS with Colima, `env.zsh` exports `DOCKER_HOST=unix://$HOME/.colima/default/docker.sock` when the Colima socket exists and `DOCKER_HOST` is not already set. This keeps JVM tools such as Testcontainers from falling back to a missing `/var/run/docker.sock`.
