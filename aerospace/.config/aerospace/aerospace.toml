@@ -141,6 +141,9 @@ ctrl-alt-minus = 'resize smart -50'
 ctrl-alt-equal = 'resize smart +50'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
+ctrl-alt-left = 'workspace --wrap-around prev'
+ctrl-alt-right = 'workspace --wrap-around next'
+
 ctrl-alt-1 = 'workspace 1'
 ctrl-alt-2 = 'workspace 2'
 ctrl-alt-3 = 'workspace 3'
