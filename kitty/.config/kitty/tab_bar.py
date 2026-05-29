@@ -3,7 +3,6 @@
 
 from __future__ import annotations
 
-import datetime
 import os
 
 from kitty.fast_data_types import Screen, wcswidth
@@ -12,24 +11,14 @@ from kitty.tab_bar import DrawData, ExtraData, TabBarData, as_rgb
 from kitty.utils import color_as_int
 
 # Image-like custom tab bar:
-# left:   ≡ [active-tab-index]
 # center: active tab + inactive tabs
-# right:  date/time
 
 BAR_BG = "#1c1c1c"
-LEFT_FG = "#e5c07b"
-ACTIVE_FG = BAR_BG
-ACTIVE_BG = "#c0c0c0"
+ACTIVE_FG = "#ffffff"
 INACTIVE_FG = "#7f7f7f"
-RIGHT_FG = "#d3869b"
 
-LEFT_ICON = "≡"
-LEFT_PAD = 1
-# Keep active/inactive tab padding identical. If these differ, kitty redraws the
-# same tab title at a different cell offset whenever focus changes, so the text
-# appears to slide left/right instead of only the active highlight moving.
-ACTIVE_PAD = 3
-INACTIVE_PAD = 3
+# Keep active/inactive tab padding identical so text position stays stable.
+TAB_PAD = 3
 MAX_TITLE_CELLS = 20
 SHELL_TITLES = {"sh", "bash", "zsh", "fish", "dash", "ksh", "tcsh", "csh"}
 
@@ -73,8 +62,7 @@ def truncate(text: str, max_cells: int) -> str:
 
 
 def tab_width(title: str, is_active: bool) -> int:
-    pad = ACTIVE_PAD if is_active else INACTIVE_PAD
-    return width(title) + pad * 2
+    return width(title) + TAB_PAD * 2
 
 
 def total_tabs_width() -> int:
@@ -91,57 +79,24 @@ def draw_text(screen: Screen, text: str, fg: str | int, bg: str | int = BAR_BG) 
     screen.draw(text)
 
 
-def left_status(index: int) -> str:
-    return f"{' ' * LEFT_PAD}{LEFT_ICON} [{index}]"
-
-
-def right_status() -> str:
-    return datetime.datetime.now().strftime("%a %b %d %H:%M")
-
-
-def draw_left_status(screen: Screen, index: int) -> None:
-    original_x = screen.cursor.x
-    screen.cursor.x = 0
-    draw_text(screen, left_status(index), LEFT_FG)
-    screen.cursor.x = original_x
-
-
-def draw_right_status(screen: Screen) -> None:
-    text = right_status()
-    text_len = width(text)
-    if screen.columns > text_len + 1:
-        screen.cursor.x = screen.columns - text_len - 1
-        draw_text(screen, text, RIGHT_FG)
-
-
 def center_start(screen: Screen) -> int:
     total = total_tabs_width()
-    start = max(0, (screen.columns - total) // 2)
-
-    # Keep centered tabs from colliding with the fixed left/right status blocks.
-    left_min = width(left_status(ACTIVE_TAB_INDEX)) + 2
-    right_max = screen.columns - width(right_status()) - 2
-    if start < left_min:
-        start = left_min
-    if start + total > right_max:
-        start = max(left_min, right_max - total)
-    return start
+    return max(0, (screen.columns - total) // 2)
 
 
 def draw_single_tab(screen: Screen, tab: TabBarData, max_title_length: int) -> None:
     title = truncate(title_for(tab), min(max_title_length, MAX_TITLE_CELLS))
     if tab.is_active:
-        set_colors(screen, ACTIVE_FG, ACTIVE_BG)
-        screen.draw(" " * ACTIVE_PAD)
+        set_colors(screen, ACTIVE_FG)
+        screen.draw(" " * TAB_PAD)
         screen.draw(title)
-        screen.draw(" " * ACTIVE_PAD)
-        set_colors(screen, INACTIVE_FG, BAR_BG)
+        screen.draw(" " * TAB_PAD)
         return
 
     set_colors(screen, INACTIVE_FG)
-    screen.draw(" " * INACTIVE_PAD)
+    screen.draw(" " * TAB_PAD)
     screen.draw(title)
-    screen.draw(" " * INACTIVE_PAD)
+    screen.draw(" " * TAB_PAD)
 
 
 def draw_tab(
@@ -179,8 +134,6 @@ def draw_tab(
     draw_single_tab(screen, tab, max_title_length)
 
     if is_last:
-        draw_left_status(screen, ACTIVE_TAB_INDEX)
-        draw_right_status(screen)
         return screen.columns
 
     return screen.cursor.x
