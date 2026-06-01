@@ -34,6 +34,7 @@ require("plugins.explorer.canola")
 -- Git
 require("plugins.git.diffview")
 require("plugins.git.gitsigns")
+require("plugins.git.neogit")
 
 -- Terminal
 require("plugins.terminal.toggleterm")

@@ -8,6 +8,7 @@ dashboard.section.buttons.val = {
 	dashboard.button("-", "  Open Oil", "<cmd>Oil<cr>"),
 	dashboard.button("<leader>ff", "  Find files", "<cmd>Telescope find_files<cr>"),
 	dashboard.button("<leader>fg", "  Live grep", "<cmd>Telescope live_grep<cr>"),
+	dashboard.button("<leader>gg", "  Open Neogit", "<cmd>Neogit<cr>"),
 }
 
 require("alpha").setup(dashboard.config)
