@@ -7,8 +7,26 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "ui_font_family": ".SystemUIFont",
+  "agent_servers": {
+    "pi-acp": {
+      "type": "registry"
+    }
+  },
+  "project_panel": {
+    "dock": "left"
+  },
+  "outline_panel": {
+    "dock": "left"
+  },
+  "collaboration_panel": {
+    "dock": "left"
+  },
   "agent": {
-    "always_allow_tool_actions": true,
+    "tool_permissions": {
+      "default": "allow"
+    },
+    "dock": "right",
     "default_model": {
       "provider": "copilot_chat",
       "model": "claude-sonnet-4.5",
@@ -17,13 +35,14 @@
     "model_parameters": [],
   },
   "git_panel": {
+    "dock": "left",
     "tree_view": true,
   },
   "buffer_line_height": {
-    "custom": 1.5,
+    "custom": 1.7000000476837158,
   },
-  "buffer_font_weight": 400.0,
-  "buffer_font_family": "SFMono Nerd Font",
+  "buffer_font_weight": 200.0,
+  "buffer_font_family": "JetBrainsMono Nerd Font Mono",
   "session": {
     "trust_all_worktrees": true,
   },
@@ -35,12 +54,12 @@
     "use_system_clipboard": "always",
   },
   "formatter": "language_server",
-  "ui_font_size": 16,
-  "buffer_font_size": 14.0,
+  "ui_font_size": 15.0,
+  "buffer_font_size": 16.0,
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "Kanso Zen",
+    "dark": "macOS Classic Dark",
   },
   "lsp": {
     "jdtls": {
