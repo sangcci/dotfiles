@@ -13,6 +13,14 @@ vim.lsp.config("*", {
 })
 
 require("blink.cmp").setup({
+	enabled = function()
+		local disabled = {
+			markdown = true,
+			text = true,
+		}
+		return not disabled[vim.bo.filetype]
+	end,
+
 	-- :help blink-cmp-config-keymap
 	keymap = { preset = "enter" },
 
@@ -73,7 +81,7 @@ require("blink.cmp").setup({
 	},
 
 	sources = {
-		default = { "lsp", "path", "snippets", "buffer", "emoji", "99" },
+		default = { "lsp", "path", "snippets", "buffer", "emoji" },
 		providers = {
 			emoji = {
 				module = "blink-emoji",
@@ -92,10 +100,6 @@ require("blink.cmp").setup({
 						vim.o.filetype
 					)
 				end,
-			},
-			["99"] = {
-				name = "99",
-				module = "blink.compat.source",
 			},
 		},
 	},
