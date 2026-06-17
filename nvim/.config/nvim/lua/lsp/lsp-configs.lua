@@ -36,6 +36,7 @@ require("mason-tool-installer").setup({
 		"marksman",
 		"yamlls",
 		"lemminx",
+		"kotlin_lsp",
 		"gradle_ls",
 		"groovyls",
 		"ts_ls",

@@ -116,6 +116,10 @@
       "rev": "927361caec8c32e210acd5c56045e0d7d80143a0",
       "src": "https://github.com/webhooked/kanso.nvim"
     },
+    "kotlin.nvim": {
+      "rev": "993b59896d251e702fb45494117c900a973a1d2a",
+      "src": "https://github.com/AlexandrosAlexiou/kotlin.nvim"
+    },
     "live-preview.nvim": {
       "rev": "0e7c0d62d4ab422a204ce6ad57fb408c4fc03b7c",
       "src": "https://github.com/brianhuster/live-preview.nvim"
