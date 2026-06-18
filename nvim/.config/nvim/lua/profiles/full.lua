@@ -41,7 +41,6 @@ require("plugins.terminal.toggleterm")
 
 -- Util
 require("plugins.util.fidget")
-require("plugins.util.harpoon2")
 require("plugins.util.live-preview")
 require("plugins.util.markview")
 require("plugins.util.smart-splits")
