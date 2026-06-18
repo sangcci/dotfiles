@@ -61,13 +61,14 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		local opts = { buffer = args.buf }
 		local builtin = require("telescope.builtin")
 
-		vim.keymap.set("n", "gL", builtin.diagnostics, { desc = "Diagnostics" })
-		vim.keymap.set("n", "gd", builtin.lsp_definitions, { desc = "Find Definitions" })
-		vim.keymap.set("n", "gr", builtin.lsp_references, { desc = "Find References" })
-		vim.keymap.set("n", "gi", builtin.lsp_implementations, { desc = "Find Implementations" })
-		vim.keymap.set("n", "gt", builtin.lsp_type_definitions, { desc = "Find Type Definitions" })
-		vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, { desc = "Code Action" }))
-		vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "Rename" }))
+		-- Use Telescope pickers on Neovim's default `gr*` LSP key family.
+		vim.keymap.set("n", "gL", builtin.diagnostics, vim.tbl_extend("force", opts, { desc = "Diagnostics" }))
+		vim.keymap.set("n", "gd", builtin.lsp_definitions, vim.tbl_extend("force", opts, { desc = "Find Definitions" }))
+		vim.keymap.set("n", "grr", builtin.lsp_references, vim.tbl_extend("force", opts, { desc = "Find References" }))
+		vim.keymap.set("n", "gri", builtin.lsp_implementations, vim.tbl_extend("force", opts, { desc = "Find Implementations" }))
+		vim.keymap.set("n", "grt", builtin.lsp_type_definitions, vim.tbl_extend("force", opts, { desc = "Find Type Definitions" }))
+		vim.keymap.set({ "n", "v" }, "gra", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, { desc = "Code Action" }))
+		vim.keymap.set("n", "grn", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "Rename" }))
 		vim.keymap.set("n", "<leader>r", function()
 			local formatter_list = require("conform").list_formatters(args.buf)
 			if #formatter_list == 0 then
