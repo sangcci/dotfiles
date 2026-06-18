@@ -116,3 +116,42 @@ vim.api.nvim_set_hl(0, "RenderMarkdownDash", { fg = fg_dim })
 vim.api.nvim_set_hl(0, "TabLine", { fg = fg_normal, bg = "NONE", bold = true })
 vim.api.nvim_set_hl(0, "TabLineFill", { bg = "NONE" })
 vim.api.nvim_set_hl(0, "TabLineSel", { fg = fg_normal, bg = "NONE", bold = true })
+
+-- WhichKey
+local which_key_bg = bg_cursorline ~= "NONE" and bg_cursorline or bg_float
+if which_key_bg == "NONE" then
+	which_key_bg = "#1e1e2e"
+end
+
+local function set_hl_bg(group, bg)
+	local fg = hl_color(group, "fg")
+	local hl = { bg = bg }
+	if fg ~= "NONE" then
+		hl.fg = fg
+	end
+	vim.api.nvim_set_hl(0, group, hl)
+end
+
+vim.api.nvim_set_hl(0, "WhichKeyNormal", { fg = fg_normal, bg = which_key_bg })
+vim.api.nvim_set_hl(0, "WhichKeyBorder", { fg = which_key_bg, bg = which_key_bg })
+
+for _, group in ipairs({
+	"WhichKey",
+	"WhichKeyDesc",
+	"WhichKeyGroup",
+	"WhichKeyIcon",
+	"WhichKeyIconAzure",
+	"WhichKeyIconBlue",
+	"WhichKeyIconCyan",
+	"WhichKeyIconGreen",
+	"WhichKeyIconGrey",
+	"WhichKeyIconOrange",
+	"WhichKeyIconPurple",
+	"WhichKeyIconRed",
+	"WhichKeyIconYellow",
+	"WhichKeySeparator",
+	"WhichKeyTitle",
+	"WhichKeyValue",
+}) do
+	set_hl_bg(group, which_key_bg)
+end
