@@ -42,6 +42,10 @@
       "rev": "88af183e96724cca98a4602511061662cd5e88f3",
       "src": "https://github.com/barrettruth/canola.nvim"
     },
+    "catppuccin": {
+      "rev": "e068ab5f8261f23f6f71ffd8791ae40315b77b9c",
+      "src": "https://github.com/catppuccin/nvim"
+    },
     "claude-preview.nvim": {
       "rev": "bdf581ac1490d6af0d7b3700defb3635822d70ab",
       "src": "https://github.com/Cannon07/claude-preview.nvim"
