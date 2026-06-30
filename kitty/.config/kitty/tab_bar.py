@@ -1,4 +1,5 @@
 import math
+from functools import wraps
 from pathlib import Path
 
 from kitty.boss import get_boss
@@ -13,6 +14,49 @@ from kitty.tab_bar import (
 
 opts = get_options()
 
+
+def _patch_tab_bar_click_handlers():
+    """Keep kitty's mouse hitboxes in sync with our manual tab shift.
+
+    The custom drawer inserts spaces before the already-drawn tabs to center
+    them between the left and right status sections. kitty's stored tab ranges
+    are still based on the original position, so translate click coordinates
+    back by the same amount before kitty performs its normal hit test.
+    """
+    global _tab_bar_click_handlers_patched
+
+    if _tab_bar_click_handlers_patched:
+        return
+
+    try:
+        from kitty.tab_bar import TabBar
+    except Exception:
+        return
+
+    # If this file was reloaded after the previous attempt, remove that old
+    # extents-shifting update patch first. Otherwise click coordinates and
+    # extents would both be shifted and cancel the fix.
+    if getattr(TabBar.update, "_custom_tab_extent_shift_patch", False):
+        TabBar.update = TabBar.update.__wrapped__
+
+    if getattr(TabBar.tab_id_at, "_custom_tab_click_shift_patch", False):
+        _tab_bar_click_handlers_patched = True
+        return
+
+    original_tab_id_at = TabBar.tab_id_at
+
+    @wraps(original_tab_id_at)
+    def tab_id_at_with_shifted_click(self, x, y):
+        tab_shift = getattr(TabBar, "_custom_last_tab_shift", 0)
+        if tab_shift and not getattr(self, "is_vertical", False):
+            x -= tab_shift * getattr(self, "cell_width", 0)
+        return original_tab_id_at(self, x, y)
+
+    tab_id_at_with_shifted_click._custom_tab_click_shift_patch = True
+    TabBar.tab_id_at = tab_id_at_with_shifted_click
+    _tab_bar_click_handlers_patched = True
+
+
 lavender = as_rgb(int("B4BEFE", 16))
 surface1 = as_rgb(int("45475A", 16))
 base = as_rgb(int("1E1E2E", 16))
@@ -21,6 +65,10 @@ layout_icon = ""
 active_tab_layout_name = ""
 active_tab_num_windows = 1
 left_status_length = 0
+_last_tab_shift = 0
+_tab_bar_click_handlers_patched = False
+
+_patch_tab_bar_click_handlers()
 
 
 def draw_tab(
@@ -56,8 +104,11 @@ def draw_tab(
         )
         screen.cursor.x = left_status_length
         screen.insert_characters(leading_spaces)
-        # TODO: fix tab click handlers
-        # self.cell_ranges = [(s + leading_spaces, e + leading_spaces) for (s, e) in self.cell_ranges]
+        try:
+            from kitty.tab_bar import TabBar
+            TabBar._custom_last_tab_shift = leading_spaces
+        except Exception:
+            pass
         screen.cursor.x = screen_cursor_x + leading_spaces
 
     if is_last:
@@ -77,6 +128,11 @@ def _draw_left_status(screen: Screen):
     left_status_length = 0
     for _, _, cell in cells:
         left_status_length += len(cell)
+    try:
+        from kitty.tab_bar import TabBar
+        TabBar._custom_left_status_length = left_status_length
+    except Exception:
+        pass
 
     # draw right status
     for fg, bg, cell in cells:
