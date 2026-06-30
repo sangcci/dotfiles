@@ -66,13 +66,13 @@ local fg_dim = hl_color("Comment", "fg")
 local accent = hl_color("Special", "fg")
 
 -- Telescope
-vim.api.nvim_set_hl(0, "TelescopeTitle", { fg = accent, bold = true })
-vim.api.nvim_set_hl(0, "TelescopePromptNormal", { bg = bg_cursorline })
-vim.api.nvim_set_hl(0, "TelescopePromptBorder", { fg = bg_cursorline, bg = bg_cursorline })
-vim.api.nvim_set_hl(0, "TelescopeResultsNormal", { fg = fg_dim, bg = bg_float })
-vim.api.nvim_set_hl(0, "TelescopeResultsBorder", { fg = bg_float, bg = bg_float })
-vim.api.nvim_set_hl(0, "TelescopePreviewNormal", { bg = bg_normal })
-vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { fg = bg_normal, bg = bg_normal })
+-- vim.api.nvim_set_hl(0, "TelescopeTitle", { fg = accent, bold = true })
+-- vim.api.nvim_set_hl(0, "TelescopePromptNormal", { bg = bg_cursorline })
+-- vim.api.nvim_set_hl(0, "TelescopePromptBorder", { fg = bg_cursorline, bg = bg_cursorline })
+-- vim.api.nvim_set_hl(0, "TelescopeResultsNormal", { fg = fg_dim, bg = bg_float })
+-- vim.api.nvim_set_hl(0, "TelescopeResultsBorder", { fg = bg_float, bg = bg_float })
+-- vim.api.nvim_set_hl(0, "TelescopePreviewNormal", { bg = bg_normal })
+-- vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { fg = bg_normal, bg = bg_normal })
 
 -- Float / NormalFloat
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = bg_float })

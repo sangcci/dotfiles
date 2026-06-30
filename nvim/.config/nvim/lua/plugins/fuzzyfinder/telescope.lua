@@ -16,6 +16,7 @@ local actions = require("telescope.actions")
 
 telescope.setup({
 	defaults = { -- Note: 'defaults' was missing in your original config
+		border = false,
 		-- These three settings are optional, but recommended.
 		prompt_prefix = "",
 		entry_prefix = " ",
