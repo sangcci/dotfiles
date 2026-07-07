@@ -6,7 +6,4 @@ require("code-preview").setup({
 	diff = {
 		layout = "inline",
 	},
-	neo_tree = {
-		enabled = true,
-	},
 })
