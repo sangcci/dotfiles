@@ -18,5 +18,13 @@
       KeyRepeat = 2;
       AppleShowScrollBars = "Always";
     };
+	
+	CustomUserPreferences = {
+      NSGlobalDomain = {
+        NSSplitViewItemSidebarDefaultsToFloatingAppearance = false;
+        NSSplitViewItemGlassMinimumCornerRadius = 4;
+        NSConvolutionOverride1 = 8;
+      };
+    };
   };
 }
