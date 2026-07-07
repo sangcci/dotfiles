@@ -2,7 +2,7 @@ require("config.colorscheme")
 require("config.options")
 require("config.keymaps")
 
-require("pack.pack-manager")
+require("pack.pack-ui")
 
 -- Syntax
 require("plugins.syntaxtree.treesitter")
