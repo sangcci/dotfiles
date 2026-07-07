@@ -22,7 +22,7 @@
       "basictex"
       "discord"
       "figma"
-      "brave"
+      "brave-browser"
       "kitty"
       "linearmouse"
       "notion"
