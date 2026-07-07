@@ -11,10 +11,3 @@ elif [[ -f /etc/os-release ]]; then
 else
   export DOTFILES_OS="linux"
 fi
-
-# ── Profile Detection ─────────────────────────────────────────────────────────
-# macOS: full by default, Linux: lite by default (opt-in full)
-if [[ -z "$DOTFILES_PROFILE" ]]; then
-  [[ "$DOTFILES_OS" == "macos" ]] && export DOTFILES_PROFILE="full" || export DOTFILES_PROFILE="lite"
-fi
-export NVIM_PROFILE="$DOTFILES_PROFILE"

@@ -1,8 +1,21 @@
 # ── zplug home ────────────────────────────────────────────────────────────────
 case "$DOTFILES_OS" in
-  macos) export ZPLUG_HOME="/opt/homebrew/opt/zplug" ;;
-  *)     export ZPLUG_HOME="$HOME/.zplug" ;;
+  macos)
+    if command -v brew &>/dev/null && [[ -s "$(brew --prefix zplug 2>/dev/null)/init.zsh" ]]; then
+      export ZPLUG_HOME="$(brew --prefix zplug)"
+    else
+      export ZPLUG_HOME="/opt/homebrew/opt/zplug"
+    fi
+    ;;
+  *)
+    export ZPLUG_HOME="$HOME/.zplug"
+    ;;
 esac
+
+if [[ ! -s "$ZPLUG_HOME/init.zsh" ]]; then
+  print -u2 "[zsh] zplug not found at $ZPLUG_HOME; skipping plugin load."
+  return 0
+fi
 
 source "$ZPLUG_HOME/init.zsh"
 
@@ -21,9 +34,15 @@ zplug "plugins/git", from:oh-my-zsh
 
 # ── Install missing plugins ───────────────────────────────────────────────────
 if ! zplug check --verbose; then
-  printf "Install? [y/N]: "
-  if read -q; then
-    echo; zplug install
+  if [[ -o interactive ]]; then
+    printf "Install missing zplug plugins? [y/N]: "
+    if read -q; then
+      echo; zplug install
+    else
+      echo
+    fi
+  else
+    print -u2 "[zsh] missing zplug plugins; run 'zplug install' in an interactive shell."
   fi
 fi
 

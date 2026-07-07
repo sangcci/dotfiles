@@ -1,39 +1,99 @@
 # zsh
 
-Minimalist zsh configuration. Modular by design — each concern lives in its own file under `.zsh/`.
+Minimalist zsh configuration. Modular by design — zsh core stays small, and tool-specific setup lives under `plugins/`.
 
 ## Architecture
 
-`.zshrc` is the single entry point. Modules load sequentially; earlier modules set variables that later ones depend on.
+`.zshrc` is the single entry point. Core modules load first, tool plugins load next, and key bindings load last so plugin-provided widgets are available.
 
 ```
 .zshrc
  │
- ├── [1] detect.zsh      → DOTFILES_OS, DOTFILES_PROFILE, NVIM_PROFILE
- │                                │
- │         ┌──────────────────────┤ consumed by all modules below
- │         ▼                      ▼
- ├── [2] path.zsh         $PATH (OS-specific + profile-gated)
- ├── [3] plugins.zsh      zplug
- ├── [4] env.zsh          EDITOR, shell integrations, Docker/Testcontainers env
- ├── [5] history.zsh      setopt
- ├── [6] completion.zsh   fzf-tab, completion styles
- ├── [7] keybinds.zsh     bindkey
- ├── [8] aliases.zsh      aliases  (OS-gated + profile-gated)
- └── [9] functions.zsh    shell functions  (profile-gated)
+ ├── core/detect.zsh       → DOTFILES_OS
+ ├── core/lib.zsh          shared helpers and plugin loader
+ │
+ ├── core/path.zsh         common $PATH
+ ├── core/env.zsh          EDITOR, VISUAL, common shell env
+ ├── core/history.zsh      history options
+ ├── core/completion.zsh   base completion styles
+ ├── core/aliases.zsh      common aliases
+ ├── core/functions.zsh    common functions
+ │
+ ├── core/plugin-list.zsh  ordered plugin list
+ ├── plugins/*.zsh         tool-specific setup, skipped safely when unavailable
+ │
+ └── core/keybinds.zsh     guarded bindkey setup
 ```
 
-### Profile Gate
+## Directory layout
 
 ```
-DOTFILES_PROFILE
- ├── lite  (Linux default)   core tooling only
- └── full  (macOS default)   + SDKMAN · uv · bun · npm global · postgresql
+zsh/.zsh/
+ ├── core/
+ │   ├── aliases.zsh
+ │   ├── completion.zsh
+ │   ├── detect.zsh
+ │   ├── env.zsh
+ │   ├── functions.zsh
+ │   ├── history.zsh
+ │   ├── keybinds.zsh
+ │   ├── lib.zsh
+ │   ├── path.zsh
+ │   └── plugin-list.zsh
+ └── plugins/
+     ├── antigravity.zsh
+     ├── bun.zsh
+     ├── cli.zsh
+     ├── docker.zsh
+     ├── envman.zsh
+     ├── fzf-git.zsh
+     ├── fzf.zsh
+     ├── npm.zsh
+     ├── postgresql.zsh
+     ├── sdkman.zsh
+     ├── uv.zsh
+     ├── yazi.zsh
+     ├── zoxide.zsh
+     └── zplug.zsh
 ```
 
-Override: `export DOTFILES_PROFILE=lite`
+## Plugin loading
 
-### OS Gate
+Plugins are listed in `core/plugin-list.zsh`:
+
+```zsh
+DOTFILES_PLUGINS=(
+  zplug
+  zoxide
+  fzf
+  fzf-git
+  cli
+  bun
+  uv
+  sdkman
+  envman
+  docker
+  npm
+  postgresql
+  yazi
+  antigravity
+)
+```
+
+Each plugin owns one tool or integration and guards itself with `command -v`, file checks, or OS checks. Missing tools should not abort shell startup.
+
+## Core helpers
+
+`core/lib.zsh` provides:
+
+| Helper | Description |
+|--------|-------------|
+| `_dotfiles_prepend_path` | Adds an existing directory to the front of `$PATH` while keeping entries unique |
+| `_dotfiles_source_if_exists` | Sources a file only when it exists and is non-empty |
+| `_dotfiles_load_plugin` | Sources one plugin from `plugins/` |
+| `_dotfiles_load_plugins` | Loads `DOTFILES_PLUGINS` in order |
+
+## OS Gate
 
 ```
 DOTFILES_OS
@@ -43,9 +103,9 @@ DOTFILES_OS
  └── linux            generic fallback
 ```
 
-## Plugins
+## zplug plugins
 
-Managed via [zplug](https://github.com/zplug/zplug).
+Managed via [zplug](https://github.com/zplug/zplug). If zplug is not installed, plugin loading is skipped with a warning instead of aborting shell startup.
 
 | Plugin | Description |
 |--------|-------------|
@@ -62,22 +122,23 @@ Managed via [zplug](https://github.com/zplug/zplug).
 
 | Key | Action |
 |-----|--------|
-| `Ctrl+Space` / `Ctrl+f` | Accept autosuggestion |
-| `Ctrl+p` | History search up |
-| `Ctrl+n` | History search down |
+| `Ctrl+Space` / `Ctrl+f` | Accept autosuggestion, when autosuggestions are loaded |
+| `Ctrl+p` | History search up, when history-substring-search is loaded |
+| `Ctrl+n` | History search down, when history-substring-search is loaded |
 | `Tab` | fzf-tab item select |
 
-## Notable Aliases
+## Notable Aliases / Functions
 
-| Alias | Command | Note |
-|-------|---------|------|
-| `n` | `nvim` | |
-| `ls` / `ll` / `lt` | `lsd` | Falls back to system `ls` |
-| `cat` | `bat` | Falls back to system `cat` |
-| `c` | `clear` | |
-| `myip` | `curl ifconfig.me` | Shows public IPv4 and IPv6 |
-| `y` | yazi wrapper | `cd`s into the directory yazi exits in |
+| Alias / Function | Source | Note |
+|------------------|--------|------|
+| `n` | `plugins/cli.zsh` | `nvim`, when installed |
+| `ls` / `ll` / `lt` | `plugins/cli.zsh` | `lsd`, when installed |
+| `cat` | `plugins/cli.zsh` | `bat` / `batcat`, when installed |
+| `..` / `...` / `....` | `plugins/zoxide.zsh` | `z` navigation, falls back to `cd` |
+| `c` | `core/aliases.zsh` | `clear` |
+| `myip` | `core/aliases.zsh` | Shows public IPv4 and IPv6 |
+| `y` | `plugins/yazi.zsh` | yazi wrapper that `cd`s into the directory yazi exits in |
 
 ## Docker / Testcontainers
 
-On macOS with Colima, `env.zsh` exports `DOCKER_HOST=unix://$HOME/.colima/default/docker.sock` when the Colima socket exists and `DOCKER_HOST` is not already set. This keeps JVM tools such as Testcontainers from falling back to a missing `/var/run/docker.sock`.
+`plugins/docker.zsh` exports `DOCKER_HOST=unix://$HOME/.colima/default/docker.sock` on macOS when the Colima socket exists and `DOCKER_HOST` is not already set. This keeps JVM tools such as Testcontainers from falling back to a missing `/var/run/docker.sock`.
