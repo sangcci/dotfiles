@@ -1,10 +1,10 @@
 # fzf
 
-[fzf](https://github.com/junegunn/fzf) color theme configuration.
+[fzf](https://github.com/junegunn/fzf) and fzf-tab color configuration.
 
 | File | Description |
 |------|-------------|
-| `colors.sh` | fzf color theme (Kanso Ink) |
-| `tab-colors.sh` | fzf-tab color theme |
+| `.config/fzf/colors.sh` | fzf default options / color mode |
+| `.config/fzf/tab-colors.sh` | fzf-tab color theme |
 
-Sourced by `zsh/completion.zsh`.
+Sourced by `zsh/.zsh/plugins/fzf.zsh` when available.
