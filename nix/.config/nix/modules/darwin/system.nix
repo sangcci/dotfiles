@@ -12,8 +12,6 @@
     reattach = false;
   };
 
-  system.primaryUser = "sangcci";
-
   system.configurationRevision = self.rev or self.dirtyRev or null;
   system.stateVersion = 6;
 
