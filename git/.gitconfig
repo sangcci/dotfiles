@@ -2,7 +2,7 @@
 	name = sangcci
 	email = pshsh910@gmail.com
 [core]
-	excludesfile = /Users/sangcci/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	pager = delta
 	hooksPath = ~/.config/git/hooks
 [init]
