@@ -1,6 +1,6 @@
 # Introduction
 
-Personal dotfiles managed by GNU Stow. The setup is optimized for **macOS** and keeps each tool configuration in its own stow package.
+Personal dotfiles managed mainly by GNU Stow. The setup is optimized for **macOS** and keeps each tool configuration in its own stow package. Windows host settings are managed separately with PowerShell under `windows/`.
 
 # Features
 
@@ -61,6 +61,7 @@ Personal dotfiles managed by GNU Stow. The setup is optimized for **macOS** and 
 ├── obsidian/      Obsidian CSS snippets
 ├── vscode/        Deprecated VS Code config
 ├── yazi/          Yazi config and flavors
+├── windows/       Windows host PowerShell configuration
 ├── zed/           Deprecated Zed config
 └── zsh/           Modular zsh config
 ```
@@ -85,6 +86,8 @@ stow obsidian
 stow anki
 stow nix
 ```
+
+For Windows host settings, see [`windows/README.md`](windows/README.md). WSL should use its own Linux/Nix configuration rather than this Windows bootstrap.
 
 Deprecated configs are kept for reference and usually should not be stowed:
 
