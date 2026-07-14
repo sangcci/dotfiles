@@ -11,16 +11,36 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nix-darwin, home-manager, ... }:
-  {
-    darwinConfigurations."Hyeoks-MacBook-Pro" = nix-darwin.lib.darwinSystem {
-      specialArgs = { inherit self; };
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      nix-darwin,
+      home-manager,
+      ...
+    }:
+    let
+      linuxSystem = "x86_64-linux";
+      linuxPkgs = import nixpkgs {
+        system = linuxSystem;
+        config.allowUnfree = true;
+      };
+    in
+    {
+      darwinConfigurations."Hyeoks-MacBook-Pro" = nix-darwin.lib.darwinSystem {
+        specialArgs = { inherit self; };
 
-      modules = [
-        home-manager.darwinModules.home-manager
-        ./modules/common
-        ./modules/darwin
-      ];
+        modules = [
+          home-manager.darwinModules.home-manager
+          ./modules/common
+          ./modules/darwin
+        ];
+      };
+
+      homeConfigurations."sangcci@debian-wsl" = home-manager.lib.homeManagerConfiguration {
+        pkgs = linuxPkgs;
+        extraSpecialArgs = { inherit self; };
+        modules = [ ./modules/linux ];
+      };
     };
-  };
 }
