@@ -32,7 +32,6 @@
 
         modules = [
           home-manager.darwinModules.home-manager
-          ./modules/common
           ./modules/darwin
         ];
       };
@@ -40,7 +39,10 @@
       homeConfigurations."sangcci@debian-wsl" = home-manager.lib.homeManagerConfiguration {
         pkgs = linuxPkgs;
         extraSpecialArgs = { inherit self; };
-        modules = [ ./modules/linux ];
+        modules = [
+          ./modules/home/common.nix
+          ./modules/home/linux.nix
+        ];
       };
     };
 }
