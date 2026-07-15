@@ -118,5 +118,4 @@ in
     VISUAL = "nvim";
   };
 
-  programs.home-manager.enable = true;
 }
