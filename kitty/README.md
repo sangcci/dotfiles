@@ -8,7 +8,7 @@ Primary terminal. Uses kitty's built-in tab/split management instead of tmux.
 
 - Font: **Sarasa Term K** 15px
 - Nerd Font symbols mapped to **JetBrainsMono Nerd Font**
-- Active theme include: `themes/github_light.conf`
+- Active theme include: `themes/nord.conf`
 - Additional themes under `.config/kitty/themes/`
 - Background opacity: 100%, blur enabled
 - macOS `option` key mapped as `Alt` for Neovim compatibility

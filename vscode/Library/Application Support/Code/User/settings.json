@@ -41,7 +41,7 @@
   // WORKBENCH
   // ─────────────────────────────────────────────
 
-  "workbench.colorTheme": "Kanso Ink",
+  "workbench.colorTheme": "Nord",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.productIconTheme": "material-product-icons",
 
@@ -75,8 +75,8 @@
   // color customizations
   "workbench.colorCustomizations": {
     // title bar
-    "titleBar.activeBackground": "#16161D",
-    "titleBar.inactiveBackground": "#16161D",
+    "titleBar.activeBackground": "#2E3440",
+    "titleBar.inactiveBackground": "#2E3440",
     "titleBar.activeForeground": "#00000000",
     "titleBar.inactiveForeground": "#00000000",
     "titleBar.border": "#00000000",
@@ -342,7 +342,7 @@
     ".quick-input-list .scrollbar": "display: none",
     ".monaco-action-bar.quick-input-inline-action-bar": "display: none",
     ".editor-widget.find-widget": "box-shadow: none; border-radius: 4px",
-    ".quick-input-titlebar": "background: #100B15 !important",
+    ".quick-input-titlebar": "background: #2E3440 !important",
 
     // editor rounded corners (외곽만 둥글게, 내부는 0)
     ".editor-group-container .editor-container:has(.extension-editor)": "border-radius: 0.5rem;",

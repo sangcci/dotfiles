@@ -1,10 +1,9 @@
 #!/bin/zsh
 
-# Catppuccin FZF Colors
-export FZF_DEFAULT_OPTS=--color=light
-# export FZF_DEFAULT_OPTS=" \
-# --color=bg+:#313244,bg:#1E1E2E,spinner:#F5E0DC,hl:#F38BA8 \
-# --color=fg:#CDD6F4,header:#F38BA8,info:#CBA6F7,pointer:#F5E0DC \
-# --color=marker:#B4BEFE,fg+:#CDD6F4,prompt:#CBA6F7,hl+:#F38BA8 \
-# --color=selected-bg:#45475A \
-# --color=border:#6C7086,label:#CDD6F4"
+# Nord FZF colors
+export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS:+$FZF_DEFAULT_OPTS }\
+--color=fg:#d8dee9,bg:#2e3440,hl:#88c0d0 \
+--color=fg+:#eceff4,bg+:#3b4252,hl+:#88c0d0 \
+--color=info:#ebcb8b,prompt:#81a1c1,pointer:#88c0d0 \
+--color=marker:#a3be8c,spinner:#b48ead,header:#a3be8c \
+--color=border:#4c566a,label:#d8dee9"

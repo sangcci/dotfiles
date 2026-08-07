@@ -3,7 +3,7 @@ vim.pack.add({
 	{ src = "https://github.com/rktjmp/lush.nvim" },
 	{ src = "https://github.com/zenbones-theme/zenbones.nvim" },
 	{ src = "https://github.com/darkvoid-theme/darkvoid.nvim" },
-	{ src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
+	{ src = "https://github.com/gbprod/nord.nvim", name = "nord" },
 	{ src = "https://github.com/projekt0n/github-nvim-theme" },
 })
 
@@ -39,16 +39,15 @@ require("darkvoid").setup({})
 --
 -- vim.opt.fillchars = { eob = " " }
 
--- catppuccin
-require("catppuccin").setup({
-	transparent_background = true,
-	float = {
-		transparent = true,
-	},
+-- nord
+require("nord").setup({
+	transparent = false,
+	terminal_colors = true,
+	borders = true,
 })
 
 -- setup colorscheme
-vim.cmd.colorscheme("github_light")
+vim.cmd.colorscheme("nord")
 
 -- Custom Colorscheme Setup
 -- local function hl_color(group, attr)
