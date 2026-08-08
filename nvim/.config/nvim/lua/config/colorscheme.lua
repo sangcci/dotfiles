@@ -41,7 +41,7 @@ require("darkvoid").setup({})
 
 -- nord
 require("nord").setup({
-	transparent = false,
+	transparent = true,
 	terminal_colors = true,
 	borders = true,
 })
