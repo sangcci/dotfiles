@@ -1,0 +1,60 @@
+{
+  "$schema": "https://unpkg.com/@aliou/pi-guardrails@0.16.2/schema.json",
+  "pathAccess": {
+    "allowedPaths": [
+      {
+        "kind": "file",
+        "path": "~/.config"
+      },
+      {
+        "kind": "file",
+        "path": "~/.zsh"
+      },
+      {
+        "kind": "file",
+        "path": "~/.zshrc"
+      },
+      {
+        "kind": "file",
+        "path": "~/.config/kitty"
+      },
+      {
+        "kind": "file",
+        "path": "~/.config/bat"
+      },
+      {
+        "kind": "file",
+        "path": "~/.config/zed"
+      },
+      {
+        "kind": "file",
+        "path": "/tmp/nord-kitty"
+      },
+      {
+        "kind": "file",
+        "path": "/tmp/nord-yazi"
+      },
+      {
+        "kind": "file",
+        "path": "/tmp/nord-kitty/nord-kitty.conf"
+      },
+      {
+        "kind": "file",
+        "path": "/tmp/nord-yazi/flavor.toml"
+      },
+      {
+        "kind": "file",
+        "path": "/tmp/nord-yazi/tmtheme.xml"
+      },
+      {
+        "kind": "file",
+        "path": "~/.local/share/nvim"
+      },
+      {
+        "kind": "file",
+        "path": "~/.local/share/nvim/site/pack/core/opt"
+      }
+    ]
+  },
+  "version": "0.13.0-20260619"
+}
