@@ -19,7 +19,7 @@ require("plugins.editor.undotree")
 
 -- UI / decorator
 require("plugins.decorator.alpha-nvim")
-require("plugins.decorator.lualine")
+require("plugins.decorator.slimline")
 
 -- Auto completion
 require("plugins.autocompletion.blink-cmp")

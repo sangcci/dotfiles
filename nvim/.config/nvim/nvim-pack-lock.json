@@ -128,10 +128,6 @@
       "rev": "3ddd1b4edefa425fda5a9f95a4f25578727c0bb3",
       "src": "https://github.com/onsails/lspkind.nvim"
     },
-    "lualine.nvim": {
-      "rev": "3946f0122255bc377d14a59b27b609fb3ab25768",
-      "src": "https://github.com/nvim-lualine/lualine.nvim"
-    },
     "lush.nvim": {
       "rev": "9c60ec2279d62487d942ce095e49006af28eed6e",
       "src": "https://github.com/rktjmp/lush.nvim"
@@ -277,6 +273,10 @@
     "render-markdown.nvim": {
       "rev": "da6a7b25471ab23824f3429225973186eb0b62d2",
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
+    },
+    "slimline.nvim": {
+      "rev": "6c91c731863f47636c6ae0f00774ea6c2c90cb4b",
+      "src": "https://github.com/sschleemilch/slimline.nvim"
     },
     "smart-splits.nvim": {
       "rev": "09796a7ad0776c92518e0afae8688ef8d7f720e6",

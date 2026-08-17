@@ -48,7 +48,7 @@ nvim/.config/nvim/
 | Finder | telescope.nvim, telescope-cmdline.nvim |
 | Explorer | canola.nvim / oil-style explorer config |
 | Git | diffview.nvim, gitsigns.nvim, neogit |
-| UI / utils | alpha-nvim, lualine, which-key, fidget, dropbar, markview, smart-splits |
+| UI / utils | alpha-nvim, slimline.nvim, which-key, fidget, dropbar, markview, smart-splits |
 | Terminal / preview | toggleterm.nvim, live-preview.nvim |
 | DB | nvim-dbee |
 | AI | code-preview.nvim |
