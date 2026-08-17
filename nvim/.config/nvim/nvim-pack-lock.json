@@ -38,10 +38,6 @@
       "src": "https://github.com/saghen/blink.compat",
       "version": "'v2.5.0'"
     },
-    "canola.nvim": {
-      "rev": "88af183e96724cca98a4602511061662cd5e88f3",
-      "src": "https://github.com/barrettruth/canola.nvim"
-    },
     "claude-preview.nvim": {
       "rev": "bdf581ac1490d6af0d7b3700defb3635822d70ab",
       "src": "https://github.com/Cannon07/claude-preview.nvim"
@@ -155,6 +151,11 @@
     "mini.icons": {
       "rev": "ff2e4f1d29f659cc2bad0f9256f2f6195c6b2428",
       "src": "https://github.com/nvim-mini/mini.icons"
+    },
+    "neo-tree.nvim": {
+      "rev": "83e7a2982fd12b9c3d35bc39dd5877cd91a02a61",
+      "src": "https://github.com/nvim-neo-tree/neo-tree.nvim",
+      "version": "3.0.0 - 4.0.0"
     },
     "neogit": {
       "rev": "99326a1310fb2d616b455d2fd16d01bf00682f06",

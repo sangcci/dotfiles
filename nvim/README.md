@@ -46,7 +46,7 @@ nvim/.config/nvim/
 | Tests | neotest with Java, Python, Go adapters |
 | Editor | treesitter, conform, autopairs, surround, Comment.nvim, indent-blankline, undotree |
 | Finder | telescope.nvim, telescope-cmdline.nvim |
-| Explorer | canola.nvim / oil-style explorer config |
+| Explorer | neo-tree.nvim |
 | Git | diffview.nvim, gitsigns.nvim, neogit |
 | UI / utils | alpha-nvim, slimline.nvim, which-key, fidget, dropbar, markview, smart-splits |
 | Terminal / preview | toggleterm.nvim, live-preview.nvim |

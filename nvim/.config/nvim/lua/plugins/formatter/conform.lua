@@ -41,9 +41,6 @@ require("conform").setup({
 vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*",
 	callback = function(args)
-		if vim.bo[args.buf].filetype == "oil" then
-			return
-		end
 		local formatter_list = require("conform").list_formatters(args.buf)
 		if #formatter_list == 0 then
 			return

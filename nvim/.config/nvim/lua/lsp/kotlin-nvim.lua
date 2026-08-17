@@ -1,7 +1,6 @@
 vim.pack.add({
 	{ src = "https://github.com/mason-org/mason.nvim" },
 	{ src = "https://github.com/mason-org/mason-lspconfig.nvim" },
-	{ src = "https://github.com/barrettruth/canola.nvim" }, -- oil alternative
 	{ src = "https://github.com/AlexandrosAlexiou/kotlin.nvim" },
 })
 
