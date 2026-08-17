@@ -12,7 +12,8 @@ Primary file manager. Launched via the `y` shell function from `zsh/.zsh/plugins
 | `.config/yazi/flavors/nord.yazi/` | Nord flavor |
 | `.config/yazi/flavors/darkvoid.yazi/` | Darkvoid flavor |
 | `.config/yazi/flavors/kanagawabones.yazi/` | Kanagawabones flavor |
-| `.config/yazi/flavors/kanso.yazi/` | Kanso flavor |
+| `.config/yazi/flavors/kanso-ink.yazi/` | Kanso Ink flavor (upstream extra) |
+| `.config/yazi/flavors/kanso.yazi/` | Legacy Kanso flavor |
 | `.config/yazi/flavors/vscode-light-modern.yazi/` | VS Code Light Modern flavor |
 
-Current active flavor in `theme.toml`: `nord`.
+Current active flavor in `theme.toml`: `kanso-ink`.

@@ -3,8 +3,8 @@
   font-size: 17px;
   line-height: 1.6;
   text-align: left;
-  color: #DDD8BB;
-  background-color: #1F1F28;
+  color: #C5C9C7;
+  background-color: #14171D;
   padding: 1.25rem;
   max-width: 720px;
   margin: 0 auto;
@@ -31,26 +31,26 @@
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #957FB8;
+  color: #938AA9;
   margin-bottom: 0.6rem;
 }
 
 .category-icon {
-  color: #957FB8;
+  color: #938AA9;
   flex-shrink: 0;
 }
 
 .question-text {
   font-size: 1.2em;
   font-weight: 600;
-  color: #DDD8BB;
+  color: #C5C9C7;
   line-height: 1.45;
 }
 
 .question-text-small {
   font-size: 0.95em;
   font-weight: 500;
-  color: #A8A48D;
+  color: #A4A7A4;
   line-height: 1.45;
 }
 
@@ -63,7 +63,7 @@ hr#answer {
 
 /* ── Section box ────────────────────────────────────── */
 .card-section {
-  background: #26263A;
+  background: #1F1F26;
   border: 1px solid #3C3C51;
   border-radius: 6px;
   overflow: hidden;
@@ -77,15 +77,15 @@ hr#answer {
   font-weight: 500;
   letter-spacing: 0.07em;
   text-transform: uppercase;
-  color: #636370;
-  background: #1F1F28;
+  color: #717C7C;
+  background: #14171D;
   border-bottom: 1px solid #3C3C51;
   padding: 0.4rem 0.9rem;
 }
 
 .section-label svg {
   flex-shrink: 0;
-  color: #636370;
+  color: #717C7C;
 }
 
 .section-content {
@@ -95,7 +95,7 @@ hr#answer {
 
 /* ── Code block ─────────────────────────────────────── */
 pre {
-  background: #16161E;
+  background: #14171D;
   border-radius: 4px;
   padding: 0.85rem 1rem;
   overflow-x: auto;
@@ -105,7 +105,7 @@ pre {
 pre code {
   font-family: "JetBrains Mono", "Fira Code", monospace;
   font-size: 0.85em;
-  color: #DDD8BB;
+  color: #C5C9C7;
   line-height: 1.7;
   background: none;
   border: none;
@@ -116,24 +116,24 @@ pre code {
 code {
   font-family: "JetBrains Mono", "Fira Code", monospace;
   font-size: 0.85em;
-  background: #16161E;
-  color: #98BC6D;
+  background: #14171D;
+  color: #87A987;
   padding: 0.15em 0.4em;
   border-radius: 4px;
   border: 1px solid #3C3C51;
 }
 
 /* ── Typography ─────────────────────────────────────── */
-b, strong { color: #E5C283; }
-i, em     { color: #957FB8; }
+b, strong { color: #E6C384; }
+i, em     { color: #938AA9; }
 
-a { color: #7EB3C9; text-decoration: none; }
+a { color: #7FB4CA; text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 /* ── Cloze ──────────────────────────────────────────── */
 .cloze {
-  color: #7EB3C9;
+  color: #7FB4CA;
   font-weight: 700;
-  border-bottom: 2px solid #7EB3C960;
+  border-bottom: 2px solid #7FB4CA60;
   padding-bottom: 1px;
 }

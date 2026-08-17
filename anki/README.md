@@ -6,11 +6,14 @@
 
 | File | Description |
 |------|-------------|
-| `themes/kanagawabones.json` | Kanagawabones UI theme for the [ReColor](https://ankiweb.net/shared/info/688199788) add-on |
+| `themes/kanso-ink.json` | Kanso Ink UI theme for the [ReColor](https://ankiweb.net/shared/info/688199788) add-on |
+| `themes/kanagawabones.json` | Legacy Kanagawabones UI theme for ReColor |
 
-**Install:** Copy or symlink `themes/kanagawabones.json` into  
+**Install:** Copy or symlink `themes/kanso-ink.json` into
 `~/Library/Application Support/Anki2/addons21/688199788/themes/`  
 then select it in ReColor settings.
+
+Select **Kanso Ink** in ReColor settings after install.
 
 ## Card templates
 
@@ -18,7 +21,7 @@ Card CSS and HTML templates for note types. These cannot be symlinked — paste 
 
 | File | Description |
 |------|-------------|
-| `card.css` | Shared card stylesheet (kanagawabones palette) |
+| `card.css` | Shared card stylesheet (Kanso Ink palette) |
 | `front.html` | Front template — category label + question |
 | `back.html` | Back template — answer / code / related concept sections |
 

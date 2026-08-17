@@ -1,9 +1,9 @@
 #!/bin/zsh
 
-# Nord FZF-Tab colors
+# Kanso Ink FZF-Tab colors — palette from webhooked/kanso.nvim
 zstyle ':fzf-tab:*' fzf-flags \
-  '--color=fg:#d8dee9,bg:#2e3440,hl:#88c0d0' \
-  '--color=fg+:#eceff4,bg+:#3b4252,hl+:#88c0d0' \
-  '--color=info:#ebcb8b,prompt:#81a1c1,pointer:#88c0d0' \
-  '--color=marker:#a3be8c,spinner:#b48ead,header:#a3be8c' \
-  '--color=border:#4c566a,label:#d8dee9'
+  '--color=fg:#c5c9c7,bg:#14171d,hl:#7fb4ca' \
+  '--color=fg+:#f2f1ef,bg+:#1f1f26,hl+:#7fb4ca' \
+  '--color=info:#e6c384,prompt:#8ba4b0,pointer:#7fb4ca' \
+  '--color=marker:#87a987,spinner:#938aa9,header:#87a987' \
+  '--color=border:#393b44,label:#c5c9c7'

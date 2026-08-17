@@ -14,18 +14,18 @@ require("kanso").setup({
 	transparent = true,
 	dimInactive = false,
 	terminalColors = true,
-	colors = {
-		theme = {
-			all = {
-				ui = {
-					bg_gutter = "none",
-				},
-			},
-		},
-	},
+	-- colors = {
+	-- 	theme = {
+	-- 		all = {
+	-- 			ui = {
+	-- 				bg_gutter = "none",
+	-- 			},
+	-- 		},
+	-- 	},
+	-- },
 	background = {
-		dark = "zen", -- zen, ink, or mist
-		light = "zen",
+		dark = "ink", -- zen, ink, or mist
+		light = "ink",
 	},
 })
 
@@ -47,7 +47,7 @@ require("nord").setup({
 })
 
 -- setup colorscheme
-vim.cmd.colorscheme("nord")
+vim.cmd.colorscheme("kanso-ink")
 
 -- Custom Colorscheme Setup
 -- local function hl_color(group, attr)
