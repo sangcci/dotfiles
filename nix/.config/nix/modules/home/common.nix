@@ -77,6 +77,8 @@ in
     # Git / GitHub
     gh
     delta
+    lefthook
+    tuicr
 
     # Monitoring and utilities
     htop
