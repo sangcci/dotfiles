@@ -1,0 +1,4 @@
+# Local theme lives in themes/kanso-ink.toml.
+theme = "kanso-ink"
+diff_view = "side-by-side"
+comment_vim = true

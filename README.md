@@ -59,6 +59,7 @@ Personal dotfiles managed mainly by GNU Stow. The setup is optimized for **macOS
 ├── nix/           nix-darwin config
 ├── nvim/          Neovim config
 ├── obsidian/      Obsidian CSS snippets
+├── tuicr/         tuicr code-review TUI config and theme
 ├── vscode/        Deprecated VS Code config
 ├── yazi/          Yazi config and flavors
 ├── windows/       Windows host PowerShell configuration
@@ -83,6 +84,7 @@ stow yazi
 stow aerospace
 stow jankyborders
 stow obsidian
+stow tuicr
 stow anki
 stow nix
 ```

@@ -1,0 +1,52 @@
+# Kanso Ink palette, adapted from ../kitty/.config/kitty/themes/kanso_ink.conf.
+# Syntax colors use kanso-ink.tmTheme in this directory.
+panel_bg = "#14171D"
+bg_highlight = "#22262D"
+fg_primary = "#C5C9C7"
+fg_secondary = "#A4A7A4"
+fg_dim = "#717C7C"
+
+diff_add = "#8A9A7B"
+diff_add_bg = "#1C221F"
+diff_del = "#C4746E"
+diff_del_bg = "#281C20"
+diff_context = "#C5C9C7"
+diff_hunk_header = "#7FB4CA"
+expanded_context_fg = "#717C7C"
+
+syntax_add_bg = "#1C221F"
+syntax_del_bg = "#281C20"
+syntax_theme = "kanso-ink.tmTheme"
+
+file_added = "#8A9A7B"
+file_modified = "#C4B28A"
+file_deleted = "#C4746E"
+file_renamed = "#A292A3"
+
+reviewed = "#8A9A7B"
+pending = "#C4B28A"
+
+comment_note = "#7FB4CA"
+comment_suggestion = "#8EA4A2"
+comment_issue = "#C4746E"
+comment_praise = "#8A9A7B"
+
+border_focused = "#7FB4CA"
+border_unfocused = "#22262D"
+status_bar_bg = "#14171D"
+cursor_color = "#C4B28A"
+cursor_line_bg = "#1F1F26"
+branch_name = "#A292A3"
+help_indicator = "#A4A7A4"
+
+message_info_fg = "#14171D"
+message_info_bg = "#7FB4CA"
+message_warning_fg = "#14171D"
+message_warning_bg = "#C4B28A"
+message_error_fg = "#14171D"
+message_error_bg = "#C4746E"
+update_badge_fg = "#14171D"
+update_badge_bg = "#C4B28A"
+
+mode_fg = "#C5C9C7"
+mode_bg = "#14171D"
