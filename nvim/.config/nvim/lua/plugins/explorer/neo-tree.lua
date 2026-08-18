@@ -6,6 +6,30 @@ vim.pack.add({
 })
 
 require("neo-tree").setup({
+	default_component_configs = {
+		indent = {
+			with_expanders = false,
+		},
+		modified = {
+			symbol = "",
+		},
+		name = {
+			use_git_status_colors = true,
+		},
+		git_status = {
+			symbols = {
+				added = "",
+				modified = "",
+				deleted = "",
+				renamed = "",
+				untracked = "",
+				ignored = "",
+				unstaged = "",
+				staged = "",
+				conflict = "",
+			},
+		},
+	},
 	filesystem = {
 		filtered_items = {
 			hide_dotfiles = false,
