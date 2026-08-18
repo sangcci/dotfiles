@@ -18,7 +18,7 @@ module.exports = {
     ],
     "type-empty": [2, "never"],
     "type-case": [2, "always", "lower-case"],
-    "scope-empty": [2, "never"],
+    "scope-empty": [2, "always"],
     "subject-empty": [2, "never"],
     "header-max-length": [2, "always", 50],
     "subject-full-stop": [2, "never", "."],
