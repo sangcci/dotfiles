@@ -40,8 +40,7 @@ require("plugins.terminal.toggleterm")
 
 -- Util
 require("plugins.util.fidget")
-require("plugins.util.live-preview")
-require("plugins.util.markview")
+require("plugins.util.peek")
 require("plugins.util.smart-splits")
 require("plugins.util.which-key")
 require("plugins.util.dropbar")
