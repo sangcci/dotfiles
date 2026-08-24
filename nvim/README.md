@@ -47,7 +47,7 @@ nvim/.config/nvim/
 | Editor | treesitter, conform, autopairs, surround, Comment.nvim, indent-blankline, undotree |
 | Finder | telescope.nvim, telescope-cmdline.nvim |
 | Explorer | neo-tree.nvim |
-| Git | diffview.nvim, gitsigns.nvim, neogit |
+| Git | diffview.nvim, gitsigns.nvim |
 | UI / utils | alpha-nvim, slimline.nvim, which-key, fidget, dropbar, markview, smart-splits |
 | Terminal / preview | toggleterm.nvim, live-preview.nvim |
 | DB | nvim-dbee |
@@ -57,3 +57,4 @@ nvim/.config/nvim/
 
 - Plugin specs are declared close to each plugin config via `vim.pack.add`.
 - `nvim-pack-lock.json` tracks resolved plugin revisions.
+- Git: `<leader>gg` opens Diffview; `<leader>gc` closes it; `<leader>gh` opens history; `<leader>gf` opens current file history.

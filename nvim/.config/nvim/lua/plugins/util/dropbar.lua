@@ -28,6 +28,15 @@ require("dropbar").setup({
 	},
 })
 
+vim.api.nvim_create_autocmd("User", {
+	pattern = { "DiffviewViewPostLayout", "DiffviewDiffBufWinEnter" },
+	callback = function()
+		for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
+			vim.wo[win].winbar = ""
+		end
+	end,
+})
+
 local function set_hl_bg(group, bg)
 	local ok, hl = pcall(vim.api.nvim_get_hl, 0, { name = group, link = false })
 	if not ok then
