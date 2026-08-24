@@ -293,7 +293,8 @@
     },
     "telescope.nvim": {
       "rev": "84b9ba066d1860f7a586ce9cd732fd6c4f77d1d9",
-      "src": "https://github.com/nvim-telescope/telescope.nvim"
+      "src": "https://github.com/nvim-telescope/telescope.nvim",
+      "version": "'master'"
     },
     "todo-comments.nvim": {
       "rev": "31e3c38ce9b29781e4422fc0322eb0a21f4e8668",
