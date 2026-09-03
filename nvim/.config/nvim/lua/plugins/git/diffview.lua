@@ -26,4 +26,4 @@ vim.keymap.set("n", "<leader>gc", "<cmd>DiffviewClose<cr>", { desc = "Close Diff
 vim.keymap.set("n", "<leader>gh", "<cmd>DiffviewFileHistory<cr>", { desc = "Open file history" })
 vim.keymap.set("n", "<leader>gf", "<cmd>DiffviewFileHistory %<cr>", { desc = "Open current file history" })
 
-vim.cmd("cnoreabbrev <expr> q getcmdtype() ==# ':' && getcmdline() ==# 'q' && luaeval(\"require('diffview.lib').get_current_view() ~= nil\") ? 'DiffviewClose' : 'q'")
+vim.cmd([[cnoreabbrev <expr> q getcmdtype() ==# ':' && getcmdline() ==# 'q' && luaeval("require('plugins.git.gitsigns').has_diff_window()") ? 'GitsignsDiffClose' : (getcmdtype() ==# ':' && getcmdline() ==# 'q' && luaeval("require('diffview.lib').get_current_view() ~= nil") ? 'DiffviewClose' : 'q')]])
