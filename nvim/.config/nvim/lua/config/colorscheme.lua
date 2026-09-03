@@ -49,6 +49,78 @@ require("nord").setup({
 -- setup colorscheme
 vim.cmd.colorscheme("kanso-ink")
 
+-- Give Telescope a subtle contrast from the transparent editor background.
+local function set_telescope_highlights()
+	local kanso_colors = require("kanso.colors").setup()
+	local telescope_bg = kanso_colors.theme.ui.bg_p2
+	local telescope_fg = kanso_colors.theme.ui.pmenu.fg
+	local telescope_selection_bg = kanso_colors.theme.ui.bg_visual
+
+	local function set_telescope_bg(group)
+		local highlight = vim.api.nvim_get_hl(0, { name = group, link = false })
+		highlight.fg = telescope_fg
+		highlight.bg = telescope_bg
+		vim.api.nvim_set_hl(0, group, highlight)
+	end
+
+	for _, group in ipairs({
+		"TelescopeNormal",
+		"TelescopePromptNormal",
+		"TelescopeResultsNormal",
+		"TelescopePreviewNormal",
+	}) do
+		set_telescope_bg(group)
+	end
+
+	local telescope_title = vim.api.nvim_get_hl(0, { name = "TelescopeTitle", link = false })
+	telescope_title.fg = telescope_fg
+	telescope_title.bg = telescope_bg
+	for _, group in ipairs({
+		"TelescopeTitle",
+		"TelescopePromptTitle",
+		"TelescopeResultsTitle",
+		"TelescopePreviewTitle",
+	}) do
+		vim.api.nvim_set_hl(0, group, telescope_title)
+	end
+
+	for _, group in ipairs({
+		"TelescopeBorder",
+		"TelescopePromptBorder",
+		"TelescopeResultsBorder",
+		"TelescopePreviewBorder",
+	}) do
+		local highlight = vim.api.nvim_get_hl(0, { name = group, link = false })
+		highlight.fg = telescope_bg
+		highlight.bg = telescope_bg
+		vim.api.nvim_set_hl(0, group, highlight)
+	end
+
+	vim.api.nvim_set_hl(0, "TelescopeSelection", {
+		fg = telescope_fg,
+		bg = telescope_selection_bg,
+		bold = true,
+	})
+	vim.api.nvim_set_hl(0, "TelescopeSelectionCaret", {
+		fg = telescope_fg,
+		bg = telescope_selection_bg,
+		bold = true,
+	})
+end
+
+set_telescope_highlights()
+
+local telescope_highlight_group = vim.api.nvim_create_augroup("TelescopeKansoHighlights", { clear = true })
+vim.api.nvim_create_autocmd({ "VimEnter", "ColorScheme" }, {
+	group = telescope_highlight_group,
+	callback = set_telescope_highlights,
+})
+vim.api.nvim_create_autocmd("User", {
+	group = telescope_highlight_group,
+	pattern = "TelescopeFindPre",
+	callback = set_telescope_highlights,
+})
+
 -- Custom Colorscheme Setup
 -- local function hl_color(group, attr)
 -- 	local ok, hl = pcall(vim.api.nvim_get_hl, 0, { name = group, link = false })
