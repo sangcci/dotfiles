@@ -36,6 +36,7 @@ require("plugins.git.gitsigns")
 
 -- Terminal
 require("plugins.terminal.toggleterm")
+require("plugins.terminal.kitty-scrollback")
 
 -- Util
 require("plugins.util.fidget")
