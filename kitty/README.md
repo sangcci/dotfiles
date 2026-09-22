@@ -6,11 +6,10 @@ Primary terminal. Uses kitty's built-in tab/split management instead of tmux.
 
 ## Highlights
 
-- Font: **Sarasa Term K** 14px
-- Nerd Font symbols mapped to **JetBrainsMono Nerd Font**
+- Font: **Jetendard ExtraLight** 14px
 - Active theme include: `themes/kanso_ink.conf`
 - Additional themes under `.config/kitty/themes/`
-- Background opacity: 100%, blur enabled
+- Background opacity: 70%, blur enabled
 - macOS `option` key mapped as `Alt` for Neovim compatibility
 - Layouts: `splits`, `stack`
 - Custom tab bar settings and `tab_bar.py`
