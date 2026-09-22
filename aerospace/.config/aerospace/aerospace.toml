@@ -90,6 +90,7 @@ outer.right = 40
 # 'main' binding mode must be always presented
 # Fallback value (if you omit the key): mode.main.binding = {}
 [mode.main.binding]
+alt-shift-space = 'layout floating tiling'
 
 # All possible keys:
 # - Letters.        a, b, c, ..., z
@@ -137,6 +138,7 @@ ctrl-alt-cmd-l = 'move right'
 # See: https://nikitabobko.github.io/AeroSpace/commands#resize
 ctrl-alt-minus = 'resize smart -50'
 ctrl-alt-equal = 'resize smart +50'
+ctrl-alt-f = 'layout floating tiling'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 ctrl-alt-left = 'workspace --wrap-around prev'
