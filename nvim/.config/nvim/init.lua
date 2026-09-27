@@ -44,6 +44,7 @@ require("plugins.util.peek")
 require("plugins.util.smart-splits")
 require("plugins.util.which-key")
 require("plugins.util.dropbar")
+require("plugins.util.vellum")
 
 -- AI
 require("ai.code-preview")
