@@ -51,6 +51,7 @@ require("ai.code-preview")
 
 -- DB
 require("db.nvim-dbee")
+require("db.sqmeow")
 
 -- LSP
 require("lsp.lsp-configs")

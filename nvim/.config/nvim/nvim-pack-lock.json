@@ -283,6 +283,11 @@
       "rev": "dfc304f10fe364611ffdb3efc488ae260b0dca78",
       "src": "https://github.com/nanotee/sqls.nvim"
     },
+    "sqmeow.nvim": {
+      "rev": "b23021f88013d80992b870104ec8b7ad4e60f40b",
+      "src": "https://github.com/2giosangmitom/sqmeow.nvim",
+      "version": ">=0.0.0"
+    },
     "telescope-cmdline.nvim": {
       "rev": "b1c330835563c9628ce7c095cf20772f22f93f07",
       "src": "https://github.com/jonarrien/telescope-cmdline.nvim"
