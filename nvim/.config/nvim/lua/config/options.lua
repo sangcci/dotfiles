@@ -27,6 +27,7 @@ vim.opt.scrolloff = 10
 vim.opt.showmode = false -- hide mode display
 vim.opt.cursorline = false
 vim.o.showtabline = 0
+vim.opt.fillchars:append({ eob = " " })
 
 -- undo
 vim.opt.undofile = true

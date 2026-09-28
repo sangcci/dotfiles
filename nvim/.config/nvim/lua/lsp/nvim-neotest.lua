@@ -23,7 +23,9 @@ require("neotest").setup({
 			},
 		}),
 		require("neotest-python"),
-		require("neotest-java"),
+		require("neotest-java")({
+			jvm_args = { "-Dspring.profiles.active=test" },
+		}),
 	},
 	log_level = vim.log.levels.DEBUG,
 })

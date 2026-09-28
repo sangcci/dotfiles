@@ -35,7 +35,6 @@ require("plugins.git.diffview")
 require("plugins.git.gitsigns")
 
 -- Terminal
-require("plugins.terminal.toggleterm")
 require("plugins.terminal.kitty-scrollback")
 
 -- Util
@@ -46,11 +45,7 @@ require("plugins.util.which-key")
 require("plugins.util.dropbar")
 require("plugins.util.vellum")
 
--- AI
-require("ai.code-preview")
-
 -- DB
-require("db.nvim-dbee")
 require("db.sqmeow")
 
 -- LSP

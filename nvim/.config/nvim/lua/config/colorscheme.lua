@@ -1,10 +1,5 @@
 vim.pack.add({
 	{ src = "https://github.com/webhooked/kanso.nvim" },
-	{ src = "https://github.com/rktjmp/lush.nvim" },
-	{ src = "https://github.com/zenbones-theme/zenbones.nvim" },
-	{ src = "https://github.com/darkvoid-theme/darkvoid.nvim" },
-	{ src = "https://github.com/gbprod/nord.nvim", name = "nord" },
-	{ src = "https://github.com/projekt0n/github-nvim-theme" },
 })
 
 -- kanso
@@ -27,23 +22,6 @@ require("kanso").setup({
 		dark = "ink", -- zen, ink, or mist
 		light = "ink",
 	},
-})
-
--- darkvoid
-require("darkvoid").setup({})
-
--- zenbones
--- vim.g.zenbones_variant = "dark"
--- vim.g.kanagawabones_italic = 1
--- vim.g.kanagawabones_bold = 1
---
--- vim.opt.fillchars = { eob = " " }
-
--- nord
-require("nord").setup({
-	transparent = true,
-	terminal_colors = true,
-	borders = true,
 })
 
 -- setup colorscheme
