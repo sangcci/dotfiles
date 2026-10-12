@@ -190,7 +190,7 @@
       "src": "https://gitlab.com/schrieveslaach/sonarlint.nvim"
     },
     "sqmeow.nvim": {
-      "rev": "b23021f88013d80992b870104ec8b7ad4e60f40b",
+      "rev": "962e25a006e8d3ae49f48f315ae6be3185067ab6",
       "src": "https://github.com/2giosangmitom/sqmeow.nvim",
       "version": ">=0.0.0"
     },

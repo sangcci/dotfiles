@@ -14,6 +14,7 @@ require("which-key").setup({
 	spec = {
 		{ "<leader>c", group = "Code" },
 		{ "<leader>d", group = "Debug" },
+		{ "<leader>D", group = "Sqmeow" },
 		{ "<leader>e", group = "Explorer" },
 		{ "<leader>f", group = "Find" },
 		{ "<leader>g", group = "Git" },

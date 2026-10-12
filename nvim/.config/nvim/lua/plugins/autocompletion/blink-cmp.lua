@@ -81,7 +81,7 @@ require("blink.cmp").setup({
 	},
 
 	sources = {
-		default = { "lsp", "path", "snippets", "buffer", "emoji" },
+		default = { "lsp", "path", "snippets", "buffer", "emoji", "sqmeow" },
 		providers = {
 			emoji = {
 				module = "blink-emoji",
@@ -100,6 +100,10 @@ require("blink.cmp").setup({
 						vim.o.filetype
 					)
 				end,
+			},
+			sqmeow = {
+				name = "Sqmeow",
+				module = "sqmeow.completion.blink",
 			},
 		},
 	},
