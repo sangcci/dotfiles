@@ -14,24 +14,9 @@ require("kotlin").setup({
 		"settings.gradle",
 	},
 
-	-- Optional: Java Runtime to run the kotlin-lsp server itself
-	-- LEGACY ONLY — ignored on v262.4739.0+ (bin/intellij-server manages
-	-- its own JBR; a warning is shown if this is set on a new install).
-	-- Only useful with older builds that ship kotlin-lsp.sh / kotlin-lsp.cmd.
-	--
-	-- When set, the plugin parses JVM args from the bundled launcher script
-	-- and invokes your custom JRE with the correct flags
-	-- Must point to JAVA_HOME (directory containing bin/java)
-	-- Examples:
-	--   macOS:   "/Library/Java/JavaVirtualMachines/jdk-25.jdk/Contents/Home"
-	--   Linux:   "/usr/lib/jvm/java-25-openjdk"
-	--   Windows: "C:\\Program Files\\Java\\jdk-25"
-	--   Env var: os.getenv("JAVA_HOME") or os.getenv("JDK25")
-	jre_path = nil,
-
 	-- Optional: JDK for symbol resolution (analyzing your Kotlin code)
 	-- This is the JDK that your project code will be analyzed against
-	-- Different from jre_path (which runs the server)
+	-- The server itself runs on intellij-server's bundled JBR
 	-- Required for: Analyzing JDK APIs, standard library symbols, platform types
 	--
 	-- Usually should match your project's target JDK version

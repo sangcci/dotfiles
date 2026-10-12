@@ -22,6 +22,7 @@ require("mason-lspconfig").setup({
 	automatic_enable = {
 		exclude = {
 			"jdtls",
+			"kotlin_lsp", -- Let kotlin.nvim configure and start the client.
 		},
 	},
 })
