@@ -19,6 +19,7 @@ require("which-key").setup({
 		{ "<leader>f", group = "Find" },
 		{ "<leader>g", group = "Git" },
 		{ "<leader>j", group = "Java" },
+		{ "<leader>m", group = "Markdown" },
 		{ "<leader>p", group = "Package" },
 		{ "<leader>t", group = "Test" },
 		{ "<leader>w", group = "Window" },
