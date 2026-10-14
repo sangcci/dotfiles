@@ -36,7 +36,7 @@ require("neo-tree").setup({
 			hide_gitignored = false,
 		},
 		follow_current_file = { enabled = true },
-		group_empty_dirs = true,
+		group_empty_dirs = false,
 		window = {
 			mappings = {
 				["-"] = "close_window",
