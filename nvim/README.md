@@ -55,6 +55,7 @@ nvim/.config/nvim/
 
 ## Notes
 
+- Projects: `<leader>fp` opens the Telescope project picker, also available on the Alpha start screen. Projects under `~/Projects` are included; press `c` in the picker to register another project from the current Git root or working directory.
 - Plugin specs are declared close to each plugin config via `vim.pack.add`.
 - `nvim-pack-lock.json` tracks resolved plugin revisions.
 - Git: `<leader>gg` opens Diffview; `<leader>gc` closes it; `<leader>gh` opens history; `<leader>gf` opens current file history.

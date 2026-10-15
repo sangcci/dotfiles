@@ -7,6 +7,7 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-telescope/telescope-ui-select.nvim" },
 	{ src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim" },
 	{ src = "https://github.com/nvim-telescope/telescope.nvim", version = "master" },
+	{ src = "https://github.com/nvim-telescope/telescope-project.nvim" },
 	{ src = "https://github.com/jonarrien/telescope-cmdline.nvim" },
 })
 pack_builder.build_plugin("telescope-fzf-native.nvim", "make")
@@ -55,6 +56,12 @@ telescope.setup({
 		},
 	},
 	extensions = {
+		project = {
+			base_dirs = { "~/Projects" },
+			ignore_missing_dirs = true,
+			order_by = "recent",
+			search_by = { "title", "path" },
+		},
 		["ui-select"] = {
 			require("telescope.themes").get_dropdown(),
 		},
@@ -82,6 +89,11 @@ telescope.setup({
 telescope.load_extension("ui-select")
 telescope.load_extension("fzf")
 telescope.load_extension("cmdline")
+telescope.load_extension("project")
+
+vim.keymap.set("n", "<leader>fp", function()
+	telescope.extensions.project.project({ display_type = "full" })
+end, { desc = "Find Projects" })
 
 local builtin = require("telescope.builtin")
 vim.keymap.set(

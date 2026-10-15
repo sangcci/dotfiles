@@ -3,44 +3,68 @@
   // Global keybindings
   // ============================================
   {
-    "context": "vim_mode == normal && !menu",
+    "context": "Workspace",
     "bindings": {
-      // Window split
-      "space w v": "pane::SplitRight",
-      "space w h": "pane::SplitDown",
-      // Pane navigation (Alt + h/j/k/l)
+      // Pane navigation shared with Neovim and VS Code
       "alt-h": "workspace::ActivatePaneLeft",
       "alt-j": "workspace::ActivatePaneDown",
       "alt-k": "workspace::ActivatePaneUp",
       "alt-l": "workspace::ActivatePaneRight",
-      // Tab navigation (Harpoon replacement)
-      "space 1": "workspace::ActivatePaneLeft",
-      "space 2": "workspace::ActivatePaneRight",
+      // Tab navigation shared with Kitty
+      "alt-n": "pane::ActivateNextItem",
+      "alt-p": "pane::ActivatePreviousItem",
+      "alt-x": "pane::CloseActiveItem",
+    },
+  },
+  {
+    // Space is a leader only in Normal mode and the non-editing file tree.
+    // Never register printable prefixes globally: they delay terminal input.
+    "context": "(Editor && mode == full && vim_mode == normal && !menu) || (ProjectPanel && not_editing)",
+    "bindings": {
+      // Window split
+      "space w v": "pane::SplitRight",
+      "space w h": "pane::SplitDown",
       // File explorer
       "space e e": "workspace::ToggleLeftDock",
       // Find
       "space f f": "file_finder::Toggle",
+      "space f p": "projects::OpenRecent",
       "space f g": "pane::DeploySearch",
       "space f b": "tab_switcher::Toggle",
-      "space f .": "outline::Toggle",
       "space f w": "project_symbols::Toggle",
+      "space space": "command_palette::Toggle",
+      "space t": "terminal_panel::ToggleFocus",
+      "space h": "tab_switcher::Toggle",
+      "space shift-n": "pane::ActivateNextItem",
+      "space shift-p": "pane::ActivatePreviousItem",
+    },
+  },
+  {
+    // Agent prompts remain text inputs even when their editor uses Vim mode.
+    "context": "MessageEditor > Editor",
+    "bindings": {
+      "space": null,
     },
   },
   // ============================================
   // Vim Normal mode
   // ============================================
   {
-    "context": "Editor && vim_mode == normal && !menu",
+    "context": "Editor && mode == full && vim_mode == normal && !menu",
     "bindings": {
+      "-": "project_panel::ToggleFocus",
+      "space f .": "outline::Toggle",
       // Remove search highlights
       "escape": "buffer_search::Dismiss",
       // LSP navigation
       "g d": "editor::GoToDefinition",
-      "g r": "editor::FindAllReferences",
-      "g i": "editor::GoToImplementation",
-      "g t": "editor::GoToTypeDefinition",
-      "g l": "diagnostics::Deploy",
-      "g shift-l": "editor::Hover",
+      "g r r": "editor::FindAllReferences",
+      "g r i": "editor::GoToImplementation",
+      "g r t": "editor::GoToTypeDefinition",
+      "g r a": "editor::ToggleCodeActions",
+      "g r n": "editor::Rename",
+      "g l": "editor::Hover",
+      "g shift-l": "diagnostics::Deploy",
       // Format
       "space r": "editor::Format",
       // Organize import
@@ -57,12 +81,14 @@
       // Copy from cursor to end (Y)
       "shift-y": [
         "workspace::SendKeystrokes",
-        "y $"
+        "y g $"
       ],
       // Join lines (preserve cursor) - J
       "shift-j": "vim::JoinLines",
-      // Substitute (leader s)
-      "space s": "editor::Rename",
+      // Search UI approximates Neovim's substitute workflow
+      "space s": "buffer_search::Deploy",
+      "enter": ["workspace::SendKeystrokes", "i enter escape"],
+      "ctrl-enter": ["workspace::SendKeystrokes", "escape o"],
       // Disable Q
       "shift-q": null,
       // Center after search
@@ -75,7 +101,7 @@
         "shift-n z z"
       ],
       // Git
-      "space g o": "git::Diff",
+      "space g g": "git::Diff",
       "space g h": "git::FileHistory",
       // Debug
       "space d s": "debugger::Start",
@@ -85,12 +111,6 @@
       "space d o": "debugger::StepOut",
       "space d r": "debugger::Restart",
       "space d t": "debugger::Stop",
-      // Test
-      "space t n": "task::Rerun",
-      // Tab navigation (Harpoon replacement)
-      "space h": "tab_switcher::Toggle",
-      "space shift-n": "pane::ActivateNextItem",
-      "space shift-p": "pane::ActivatePreviousItem",
       // Function/Class navigation
       "] m": "vim::NextMethodStart",
       "[ m": "vim::PreviousMethodStart",
@@ -102,8 +122,10 @@
   // Vim Visual mode
   // ============================================
   {
-    "context": "vim_mode == visual",
+    "context": "Editor && mode == full && vim_mode == visual && !menu",
     "bindings": {
+      "shift-s": "vim::PushAddSurrounds",
+      "g r a": "editor::ToggleCodeActions",
       // Move selected lines down (J)
       "shift-j": "editor::MoveLineDown",
       // Move selected lines up (K)
@@ -123,7 +145,7 @@
   // Vim Insert mode
   // ============================================
   {
-    "context": "vim_mode == insert",
+    "context": "Editor && mode == full && vim_mode == insert && !menu",
     "bindings": {
       // Jump to next line
       "ctrl-enter": [
@@ -133,24 +155,53 @@
     },
   },
   // ============================================
-  // Editor context
+  // Delete without replacing yanked text; leave operator-pending mappings intact
   // ============================================
   {
-    "context": "Editor && !menu",
+    "context": "Editor && mode == full && (vim_mode == normal || vim_mode == visual) && !menu",
     "bindings": {
-      // Ctrl-d / Ctrl-u scroll (default vim behavior)
-      "ctrl-d": "editor::MovePageDown",
-      "ctrl-u": "editor::MovePageUp",
+      "d": ["workspace::SendKeystrokes", "\" _ d"],
+      "shift-d": ["workspace::SendKeystrokes", "\" _ shift-d"],
+      "x": ["workspace::SendKeystrokes", "\" _ x"],
     },
   },
   // ============================================
-  // File panel (Project panel)
+  // File panel (Project panel): Neo-tree-style bindings
   // ============================================
   {
-    "context": "ProjectPanel",
+    "context": "ProjectPanel && not_editing",
     "bindings": {
-      // Toggle hidden files
+      "-": "workspace::ToggleLeftDock",
+      "q": "workspace::ToggleLeftDock",
+      "enter": "project_panel::OpenPermanent",
+      // Open toggles directories; files use Zed's preview tab instead of a float.
+      "shift-p": "project_panel::Open",
+      "a": "project_panel::NewFile",
+      "shift-a": "project_panel::NewDirectory",
+      "d": ["project_panel::Delete", { "skip_prompt": false }],
+      "shift-t": ["project_panel::Trash", { "skip_prompt": false }],
+      "r": "project_panel::Rename",
+      "y": "project_panel::Copy",
+      "x": "project_panel::Cut",
+      "p": "project_panel::Paste",
+      "s": "project_panel::OpenSplitVertical",
+      "shift-s": "project_panel::OpenSplitHorizontal",
+      // Zed opens a permanent tab, but may reuse an existing tab for this file.
+      "t": "project_panel::OpenPermanent",
+      "shift-c": "project_panel::CollapseSelectedEntry",
+      "z": "project_panel::CollapseAllEntries",
+      "backspace": "project_panel::SelectParent",
+      "shift-h": "project_panel::ToggleHideHidden",
+      "[ g": "project_panel::SelectPrevGitEntry",
+      "] g": "project_panel::SelectNextGitEntry",
+      // Remove conflicting netrw defaults: D deletes, R renames, o splits.
+      "shift-d": null,
+      "shift-r": null,
+      "o": null,
+      // Keep the existing hidden-file alias.
       "space e h": "project_panel::ToggleHideHidden",
+      // / keeps Zed's directory content search. Neo-tree's tree filtering,
+      // root changes (Backspace / .), and floating preview have no direct match.
     },
   },
   // ============================================
