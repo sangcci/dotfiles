@@ -13,3 +13,8 @@ elif command -v batcat &>/dev/null; then
 fi
 
 command -v nvim &>/dev/null && alias n='nvim'
+
+# Zsh's SCCS completion also claims "delta"; prefer the installed diff viewer.
+if command -v delta &>/dev/null && (( $+functions[compdef] && $+functions[_delta] )); then
+  compdef _delta delta
+fi

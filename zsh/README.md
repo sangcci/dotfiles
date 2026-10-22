@@ -84,6 +84,8 @@ Each plugin owns one tool or integration and guards itself with `command -v`, fi
 
 ## Core helpers
 
+`core/completion.zsh` adds existing Homebrew, `/usr/local`, user-local and Docker completion directories to `fpath` before zplug initializes completion. Existing Nix completion paths are preserved. This registers installed definitions for Docker and other tools without generating completion scripts on every shell startup.
+
 `core/lib.zsh` provides:
 
 | Helper | Description |
