@@ -7,6 +7,13 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "markdown_preview": {
+    "heading_font_weight": 600.0,
+    "code_font_family": "Jetendard",
+    "font_family": ".SystemUIFont"
+  },
+  "disable_ai": true,
+  "icon_theme": "Monospace Icon Theme - Dark",
   "diff_view_style": "split",
   "restore_on_startup": "launchpad",
   "ui_font_family": ".SystemUIFont",
@@ -19,6 +26,8 @@
     }
   },
   "project_panel": {
+    "hide_root": false,
+    "hide_hidden": false,
     "dock": "left"
   },
   "outline_panel": {
@@ -44,10 +53,10 @@
     "tree_view": true,
   },
   "buffer_line_height": {
-    "custom": 1.7000000476837158,
+    "custom": 1.7000000476837158
   },
   "buffer_font_weight": 200.0,
-  "buffer_font_family": "Jetendard",
+  "buffer_font_family": "JetBrainsMono Nerd Font Mono",
   "session": {
     "trust_all_worktrees": true,
   },

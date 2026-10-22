@@ -47,6 +47,15 @@
     },
   },
   // ============================================
+  // Markdown preview
+  // ============================================
+  {
+    "context": "MarkdownPreview",
+    "bindings": {
+      "-": "project_panel::ToggleFocus",
+    },
+  },
+  // ============================================
   // Vim Normal mode
   // ============================================
   {
@@ -54,6 +63,7 @@
     "bindings": {
       "-": "project_panel::ToggleFocus",
       "space f .": "outline::Toggle",
+      "space m p": "markdown::OpenPreview",
       // Remove search highlights
       "escape": "buffer_search::Dismiss",
       // LSP navigation

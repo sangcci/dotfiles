@@ -37,7 +37,7 @@ Personal dotfiles managed mainly by GNU Stow. The setup is optimized for **macOS
 |---|---|---|
 | Terminal | Kitty | Primary terminal |
 | Browser | Safari / Brave | Main / dev |
-| Code Editor | Neovim | VS Code and Zed configs are deprecated |
+| Code Editor | Neovim, Zed | VS Code config is deprecated |
 | File Manager | Yazi / Finder | Main / fallback |
 | Window Manager | AeroSpace | Uses JankyBorders |
 | Notes | Obsidian, Anki, Notion | |
@@ -63,7 +63,7 @@ Personal dotfiles managed mainly by GNU Stow. The setup is optimized for **macOS
 ├── vscode/        Deprecated VS Code config
 ├── yazi/          Yazi config and flavors
 ├── windows/       Windows host PowerShell configuration
-├── zed/           Deprecated Zed config
+├── zed/           Zed config, tasks, and Kotlin LSP proxy
 └── zsh/           Modular zsh config
 ```
 
@@ -87,6 +87,7 @@ stow obsidian
 stow tuicr
 stow anki
 stow nix
+stow zed
 ```
 
 For Windows host settings, see [`windows/README.md`](windows/README.md). WSL should use its own Linux/Nix configuration rather than this Windows bootstrap.
@@ -95,5 +96,4 @@ Deprecated configs are kept for reference and usually should not be stowed:
 
 ```zsh
 # stow vscode
-# stow zed
 ```
