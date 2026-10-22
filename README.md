@@ -64,6 +64,7 @@ Personal dotfiles managed mainly by GNU Stow. The setup is optimized for **macOS
 ├── yazi/          Yazi config and flavors
 ├── windows/       Windows host PowerShell configuration
 ├── zed/           Zed config, tasks, and Kotlin LSP proxy
+├── zqlz/          ZQLZ settings and Kanso theme
 └── zsh/           Modular zsh config
 ```
 
@@ -88,6 +89,7 @@ stow tuicr
 stow anki
 stow nix
 stow zed
+stow --ignore='^README\.md$' zqlz
 ```
 
 For Windows host settings, see [`windows/README.md`](windows/README.md). WSL should use its own Linux/Nix configuration rather than this Windows bootstrap.

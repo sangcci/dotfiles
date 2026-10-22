@@ -1,0 +1,79 @@
+{
+  "appearance": {
+    "theme_mode": "dark",
+    "light_theme": "Kanso Ink",
+    "dark_theme": "Kanso Ink",
+    "show_scrollbars": "auto"
+  },
+  "fonts": {
+    "ui_font_family": ".SystemUIFont",
+    "ui_font_size": 15.0,
+    "ui_font_weight": 400,
+    "editor_font_family": "Jetendard",
+    "editor_font_size": 15.0,
+    "editor_font_weight": 400,
+    "mono_font_family": ".SystemUIFont",
+    "mono_font_size": 15.0
+  },
+  "editor": {
+    "tab_size": 4,
+    "insert_spaces": true,
+    "show_line_numbers": true,
+    "word_wrap": false,
+    "highlight_current_line": true,
+    "show_inline_diagnostics": true,
+    "auto_indent": true,
+    "bracket_matching": true,
+    "highlight_enabled": true,
+    "cursor_blink": "on",
+    "cursor_shape": "line",
+    "selection_highlight": true,
+    "rounded_selection": true,
+    "relative_line_numbers": false,
+    "scroll_beyond_last_line": "disabled",
+    "vertical_scroll_margin": 3,
+    "horizontal_scroll_margin": 3,
+    "scroll_sensitivity": 1.0,
+    "autoscroll_on_clicks": true,
+    "search_wrap": "enabled",
+    "use_smartcase_search": true,
+    "lsp_enabled": true,
+    "lsp_completions_enabled": true,
+    "lsp_hover_enabled": true,
+    "hover_delay_ms": 500,
+    "lsp_diagnostics_enabled": true,
+    "lsp_code_actions_enabled": true,
+    "lsp_rename_enabled": true,
+    "inline_suggestions_enabled": true,
+    "inline_suggestions_provider": "lsp_only",
+    "inline_suggestions_delay_ms": 200,
+    "ai_provider": "open_ai",
+    "ai_api_key": null,
+    "ai_model": "gpt-4",
+    "ai_temperature": 0.7,
+    "show_gutter_diagnostics": true,
+    "show_folding": true,
+    "large_file_line_threshold": 20000,
+    "large_file_byte_threshold": 2097152
+  },
+  "connections": {
+    "query_timeout_seconds": 30,
+    "max_rows_per_query": 1000,
+    "auto_commit": true,
+    "fetch_schema_on_connect": true,
+    "pagination_mode": "page_based",
+    "available_page_sizes": [
+      100,
+      500,
+      1000,
+      5000,
+      10000
+    ],
+    "show_total_row_count": true,
+    "continue_on_error": false
+  },
+  "workspace": {
+    "restore_tabs_on_startup": false,
+    "confirm_close_window": true
+  }
+}
