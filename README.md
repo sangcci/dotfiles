@@ -25,7 +25,7 @@ Personal dotfiles managed mainly by GNU Stow. The setup is optimized for **macOS
 ## Common CLI tools
 
 - **zoxide** — smarter `cd`
-- **fzf** — fuzzy finder, plus fzf-tab integration
+- **fzf** — fuzzy finder for history, files, and directories
 - **bat** — syntax-highlighted `cat`
 - **lsd** — modern `ls`
 - **yazi** — terminal file manager

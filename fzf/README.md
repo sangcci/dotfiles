@@ -7,4 +7,4 @@
 | `.config/fzf/colors.sh` | fzf default options / color mode |
 | `.config/fzf/tab-colors.sh` | fzf-tab color theme |
 
-Sourced by `zsh/.zsh/plugins/fzf.zsh` when available.
+`colors.sh` is sourced by `zsh/.zsh/plugins/fzf.zsh` when available. `tab-colors.sh` is an inactive theme retained for fzf-tab; the current zsh configuration uses zsh-autocomplete.

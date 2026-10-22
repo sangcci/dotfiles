@@ -115,8 +115,14 @@ Managed via [zplug](https://github.com/zplug/zplug). If zplug is not installed, 
 | [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) | History-based inline suggestions |
 | [zsh-history-substring-search](https://github.com/zsh-users/zsh-history-substring-search) | Up/down search through history by substring |
 | [zsh-completions](https://github.com/zsh-users/zsh-completions) | Additional completion definitions |
-| [fzf-tab](https://github.com/Aloxaf/fzf-tab) | Replace zsh completion menu with fzf |
+| [zsh-autocomplete](https://github.com/marlonrichert/zsh-autocomplete) | Show completion candidates automatically while typing |
 | [git (oh-my-zsh)](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git) | Git aliases and helpers |
+
+### zsh-autocomplete
+
+Installed and updated through zplug (`zplug install`, `zplug update marlonrichert/zsh-autocomplete`). It replaces fzf-tab and spacue; completion candidates appear automatically while typing, using the installed zsh completion definitions.
+
+Press Tab to insert the first candidate, or Down to enter the selection menu. Inside the menu, arrows move between candidates, Enter accepts, and Ctrl+G cancels. Existing Ctrl+f autosuggestion acceptance and Ctrl+p / Ctrl+n history search remain available. The final key bindings restore Autocomplete's Tab after fzf's shell integration; fzf's Ctrl+r, Ctrl+t and Alt+c shortcuts remain available.
 
 ## Key Bindings
 
@@ -125,7 +131,8 @@ Managed via [zplug](https://github.com/zplug/zplug). If zplug is not installed, 
 | `Ctrl+Space` / `Ctrl+f` | Accept autosuggestion, when autosuggestions are loaded |
 | `Ctrl+p` | History search up, when history-substring-search is loaded |
 | `Ctrl+n` | History search down, when history-substring-search is loaded |
-| `Tab` | fzf-tab item select |
+| `Tab` | Insert first zsh-autocomplete candidate |
+| `Down` | Enter completion selection menu |
 
 ## Notable Aliases / Functions
 
