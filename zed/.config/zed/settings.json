@@ -65,7 +65,7 @@
   "lsp": {
     "jdtls": {
       "settings": {
-        "java_home": "~/.sdkman/candidates/java/25.0.1-tem",
+        "java_home": "/Users/sangcci/.sdkman/candidates/java/25.0.1-tem",
         "lombok_support": true,
         "jdk_auto_download": false,
         // Controls when to check for updates for JDTLS, Lombok, and Debugger
@@ -76,8 +76,26 @@
         // Note: Invalid values will default to "always"
         // If custom paths (below) are provided, check_updates is IGNORED for that component
         "check_updates": "always",
+        "contentProvider": {
+          "preferred": "fernflower"
+        }
       },
     },
-    "kotlin-lsp": {}
+    "kotlin-lsp": {
+      "binary": {
+        "path": "/Users/sangcci/dotfiles/zed/kotlin-lsp-proxy/target/release/kotlin-lsp-proxy",
+        "arguments": [
+          "/Users/sangcci/Library/Application Support/Zed/extensions/work/kotlin/kotlin-server-263.6379.0/bin/intellij-server",
+          "--stdio"
+        ]
+      }
+    }
   },
+  "languages": {
+    "Kotlin": {
+      "language_servers": [
+        "kotlin-lsp"
+      ]
+    }
+  }
 }

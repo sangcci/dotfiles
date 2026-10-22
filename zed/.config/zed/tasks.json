@@ -1,0 +1,14 @@
+[
+  {
+    "label": "Kotest: all tests",
+    "command": "./gradlew",
+    "args": ["test"],
+    "cwd": "$ZED_WORKTREE_ROOT"
+  },
+  {
+    "label": "Kotest: current spec ($ZED_STEM)",
+    "command": "./gradlew",
+    "args": ["test", "--tests", "*.$ZED_STEM"],
+    "cwd": "$ZED_WORKTREE_ROOT"
+  }
+]
