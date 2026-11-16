@@ -26,7 +26,7 @@ jdtls.extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
 vim.lsp.config("jdtls", {
 	cmd = {
 		"jdtls",
-		"--java-executable=" .. vim.fn.expand("~/.sdkman/candidates/java/21.0.9-tem/bin/java"),
+		"--java-executable=" .. vim.fn.expand("~/.sdkman/candidates/java/25.0.1-tem/bin/java"),
 		"--jvm-arg=-javaagent:" .. mason_packages .. "/jdtls/lombok.jar",
 	},
 	settings = {
