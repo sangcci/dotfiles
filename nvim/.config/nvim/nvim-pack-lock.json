@@ -58,10 +58,6 @@
       "rev": "1afbbb449aa0254823dbe1932e3cbb51886ff9fe",
       "src": "https://github.com/webhooked/kanso.nvim"
     },
-    "kitty-scrollback.nvim": {
-      "rev": "4994c85e0f291598d0748488653c83cb698fd281",
-      "src": "https://github.com/mikesmithgh/kitty-scrollback.nvim"
-    },
     "kotlin.nvim": {
       "rev": "1082a1570138fd97f0ad3f28f0f9e830b1989c9e",
       "src": "https://github.com/AlexandrosAlexiou/kotlin.nvim"

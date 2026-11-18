@@ -34,9 +34,6 @@ require("plugins.explorer.neo-tree")
 require("plugins.git.diffview")
 require("plugins.git.gitsigns")
 
--- Terminal
-require("plugins.terminal.kitty-scrollback")
-
 -- Util
 require("plugins.util.fidget")
 require("plugins.util.peek")
