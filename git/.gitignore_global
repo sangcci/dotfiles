@@ -47,3 +47,7 @@ desktop.ini
 .idea
 .iml
 *.sublime-workspace
+
+**/.claude/.cc-writes/
+
+**/.claude/settings.local.json
