@@ -45,10 +45,6 @@ vim.lsp.config("jdtls", {
 			maven = {
 				downloadSources = true,
 			},
-			implementationCodeLens = "all",
-			referencesCodeLens = {
-				enabled = true,
-			},
 			format = {
 				enabled = true,
 			},
@@ -106,8 +102,6 @@ vim.lsp.config("jdtls", {
 		vim.keymap.set("v", "<leader>cv", function() jdtls.extract_variable(true) end, vim.tbl_extend("force", opts, { desc = "Extract Variable" }))
 		vim.keymap.set("n", "<leader>cC", jdtls.extract_constant, vim.tbl_extend("force", opts, { desc = "Extract Constant" }))
 		vim.keymap.set("v", "<leader>cm", function() jdtls.extract_method(true) end, vim.tbl_extend("force", opts, { desc = "Extract Method" }))
-
-		vim.lsp.codelens.enable(true, { bufnr = bufnr })
 
 		jdtls.setup_dap({ hotcodereplace = "auto" })
 		require("jdtls.dap").setup_dap_main_class_configs()
