@@ -1,0 +1,37 @@
+{
+  "$schema": "https://raw.githubusercontent.com/manaflow-ai/cmux/main/web/data/cmux.schema.json",
+  "schemaVersion": 1,
+
+  // Terminal rendering (font, theme, opacity) lives in ../ghostty/config.
+  // Keys left out here fall back to the value saved in cmux Settings.
+
+  "app": {
+    "minimalMode": true,
+    "tabBarVisibility": "multiple-tabs"
+  },
+
+  "sidebar": {
+    // Show workspace titles only (no branch, PR, port or summary lines).
+    "hideAllDetails": true
+  },
+
+  "shortcuts": {
+    "bindings": {
+      // Move between splits (same keys as kitty)
+      "focusLeft": "cmd+opt+h",
+      "focusDown": "cmd+opt+j",
+      "focusUp": "cmd+opt+k",
+      "focusRight": "cmd+opt+l",
+
+      // Resize splits (same keys as kitty)
+      "resize-pane-left": "cmd+ctrl+←",
+      "resize-pane-right": "cmd+ctrl+→",
+      "resize-pane-up": "cmd+ctrl+↑",
+      "resize-pane-down": "cmd+ctrl+↓",
+
+      // Next / previous workspace (kitty tab)
+      "nextSidebarTab": "opt+n",
+      "prevSidebarTab": "opt+p"
+    }
+  }
+}

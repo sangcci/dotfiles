@@ -1,2 +1,5 @@
 .claude/
 .DS_Store
+
+# cmux app-generated lock files
+cmux/**/*.lock
