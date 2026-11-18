@@ -5,8 +5,10 @@ vim.opt.relativenumber = true
 vim.opt.number = true
 vim.opt.numberwidth = 4
 
--- wrap line
-vim.opt.wrap = true
+-- no wrap: long lines scroll horizontally instead of folding
+vim.opt.wrap = false
+vim.opt.sidescroll = 1
+vim.opt.sidescrolloff = 8
 
 -- swap file
 vim.opt.swapfile = false -- that is really annoying
