@@ -1,0 +1,20 @@
+# Ghostty config. cmux reads this file for terminal rendering, so the same
+# settings apply to both apps. App-level settings live in ../cmux/cmux.json.
+
+# --- Font ---
+font-family = Jetendard
+font-size = 14
+adjust-cell-width = -10%
+adjust-cell-height = 12
+adjust-underline-position = 3
+
+# --- Appearance ---
+theme = kanso_ink
+background-opacity = 0.9
+background-blur = 20
+window-padding-x = 30
+window-padding-y = 30
+split-divider-color = #ffffff
+
+# --- macOS Option as Alt (for nvim keybindings) ---
+macos-option-as-alt = true
