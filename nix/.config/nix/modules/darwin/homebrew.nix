@@ -23,6 +23,7 @@
       "discord"
       "figma"
       "brave-browser"
+      "cmux"
       "kitty"
       "linearmouse"
       "notion"
