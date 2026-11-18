@@ -7,6 +7,7 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "cli_default_open_behavior": "existing_window",
   "markdown_preview": {
     "heading_font_weight": 600.0,
     "code_font_family": "Jetendard",
@@ -92,11 +93,8 @@
     },
     "kotlin-lsp": {
       "binary": {
-        "path": "/Users/sangcci/dotfiles/zed/kotlin-lsp-proxy/target/release/kotlin-lsp-proxy",
-        "arguments": [
-          "/Users/sangcci/Library/Application Support/Zed/extensions/work/kotlin/kotlin-server-263.6379.0/bin/intellij-server",
-          "--stdio"
-        ]
+        "path": "/Users/sangcci/.local/opt/kotlin-server-263.7084.0/bin/intellij-server",
+        "arguments": ["--stdio"]
       }
     }
   },
