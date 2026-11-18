@@ -51,8 +51,10 @@ Personal dotfiles managed mainly by GNU Stow. The setup is optimized for **macOS
 ├── aerospace/     AeroSpace config
 ├── anki/          Anki ReColor theme and card templates
 ├── bat/           bat config and themes
+├── cmux/          cmux app settings (cmux.json)
 ├── fzf/           fzf and fzf-tab color config
 ├── fzf-git/       vendored fzf-git key bindings
+├── ghostty/       Ghostty config and themes (also read by cmux)
 ├── git/           git config, ignore, hooks, commitlint
 ├── jankyborders/  JankyBorders config
 ├── kitty/         Kitty terminal config
@@ -79,6 +81,8 @@ stow zsh
 stow git
 stow nvim
 stow kitty
+stow ghostty
+stow cmux
 stow fzf
 stow bat
 stow yazi
