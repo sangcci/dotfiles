@@ -29,16 +29,34 @@ vim.keymap.set("n", "<leader>gc", "<cmd>DiffviewClose<cr>", { desc = "Close Diff
 vim.keymap.set("n", "<leader>gh", "<cmd>DiffviewFileHistory<cr>", { desc = "Open file history" })
 vim.keymap.set("n", "<leader>gf", "<cmd>DiffviewFileHistory %<cr>", { desc = "Open current file history" })
 
--- Base branch of the current branch's PR, falling back to the repository default branch.
+local function git(args)
+	local result = vim.system(vim.list_extend({ "git" }, args), { text = true }):wait()
+	if result.code == 0 then
+		return vim.trim(result.stdout)
+	end
+end
+
+-- Base branch of the current branch's PR. Without a PR, use the local branch with the fewest
+-- commits between it and HEAD so a branch stacked on an unmerged PR compares against that PR's
+-- branch. Ties keep the repository default branch.
 local function review_base()
 	local pr = vim.system({ "gh", "pr", "view", "--json", "baseRefName", "-q", ".baseRefName" }, { text = true }):wait()
 	if pr.code == 0 and vim.trim(pr.stdout) ~= "" then
 		return vim.trim(pr.stdout)
 	end
-	local head = vim.system({ "git", "symbolic-ref", "--short", "refs/remotes/origin/HEAD" }, { text = true }):wait()
-	if head.code == 0 then
-		return (vim.trim(head.stdout):gsub("^origin/", ""))
+
+	local default = git({ "symbolic-ref", "--short", "refs/remotes/origin/HEAD" })
+	local base = default and default:gsub("^origin/", "")
+	local best = base and tonumber(git({ "rev-list", "--count", default .. "..HEAD" }))
+	-- Branches containing HEAD are the current branch or its descendants, not candidates.
+	local branches = git({ "for-each-ref", "--no-contains=HEAD", "--format=%(refname:short)", "refs/heads" }) or ""
+	for branch in branches:gmatch("[^\n]+") do
+		local count = tonumber(git({ "rev-list", "--count", branch .. "..HEAD" }))
+		if count and (not best or count < best) then
+			base, best = branch, count
+		end
 	end
+	return base
 end
 
 -- Open the PR diff (merge base..HEAD) against local files so LSP works on the right side.
