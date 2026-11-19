@@ -50,4 +50,4 @@ nvim/.config/nvim/
 
 - Plugin specs are declared close to each plugin config via `vim.pack.add`.
 - `nvim-pack-lock.json` tracks resolved plugin revisions.
-- Git: `<leader>gg` opens Diffview; `<leader>gc` closes it; `<leader>gh` opens history; `<leader>gf` opens current file history.
+- Git: `<leader>gg` opens Diffview; `<leader>gc` closes it; `<leader>gh` opens history; `<leader>gf` opens current file history; `<leader>gr` reviews the current branch against its PR base branch (or the default branch when there is no PR) with LSP available on the right side.
