@@ -48,8 +48,6 @@ require("mason-tool-installer").setup({
 		"prettierd",
 		"ruff",
 		"jdtls",
-		"java-test",
-		"java-debug-adapter",
 		"sonarlint-language-server",
 		"sql-formatter",
 		"commitlint",

@@ -4,22 +4,6 @@ vim.pack.add({
 
 local mason_packages = vim.fn.stdpath("data") .. "/mason/packages"
 
-local function get_bundles()
-	local bundles = {}
-
-	local java_test = vim.split(vim.fn.glob(mason_packages .. "/java-test/extension/server/*.jar"), "\n")
-	if java_test[1] ~= "" then
-		vim.list_extend(bundles, java_test)
-	end
-
-	local java_debug = vim.split(vim.fn.glob(mason_packages .. "/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar"), "\n")
-	if java_debug[1] ~= "" then
-		vim.list_extend(bundles, java_debug)
-	end
-
-	return bundles
-end
-
 local jdtls = require("jdtls")
 jdtls.extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
 
@@ -102,9 +86,6 @@ vim.lsp.config("jdtls", {
 		vim.keymap.set("v", "<leader>cv", function() jdtls.extract_variable(true) end, vim.tbl_extend("force", opts, { desc = "Extract Variable" }))
 		vim.keymap.set("n", "<leader>cC", jdtls.extract_constant, vim.tbl_extend("force", opts, { desc = "Extract Constant" }))
 		vim.keymap.set("v", "<leader>cm", function() jdtls.extract_method(true) end, vim.tbl_extend("force", opts, { desc = "Extract Method" }))
-
-		jdtls.setup_dap({ hotcodereplace = "auto" })
-		require("jdtls.dap").setup_dap_main_class_configs()
 	end,
 	handlers = {
 		-- except QClass diagnostics
@@ -117,7 +98,6 @@ vim.lsp.config("jdtls", {
 	},
 	capabilities = require("blink.cmp").get_lsp_capabilities(),
 	init_options = {
-		bundles = get_bundles(),
 		extendedClientCapabilities = jdtls.extendedClientCapabilities,
 	},
 })

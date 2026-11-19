@@ -42,13 +42,8 @@ require("plugins.util.which-key")
 require("plugins.util.dropbar")
 require("plugins.util.vellum")
 
--- DB
-require("db.sqmeow")
-
 -- LSP
 require("lsp.lsp-configs")
-require("lsp.nvim-dap")
 require("lsp.nvim-jdtls")
 require("lsp.kotlin-nvim")
-require("lsp.nvim-neotest")
 require("lsp.sonarlint")
