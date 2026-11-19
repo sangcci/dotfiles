@@ -5,6 +5,9 @@ vim.pack.add({
 
 local actions = require("diffview.actions")
 require("diffview").setup({
+	file_panel = {
+		win_config = { position = "right" },
+	},
 	keymaps = {
 		view = {
 			["<C-n>"] = actions.select_next_entry,

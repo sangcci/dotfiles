@@ -6,6 +6,9 @@ vim.pack.add({
 })
 
 require("neo-tree").setup({
+	window = {
+		position = "right",
+	},
 	default_component_configs = {
 		indent = {
 			with_expanders = false,
