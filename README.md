@@ -51,6 +51,7 @@ Personal dotfiles managed mainly by GNU Stow. The setup is optimized for **macOS
 ├── aerospace/     AeroSpace config
 ├── anki/          Anki ReColor theme and card templates
 ├── bat/           bat config and themes
+├── claude/        Claude Code terminal theme
 ├── cmux/          cmux app settings (cmux.json)
 ├── fzf/           fzf and fzf-tab color config
 ├── fzf-git/       vendored fzf-git key bindings
@@ -94,6 +95,7 @@ stow anki
 stow nix
 stow zed
 stow --ignore='^README\.md$' zqlz
+stow --ignore='^README\.md$' claude
 ```
 
 For Windows host settings, see [`windows/README.md`](windows/README.md). WSL should use its own Linux/Nix configuration rather than this Windows bootstrap.
