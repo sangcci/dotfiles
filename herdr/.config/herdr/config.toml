@@ -1,0 +1,70 @@
+onboarding = false
+
+# kanso ink 팔레트는 ghostty/themes/kanso_ink 기준이다.
+# 배경은 Ghostty의 투명도와 블러를 그대로 쓰도록 reset으로 둔다.
+[theme]
+name = "catppuccin"
+
+[theme.custom]
+panel_bg = "reset"
+sidebar_bg = "reset"
+surface_dim = "#14171d"
+surface0 = "#1c2027"
+surface1 = "#22262d"
+active_row_bg = "#22262d"
+selection_bg = "#2a2f38"
+overlay0 = "#5c6066"
+overlay1 = "#a4a7a4"
+text = "#c5c9c7"
+subtext0 = "#a4a7a4"
+accent = "#8ba4b0"
+blue = "#8ba4b0"
+green = "#8a9a7b"
+yellow = "#c4b28a"
+red = "#c4746e"
+mauve = "#a292a3"
+teal = "#8ea4a2"
+peach = "#b6927b"
+
+[ui]
+sidebar_width = 28
+sidebar_min_width = 22
+sidebar_max_width = 34
+pane_gaps = true
+pane_borders = "always"
+pane_outer_borders = true
+
+[ui.sidebar.spaces]
+row_gap = 1
+rows = [["state_icon", "workspace"], ["branch", "git_status"]]
+
+[ui.sidebar.agents]
+row_gap = 1
+rows = [["state_icon", "workspace", "tab"], ["agent"]]
+
+# cmux 단축키 대응. cmux의 cmd 조합은 TUI까지 전달되지 않아 alt 기반으로 바꿨다.
+# pane 이동(ctrl+hjkl)은 nvim split과 이어지도록 herdr-nvim-nav 플러그인으로 처리한다.
+# macos-option-as-alt = true 이므로 Ghostty에서 alt가 그대로 전달된다.
+[keys]
+next_tab = "alt+n"
+previous_tab = "alt+p"
+
+[[keys.command]]
+key = "ctrl+h"
+type = "plugin_action"
+command = "herdr-nvim-nav.left"
+
+[[keys.command]]
+key = "ctrl+j"
+type = "plugin_action"
+command = "herdr-nvim-nav.down"
+
+[[keys.command]]
+key = "ctrl+k"
+type = "plugin_action"
+command = "herdr-nvim-nav.up"
+
+[[keys.command]]
+key = "ctrl+l"
+type = "plugin_action"
+command = "herdr-nvim-nav.right"
