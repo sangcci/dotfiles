@@ -43,7 +43,7 @@ nvim/.config/nvim/
 | Finder | telescope.nvim, telescope-cmdline.nvim |
 | Explorer | neo-tree.nvim |
 | Git | diffview.nvim, gitsigns.nvim |
-| UI / utils | alpha-nvim, slimline.nvim, which-key, fidget, dropbar, smart-splits |
+| UI / utils | alpha-nvim, slimline.nvim, which-key, fidget, dropbar, herdr-nvim-nav |
 | Markdown preview | peek.nvim, vellum.nvim |
 
 ## Notes

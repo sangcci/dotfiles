@@ -46,6 +46,10 @@
       "rev": "dc7698f932792a764d3db95fedee26c38e728355",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
+    "herdr-nvim-nav": {
+      "rev": "ec047fd6d8d0269d54a34e9405af28d8aad4c8f0",
+      "src": "https://github.com/aimdevlee/herdr-nvim-nav"
+    },
     "indent-blankline.nvim": {
       "rev": "f1e186e44d3b7f9ae918008e2c28ce37c6023d2d",
       "src": "https://github.com/lukas-reineke/indent-blankline.nvim"
@@ -128,10 +132,6 @@
     "slimline.nvim": {
       "rev": "6c91c731863f47636c6ae0f00774ea6c2c90cb4b",
       "src": "https://github.com/sschleemilch/slimline.nvim"
-    },
-    "smart-splits.nvim": {
-      "rev": "d3617de050f58e6f1f924b1401fba7677517c196",
-      "src": "https://github.com/mrjones2014/smart-splits.nvim"
     },
     "sonarlint.nvim": {
       "rev": "acd09b78969ddc965a7ddf59abb9d9eec5ecd94f",

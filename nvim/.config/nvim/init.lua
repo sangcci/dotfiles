@@ -37,7 +37,7 @@ require("plugins.git.gitsigns")
 -- Util
 require("plugins.util.fidget")
 require("plugins.util.peek")
-require("plugins.util.smart-splits")
+require("plugins.util.herdr-nav")
 require("plugins.util.which-key")
 require("plugins.util.dropbar")
 require("plugins.util.vellum")
