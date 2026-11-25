@@ -1,6 +1,6 @@
 onboarding = false
 
-# kanso ink 팔레트는 ghostty/themes/kanso_ink 기준이다.
+# vesper 팔레트는 ghostty/themes/vesper 기준이다.
 # 배경은 Ghostty의 투명도와 블러를 그대로 쓰도록 reset으로 둔다.
 [theme]
 name = "catppuccin"
@@ -8,23 +8,23 @@ name = "catppuccin"
 [theme.custom]
 panel_bg = "reset"
 sidebar_bg = "reset"
-surface_dim = "#14171d"
-surface0 = "#1c2027"
-surface1 = "#22262d"
-active_row_bg = "#22262d"
-selection_bg = "#2a2f38"
-overlay0 = "#5c6066"
-overlay1 = "#a4a7a4"
-text = "#c5c9c7"
-subtext0 = "#a4a7a4"
-accent = "#8ba4b0"
-blue = "#8ba4b0"
-green = "#8a9a7b"
-yellow = "#c4b28a"
-red = "#c4746e"
-mauve = "#a292a3"
-teal = "#8ea4a2"
-peach = "#b6927b"
+surface_dim = "#101010"
+surface0 = "#161616"
+surface1 = "#1c1c1c"
+active_row_bg = "#232323"
+selection_bg = "#282828"
+overlay0 = "#505050"
+overlay1 = "#a0a0a0"
+text = "#ffffff"
+subtext0 = "#a0a0a0"
+accent = "#ffc799"
+blue = "#a0a0a0"
+green = "#99ffe4"
+yellow = "#ffc799"
+red = "#ff8080"
+mauve = "#a0a0a0"
+teal = "#99ffe4"
+peach = "#ff7300"
 
 [ui]
 sidebar_width = 28

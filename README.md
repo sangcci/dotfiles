@@ -67,7 +67,7 @@ Personal dotfiles managed mainly by GNU Stow. The setup is optimized for **macOS
 ├── yazi/          Yazi config and flavors
 ├── windows/       Windows host PowerShell configuration
 ├── zed/           Zed config, tasks, and Kotlin LSP proxy
-├── zqlz/          ZQLZ settings and Kanso theme
+├── zqlz/          ZQLZ settings and Vesper theme
 └── zsh/           Modular zsh config
 ```
 

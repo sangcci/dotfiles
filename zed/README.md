@@ -1,6 +1,6 @@
 # zed
 
-Zed settings, Vim key bindings, tasks, and the Kanso theme, managed with Stow.
+Zed settings, Vim key bindings, tasks, and the Vesper theme, managed with Stow.
 
 Markdown previews use `.SystemUIFont` for prose and Jetendard for code. In Vim Normal mode, `Space m p` opens the preview; `-` focuses the project panel from the editor or preview.
 

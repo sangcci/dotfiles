@@ -1,0 +1,120 @@
+/*
+ * Vesper — Obsidian CSS Snippet
+ * Palette from https://github.com/raunofreiberg/vesper
+ * Palette: dark
+ */
+
+.theme-dark {
+  /* ── Base ───────────────────────────────────────────── */
+  --background-primary:          #101010;
+  --background-primary-alt:      #161616;
+  --background-secondary:        #161616;
+  --background-secondary-alt:    #1c1c1c;
+
+  /* ── Borders & Modifiers ────────────────────────────── */
+  --background-modifier-border:        #282828;
+  --background-modifier-border-hover:  #282828;
+  --background-modifier-border-focus:  #282828;
+  --background-modifier-form-field:    #161616;
+  --background-modifier-hover:         rgba(40, 40, 40, 0.3);
+  --background-modifier-active-hover:  rgba(40, 40, 40, 0.5);
+  --background-modifier-error:         rgba(255, 128, 128, 0.15);
+  --background-modifier-success:       rgba(153, 255, 228, 0.15);
+  --background-modifier-cover:         rgba(16, 16, 16, 0.8);
+
+  /* ── Text ───────────────────────────────────────────── */
+  --text-normal:       #FFFFFF;
+  --text-muted:        #A0A0A0;
+  --text-faint:        #505050;
+  --text-on-accent:    #101010;
+  --text-error:        #FF8080;
+  --text-warning:      #FFCFA8;
+  --text-success:      #99FFE4;
+  --text-accent:       #FFC799;
+  --text-accent-hover: #FFC799;
+  --text-selection:    rgba(40, 40, 40, 0.7);
+  --text-highlight-bg: rgba(255, 207, 168, 0.2);
+
+  /* ── Interactive ────────────────────────────────────── */
+  --interactive-normal:        #161616;
+  --interactive-hover:         #1c1c1c;
+  --interactive-accent:        #FFC799;
+  --interactive-accent-rgb:    127, 180, 202;
+  --interactive-accent-hover:  #FFC799;
+  --interactive-success:       #99FFE4;
+
+  /* ── Scrollbar ──────────────────────────────────────── */
+  --scrollbar-bg:               transparent;
+  --scrollbar-thumb-bg:         #282828;
+  --scrollbar-active-thumb-bg:  #505050;
+
+  /* ── Headings ───────────────────────────────────────── */
+  --h1-color: #FFCFA8;
+  --h2-color: #99FFE4;
+  --h3-color: #99FFE4;
+  --h4-color: #FFC799;
+  --h5-color: #A0A0A0;
+  --h6-color: #A0A0A0;
+
+  /* ── Code ───────────────────────────────────────────── */
+  --code-background:  #161616;
+  --code-normal:      #FFFFFF;
+  --code-comment:     #505050;
+  --code-function:    #FFC799;
+  --code-important:   #FF8080;
+  --code-keyword:     #A0A0A0;
+  --code-operator:    #99FFE4;
+  --code-property:    #99FFE4;
+  --code-punctuation: #A0A0A0;
+  --code-string:      #99FFE4;
+  --code-tag:         #FF8080;
+  --code-value:       #FFCFA8;
+
+  /* ── Tags ───────────────────────────────────────────── */
+  --tag-color:            #99FFE4;
+  --tag-background:       rgba(153, 255, 228, 0.15);
+  --tag-color-hover:      #99FFE4;
+  --tag-background-hover: rgba(153, 255, 228, 0.25);
+
+  /* ── Bold / Italic ──────────────────────────────────── */
+  --bold-color:   #FFCFA8;
+  --italic-color: #A0A0A0;
+}
+
+/* ── Window Frame ───────────────────────────────────── */
+.titlebar {
+  border: none;
+  background: var(--background-primary);
+  height: 32px;
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.titlebar-inner {
+  padding: 0 8px;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+}
+
+.mod-root {
+  border-radius: 0;
+  border: none;
+}
+
+.sidebar {
+  border-right: none;
+}
+
+.sidebar-toggle-button {
+  color: var(--text-muted);
+}
+
+.sidebar-toggle-button:hover {
+  color: var(--text-normal);
+}
+
+.vertical-tab-header {
+  border-bottom: none;
+}

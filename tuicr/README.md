@@ -4,8 +4,8 @@
 
 | File | Description |
 |------|-------------|
-| `.config/tuicr/config.toml` | Enables Kanso Ink theme, side-by-side diff, Vim comment editing |
-| `.config/tuicr/themes/kanso-ink.toml` | Local Kanso Ink tuicr palette |
-| `.config/tuicr/themes/kanso-ink.tmTheme` | Kanso Ink syntax highlighting theme |
+| `.config/tuicr/config.toml` | Enables Vesper theme, side-by-side diff, Vim comment editing |
+| `.config/tuicr/themes/vesper.toml` | Local Vesper tuicr palette |
+| `.config/tuicr/themes/vesper.tmTheme` | Vesper syntax highlighting theme |
 
 Install with `stow tuicr`.

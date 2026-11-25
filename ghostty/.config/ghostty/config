@@ -9,7 +9,7 @@ adjust-cell-height = 20
 adjust-underline-position = 3
 
 # --- Appearance ---
-theme = kanso_ink
+theme = vesper
 background-opacity = 0.9
 background-blur = 20
 window-padding-x = 30

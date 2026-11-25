@@ -1,38 +1,27 @@
 vim.pack.add({
-	{ src = "https://github.com/webhooked/kanso.nvim" },
+	{ src = "https://github.com/datsfilipe/vesper.nvim" },
 })
 
--- kanso
-require("kanso").setup({
-	bold = true,
-	italics = true,
+-- vesper
+require("vesper").setup({
 	transparent = true,
-	dimInactive = false,
-	terminalColors = true,
-	-- colors = {
-	-- 	theme = {
-	-- 		all = {
-	-- 			ui = {
-	-- 				bg_gutter = "none",
-	-- 			},
-	-- 		},
-	-- 	},
-	-- },
-	background = {
-		dark = "ink", -- zen, ink, or mist
-		light = "ink",
+	italics = {
+		comments = true,
+		keywords = true,
+		functions = false,
+		strings = false,
+		variables = false,
 	},
 })
 
 -- setup colorscheme
-vim.cmd.colorscheme("kanso-ink")
+vim.cmd.colorscheme("vesper")
 
 -- Give Telescope a subtle contrast from the transparent editor background.
 local function set_telescope_highlights()
-	local kanso_colors = require("kanso.colors").setup()
-	local telescope_bg = kanso_colors.theme.ui.bg_p2
-	local telescope_fg = kanso_colors.theme.ui.pmenu.fg
-	local telescope_selection_bg = kanso_colors.theme.ui.bg_visual
+	local telescope_bg = "#161616"
+	local telescope_fg = "#FFFFFF"
+	local telescope_selection_bg = "#232323"
 
 	local function set_telescope_bg(group)
 		local highlight = vim.api.nvim_get_hl(0, { name = group, link = false })
@@ -88,7 +77,7 @@ end
 
 set_telescope_highlights()
 
-local telescope_highlight_group = vim.api.nvim_create_augroup("TelescopeKansoHighlights", { clear = true })
+local telescope_highlight_group = vim.api.nvim_create_augroup("TelescopeVesperHighlights", { clear = true })
 vim.api.nvim_create_autocmd({ "VimEnter", "ColorScheme" }, {
 	group = telescope_highlight_group,
 	callback = set_telescope_highlights,

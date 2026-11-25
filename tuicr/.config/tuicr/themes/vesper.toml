@@ -1,0 +1,52 @@
+# Vesper palette (https://github.com/vladzima/vesper-theme).
+# Syntax colors use vesper.tmTheme in this directory.
+panel_bg = "#101010"
+bg_highlight = "#232323"
+fg_primary = "#FFFFFF"
+fg_secondary = "#A0A0A0"
+fg_dim = "#505050"
+
+diff_add = "#99FFE4"
+diff_add_bg = "#14201D"
+diff_del = "#FF8080"
+diff_del_bg = "#241616"
+diff_context = "#FFFFFF"
+diff_hunk_header = "#FFC799"
+expanded_context_fg = "#505050"
+
+syntax_add_bg = "#14201D"
+syntax_del_bg = "#241616"
+syntax_theme = "vesper.tmTheme"
+
+file_added = "#99FFE4"
+file_modified = "#FFC799"
+file_deleted = "#FF8080"
+file_renamed = "#A0A0A0"
+
+reviewed = "#99FFE4"
+pending = "#FFC799"
+
+comment_note = "#FFC799"
+comment_suggestion = "#99FFE4"
+comment_issue = "#FF8080"
+comment_praise = "#99FFE4"
+
+border_focused = "#FFC799"
+border_unfocused = "#282828"
+status_bar_bg = "#101010"
+cursor_color = "#FFC799"
+cursor_line_bg = "#161616"
+branch_name = "#A0A0A0"
+help_indicator = "#A0A0A0"
+
+message_info_fg = "#101010"
+message_info_bg = "#FFC799"
+message_warning_fg = "#101010"
+message_warning_bg = "#FFCFA8"
+message_error_fg = "#101010"
+message_error_bg = "#FF8080"
+update_badge_fg = "#101010"
+update_badge_bg = "#FFC799"
+
+mode_fg = "#FFFFFF"
+mode_bg = "#101010"

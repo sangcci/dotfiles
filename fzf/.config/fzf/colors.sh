@@ -1,9 +1,10 @@
 #!/bin/zsh
 
-# Kanso Ink FZF colors — palette from webhooked/kanso.nvim
+# Vesper FZF colors, palette from raunofreiberg/vesper
 export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS:+$FZF_DEFAULT_OPTS }\
---color=fg:#c5c9c7,bg:#14171d,hl:#7fb4ca \
---color=fg+:#f2f1ef,bg+:#1f1f26,hl+:#7fb4ca \
---color=info:#e6c384,prompt:#8ba4b0,pointer:#7fb4ca \
---color=marker:#87a987,spinner:#938aa9,header:#87a987 \
---color=border:#393b44,label:#c5c9c7"
+--color=fg:#a0a0a0,bg:#101010,hl:#ffc799 \
+--color=fg+:#ffffff,bg+:#232323,hl+:#ffc799 \
+--color=info:#ffcfa8,prompt:#ffc799,pointer:#ffc799 \
+--color=marker:#99ffe4,spinner:#a0a0a0,header:#99ffe4 \
+--color=border:#282828,label:#a0a0a0"
+

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>name</key><string>Vesper</string>
+  <key>semanticClass</key><string>theme.dark.vesper</string>
+  <key>uuid</key><string>7f1d2a40-6c3e-4b5a-9a31-0e8d5c2b4a10</string>
+  <key>author</key><string>Rauno Freiberg (Vesper); bat port</string>
+  <key>settings</key>
+  <array>
+    <dict><key>settings</key><dict>
+      <key>background</key><string>#101010</string>
+      <key>foreground</key><string>#FFFFFF</string>
+      <key>caret</key><string>#FFC799</string>
+      <key>selection</key><string>#232323</string>
+      <key>lineHighlight</key><string>#161616</string>
+      <key>gutterForeground</key><string>#505050</string>
+    </dict></dict>
+    <dict><key>scope</key><string>comment, punctuation.definition.comment</string><key>settings</key><dict><key>foreground</key><string>#707070</string><key>fontStyle</key><string>italic</string></dict></dict>
+    <dict><key>scope</key><string>string, constant.other.symbol</string><key>settings</key><dict><key>foreground</key><string>#99FFE4</string></dict></dict>
+    <dict><key>scope</key><string>constant.numeric, constant.language, constant.character</string><key>settings</key><dict><key>foreground</key><string>#FFC799</string></dict></dict>
+    <dict><key>scope</key><string>keyword, storage, keyword.operator</string><key>settings</key><dict><key>foreground</key><string>#A0A0A0</string><key>fontStyle</key><string>italic</string></dict></dict>
+    <dict><key>scope</key><string>entity.name.function, support.function, variable.function</string><key>settings</key><dict><key>foreground</key><string>#FFC799</string></dict></dict>
+    <dict><key>scope</key><string>entity.name.type, entity.name.class, support.type, support.class</string><key>settings</key><dict><key>foreground</key><string>#FFC799</string></dict></dict>
+    <dict><key>scope</key><string>variable.parameter</string><key>settings</key><dict><key>foreground</key><string>#A0A0A0</string></dict></dict>
+    <dict><key>scope</key><string>entity.name.tag, punctuation.definition.tag</string><key>settings</key><dict><key>foreground</key><string>#FF8080</string></dict></dict>
+    <dict><key>scope</key><string>variable.other.property, support.variable.property</string><key>settings</key><dict><key>foreground</key><string>#FFC799</string></dict></dict>
+    <dict><key>scope</key><string>invalid, invalid.illegal</string><key>settings</key><dict><key>foreground</key><string>#FF8080</string></dict></dict>
+  </array>
+</dict>
+</plist>

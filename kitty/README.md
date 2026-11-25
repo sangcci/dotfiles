@@ -7,7 +7,7 @@ Primary terminal. Uses kitty's built-in tab/split management instead of tmux.
 ## Highlights
 
 - Font: **Jetendard ExtraLight** 14px
-- Active theme include: `themes/kanso_ink.conf`
+- Active theme include: `themes/vesper.conf`
 - Additional themes under `.config/kitty/themes/`
 - Background opacity: 70%, blur enabled
 - macOS `option` key mapped as `Alt` for Neovim compatibility

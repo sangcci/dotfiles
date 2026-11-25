@@ -4,7 +4,7 @@
 
 | File | Description |
 |------|-------------|
-| `.claude/themes/kanso-ink.json` | Kanso Ink color theme; select it with `/theme` (`custom:kanso-ink`) |
+| `.claude/themes/vesper.json` | Vesper color theme; select it with `/theme` (`custom:vesper`) |
 
 Stow links only the theme into `~/.claude`, so the README is ignored.
 

@@ -1,4 +1,4 @@
-# Local theme lives in themes/kanso-ink.toml.
-theme = "kanso-ink"
+# Local theme lives in themes/vesper.toml.
+theme = "vesper"
 diff_view = "side-by-side"
 comment_vim = true
