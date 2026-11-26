@@ -43,6 +43,8 @@ require("mason-tool-installer").setup({
 		"ts_ls",
 		"pyright",
 		"gopls",
+		"terraformls",
+		"tflint",
 		"stylua",
 		"prettier",
 		"prettierd",

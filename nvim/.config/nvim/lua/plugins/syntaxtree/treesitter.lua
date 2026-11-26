@@ -21,6 +21,8 @@ require("nvim-treesitter")
 		"markdown_inline",
 		"nix",
 		"json",
+		"terraform",
+		"hcl",
 	})
 	:wait(30000)
 

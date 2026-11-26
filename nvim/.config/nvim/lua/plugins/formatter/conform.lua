@@ -16,6 +16,8 @@ require("conform").setup({
 		yaml = { "prettierd" },
 		toml = { "taplo" },
 		sql = { "sql_formatter" },
+		terraform = { "terraform_fmt" },
+		["terraform-vars"] = { "terraform_fmt" },
 	},
 	formatters = {
 		spotless = {
